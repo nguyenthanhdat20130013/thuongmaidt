@@ -65,7 +65,7 @@ public class UserService {
         if(enable.equals("on")){
             user.setEnable(1);
         } else{
-            user.setEnable(0);
+            user.setEnable(2);
         }
         UserDAO.updateUserAdmin(user);
     }
@@ -73,7 +73,6 @@ public class UserService {
     public static void delete(int id) {
         UserDAO.detele(id);
     }
-
 
     public static String hashPassword(String password) {
         try {
@@ -125,5 +124,31 @@ public class UserService {
     public static void deleteToken(int id, String token) {
         UserDAO.deleteToken(id,token);
     }
+
+    private static Timestamp getVerifyExpiry(Long timeNow){
+        return new java.sql.Timestamp(timeNow + 86400000);
+    }
+
+    public static UserModel findByRdData(String rdData) {
+        return UserDAO.findByRdData(rdData);
+    }
+
+    public static void deleteVerify(String rdData) {
+        UserDAO.deleteVerify(rdData);
+    }
+
+    public static void addVerify(int user_id,String rdData) {
+        Long currentTime = getTimeNowInMillis();
+        Timestamp verify_expiry = getVerifyExpiry(currentTime);
+        Timestamp create_date = new java.sql.Timestamp(currentTime);
+        UserDAO.addVerify(user_id,rdData,create_date,verify_expiry);
+    }
+
+    public static boolean checkVerify(String rdData) {
+        return UserDAO.checkVerify(rdData);
+    }
+
+    public static void setVerified(UserModel user) {
+        UserDAO.setVerified(user);    }
 }
 

@@ -32,7 +32,8 @@ public class HomeController extends HttpServlet {
         List<Product> li = productService.getBestSale();
         request.setAttribute("bestseller", li);
 
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");
         rd.forward(request,response);
     }

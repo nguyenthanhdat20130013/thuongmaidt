@@ -32,8 +32,6 @@ public class LogoutController extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-
-
         request.getSession().removeAttribute("user");
         response.sendRedirect(request.getContextPath() + "/home");
     }

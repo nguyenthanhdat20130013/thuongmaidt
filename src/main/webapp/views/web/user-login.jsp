@@ -92,6 +92,29 @@
                                     </button>
                                 </div>
                             </div>
+                            <div class="social-auth-links text-center mb-3">
+                                <p>- OR -</p>
+                                <a href="#" class="btn btn-block " style="background-color: #4267B2;color: #ffffff;border-radius: 1.25rem;width: 265px;margin-left: auto;margin-right: auto;margin-bottom: 24px;">
+                                    <i class="fab fa-facebook mr-2"></i> Đăng nhập bằng  Facebook
+                                </a>
+                              <%--  <a href="https://accounts.google.com/gsi/select?client_id=249998432598-rnscpsfgi8fvqnhqan6q8hv7vidpcmla.apps.googleusercontent.com&ux_mode=popup&ui_mode=card&as=HSExaEn25%2BCHLkOFN9%2BrsQ&channel_id=60793b2ca73ceb762bc65f8926883c31784b052018680741fab2f40c7c1ac3f9&origin=http%3A%2F%2Flocalhost%3A8080" class="btn btn-block btn-default">
+                                    <i class="fab fa-google-plus mr-2"></i> Đăng nhập bằng  Google+
+                                </a>
+                                <a href="" class="btn btn-block btn-default">
+                                    <i class="fab fa-google-plus mr-2"></i> Đăng nhập bằng  Google+
+                                </a>--%>
+
+                                <%--<div style="width: 50px;height: 50px">
+                                    <fb:login-button
+                                        scope="public_profile,email"
+                                        onlogin="checkLoginState();">
+                                </fb:login-button></div>--%>
+                                <div id="google-btn" style="width:  240px;margin-left: auto;margin-right: auto"></div>
+                                <div id="g_id_onload"
+                                     data-client_id="249998432598-rnscpsfgi8fvqnhqan6q8hv7vidpcmla.apps.googleusercontent.com"
+                                     data-callback="handleCredentialResponse">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -131,9 +154,97 @@
             }
         });
     })(jQuery);
-</script>
-</body>
 
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+            testAPI();
+        } else {                                 // Not logged into your webpage or we are unable to tell.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into this webpage.';
+        }
+    }
+
+    function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function(response) {   // See the onlogin handler
+            statusChangeCallback(response);
+        });
+    }
+
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '{app-id}',
+            cookie     : true,                     // Enable cookies to allow the server to access the session.
+            xfbml      : true,                     // Parse social plugins on this webpage.
+            version    : '{api-version}'           // Use this Graph API version for this call.
+        });
+
+        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+            statusChangeCallback(response);        // Returns the login status.
+        });
+    };
+
+    function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+            console.log('Successful login for: ' + response.name);
+            document.getElementById('status').innerHTML =
+                'Thanks for logging in, ' + response.name + '!';
+        });
+    }
+
+        window.onload = function () {
+        google.accounts.id.initialize({
+            client_id: "249998432598-rnscpsfgi8fvqnhqan6q8hv7vidpcmla.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+        document.getElementById("google-btn"),
+    { theme: "outline", size: "standard" , width: 240,}  // customization attributes
+        );
+        //google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    };
+
+    function handleCredentialResponse(response) {
+        // decodeJwtResponse() is a custom function defined by you
+        // to decode the credential response.
+        //console.log(JSON.stringify(parseJwt(response.credential)));
+        const responsePayload = parseJwt(response.credential);
+        /*console.log("ID: " + responsePayload.sub);
+        console.log('Full Name: ' + responsePayload.name);
+        console.log('Given Name: ' + responsePayload.given_name);
+        console.log('Family Name: ' + responsePayload.family_name);
+        console.log("Image URL: " + responsePayload.picture);
+        console.log("Email: " + responsePayload.email);*/
+        let data = "password=" + responsePayload.sub +  "&full_name=" + responsePayload.name + "&email=" + responsePayload.email + "&gender=" + responsePayload.gender + "&username=" + responsePayload.name;
+        window.location.href = "login?login=google&" + data;
+        //loginWithGoogle(responsePayload)
+    }
+
+    function loginWithGoogle(response){
+        let data = "id="  + response.sub + "&full_name=" + response.name + "&email=" + response.email + "&gender=" + response.gender + "&username=" + response.name;
+        $.ajax({
+            type: "POST",
+            url: "/login?login=google",
+            data: data
+        });
+        console.log(data);
+    }
+
+</script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
 
 <!-- user-login11:10-->
 </html>

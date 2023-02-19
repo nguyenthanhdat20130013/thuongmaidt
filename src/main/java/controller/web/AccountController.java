@@ -32,10 +32,7 @@ public class AccountController extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-
         OrderService orderService = new OrderService();
-
-
         UserModel oldUser = (UserModel)request.getSession().getAttribute("user");
         if(oldUser == null){
             response.sendRedirect(request.getContextPath() + "/login");
@@ -44,7 +41,6 @@ public class AccountController extends HttpServlet {
             request.setAttribute("user",user);
             List<Order> orders = orderService.getOderByUname(user.getUserName());
             request.setAttribute("od", orders);
-
             RequestDispatcher rd = request.getRequestDispatcher("views/web/user-acount.jsp");
             rd.forward(request, response);
         }
@@ -81,4 +77,5 @@ public class AccountController extends HttpServlet {
         email.setContent(sb.toString());
         EmailUtil.send(email);
     }
+
 }

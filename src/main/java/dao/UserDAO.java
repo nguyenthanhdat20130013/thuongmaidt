@@ -118,7 +118,7 @@ public class UserDAO {
             pst.setString(4, email);
             pst.setString(5, gender);
             pst.setInt(6, 0);
-            pst.setInt(7, 1);
+            pst.setInt(7, 0);
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -351,6 +351,88 @@ public class UserDAO {
             sql = "delete from forget_password where  uid = ? ";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1,id);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static UserModel findByRdData(String rdData) {
+        UserModel user = null;
+        ResultSet rs;
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "SELECT * from user u INNER JOIN verify v on u.uid = v.user_id where randomdata = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1, rdData);
+            rs = pst.executeQuery();
+            user = new UserModel();
+            while (rs.next()) {
+                user.setId(rs.getInt("uid"));
+                user.setFullName(rs.getString("full_name"));
+                user.setEmail(rs.getString("email"));
+            }
+            return user;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void deleteVerify(String rdData) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "delete from verify where  randomdata = ? ";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,rdData);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addVerify(int user_id, String rdData, Timestamp create_date, Timestamp verify_expiry) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "insert into  verify (user_id,randomdata,created_date,expiry_date) values (?,?,?,?)";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,user_id);
+            pst.setString(2,rdData);
+            pst.setTimestamp(3,create_date);
+            pst.setTimestamp(4,verify_expiry);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean checkVerify(String rdData) {
+        PreparedStatement pst;
+        String sql;
+        ResultSet rs;
+        try {
+            sql = "select * from verify where expiry_date >= now() and randomdata = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,rdData);
+            rs = pst.executeQuery();
+            if(rs.next()) return true;
+            return false;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void setVerified(UserModel user) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "update user set enable = 1 where uid = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,user.getId());
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

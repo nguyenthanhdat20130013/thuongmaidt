@@ -48,7 +48,7 @@
               </div>
               <h2 class="h4">RẤT TIẾC, TRANG BẠN ĐANG TÌM KIẾM KHÔNG TỒN TẠI !!!</h2>
               <div class="info">
-                <p>Link thay đổi mật khẩu đã hết hạn sứ dụng! Vui lòng lấy link liên kết mới.
+                <p>
                   Nếu lỗi vẫn tiếp diễn vui lòng liên hệ với Quản trị viên của trang web này và báo cáo lỗi bên trên. </p>
               </div>
               <a class="btn btn-default" href="<c:url value="/home"/>">
