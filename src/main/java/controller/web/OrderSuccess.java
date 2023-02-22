@@ -56,7 +56,7 @@ public class OrderSuccess extends HttpServlet {
                 long money = cart.getTotal();
 
                 Date current = Date.valueOf(LocalDate.now());
-                Order od = new Order(orderid, u.getUserName(), "Tien mat", money, 0, current, " ", 0);
+                Order od = new Order(orderid, u.getUserName(), "COD", money, 0, current, " ", 0);
                 oderService.addOder(od);
                 od.setOder_id(orderid);
                 Collection<Product> productList = cart.getListProduct();
