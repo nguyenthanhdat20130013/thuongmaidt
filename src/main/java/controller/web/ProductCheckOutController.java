@@ -38,7 +38,7 @@ public class ProductCheckOutController extends HttpServlet {
 
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         UserModel user = (UserModel)request.getSession().getAttribute("user");
-        UserModel userModel = UserService.findById(user.getId());
+
 
         if(Objects.isNull(user)){
             response.sendRedirect("/login");
@@ -46,6 +46,7 @@ public class ProductCheckOutController extends HttpServlet {
             response.sendRedirect("/home");
 
         } else if(!Objects.isNull(user)) {
+            UserModel userModel = UserService.findById(user.getId());
             request.setAttribute("user",userModel);
             RequestDispatcher rd = request.getRequestDispatcher("/views/web/product-checkout.jsp");
             rd.forward(request,response);
