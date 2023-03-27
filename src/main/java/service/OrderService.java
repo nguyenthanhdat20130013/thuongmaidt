@@ -22,7 +22,7 @@ public class OrderService {
         Order order = null;
         ResultSet rs;
         PreparedStatement ps;
-        String sql = "SELECT order_id, user_name, payment, total_money, fee, date_order, transport, status FROM `order`";
+        String sql = "SELECT order_id, user_name, payment, total_money, fee, date_order, transport, status FROM `orders`";
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();

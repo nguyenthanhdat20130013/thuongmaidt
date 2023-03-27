@@ -19,9 +19,8 @@ public class Product implements Serializable {
    public int status;
    public int product_type;
    public String product_insurance;
-   public int quantity;
 
-   public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance, int quantity) {
+   public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance) {
       this.product_id = product_id;
       this.name = name;
       this.price = price;
@@ -35,7 +34,6 @@ public class Product implements Serializable {
       this.status = status;
       this.product_type = product_type;
       this.product_insurance = product_insurance;
-      this.quantity = quantity;
    }
 
    public int getProduct_id() {
@@ -146,14 +144,6 @@ public class Product implements Serializable {
       this.product_insurance = product_insurance;
    }
 
-   public int getQuantity() {
-      return quantity;
-   }
-
-   public void setQuantity(int quantity) {
-      this.quantity = quantity;
-   }
-
    public String getImage(int index){
       ProductService manage = new ProductService();
       ArrayList image = manage.getImage(product_id);
@@ -189,7 +179,6 @@ public class Product implements Serializable {
               ", status=" + status +
               ", product_type=" + product_type +
               ", product_insurance='" + product_insurance + '\'' +
-              ", quantity=" + quantity +
               '}';
    }
 }

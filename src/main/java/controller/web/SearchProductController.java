@@ -1,10 +1,10 @@
 package controller.web;
 
-import model.Article_Category;
+import model.Post_Category;
 import model.Introduce;
 import model.ProductSearchModel;
 import model.Product_type;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.ProductService;
 import service.ProductSearchService;
@@ -23,9 +23,9 @@ public class SearchProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Lay ra danh sach loai bai viet
-        ArticleService service = new ArticleService();
+        PostService service = new PostService();
         ProductService productService = new ProductService();
-        List<Article_Category> listt = service.getListArCategory();
+        List<Post_Category> listt = service.getListPostCategory();
         request.setAttribute("listAr", listt);
         //Lay ra danh sach loai sp de chen vao header
         List<Product_type> listType = productService.getAllProduct_type();

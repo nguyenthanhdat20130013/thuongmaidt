@@ -19,7 +19,7 @@ public class Add extends HttpServlet {
         String id = request.getParameter("id");
         int pid = Integer.parseInt(id);
         Product p = ProductService.getProductById(pid);
-        p.setQuantity(1);
+       // p.setQuantity(1);
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         if (cart == null) {
             cart = new Cart();

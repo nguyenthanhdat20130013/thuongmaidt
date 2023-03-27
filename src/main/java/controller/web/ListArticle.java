@@ -1,10 +1,10 @@
 package controller.web;
 
-import model.Article;
-import model.Article_Category;
+import model.Post;
+import model.Post_Category;
 import model.Introduce;
 import model.Product_type;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.ProductService;
 
@@ -25,14 +25,14 @@ public class ListArticle extends HttpServlet {
         }
         int index = Integer.parseInt(indexPage);
 
-        ArticleService service = new ArticleService();
-        List<Article> list = service.pagingArticle(index);
-        int count = service.getTotalArticle();
+        PostService service = new PostService();
+        List<Post> list = service.pagingPost(index);
+        int count = service.getTotalPost();
         int endPage = count / 3; //moi trang 3 bai
         if (count % 3 != 0) {
             endPage++;
         }
-        List<Article_Category> listArCategory = service.getListArCategory();
+        List<Post_Category> listArCategory = service.getListPostCategory();
         request.setAttribute("listAr", listArCategory);
         request.setAttribute("endP", endPage);
         request.setAttribute("tag", index);

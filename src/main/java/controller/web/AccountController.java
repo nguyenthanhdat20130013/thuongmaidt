@@ -21,9 +21,9 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Lay ra danh sach loai bai viet
-        ArticleService service = new ArticleService();
+        PostService service = new PostService();
         ProductService productService = new ProductService();
-        List<Article_Category> list = service.getListArCategory();
+        List<Post_Category> list = service.getListPostCategory();
         request.setAttribute("listAr", list);
         //Lay ra danh sach loai sp de chen vao header
         List<Product_type> listType = productService.getAllProduct_type();

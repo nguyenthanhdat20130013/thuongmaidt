@@ -30,7 +30,7 @@ public class Cart implements Serializable {
     public void put(Product p) {
         if (data.containsKey(p.getKey())) {
             Product p1 = data.get(p.getKey());
-            p1.setQuantity(p1.getQuantity() + 1);
+         //   p1.setQuantity(p1.getQuantity() + 1);
             data.put(p.getKey(), p1);
         } else {
             data.put(p.getKey(), p);
@@ -41,7 +41,7 @@ public class Cart implements Serializable {
     public void put(String key, int quantity) {
         if (data.containsKey(key)) {
             Product p1 = data.get(key);
-            p1.setQuantity(quantity);
+       //     p1.setQuantity(quantity);
             data.put(key, p1);
         }
         updateTotalAndQ();
@@ -51,8 +51,8 @@ public class Cart implements Serializable {
         total = 0;
         quantity = 0;
         for (Product p : data.values()) {
-            total += p.getQuantity() * p.getPrice_sell();
-            quantity += p.getQuantity();
+          //  total += p.getQuantity() * p.getPrice_sell();
+          //  quantity += p.getQuantity();
         }
     }
 
@@ -84,16 +84,16 @@ public class Cart implements Serializable {
         return customer;
     }
 
-    public void sub(Product p) {
-        if (data.containsKey(p.getKey()) && data.get(p.getKey()).getQuantity() > 0) {
-            Product p1 = data.get(p.getKey());
-            int num = p1.getQuantity();
-            p1.setQuantity(num - 1);
-            data.put(p.getKey(), p1);
-        } else if (data.get(p.getKey()).getQuantity() < 1) {
-            data.remove(p.getKey());
-        }
-        updateTotalAndQ();
-    }
+//    public void sub(Product p) {
+//        if (data.containsKey(p.getKey()) && data.get(p.getKey()).getQuantity() > 0) {
+//            Product p1 = data.get(p.getKey());
+//            int num = p1.getQuantity();
+//            p1.setQuantity(num - 1);
+//            data.put(p.getKey(), p1);
+//        } else if (data.get(p.getKey()).getQuantity() < 1) {
+//            data.remove(p.getKey());
+//        }
+//        updateTotalAndQ();
+//    }
 
 }

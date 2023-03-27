@@ -1,6 +1,6 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Article" %>
+<%@ page import="model.Post" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ include file="../../common/taglib.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -98,7 +98,7 @@
                             <!-- testimonial -->
                         </div>
 
-                        <!-- recent posts -->
+                        <!-- recent post -->
                         <div class="policy-home" >
                             <div class="container">
                                 <div class="row">

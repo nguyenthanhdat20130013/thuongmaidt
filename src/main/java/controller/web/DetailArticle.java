@@ -1,7 +1,7 @@
 package controller.web;
 
 import model.*;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.ProductService;
 
@@ -20,14 +20,14 @@ public class DetailArticle extends HttpServlet {
 
         String id = request.getParameter("pid");
         int aid = Integer.parseInt(id);
-        ArticleService service = new ArticleService();
-        Article article = service.getArticleById(aid);
-        request.setAttribute("ar", article);
+        PostService service = new PostService();
+        Post post = service.getPostById(aid);
+        request.setAttribute("ar", post);
 
-        List<Article_Category> list = service.getListArCategory();
+        List<Post_Category> list = service.getListPostCategory();
         request.setAttribute("listAr", list);
 
-        List<Article> newA = service.getNewArticle();
+        List<Post> newA = service.getNewPost();
         request.setAttribute("newest", newA);
 
         IntroService intr = new IntroService();

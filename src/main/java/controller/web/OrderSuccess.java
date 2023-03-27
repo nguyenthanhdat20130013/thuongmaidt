@@ -2,7 +2,7 @@ package controller.web;
 
 import beans.Cart;
 import model.*;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.OrderService;
 import service.ProductService;
@@ -24,9 +24,9 @@ public class OrderSuccess extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArticleService service = new ArticleService();
+        PostService service = new PostService();
         ProductService productService = new ProductService();
-        List<Article_Category> list = service.getListArCategory();
+        List<Post_Category> list = service.getListPostCategory();
         request.setAttribute("listAr", list);
         //Lay ra danh sach loai sp de chen vao header
         List<Product_type> listType = productService.getAllProduct_type();
@@ -61,7 +61,8 @@ public class OrderSuccess extends HttpServlet {
                 od.setOder_id(orderid);
                 Collection<Product> productList = cart.getListProduct();
                 for (Product p : productList) {
-                    Order_detail orderDetail = new Order_detail(0, od, p.getProduct_id(), p.getPrice_sell(), p.getQuantity(), 0, (p.getPrice_sell() * p.getQuantity()));
+            //        Order_detail orderDetail = new Order_detail(0, od, p.getProduct_id(), p.getPrice_sell(), p.getQuantity(), 0, (p.getPrice_sell() * p.getQuantity()));
+                    Order_detail orderDetail = new Order_detail(0, od, p.getProduct_id(), p.getPrice_sell(), 1, 0, (p.getPrice_sell() * 1));
                     oderService.addOrderDetail(orderDetail);
                 }
             } catch (Exception e) {

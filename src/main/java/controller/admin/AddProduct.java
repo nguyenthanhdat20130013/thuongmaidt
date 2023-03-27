@@ -38,7 +38,7 @@ public class AddProduct extends HttpServlet {
         String pstatus = request.getParameter("trangthai");
         String pinfo = request.getParameter("mota");
         //su ly de add product
-        Product p = new Product(1111, pname, Integer.parseInt(pprice), Integer.parseInt(pprice_sell), pinfo, pcode, pbrand, pcolor, psize, pattribute, Integer.parseInt(pstatus), Integer.parseInt(ptype), pinsurance, 0);
+        Product p = new Product(1111, pname, Integer.parseInt(pprice), Integer.parseInt(pprice_sell), pinfo, pcode, pbrand, pcolor, psize, pattribute, Integer.parseInt(pstatus), Integer.parseInt(ptype), pinsurance);
         ProductService ser = new ProductService();
         ser.addProduct(p);
         response.sendRedirect("/product_manager");
