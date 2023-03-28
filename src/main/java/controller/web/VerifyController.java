@@ -22,8 +22,8 @@ import java.util.List;
 public class VerifyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int user_id = Integer.parseInt(request.getParameter("id"));
-        UserModel user = UserService.findById(user_id);
+        String data = request.getParameter("randomData");
+        UserModel user = UserService.checkVerify(data);
         //Lay ra danh sach loai bai viet
         ArticleService service = new ArticleService();
         ProductService productService = new ProductService();
@@ -46,8 +46,7 @@ public class VerifyController extends HttpServlet {
             rd.forward(request, response);
             return;
         }
-        RequestDispatcher rd = request.getRequestDispatcher("views/web/verified.jsp");
-        rd.forward(request, response);
+        response.sendRedirect("verified?randomData=" + data);
     }
 
     @Override

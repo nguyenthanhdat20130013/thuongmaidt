@@ -18,6 +18,14 @@ public class UserService {
         return UserDAO.findLogin(username,hashPassword(password));
     }
 
+    public static void lockUser(String username){
+        if(UserDAO.checkNumLogin(username)) UserDAO.updateStatus(2,username);
+    }
+
+    public static void updateNumLogin(String username){
+         UserDAO.updateNumLogin(username);
+    }
+
     public static UserModel findById(int id){
         return UserDAO.findById(id);
     }
@@ -54,6 +62,10 @@ public class UserService {
 
     public static List<UserModel> findAll() {
         return UserDAO.findAll();
+    }
+
+    public static UserModel findByUserName(String username) {
+        return UserDAO.findByUser(username);
     }
 
     public static void save(UserModel user) {
@@ -125,6 +137,7 @@ public class UserService {
         UserDAO.deleteToken(id,token);
     }
 
+    // 86400000 milliseconds  = 24 hours
     private static Timestamp getVerifyExpiry(Long timeNow){
         return new java.sql.Timestamp(timeNow + 86400000);
     }
@@ -144,11 +157,11 @@ public class UserService {
         UserDAO.addVerify(user_id,rdData,create_date,verify_expiry);
     }
 
-    public static boolean checkVerify(String rdData) {
+    public static UserModel checkVerify(String rdData) {
         return UserDAO.checkVerify(rdData);
     }
 
-    public static void setVerified(UserModel user) {
-        UserDAO.setVerified(user);    }
+    public static void setVerified(String rdData) {
+        UserDAO.setVerified(rdData);    }
 }
 

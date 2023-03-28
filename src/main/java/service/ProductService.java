@@ -22,7 +22,7 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "select * from product";
+            sql = "select * from products";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
@@ -73,7 +73,7 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "select * from image where product_id = " + id;
+            sql = "select * from images where product_id = " + id;
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {
@@ -115,7 +115,7 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "select * from product where product_id =" + id;
+            sql = "select * from products where product_id =" + id;
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {
@@ -181,7 +181,7 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "( select * from product where product_type = " + typeid + " ORDER BY product_id DESC ) LIMIT 3";
+            sql = "( select * from products where product_type = " + typeid + " ORDER BY product_id DESC ) LIMIT 3";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
@@ -204,8 +204,8 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "SELECT product.*, SUM(order_detail.amount) AS soLgDaBan FROM product" +
-                    " INNER JOIN order_detail ON order_detail.id_product = product.product_id GROUP BY order_detail.id_product ORDER BY soLgDaBan DESC";
+            sql = "SELECT products.*, SUM(order_detail.amount) AS soLgDaBan FROM products" +
+                    " INNER JOIN order_detail ON order_detail.id_product = products.product_id GROUP BY order_detail.id_product ORDER BY soLgDaBan DESC";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
@@ -228,7 +228,7 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "SELECT * FROM product p ORDER BY p.product_id DESC LIMIT " + n;
+            sql = "SELECT * FROM products p ORDER BY p.product_id DESC LIMIT " + n;
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
@@ -247,7 +247,7 @@ public class ProductService {
 
     //lay ra tong so san pham de phan trang
     public int getTotalProduct() {
-        String sql = "Select  count(*) from product";
+        String sql = "Select  count(*) from products";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -266,7 +266,7 @@ public class ProductService {
 
     public List<Product> pagingProduct(int index) {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM product\n" +
+        String sql = "SELECT * FROM products\n" +
                 "ORDER BY product_id LIMIT " + ((index - 1) * 5) + ",5";
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -287,7 +287,7 @@ public class ProductService {
 
     //dem sl san pham theo loai sp
     public int getTotalProductType(int type) {
-        String sql = "Select  count(*) from product where product_type = " + type;
+        String sql = "Select  count(*) from products where product_type = " + type;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -306,7 +306,7 @@ public class ProductService {
 
     public List<Product> pagingProductBType(int index, int typeid) {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM product\n" + " WHERE product_type = " + typeid +
+        String sql = "SELECT * FROM products\n" + " WHERE product_type = " + typeid +
                 " ORDER BY product_id LIMIT " + ((index - 1) * 5) + ",5";
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -326,7 +326,7 @@ public class ProductService {
 
     public void addProduct(Product p) {
 
-        String sql = "INSERT INTO product(name, price, price_sell, info, code, brand, color, size, attribute, status, product_type, product_insurance) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO products(name, price, price_sell, info, code, brand, color, size, attribute, status, product_type, product_insurance) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = null;
 
         int rs = 0;
@@ -355,7 +355,7 @@ public class ProductService {
     }
     public void edit(Product p, int id) {
 
-        String sql = "UPDATE product SET name = ?, price = ?, price_sell = ?, info = ?, code= ?, brand = ?, color = ?, size = ?, attribute = ?, status = ?, product_type = ?, product_insurance = ? WHERE product_id = " + id;
+        String sql = "UPDATE products SET name = ?, price = ?, price_sell = ?, info = ?, code= ?, brand = ?, color = ?, size = ?, attribute = ?, status = ?, product_type = ?, product_insurance = ? WHERE product_id = " + id;
         PreparedStatement ps = null;
 
         int rs = 0;

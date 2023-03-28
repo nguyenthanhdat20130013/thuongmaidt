@@ -37,43 +37,41 @@ public class VerifySuccessController extends HttpServlet {
             Introduce intro = intr.getIntro();
             request.setAttribute("info", intro);
             String rdData = request.getParameter("randomData");
-            int user_id = Integer.parseInt(request.getParameter("id"));
-            UserModel user = UserService.findById(user_id);
+            UserService.setVerified(rdData);
+            UserModel user = UserService.checkVerify(rdData);
             if(user == null){
                 RequestDispatcher rd = request.getRequestDispatcher("views/web/404-change-password.jsp");
                 rd.forward(request, response);
                 return;
             }
-            if(user.getEnable() > 0){
-                RequestDispatcher rd = request.getRequestDispatcher("views/web/verified.jsp");
-                rd.forward(request, response);
-                return;
-            }
-            if(UserService.checkVerify(rdData)) {
-                UserService.setVerified(user);
-                Email email = new Email();
-                email.setFrom("happyhomenoithat@gmail.com");
-                email.setTo(user.getEmail());
-                email.setFromPassword("smckqxzmhsecmqld");
-                email.setSubject("Nội Thất HappyHome - Xác nhận tài khoản khách hàng");
-                StringBuilder sb = new StringBuilder();
-                sb.append("<div style=\"font-size:16px;color:black\">");
-                sb.append("<p style=\"font-size:24px;\">Chào mừng quý khách hàng đến với Nội Thất HappyHome!</p>");
-                sb.append("<span>Xin chào ").append(user.getFullName()).append("</span><br>");
-                sb.append("<span>Chúc mừng quý khách hàng đã kích hoạt tài khoản khách hàng thành công. Lần mua hàng tiếp theo, hãy đăng nhập để tích lũy điểm nhận ưu đãi và việc thanh toán sẽ thuận tiện hơn.</span>").append("<br><br>");
-                sb.append("<button style=\"padding:20px 15px;color:#fff;font-size:16px;background-color:#343a40;border-radius:4px\"><a style=\"color:#fff;text-decoration: none;\" href=http://localhost:8080/").append(request.getContextPath() + "/home>").append("Ghé thăm website của HappyHome</a></button>").append("<br><br>");
-                sb.append("<span>Trân trọng!</span>").append("<br>");
-                sb.append("<span> Cảm ơn </span>");
-                sb.append("</div>");
-                email.setContent(sb.toString());
-                EmailUtil.send(email);
+
+            if(user.getEnable() > 0) {
+                Thread mailThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Email email = new Email();
+                        email.setFrom("happyhomenoithat@gmail.com");
+                        email.setTo(user.getEmail());
+                        email.setFromPassword("smckqxzmhsecmqld");
+                        email.setSubject("Nội Thất HappyHome - Xác nhận tài khoản khách hàng");
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("<div style=\"font-size:16px;color:black\">");
+                        sb.append("<p style=\"font-size:24px;\">Chào mừng quý khách hàng đến với Nội Thất HappyHome!</p>");
+                        sb.append("<span>Xin chào ").append(user.getFullName()).append("</span><br>");
+                        sb.append("<span>Chúc mừng quý khách hàng đã kích hoạt tài khoản khách hàng thành công. Lần mua hàng tiếp theo, hãy đăng nhập để tích lũy điểm nhận ưu đãi và việc thanh toán sẽ thuận tiện hơn.</span>").append("<br><br>");
+                        sb.append("<button style=\"padding:20px 15px;color:#fff;font-size:16px;background-color:#343a40;border-radius:4px\"><a style=\"color:#fff;text-decoration: none;\" href=http://localhost:8080/").append(request.getContextPath() + "/home>").append("Ghé thăm website của HappyHome</a></button>").append("<br><br>");
+                        sb.append("<span>Trân trọng!</span>").append("<br>");
+                        sb.append("<span> Cảm ơn </span>");
+                        sb.append("</div>");
+                        email.setContent(sb.toString());
+                        EmailUtil.send(email);
+                    }
+                });
+                mailThread.start();
                 UserService.deleteVerify(rdData);
                 RequestDispatcher rd = request.getRequestDispatcher("views/web/verified.jsp");
                 rd.forward(request, response);
-                return;
             }
-            RequestDispatcher rd = request.getRequestDispatcher("views/web/404-change-password.jsp");
-            rd.forward(request, response);
         }
 
         @Override

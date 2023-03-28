@@ -13,6 +13,8 @@ public class UserModel {
     String gender;
     int enable;
 
+    int num_log_in;
+
     public UserModel(int id, String userName, String passWord, int role, String fullName, String phoneNum, String email, String address, int enable,String gender ) {
         this.id = id;
         this.userName = userName;
@@ -119,5 +121,13 @@ public class UserModel {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public int getNum_log_in() {
+        return num_log_in;
+    }
+
+    public void setNum_log_in(int num_log_in) {
+        this.num_log_in = num_log_in;
     }
 }

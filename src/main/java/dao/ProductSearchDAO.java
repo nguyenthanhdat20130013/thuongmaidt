@@ -18,7 +18,7 @@ public class ProductSearchDAO {
         String sql;
         try {
             list = new ArrayList<>();
-            sql = "select * from product where name like ? limit ?,?";
+            sql = "select * from products where name like ? limit ?,?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, "%" + txtSearch + "%");
             pst.setInt(2, offset);
@@ -43,7 +43,7 @@ public class ProductSearchDAO {
         String sql;
         try {
             list = new ArrayList<>();
-            sql = "select * from product where name like ? order by " + col + " " + value + " limit ?,?";
+            sql = "select * from products where name like ? order by " + col + " " + value + " limit ?,?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, "%" + txtSearch + "%");
             pst.setInt(2, offset);
@@ -68,7 +68,7 @@ public class ProductSearchDAO {
         String sql;
         try {
             list = new ArrayList<>();
-            sql = "select * from image where product_id = ?";
+            sql = "select * from images where product_id = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1, id);
             rs = pst.executeQuery();
@@ -90,7 +90,7 @@ public class ProductSearchDAO {
         String sql;
         try {
             list = new ArrayList<>();
-            sql = "select * from product  where name like ? and price_sell < price limit ?,?";
+            sql = "select * from products  where name like ? and price_sell < price limit ?,?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, "%" + txtSearch + "%");
             pst.setInt(2, offset);
