@@ -7,6 +7,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="beans.Cart" %>
 <%@ page import="java.util.Collection" %>
+<%@ page import="model.ProductInCart" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="cart" class="beans.Cart" scope="session"/>
 <style>
@@ -113,7 +114,7 @@
                                     <ul>
                                         <c:forEach items="${listAr}" var="item">
                                         <li class="item">
-                                            <a href="articleCate?cid=${item.getArticle_category_id()}" title="Blog List (Sidebar Left)"> ${item.getArticle_category_name()}<br></a>
+                                            <a href="articleCate?cid=${item.getPost_category_id()}" title="Blog List (Sidebar Left)"> ${item.getPost_category_name()}<br></a>
                                         </li>
                                         </c:forEach>
                                     </ul>
@@ -209,20 +210,20 @@
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
-                                        <%  Collection<Product> list = cart.getListProduct();
-                                            for (Product p: list) {%>
+                                        <%  Collection<ProductInCart> list = cart.getListProductInCart();
+                                            for (ProductInCart p: list) {%>
                                         <tr>
                                             <td class="product-image">
                                                 <a href="product-detail.html">
-                                                    <img src="<%=p.getImage(0)%>" alt="Product">
+                                                    <img src="<%=p.getProduct().getImage(0)%>" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="product-name">
-                                                    <a href="product-detail.html"><%=p.name%></a>
+                                                    <a href="product-detail.html"><%=p.getProduct().getName()%></a>
                                                 </div>
                                                 <div>
-                                                    <span class="product-price"><%=p.quantity%> * <%=p.price_sell%> vnđ</span>
+                                     <!--               <span class="product-price"><%=p.getQuantity()%> * <%=p.getProduct().getPrice_sell()%> vnđ</span> -->
                                                 </div>
                                             </td>
                                             <td class="action">

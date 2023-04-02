@@ -1,6 +1,7 @@
 package beans;
 
 import model.Product;
+import model.ProductInCart;
 import model.UserModel;
 
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class Cart implements Serializable {
-    HashMap<String, Product> data;
+    HashMap<String, ProductInCart> data;
     UserModel customer;
     long total;
     int quantity;
@@ -27,38 +28,53 @@ public class Cart implements Serializable {
         this.quantity = quantity;
     }
 
+//    public void put(Product p) {
+//        if (data.containsKey(p.getKey())) {
+//            ProductInCart p1 = data.get(p.getKey());
+//         //   p1.setQuantity(p1.getQuantity() + 1);
+//            data.put(p.getKey(), p1);
+//        } else {
+//            data.put(p.getKey(), p);
+//        }
+//        updateTotalAndQ();
+//    }
+
     public void put(Product p) {
         if (data.containsKey(p.getKey())) {
-            Product p1 = data.get(p.getKey());
-         //   p1.setQuantity(p1.getQuantity() + 1);
+            ProductInCart p1 = data.get(p.getKey());
+            p1.setQuantity(p1.getQuantity() + 1);
             data.put(p.getKey(), p1);
         } else {
-            data.put(p.getKey(), p);
+            ProductInCart pInCart = new ProductInCart(p, 1);
+            data.put(p.getKey(), pInCart);
         }
         updateTotalAndQ();
     }
 
     public void put(String key, int quantity) {
         if (data.containsKey(key)) {
-            Product p1 = data.get(key);
-       //     p1.setQuantity(quantity);
-            data.put(key, p1);
+            ProductInCart pInCart = data.get(key);
+            pInCart.setQuantity(quantity);
+            data.put(key, pInCart);
         }
         updateTotalAndQ();
     }
 
+
     private void updateTotalAndQ() {
         total = 0;
         quantity = 0;
-        for (Product p : data.values()) {
-          //  total += p.getQuantity() * p.getPrice_sell();
-          //  quantity += p.getQuantity();
+        for (ProductInCart productInCart : data.values()) {
+            total += productInCart.getQuantity() * productInCart.getProduct().getPrice_sell();
+            quantity += productInCart.getQuantity();
         }
     }
 
-    public void update(Product p) {
-        if (data.containsKey(p.getKey())) {
-            data.put(p.getKey(), p);
+    public void update(Product product) {
+        if (data.containsKey(product.getKey())) {
+            ProductInCart productInCart = data.get(product.getKey());
+            productInCart.setProduct(product);
+            data.put(product.getKey(), productInCart);
         }
         updateTotalAndQ();
     }
@@ -68,7 +84,7 @@ public class Cart implements Serializable {
         updateTotalAndQ();
     }
 
-    public Collection<Product> getListProduct() {
+    public Collection<ProductInCart> getListProductInCart() {
         return data.values();
     }
 
@@ -84,16 +100,17 @@ public class Cart implements Serializable {
         return customer;
     }
 
-//    public void sub(Product p) {
-//        if (data.containsKey(p.getKey()) && data.get(p.getKey()).getQuantity() > 0) {
-//            Product p1 = data.get(p.getKey());
-//            int num = p1.getQuantity();
-//            p1.setQuantity(num - 1);
-//            data.put(p.getKey(), p1);
-//        } else if (data.get(p.getKey()).getQuantity() < 1) {
-//            data.remove(p.getKey());
-//        }
-//        updateTotalAndQ();
-//    }
+    public void sub(Product p) {
+        if (data.containsKey(p.getKey()) && data.get(p.getKey()).getQuantity() > 0) {
+            ProductInCart pInCart = data.get(p.getKey());
+            int num = pInCart.getQuantity();
+            pInCart.setQuantity(num - 1);
+            data.put(p.getKey(), pInCart);
+        } else if (data.containsKey(p.getKey()) && data.get(p.getKey()).getQuantity() < 1) {
+            data.remove(p.getKey());
+        }
+        updateTotalAndQ();
+    }
+
 
 }

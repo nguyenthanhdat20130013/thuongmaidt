@@ -74,7 +74,7 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "select * from image where product_id = " + id;
+            sql = "select * from images where product_id = " + id;
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {

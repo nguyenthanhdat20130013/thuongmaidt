@@ -37,7 +37,7 @@ public class OrderSuccess extends HttpServlet {
         request.setAttribute("info", intro);
 
         Cart cart = (Cart) request.getSession().getAttribute("cart");
-        Collection<Product> listp = cart.getListProduct();
+        Collection<ProductInCart> listp = cart.getListProductInCart();
 
         UserModel user = (UserModel) request.getSession().getAttribute("user");
         if (Objects.isNull(user)) {
@@ -59,10 +59,10 @@ public class OrderSuccess extends HttpServlet {
                 Order od = new Order(orderid, u.getUserName(), "COD", money, 0, current, " ", 0);
                 oderService.addOder(od);
                 od.setOder_id(orderid);
-                Collection<Product> productList = cart.getListProduct();
-                for (Product p : productList) {
+                Collection<ProductInCart> productList = cart.getListProductInCart();
+                for (ProductInCart p : productList) {
             //        Order_detail orderDetail = new Order_detail(0, od, p.getProduct_id(), p.getPrice_sell(), p.getQuantity(), 0, (p.getPrice_sell() * p.getQuantity()));
-                    Order_detail orderDetail = new Order_detail(0, od, p.getProduct_id(), p.getPrice_sell(), 1, 0, (p.getPrice_sell() * 1));
+                    Order_detail orderDetail = new Order_detail(0, od, p.getProduct().getProduct_id(), p.getProduct().getPrice_sell(), 1, 0, (p.getProduct().getPrice_sell() * 1));
                     oderService.addOrderDetail(orderDetail);
                 }
             } catch (Exception e) {
