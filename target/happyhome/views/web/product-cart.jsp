@@ -72,14 +72,14 @@
                                                     <div class="product-line-grid row justify-content-between">
                                                         <div class="product-line-grid-left col-md-2">
                                                             <span class="product-image media-middle">
-                                                                <a href="/product_detail?id=<%=p.getProduct().getProduct_id()%>">
+                                                                <a href="/product_detail?pid=<%=p.getProduct().getProduct_id()%>">
                                                                     <img class="img-fluid" src="<%=p.getProduct().getImage(0)%>" alt="">
                                                                 </a>
                                                             </span>
                                                         </div>
                                                         <div class="product-line-grid-body col-md-6">
                                                             <div class="product-line-info">
-                                                                <a class="label" href="/product_detail?id=<%=p.getProduct().getProduct_id()%>" data-id_customization="0"><%=p.getProduct().getName()%></a>
+                                                                <a class="label" href="/product_detail?pid=<%=p.getProduct().getProduct_id()%>" data-id_customization="0"><%=p.getProduct().getName()%></a>
                                                             </div>
                                                             <div class="product-line-info product-price">
                                                                 <span class="value"><%=p.getProduct().getPrice_sell()%> vnđ</span>

@@ -22,12 +22,12 @@ public class OrderService {
         Order order = null;
         ResultSet rs;
         PreparedStatement ps;
-        String sql = "SELECT order_id, user_name, payment, total_money, fee, date_order, transport, status FROM `orders`";
+        String sql = "SELECT  order_id,  user_name,  total_money,  fee,  date_order,  payment,  transport,  status,  address,  note, phoneNum FROM `orders`";
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getInt(5), rs.getDate(6), rs.getString(7), rs.getInt(8));
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10),rs.getString(11));
                 od.add(order);
             }
         } catch (Exception e) {
@@ -43,12 +43,12 @@ public class OrderService {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "SELECT order_id, user_name, payment, total_money, fee, date_order, transport, status FROM `order` WHERE user_name like ?";
+            sql = "SELECT order_id,  user_name,  total_money,  fee,  date_order,  payment,  transport,  status,  address,  note, phoneNum FROM `orders` WHERE user_name like ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, uname);
             rs = pst.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getInt(5), rs.getDate(6), rs.getString(7), rs.getInt(8));
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10),rs.getString(11));
                 od.add(order);
             }
 
@@ -66,11 +66,11 @@ public class OrderService {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "SELECT order_id, user_name, payment, total_money, fee, date_order, transport, status FROM `order` WHERE order_id = " + id;
+            sql = "SELECT order_id,  user_name,  total_money,  fee,  date_order,  payment,  transport,  status,  address,  note, phoneNum FROM `orders` WHERE order_id = " + id;
             pst = DBConnection.getConnection().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getInt(5), rs.getDate(6), rs.getString(7), rs.getInt(8));
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
 
             }
 
@@ -82,19 +82,22 @@ public class OrderService {
     }
 
     public void addOder(Order o) {
-        String sql = "INSERT INTO `order` (order_id, user_name, payment, total_money, fee, date_order, transport, status) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO `orders` (order_id, user_name, total_money, fee, date_order, payment, transport, status, address, note, phoneNum) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = null;
         int rs = 0;
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
             ps.setInt(1, o.getOder_id());
             ps.setString(2, o.getUser_name());
-            ps.setString(3, o.getPayment());
-            ps.setLong(4, o.getTotal_money());
-            ps.setInt(5, o.getFee());
-            ps.setDate(6, o.getDateCurrent());
+            ps.setInt(3, (int) o.getTotal_money());
+            ps.setInt(4, o.getFee());
+            ps.setDate(5, o.getDate_order());
+            ps.setString(6, o.getPayment());
             ps.setString(7, o.getTransport());
             ps.setInt(8, o.getStatus());
+            ps.setString(9, o.getAddress());
+            ps.setString(10, o.getNote());
+            ps.setString(11, o.getPhoneNum());
             rs = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,7 +131,7 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Order_detail orderDetail = new Order_detail(0, new Order(1,"u","t",1,1, Date.valueOf(LocalDate.now()),"t",1), rs.getInt(1), rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
+                Order_detail orderDetail = new Order_detail(0, new Order(1, "u", 1, 1, Date.valueOf(LocalDate.now()), "t", "1", 1, "grgr", "fg","phone"), rs.getInt(1), rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
                 od.add(orderDetail);
             }
         } catch (Exception e) {
@@ -141,7 +144,7 @@ public class OrderService {
         ResultSet rs;
         int result = 0;
         PreparedStatement ps;
-        String sql = "SELECT MAX(order_id) FROM `order`";
+        String sql = "SELECT MAX(order_id) FROM `orders`";
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
@@ -156,7 +159,10 @@ public class OrderService {
 
     public static void main(String[] args) {
         OrderService os = new OrderService();
-
-        System.out.println(os.getOderByUname("dung"));
+        int id = os.getMaxMHD();
+        System.out.println(os.getMaxMHD());
+        Date current = Date.valueOf(LocalDate.now());
+        Order od = new Order(id, "huyen", 1000, 0, current, "COD", "TRUCK", 0, "HCM", "note","123");
+        os.addOder(od);
     }
 }

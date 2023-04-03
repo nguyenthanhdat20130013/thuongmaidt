@@ -19,7 +19,7 @@ public class CartSub extends HttpServlet {
         int pid = Integer.parseInt(id);
         Product p = ProductService.getProductById(pid);
         Cart cart = (Cart) request.getSession().getAttribute("cart");
-     //   cart.sub(p);
+        cart.sub(p);
 
         request.getSession().setAttribute("cart",cart);
         response.sendRedirect("/cart_detail");

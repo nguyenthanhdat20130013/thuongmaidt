@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ArticleCate", value = "/articleCate")
-public class ArticleCate extends HttpServlet {
+public class PostCate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cateId = request.getParameter("cid");

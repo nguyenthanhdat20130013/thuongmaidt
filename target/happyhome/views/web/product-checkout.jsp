@@ -2,6 +2,8 @@
 <% UserModel user = (UserModel)request.getAttribute("user"); %>
 <%@ page import="model.Product" %>
 <%@ page import="java.util.Collection" %>
+<%@ page import="model.ProductInCart" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="cart" class="beans.Cart" scope="session"/>
 
@@ -104,6 +106,7 @@
             <div class="container">
                 <div class="row">
                     <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
+                        <form action="<c:url value="/add_order_success"/>" method="POST" name="order" id="form_order">
                         <div id="main">
                             <div class="cart-grid row">
                                 <div class="col-md-8 check-info">
@@ -124,24 +127,21 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active show" id="checkout-guest-form"
                                                  role="tabpanel">
-                                                <form action="#" id="customer-form" class="js-customer-form"
-                                                      method="post">
                                                     <div>
                                                         <input type="hidden" name="id_customer" value="">
                                                         <div class="form-group row">
-                                                            <input class="form-control" name="firstname" type="text"
+                                                            <input class="form-control" name="name" type="text" id="name"
                                                                    placeholder="Họ và tên : <%=user.getUserName()%>" disabled="disabled">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <input class="form-control" name="email" type="email"
+                                                            <input class="form-control" name="email" type="email" id="email"
                                                                    placeholder="Email : <%=user.getEmail()%>" disabled="disabled">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <input class="form-control" name="email" type="email"
-                                                                   placeholder="Điện thoại : <%=user.getPhoneNum()%>" >
+                                                            <input class="form-control" name="phone" type="text" id="phone"
+                                                                   placeholder="Điện thoại : <%=user.getPhoneNum()%>" value="<%=user.getPhoneNum()%>">
                                                         </div>
                                                     </div>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -160,14 +160,12 @@
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active show" role="tabpanel">
-                                                <form action="#" class="js-customer-form" method="post">
                                                     <div>
                                                         <div class="form-group row">
-                                                            <input class="form-control" name="adress" type="text"
-                                                                   placeholder="<%=user.getAddress()%>">
+                                                            <input class="form-control" name="address" type="text" id="address"
+                                                                   placeholder="<%=user.getAddress()%>" value="<%=user.getAddress()%>">
                                                         </div>
                                                     </div>
-                                                </form>
                                             </div>
                                             <!--   data-link-action="sign-in" type="submit"-->
                                         </div>
@@ -178,82 +176,47 @@
                                         </h3>
                                     </div>
                                     <div class="content step-active" id="step3">
+                                        <ul class="nav nav-inline">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab"
+                                                   href="#checkout-guest-form">
+                                                    PHƯƠNG THỨC THANH TOÁN
+                                                </a>
+                                            </li>
+                                        </ul>
                                         <div class="tab-content">
+                                            <input type="radio" id="paypal" name="paymentMethod" value="Giao hàng thu tiền tận nhà">
+                                            <label for="paypal">Giao hàng thu tiền tận nhà</label><br>
+                                            <div class="ty-payments-list__description">
+                                                Miễn phí các quận nội thành HCM ( Theo quy định của
+                                                HappyHome... vui lòng xem chi tiết chính sách vận
+                                                chuyển)
+                                            </div>
+                                            <input type="radio" id="credit-card" name="paymentMethod" value="Nhận hàng tại cửa hàng">
+                                            <label for="credit-card">Nhận hàng tại cửa hàng</label><br>
+                                            <div class="ty-payments-list__description">
+                                                Giảm ngay 50.000đ nếu khách hàng nhận hàng tại
+                                                HappyHome ( Áp dụng sản phẩm từ : 1 triệu)
+                                            </div>
+                                            <input type="radio" id="bank-transfer" name="paymentMethod" value="Thanh toán qua ngân hàng">
+                                            <label for="bank-transfer">Thanh toán qua ngân hàng</label><br>
+                                            <div class="ty-payments-list__description">
+                                                Khách hàng chuyển khoản thanh toán vào các tài khoản
+                                                của HappyHome
+                                            </div>
                                             <div class="tab-pane fade in active show" role="tabpanel">
-                                                <div class="ty-other-pay clearfix">
-                                                    <select name="thanhtoan" class="ty-payments-list">
-                                                        <option value="Giao hàng thu tiền tại nhà">Giao hàng thu tiền tận nhà</option>
-                                                        <option value="Nhận hàng tại cửa hàng">Nhận hàng tại cửa hàng</option>
-                                                        <option value="Thanh toán qua ngân hàng">Thanh toán qua ngân hàng</option>
-
-
-                                                    </select>
-                                                    <div>CHÍNH SÁCH THANH TOÁN</div>
-                                                    <ul class="ty-payments-list">
-                                                        <li class="ty-payments-list__item">
-                                                            <div class="ty-payments-list__item-group">
-                                                                <label
-                                                                       class="ty-payments-list__item-title">
-                                                                    Giao hàng thu tiền tận nhà
-                                                                </label>
-                                                                <div class="ty-payments-list__description">
-                                                                    Miễn phí các quận nội thành HCM ( Theo quy định của
-                                                                    HappyHome... vui lòng xem chi tiết chính sách vận
-                                                                    chuyển)
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <div>
-                                                        </div>
-                                                        <li class="ty-payments-list__item">
-
-                                                            <div class="ty-payments-list__item-group">
-                                                                <label
-                                                                       class="ty-payments-list__item-title">
-                                                                    Nhận hàng tại cửa hàng
-                                                                </label>
-                                                                <div class="ty-payments-list__description">
-                                                                    Giảm ngay 50.000đ nếu khách hàng nhận hàng tại
-                                                                    HappyHome ( Áp dụng sản phẩm từ : 1 triệu)
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="ty-payments-list__item">
-
-                                                            <div class="ty-payments-list__item-group">
-                                                                <label
-                                                                       class="ty-payments-list__item-title">
-                                                                    Thanh toán qua ngân hàng
-                                                                </label>
-                                                                <div class="ty-payments-list__description">
-                                                                    Khách hàng chuyển khoản thanh toán vô các tài khoản
-                                                                    của HappyHome
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="ty-payments-list__instruction">
-                                                        <p>Giao hàng <strong>từ thứ 2 đến thứ 7 ( Chủ nhật không làm
-                                                            việc)</strong></p>
-                                                        <p>Thời gian giao hàng từ <strong>8h --> 19h</strong></p>
-                                                    </div>
-                                                </div>
-                                                <form action="#" class="js-customer-form" method="post">
                                                     <div>
                                                         <div class="form-group row">
-                                                            <textarea class="form-control"
-                                                                      placeholder="Để lại lời nhắn cho chúng tôi"
-                                                                      rows="3"></textarea>
+                                                            <textarea class="form-control" name="message" id="message" placeholder="Để lại lời nhắn cho chúng tôi" rows="3"></textarea>
                                                         </div>
                                                     </div>
-                                                </form>
                                             </div>
                                             <div class="clearfix">
                                                 <div class="row">
-                                                    <a href="/order_success"
-                                                       class="continue btn btn-primary pull-xs-right" value="3"
+                                                    <button type="submit"
+                                                       class="continue btn btn-primary pull-xs-right"
                                                        style="margin-top: 15px;margin-bottom: 25px">Hoàn tất đặt
-                                                        hàng</a>
+                                                        hàng</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -291,13 +254,13 @@
                                             <div class="cart-summary-products">
                                                 <div class="summary-label">Sản phẩm trong giỏ hàng của bạn :</div>
                                             </div>
-                                            <%  Collection<Product> list = cart.getListProduct();
-                                                for (Product p: list) {%>
+                                            <%  Collection<ProductInCart> list = cart.getListProductInCart();
+                                                for (ProductInCart p: list) {%>
                                             <div class="cart-summary-line" id="cart-products">
                                                     <span class="label js-subtotal">
-                                                      <a href=""><%=p.getName()%></a>
+                                                      <a href=""><%=p.getProduct().getName()%></a>
                                                     </span>
-                                                <span class="value"><%=p.getQuantity()%> x <%=p.getPrice_sell()%> vnđ</span>
+                                                <span class="value"><%=p.getQuantity()%> x <%=p.getProduct().getPrice_sell()%> vnđ</span>
                                             </div>
                                             <%}%>
                                         </div>
@@ -305,6 +268,7 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

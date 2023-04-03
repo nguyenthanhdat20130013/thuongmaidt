@@ -294,7 +294,7 @@
                                                                             </span>
                                                                     </div>
                                                                     <span class="add">
-                                                                           <a class="addToWishlist" href="/cart/add?id=<%=product.product_id%>">
+                                                                             <a class="addToWishlist" href="#" id="addToCartLink" data-product-id="<%=product.product_id%>">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a class="addToWishlist" href="#">
@@ -514,26 +514,45 @@
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script>
-    // var model = document.getElementById("model-cart-add");
-    // var btnAddToCart = document.querySelectorAll(".add-item");
-    // var btnContinue = document.getElementById('continue-shopping');
-    //
-    // btnContinue.onclick = function () {
-    //     model.style.display = "none";
-    // };
-    //
-    // for (let i = 0; i < btnAddToCart.length; i++) {
-    //     btnAddToCart[i].addEventListener("click", function () {
-    //         model.style.display = "block";
-    //     });
-    // }
-    //
-    // window.onclick = function (event) {
-    //     if (event.target == model) {
-    //         model.style.display = "none";
-    //     }
-    // };
+    $(document).ready(function() {
+        // Lấy giá trị số lượng sản phẩm ban đầu
+        var quantity = parseInt($("#quantity_wanted").val());
 
+        // Xử lý sự kiện khi nút tăng giảm được nhấn
+        $(".bootstrap-touchspin-up, .bootstrap-touchspin-down").click(function() {
+            // Lấy giá trị số lượng sản phẩm hiện tại
+            quantity = parseInt($("#quantity_wanted").val());
+
+            // Xác định xem nút tăng hay nút giảm đã được nhấn
+            var button = $(this);
+            var increment = button.hasClass("bootstrap-touchspin-up") ? 1 : -1;
+
+            // Tăng hoặc giảm số lượng sản phẩm
+            quantity += increment;
+
+            // Kiểm tra số lượng sản phẩm tối đa và tối thiểu
+            if (quantity < 1) {
+                quantity = 1;
+            } else if (quantity > 10) {
+                quantity = 10;
+            }
+
+            // Cập nhật giá trị số lượng sản phẩm
+            $("#quantity_wanted").val(quantity);
+        });
+    });
+
+</script>
+<script>
+    var addToCartLink = document.getElementById("addToCartLink");
+    addToCartLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        var productId = this.dataset.productId;
+        var quantity = document.getElementById("quantity_wanted").value;
+        var url = "/cart/addNum?id=" + productId + "&quantity=" + quantity;
+        // Chuyển hướng đến trang servlet với URL vừa tạo
+        window.location.href = url;
+    });
 </script>
 </body>
 </html>

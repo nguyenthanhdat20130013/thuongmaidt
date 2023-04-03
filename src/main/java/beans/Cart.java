@@ -50,6 +50,17 @@ public class Cart implements Serializable {
         }
         updateTotalAndQ();
     }
+    public void put(Product p, int quantity) {
+        if (data.containsKey(p.getKey())) {
+            ProductInCart p1 = data.get(p.getKey());
+            p1.setQuantity(p1.getQuantity() + quantity);
+            data.put(p.getKey(), p1);
+        } else {
+            ProductInCart pInCart = new ProductInCart(p, quantity);
+            data.put(p.getKey(), pInCart);
+        }
+        updateTotalAndQ();
+    }
 
     public void put(String key, int quantity) {
         if (data.containsKey(key)) {
