@@ -34,53 +34,6 @@ public class OrderSuccess extends HttpServlet {
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
 
-
-//        HttpSession session = request.getSession();
-//        UserModel user = (UserModel) session.getAttribute("user");
-//        if (user == null) {
-//            response.sendRedirect(request.getContextPath() + "/login");
-//            return;
-//        }
-//
-//        Cart cart = (Cart) session.getAttribute("cart");
-//        if (cart == null || cart.getTotal() == 0) {
-//            response.sendRedirect(request.getContextPath() + "/home");
-//            return;
-//        }
-//
-//        // Khai báo và khởi tạo các đối tượng và biến cần thiết
-//        String phone = request.getParameter("phone");
-//        String paymentMethod = request.getParameter("thanhtoan");
-//        long orderId = 0;
-//        long totalAmount = cart.getTotal();
-//        Date orderDate = Date.valueOf(LocalDate.now());
-//        OrderService orderService = new OrderService();
-//
-//
-//        try {
-//            // Tạo mới đơn hàng
-//            Order order = new Order(orderid, user.getUserName(), totalAmount, 0, orderDate, paymentMethod, "TRUCK", 0, "HCM", "", phone);
-//            orderService.addOder(order);
-//
-//            // Lấy lại id của đơn hàng sau khi tạo mới
-//            order.setOder_id(orderid);
-//
-//            // Lưu chi tiết đơn hàng
-//            for (ProductInCart product : cart.getListProductInCart()) {
-//                Order_detail orderDetail = new Order_detail(0, order, product.getProduct().getProduct_id(), product.getProduct().getPrice_sell(), product.getQuantity(), 0, (product.getProduct().getPrice_sell() * product.getQuantity()));
-//                orderService.addOrderDetail(orderDetail);
-//            }
-//
-//            // Xoá giỏ hàng và các thuộc tính khác của phiên làm việc
-//            session.removeAttribute("cart");
-//            cart = null;
-//        } catch (Exception e) {
-//            response.sendRedirect(request.getContextPath() + "/home");
-//            return;
-//        }
-//        RequestDispatcher rd = request.getRequestDispatcher("/views/web/order-success.jsp");
-//        rd.forward(request, response);
-
     }
 
     @Override

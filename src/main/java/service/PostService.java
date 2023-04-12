@@ -202,7 +202,8 @@ public class PostService {
         return list;
     }
     public static void main(String[] args) {
-        System.out.println(getTotalPost());
+        PostService p = new PostService();
+        System.out.println(p.pagingPost(2));
 
     }
 }

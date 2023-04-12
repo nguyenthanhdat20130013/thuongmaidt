@@ -20,6 +20,7 @@ public class DetailArticle extends HttpServlet {
 
         String id = request.getParameter("pid");
         int aid = Integer.parseInt(id);
+
         PostService service = new PostService();
         Post post = service.getPostById(aid);
         request.setAttribute("ar", post);

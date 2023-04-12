@@ -297,7 +297,7 @@
                                                                              <a class="addToWishlist" href="#" id="addToCartLink" data-product-id="<%=product.product_id%>">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a class="addToWishlist" href="#">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=product.product_id%>">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                         </span>
@@ -456,7 +456,7 @@
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                         </a>
                                                                     </form>
-                                                                    <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                    <a class="addToWishlist" href="/favorite/add?id=<%=psm.product_id%>" data-rel="1" onclick="">
                                                                         <i class="fa fa-heart" aria-hidden="true"></i>
                                                                     </a>
                                                                     <a href="product_detail?pid=<%=psm.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -484,33 +484,7 @@
 <!-- footer -->
 <jsp:include page="/common/web/footer.jsp"></jsp:include>
 
-<div class="model-cart-add" id="model-cart-add">
-    <div class="model-add-into-cart">
-        <div class="card-header" style="height: 50px">
-            <p>Sản phẩm đã được thêm vào giỏ hàng của bạn.</p>
-        </div>
-        <div class="card-body">
-            <div class="cart-product" style="display: flex;gap: 5px">
-                <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="" style="height: 40px;width: 40px">
-                <div style="width: 70%" ><a href="">Bàn sofa, bàn cafe nhựa cao cấp nhiều màu ST3015</a></div>
-                <div style="float: right">
-                    <span>1</span>&nbsp;x&nbsp<span>790.000 vnđ</span>
-                </div>
-            </div>
-            <div style="margin-top: 10px">
-                <label><Strong>Options:</Strong></label>
-                <br>
-                <span>Màu: Xanh</span>
-                <br>
-                <span>Size: M</span>
-            </div>
-            <div style="padding-top: 10px">
-                <button class="btn btn-dark" id="continue-shopping">Tiếp tục mua sắm</button>
-                <a class="btn btn-dark" href="product-cart.jsp" style="float: right">Xem giỏ hàng</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script>

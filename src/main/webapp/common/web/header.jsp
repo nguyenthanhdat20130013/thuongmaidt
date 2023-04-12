@@ -109,7 +109,7 @@
                                  <a href="~/Template/contact.jsp" class="parent">Ưu Đãi</a>
                              </li>-->
                             <li>
-                                <a href="<c:url value="/list_article"/>" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="<c:url value="/list_posts"/>" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <c:forEach items="${listAr}" var="item">
@@ -182,14 +182,15 @@
                                         <span>Thanh toán</span>
                                     </a>
                                 </div>
+                                <% if(user != null) {%>
                                 <div class="link_wishlist">
-                                    <a href="user-wishlist.html" title="My Wishlists">
+                                    <a href="/favorite" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
-                                        <span>Danh sách mong muốn</span>
+                                        <span>Danh sách yêu thích</span>
                                     </a>
                                 </div>
 
-                                <% if(user != null) {%>
+
                                 <div class="link_wishlist">
                                     <a href="<c:url value="/logout"></c:url>" title="Logout">
                                         <i class="fa fa-sign-out"></i>
