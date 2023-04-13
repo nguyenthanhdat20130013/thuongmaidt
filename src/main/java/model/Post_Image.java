@@ -1,11 +1,11 @@
 package model;
 
-public class Image_Article {
+public class Post_Image {
     public int img_article_id;
     public int article_id;
     public String url;
 
-    public Image_Article(int img_article_id, int article_id, String url) {
+    public Post_Image(int img_article_id, int article_id, String url) {
         this.img_article_id = img_article_id;
         this.article_id = article_id;
         this.url = url;

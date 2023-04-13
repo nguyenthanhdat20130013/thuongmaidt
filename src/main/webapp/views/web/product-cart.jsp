@@ -1,6 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="model.UserModel" %>
+<%@ page import="model.ProductInCart" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="cart" class="beans.Cart" scope="session"/>
 <% UserModel user = (UserModel)session.getAttribute("user"); %>
@@ -65,23 +66,23 @@
                                     <div class="cart-container">
                                         <div class="cart-overview js-cart">
                                             <ul class="cart-items">
-                                                <%  Collection<Product> list = cart.getListProduct();
-                                                    for (Product p: list) {%>
+                                                <%  Collection<ProductInCart> list = cart.getListProductInCart();
+                                                    for (ProductInCart p: list) {%>
                                                 <li class="cart-item">
                                                     <div class="product-line-grid row justify-content-between">
                                                         <div class="product-line-grid-left col-md-2">
                                                             <span class="product-image media-middle">
-                                                                <a href="/product_detail?id=<%=p.getProduct_id()%>">
-                                                                    <img class="img-fluid" src="<%=p.getImage(0)%>" alt="">
+                                                                <a href="/product_detail?pid=<%=p.getProduct().getProduct_id()%>">
+                                                                    <img class="img-fluid" src="<%=p.getProduct().getImage(0)%>" alt="">
                                                                 </a>
                                                             </span>
                                                         </div>
                                                         <div class="product-line-grid-body col-md-6">
                                                             <div class="product-line-info">
-                                                                <a class="label" href="/product_detail?id=<%=p.getProduct_id()%>" data-id_customization="0"><%=p.getName()%></a>
+                                                                <a class="label" href="/product_detail?pid=<%=p.getProduct().getProduct_id()%>" data-id_customization="0"><%=p.getProduct().getName()%></a>
                                                             </div>
                                                             <div class="product-line-info product-price">
-                                                                <span class="value"><%=p.getPrice_sell()%> vnđ</span>
+                                                                <span class="value"><%=p.getProduct().getPrice_sell()%> vnđ</span>
                                                             </div>
 
                                                         </div>
@@ -94,15 +95,15 @@
 
                                                                         <span class="input-group-btn-vertical">
                                                                             <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                               <a class="add-cart" href="/cart/add?id=<%=p.product_id%>">+</a>
+                                                                               <a class="add-cart" href="/cart/add?id=<%=p.getProduct().product_id%>">+</a>
                                                                             </button>
                                                                             <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                <a class="add-cart" href="/cart/sub?id=<%=p.product_id%>">-</a>
+                                                                                <a class="add-cart" href="/cart/sub?id=<%=p.getProduct().product_id%>">-</a>
                                                                             </button>
                                                                         </span>
                                                                     </div>
                                                                 </div>
-                                                                <% long priceI = (p.getPrice_sell())*(p.getQuantity()); %>
+                                                                <% long priceI = (p.getProduct().getPrice_sell())*(p.getQuantity()); %>
                                                                 <div class="col-md-5 col price">
                                                                     <div class="label">Tổng:</div>
                                                                     <div class="product-price total">
@@ -111,7 +112,7 @@
                                                                 </div>
                                                                 <div class="col-md-2 col text-xs-right align-self-end">
                                                                     <div class="cart-line-product-actions ">
-                                                                        <a class="remove-from-cart" rel="nofollow" href="/cart/del?id=<%=p.getProduct_id()%>" data-link-action="delete-from-cart" data-id-product="1">
+                                                                        <a class="remove-from-cart" rel="nofollow" href="/cart/del?id=<%=p.getProduct().getProduct_id()%>" data-link-action="delete-from-cart" data-id-product="1">
                                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                                         </a>
                                                                     </div>

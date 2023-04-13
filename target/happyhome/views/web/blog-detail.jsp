@@ -1,5 +1,7 @@
-<%@ page import="model.Article" %>
+<%@ page import="model.Post" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.Post" %>
+<%@ page import="model.Post" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -7,7 +9,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
-<% Article article = (Article) request.getAttribute("ar");
+<% Post post = (Post) request.getAttribute("ar");
 
 %>
 <html lang="zxx">
@@ -16,7 +18,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%=article.title%></title>
+    <title><%=post.title%></title>
     <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
@@ -74,13 +76,13 @@
 
                                     </div>
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
-                                        <h3><%=article.title%></h3>
+                                        <h3><%=post.title%></h3>
                                         <div class="hover-after">
-                                            <img src="<%=article.getImageArticle(0)%>" alt="img" class="img-fluid">
+                                            <img src="<%=post.getImagePost(0)%>" alt="img" class="img-fluid">
                                         </div>
                                         <div class="late-item">
                                             <p>
-                                                <%=article.content%>
+                                                <%=post.content%>
                                             </p>
                                            
 
@@ -88,7 +90,7 @@
 
                                             <div class="border-detail">
                                                 <p class="post-info float-left">
-                                                    <span>Ngày đăng <%=article.date%></span>
+                                                    <span>Ngày đăng <%=post.date%></span>
                                                     <span>0 Bình luận</span>
                                                    </span>
                                                 </p>
@@ -114,18 +116,18 @@
                                             <h2 class="title-block">TIN TỨC MỚI NHẤT</h2>
                                             <div class="main-blogs">
                                                 <div class="row">
-                                                    <% List<Article> list = (List<Article>) request.getAttribute("newest");
-                                                        for (Article ar: list){
+                                                    <% List<Post> list = (List<Post>) request.getAttribute("newest");
+                                                        for (Post ar: list){
                                                     %>
                                                     <div class="col-md-4">
                                                         <div class="hover-after">
-                                                            <a href="detail_article?pid=<%=ar.article_id%>">
-                                                                <img src="<%=ar.getImageArticle(0)%>" alt="img" class="img-fluid">
+                                                            <a href="detail_article?pid=<%=ar.post_id%>">
+                                                                <img src="<%=ar.getImagePost(0)%>" alt="img" class="img-fluid">
                                                             </a>
                                                         </div>
                                                         <div class="late-item">
                                                             <p class="content-title">
-                                                                <a href="detail_article?pid=<%=ar.article_id%>"><%=ar.title%></a>
+                                                                <a href="detail_article?pid=<%=ar.post_id%>"><%=ar.title%></a>
                                                             </p>
                                                             <p class="description"><%=ar.content.substring(0,50)%>
                                                             </p>
@@ -138,7 +140,7 @@
                                         <div class="reply late-item">
                                             <div class="blog-comment" id="blog-comment">
                                                 <h2 class="title-block">Bình luận</h2>
-                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/<%=article.article_id%>" data-width="" data-numposts="5"></div>
+                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/<%=post.post_id%>" data-width="" data-numposts="5"></div>
                                             </div>
                                         </div>
 

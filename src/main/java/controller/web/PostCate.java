@@ -1,10 +1,10 @@
 package controller.web;
 
-import model.Article;
-import model.Article_Category;
+import model.Post;
+import model.Post_Category;
 import model.Introduce;
 import model.Product_type;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.ProductService;
 
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ArticleCate", value = "/articleCate")
-public class ArticleCate extends HttpServlet {
+public class PostCate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cateId = request.getParameter("cid");
@@ -25,14 +25,14 @@ public class ArticleCate extends HttpServlet {
             indexPage = "1";
         }
         int index = Integer.parseInt(indexPage);
-        ArticleService service = new ArticleService();
-        List<Article> list = service.getAllArticleByCID(id);
-        int count = service.getNumArticleCID(id);
+        PostService service = new PostService();
+        List<Post> list = service.getAllPostByCID(id);
+        int count = service.getNumPostCID(id);
         int endPage = count / 3; //moi trang 3 bai
         if (count % 3 != 0) {
             endPage++;
         }
-        List<Article_Category> listAr = service.getListArCategory();
+        List<Post_Category> listAr = service.getListPostCategory();
         request.setAttribute("listAr", listAr);
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();

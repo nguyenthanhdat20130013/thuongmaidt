@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="model.Article" %>
+<%@ page import="model.Post" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.Post" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -74,7 +75,7 @@
                                                 <div class="cateTitle hasSubCategory open level1">
                                                     <c:forEach items="${listAr}" var="item">
                                                         <div class="cateTitle hasSubCategory open level1">
-                                                    <a class="cateItem" href="articleCate?cid=${item.getArticle_category_id()}">${item.getArticle_category_name()}</a>
+                                                    <a class="cateItem" href="articleCate?cid=${item.getPost_category_id()}">${item.getPost_category_name()}</a>
                                                         </div>
                                                     </c:forEach>
                                                 </div>
@@ -86,25 +87,25 @@
                                     </div>
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
                                         <h2>Bài đăng gần đây</h2>
-                                        <% List<Article> list = (List<Article>) request.getAttribute("list");
-                                            for (Article ar: list){
+                                        <% List<Post> list = (List<Post>) request.getAttribute("list");
+                                            for (Post ar: list){
                                         %>
                                         <div class="list-content row">
                                             <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="detail_article?pid=<%=ar.article_id%>">
-                                                    <img src="<%=ar.getImageArticle(0)%>" alt="img">
+                                                <a href="detail_article?pid=<%=ar.getPost_id()%>">
+                                                    <img src="<%=ar.getImagePost(0)%>" alt="img">
                                                 </a>
                                             </div>
                                             <div class="late-item col-md-7 col-xs-12">
                                                 <p class="content-title">
-                                                    <a href="detail_article?pid=<%=ar.article_id%>"><%=ar.title%>
+                                                    <a href="detail_article?pid=<%=ar.getPost_id()%>"><%=ar.getTitle()%>
                                                     </a>
                                                 </p>
 
-                                                <p class="description"><%=ar.content.substring(0,50)%>
+                                                <p class="description"><%=ar.getContent().substring(0,50)%>
                                                 </p>
                                                 <span class="view-more">
-                                                    <a href="detail_article?pid=<%=ar.article_id%>">Xem thêm</a>
+                                                    <a href="detail_article?pid=<%=ar.getPost_id()%>">Xem thêm</a>
                                                 </span>
                                             </div>
                                         </div>
@@ -114,7 +115,7 @@
                                             <ul class="justify-content-center d-flex">
                                                 <c:forEach var = "i" begin = "1" end = "${endP}">
                                                     <li class="${tag == i?"current active" :""}" >
-                                                        <a rel="nofollow" href="list_article?index=${i}" class="disabled js-search-link">${i}</a>
+                                                        <a rel="nofollow" href="list_posts?index=${i}" class="disabled js-search-link">${i}</a>
                                                     </li>
                                                 </c:forEach>
                                             </ul>

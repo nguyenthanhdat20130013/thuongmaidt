@@ -1,11 +1,11 @@
 package controller.web;
 
 import beans.Cart;
-import model.Article_Category;
+import model.Post_Category;
 import model.Introduce;
 import model.Product_type;
 import model.UserModel;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.ProductService;
 import service.UserService;
@@ -24,9 +24,9 @@ public class ProductCheckOutController extends HttpServlet {
         //Lay ra danh sach loai bai viet
 
 //
-        ArticleService service = new ArticleService();
+        PostService service = new PostService();
         ProductService productService = new ProductService();
-        List<Article_Category> list = service.getListArCategory();
+        List<Post_Category> list = service.getListPostCategory();
         request.setAttribute("listAr", list);
         //Lay ra danh sach loai sp de chen vao header
         List<Product_type> listType = productService.getAllProduct_type();
@@ -38,7 +38,7 @@ public class ProductCheckOutController extends HttpServlet {
 
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         UserModel user = (UserModel)request.getSession().getAttribute("user");
-        UserModel userModel = UserService.findById(user.getId());
+
 
         if(Objects.isNull(user)){
             response.sendRedirect("/login");
@@ -46,6 +46,7 @@ public class ProductCheckOutController extends HttpServlet {
             response.sendRedirect("/home");
 
         } else if(!Objects.isNull(user)) {
+            UserModel userModel = UserService.findById(user.getId());
             request.setAttribute("user",userModel);
             RequestDispatcher rd = request.getRequestDispatcher("/views/web/product-checkout.jsp");
             rd.forward(request,response);

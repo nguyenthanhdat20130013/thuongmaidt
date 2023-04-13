@@ -53,7 +53,7 @@
                     <option>Khuyến mãi</option>
                   </select>
                 </div>
-                <a class="btn btn-primary" href="add-article.html" style="color: white;float: right">Thêm mới</a>
+                <a class="btn btn-primary" href="add-post.html" style="color: white;float: right">Thêm mới</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

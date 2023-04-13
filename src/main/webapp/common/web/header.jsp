@@ -7,6 +7,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="beans.Cart" %>
 <%@ page import="java.util.Collection" %>
+<%@ page import="model.ProductInCart" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="cart" class="beans.Cart" scope="session"/>
 <style>
@@ -108,12 +109,12 @@
                                  <a href="~/Template/contact.jsp" class="parent">Ưu Đãi</a>
                              </li>-->
                             <li>
-                                <a href="<c:url value="/list_article"/>" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="<c:url value="/list_posts"/>" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <c:forEach items="${listAr}" var="item">
                                         <li class="item">
-                                            <a href="articleCate?cid=${item.getArticle_category_id()}" title="Blog List (Sidebar Left)"> ${item.getArticle_category_name()}<br></a>
+                                            <a href="articleCate?cid=${item.getPost_category_id()}" title="Blog List (Sidebar Left)"> ${item.getPost_category_name()}<br></a>
                                         </li>
                                         </c:forEach>
                                     </ul>
@@ -181,14 +182,15 @@
                                         <span>Thanh toán</span>
                                     </a>
                                 </div>
+                                <% if(user != null) {%>
                                 <div class="link_wishlist">
-                                    <a href="user-wishlist.html" title="My Wishlists">
+                                    <a href="/favorite" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
-                                        <span>Danh sách mong muốn</span>
+                                        <span>Danh sách yêu thích</span>
                                     </a>
                                 </div>
 
-                                <% if(user != null) {%>
+
                                 <div class="link_wishlist">
                                     <a href="<c:url value="/logout"></c:url>" title="Logout">
                                         <i class="fa fa-sign-out"></i>
@@ -209,20 +211,20 @@
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
-                                        <%  Collection<Product> list = cart.getListProduct();
-                                            for (Product p: list) {%>
+                                        <%  Collection<ProductInCart> list = cart.getListProductInCart();
+                                            for (ProductInCart p: list) {%>
                                         <tr>
                                             <td class="product-image">
                                                 <a href="product-detail.html">
-                                                    <img src="<%=p.getImage(0)%>" alt="Product">
+                                                    <img src="<%=p.getProduct().getImage(0)%>" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="product-name">
-                                                    <a href="product-detail.html"><%=p.name%></a>
+                                                    <a href="product-detail.html"><%=p.getProduct().getName()%></a>
                                                 </div>
                                                 <div>
-                                                    <span class="product-price"><%=p.quantity%> * <%=p.price_sell%> vnđ</span>
+                                     <!--               <span class="product-price"><%=p.getQuantity()%> * <%=p.getProduct().getPrice_sell()%> vnđ</span> -->
                                                 </div>
                                             </td>
                                             <td class="action">

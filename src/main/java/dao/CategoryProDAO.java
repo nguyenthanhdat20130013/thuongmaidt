@@ -41,7 +41,7 @@ public class CategoryProDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "delete from product where type_id = ?";
+            sql = "delete from products where type_id = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1,id);
             pst.executeUpdate();
@@ -70,7 +70,7 @@ public class CategoryProDAO {
         String sql;
         ResultSet rs;
         try {
-            sql = "select count(*) as numOfPro from product where product_type = ?";
+            sql = "select count(*) as numOfPro from products where product_type = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1,id);
             rs = pst.executeQuery();

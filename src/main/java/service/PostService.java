@@ -1,29 +1,29 @@
 package service;
 
 import dao.DBConnection;
-import model.Article;
-import model.Article_Category;
-import model.Image_Article;
+import model.Post;
+import model.Post_Category;
+import model.Post_Image;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleService {
-    public static List<Article> getAllArticle(){
-        List<Article> list = null;
+public class PostService {
+    public static List<Post> getAllPost(){
+        List<Post> list = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql;
         try{
-            sql = "select * from article";
+            sql = "select * from posts";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
+                Post ar = new Post(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 list.add(ar);
             }
 
@@ -34,18 +34,18 @@ public class ArticleService {
 
         return list;
     }
-    public static Article getArticleById(int id){
-        Article ar = null;
+    public static Post getPostById(int id){
+        Post ar = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql;
         try{
-            sql = "select * from article where article_id = " + id;
+            sql = "select * from posts where post_id = " + id;
             ps = DBConnection.getConnection().prepareStatement(sql);
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
+                ar = new Post(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
 
             }
 
@@ -56,19 +56,19 @@ public class ArticleService {
 
         return ar;
     }
-    public ArrayList<Image_Article> getImage(int id){
-        ArrayList<Image_Article> imgUrl = new ArrayList<>();
-        Image_Article img = null;
+    public ArrayList<Post_Image> getImage(int id){
+        ArrayList<Post_Image> imgUrl = new ArrayList<>();
+        Post_Image img = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql;
         try{
-            sql = "select * from img_article where article_id = " + id;
+            sql = "select * from posts_image where post_id = " + id;
             ps = DBConnection.getConnection().prepareStatement(sql);
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                img = new Image_Article(rs.getInt(1), rs.getInt(2),rs.getString(3));
+                img = new Post_Image(rs.getInt(1), rs.getInt(2),rs.getString(3));
                 imgUrl.add(img);
             }
 
@@ -80,8 +80,8 @@ public class ArticleService {
         return imgUrl;
 
     }
-    public int getTotalArticle(){
-        String sql = "Select  count(*) from article";
+    public static int getTotalPost(){
+        String sql = "Select  count(*) from posts";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
@@ -97,10 +97,10 @@ public class ArticleService {
         }
         return 0;
     }
-    public List<Article> pagingArticle(int index){
-        List<Article> list = new ArrayList<>();
-        String sql = "SELECT * FROM article\n" +
-                "ORDER BY article_id LIMIT "+((index -1)*3)+",3";
+    public List<Post> pagingPost(int index){
+        List<Post> list = new ArrayList<>();
+        String sql = "SELECT * FROM posts\n" +
+                "ORDER BY post_id LIMIT "+((index -1)*3)+",3";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
@@ -108,7 +108,7 @@ public class ArticleService {
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
+                Post ar = new Post(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 list.add(ar);
             }
 
@@ -117,9 +117,9 @@ public class ArticleService {
         }
         return list;
     }
-    public static List<Article_Category> getListArCategory() {
-        List<Article_Category> list = new ArrayList();
-        String sql = "Select article_category_id, article_category_name  from article_category";
+    public static List<Post_Category> getListPostCategory() {
+        List<Post_Category> list = new ArrayList();
+        String sql = "Select post_category_id, post_category_name  from posts_category";
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -128,7 +128,7 @@ public class ArticleService {
             rs = ps.executeQuery(sql);
 
             while(rs.next()) {
-                Article_Category ac = new Article_Category(rs.getInt(1), rs.getString(2));
+                Post_Category ac = new Post_Category(rs.getInt(1), rs.getString(2));
                 list.add(ac);
             }
         } catch (Exception var6) {
@@ -137,19 +137,19 @@ public class ArticleService {
 
         return list;
     }
-    public static List<Article> getAllArticleByCID(int id){
-        List<Article> list = null;
+    public static List<Post> getAllPostByCID(int id){
+        List<Post> list = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql;
         try{
-            sql = "SELECT * FROM article WHERE article_category_id = "+ id;
+            sql = "SELECT * FROM posts WHERE post_category_id = "+ id;
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
+                Post ar = new Post(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 list.add(ar);
             }
 
@@ -160,8 +160,8 @@ public class ArticleService {
 
         return list;
     }
-    public int getNumArticleCID(int id){
-        String sql = "Select  count(*) FROM article WHERE article_category_id = "+ id;
+    public int getNumPostCID(int id){
+        String sql = "Select  count(*) FROM posts WHERE post_category_id = "+ id;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
@@ -178,19 +178,19 @@ public class ArticleService {
         return 0;
     }
     //tin tuc moi nhat
-    public static List<Article> getNewArticle(){
-        List<Article> list = null;
+    public static List<Post> getNewPost(){
+        List<Post> list = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql;
         try{
-            sql = "(SELECT * FROM article ORDER BY date DESC) LIMIT 3";
+            sql = "(SELECT * FROM posts ORDER BY date DESC) LIMIT 3";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5));
+                Post ar = new Post(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5));
                 list.add(ar);
             }
 
@@ -202,5 +202,8 @@ public class ArticleService {
         return list;
     }
     public static void main(String[] args) {
+        PostService p = new PostService();
+        System.out.println(p.pagingPost(2));
+
     }
 }

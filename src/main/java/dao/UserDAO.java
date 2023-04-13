@@ -16,7 +16,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select uid,user_name,password,role,enable from USER where user_name = ? and password = ?";
+            sql = "select uid,user_name,password,role,enable from USERS where user_name = ? and password = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
@@ -37,7 +37,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select * from USER where uid = ?";
+            sql = "select * from USERS where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1, id);
             rs = pst.executeQuery();
@@ -58,7 +58,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select * from USER where user_name = ? and email = ?";
+            sql = "select * from USERS where user_name = ? and email = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, email);
@@ -78,7 +78,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USER set password = ? where uid = ?";
+            sql = "update USERS set password = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, newPassword);
             pst.setInt(2, id);
@@ -92,7 +92,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USER set full_name = ?, phone_num = ?, email = ?, address = ?, gender = ? where uid = ?";
+            sql = "update USERS set full_name = ?, phone_num = ?, email = ?, address = ?, gender = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, full_name);
             pst.setString(2, phone_num);
@@ -110,7 +110,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "insert into USER (user_name,password,full_name,email,gender,role,enable) values(?,?,?,?,?,?,?)";
+            sql = "insert into USERS (user_name,password,full_name,email,gender,role,enable) values(?,?,?,?,?,?,?)";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user_name);
             pst.setString(2, password);
@@ -138,7 +138,7 @@ public class UserDAO {
         String sql;
         ResultSet rs;
         try {
-            sql = "select * from USER where " + col + " = ?";
+            sql = "select * from USERS where " + col + " = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, value);
             rs = pst.executeQuery();
@@ -157,7 +157,7 @@ public class UserDAO {
         String sql;
         try {
             users = new ArrayList<>();
-            sql = "select * from USER";
+            sql = "select * from USERS";
             pst = DBConnection.getConnection().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -175,7 +175,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "insert into USER (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
+            sql = "insert into USERS (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getUserName());
             pst.setString(2, user.getPassWord());
@@ -193,7 +193,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USER set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
+            sql = "update USERS set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getFullName());
             pst.setString(2, user.getEmail());
@@ -211,7 +211,7 @@ public class UserDAO {
         String sql;
         try {
             deleteUserForgetPassword(id);
-            sql = "delete from USER where uid = ?";
+            sql = "delete from USERS where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1, id);
             pst.executeUpdate();

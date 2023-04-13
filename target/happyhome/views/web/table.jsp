@@ -171,7 +171,7 @@
                                                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                     </a>
                                                                 </form>
-                                                                <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                <a class="addToWishlist" href="/favorite/add?id=<%=p.product_id%>" data-rel="1" onclick="">
                                                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                                                 </a>
                                                                 <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -242,7 +242,7 @@
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng
                                                                             </a>
                                                                         </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                        <a class="addToWishlist" href="/favorite/add?id=<%=p.product_id%>" data-rel="1" onclick="">
                                                                             <i class="fa fa-heart" aria-hidden="true"></i>
                                                                         </a>
                                                                         <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">

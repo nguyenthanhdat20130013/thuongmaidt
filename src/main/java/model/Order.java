@@ -7,22 +7,28 @@ import java.time.LocalDate;
 public class Order {
     public int oder_id;
     public String user_name;
-    public String payment;
     public long total_money;
     public int fee;
     public Date date_order;
+    public String payment;
     public String transport;
     public int status;
+    public String address;
+    public String note;
+    public String phoneNum;
 
-    public Order(int oder_id, String user_name, String payment, long total_money, int fee, Date date_order, String transport, int status) {
+    public Order(int oder_id, String user_name, long total_money, int fee, Date date_order, String payment, String transport, int status, String address, String note, String phoneNum) {
         this.oder_id = oder_id;
         this.user_name = user_name;
-        this.payment = payment;
         this.total_money = total_money;
         this.fee = fee;
         this.date_order = date_order;
+        this.payment = payment;
         this.transport = transport;
         this.status = status;
+        this.address = address;
+        this.note = note;
+        this.phoneNum = phoneNum;
     }
 
     public int getOder_id() {
@@ -39,14 +45,6 @@ public class Order {
 
     public void setUser_name(String user_name) {
         this.user_name = user_name;
-    }
-
-    public String getPayment() {
-        return payment;
-    }
-
-    public void setPayment(String payment) {
-        this.payment = payment;
     }
 
     public long getTotal_money() {
@@ -73,6 +71,14 @@ public class Order {
         this.date_order = date_order;
     }
 
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
     public String getTransport() {
         return transport;
     }
@@ -89,6 +95,30 @@ public class Order {
         this.status = status;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
     public Date getDateCurrent() {
         Date current = Date.valueOf(LocalDate.now());
         return current;
@@ -103,13 +133,17 @@ public class Order {
         return "Order{" +
                 "oder_id=" + oder_id +
                 ", user_name='" + user_name + '\'' +
-                ", payment='" + payment + '\'' +
                 ", total_money=" + total_money +
                 ", fee=" + fee +
                 ", date_order=" + date_order +
+                ", payment='" + payment + '\'' +
                 ", transport='" + transport + '\'' +
                 ", status=" + status +
+                ", address='" + address + '\'' +
+                ", note='" + note + '\'' +
                 '}';
+
+
     }
 
     public static void main(String[] args) {

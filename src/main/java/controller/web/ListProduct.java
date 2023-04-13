@@ -1,10 +1,10 @@
 package controller.web;
 
-import model.Article_Category;
+import model.Post_Category;
 import model.Introduce;
 import model.Product;
 import model.Product_type;
-import service.ArticleService;
+import service.PostService;
 import service.IntroService;
 import service.ProductService;
 
@@ -42,7 +42,7 @@ public class ListProduct extends HttpServlet {
         request.setAttribute("num", count);
         request.setAttribute("indexPage", indexPage);
 
-        List<Article_Category> listAr = ArticleService.getListArCategory();
+        List<Post_Category> listAr = PostService.getListPostCategory();
         request.setAttribute("listAr", listAr);
         // lay ra list product
         //   List<Product> list = service.getAllProduct();
