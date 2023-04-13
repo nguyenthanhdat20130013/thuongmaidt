@@ -15,7 +15,6 @@ public class InfoController extends HttpServlet {
         IntroService intro = new IntroService();
         Introduce in = intro.getIntro();
         request.setAttribute("info",in);
-
         request.getRequestDispatcher("views/admin/info.jsp").forward(request, response);
     }
 

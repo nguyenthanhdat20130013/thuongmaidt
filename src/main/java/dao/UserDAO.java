@@ -16,7 +16,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select uid,user_name,password,role,enable from USERS where user_name = ? and password = ?";
+            sql = "select uid,user_name,password,role,enable from users where user_name = ? and password = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
@@ -31,13 +31,34 @@ public class UserDAO {
         }
     }
 
+    public static UserModel findByUser(String username) {
+        UserModel user = null;
+        ResultSet rs;
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "select enable from users where user_name = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1, username);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                user = new UserModel();
+                user.setEnable(rs.getInt("enable"));
+            }
+            return user;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static UserModel findById(int id) {
         UserModel user = null;
         ResultSet rs;
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select * from USERS where uid = ?";
+            sql = "select * from users where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1, id);
             rs = pst.executeQuery();
@@ -58,7 +79,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select * from USERS where user_name = ? and email = ?";
+            sql = "select * from users where user_name = ? and email = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, email);
@@ -78,7 +99,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USERS set password = ? where uid = ?";
+            sql = "update users set password = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, newPassword);
             pst.setInt(2, id);
@@ -92,7 +113,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USERS set full_name = ?, phone_num = ?, email = ?, address = ?, gender = ? where uid = ?";
+            sql = "update users set full_name = ?, phone_num = ?, email = ?, address = ?, gender = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, full_name);
             pst.setString(2, phone_num);
@@ -110,7 +131,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "insert into USERS (user_name,password,full_name,email,gender,role,enable) values(?,?,?,?,?,?,?)";
+            sql = "insert into users (user_name,password,full_name,email,gender,role,enable,num_log_in) values(?,?,?,?,?,?,?,?)";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user_name);
             pst.setString(2, password);
@@ -118,7 +139,8 @@ public class UserDAO {
             pst.setString(4, email);
             pst.setString(5, gender);
             pst.setInt(6, 0);
-            pst.setInt(7, 1);
+            pst.setInt(7, 0);
+            pst.setInt(8, 0);
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -138,7 +160,7 @@ public class UserDAO {
         String sql;
         ResultSet rs;
         try {
-            sql = "select * from USERS where " + col + " = ?";
+            sql = "select * from users where " + col + " = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, value);
             rs = pst.executeQuery();
@@ -157,7 +179,7 @@ public class UserDAO {
         String sql;
         try {
             users = new ArrayList<>();
-            sql = "select * from USERS";
+            sql = "select * from users";
             pst = DBConnection.getConnection().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -175,7 +197,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "insert into USERS (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
+            sql = "insert into USER (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getUserName());
             pst.setString(2, user.getPassWord());
@@ -193,7 +215,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USERS set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
+            sql = "update USER set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getFullName());
             pst.setString(2, user.getEmail());
@@ -211,7 +233,7 @@ public class UserDAO {
         String sql;
         try {
             deleteUserForgetPassword(id);
-            sql = "delete from USERS where uid = ?";
+            sql = "delete from users where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1, id);
             pst.executeUpdate();
@@ -355,5 +377,145 @@ public class UserDAO {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static UserModel findByRdData(String rdData) {
+        UserModel user = null;
+        ResultSet rs;
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "SELECT * from users u INNER JOIN verify v on u.uid = v.uid where token = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1, rdData);
+            rs = pst.executeQuery();
+            user = new UserModel();
+            while (rs.next()) {
+                user.setId(rs.getInt("uid"));
+                user.setFullName(rs.getString("full_name"));
+                user.setEmail(rs.getString("email"));
+            }
+            return user;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void deleteVerify(String rdData) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "delete from verify where token = ? ";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,rdData);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addVerify(int user_id, String rdData, Timestamp create_date, Timestamp verify_expiry) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "insert into verify (uid,token,created_date,token_expiry) values (?,?,?,?)";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,user_id);
+            pst.setString(2,rdData);
+            pst.setTimestamp(3,create_date);
+            pst.setTimestamp(4,verify_expiry);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static UserModel checkVerify(String rdData) {
+        PreparedStatement pst;
+        String sql;
+        ResultSet rs;
+        UserModel user = null;
+        try {
+            sql = "select u.enable,u.uid from verify v inner join users u on v.uid = u.uid where token_expiry >= now() and token = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,rdData);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                user = new UserModel();
+                user.setId(rs.getInt("uid"));
+                user.setEnable(rs.getInt("enable"));
+            }
+            return user;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+    }
+    }
+
+    public static void setVerified(String randomData) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "update users u inner join verify v on u.uid = v.uid  set enable = 1 where token = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,randomData);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateStatus(int status,String username) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "update users set enable = ? where user_name = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,status);
+            pst.setString(2,username);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean checkNumLogin(String username) {
+        PreparedStatement pst;
+        String sql;
+        ResultSet rs;
+        int number = 0;
+        try {
+            sql = "select num_log_in from users where user_name =  ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,username);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                number = rs.getInt("num_log_in");
+            }
+            return number > 5;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void updateNumLogin(String username) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "update users set num_log_in = num_log_in + 1 where user_name = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,username);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deletes( UserModel userModel) {
+       for(int i : userModel.getIds()){
+           detele(i);
+       }
     }
 }

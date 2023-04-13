@@ -18,6 +18,14 @@ public class UserService {
         return UserDAO.findLogin(username,hashPassword(password));
     }
 
+    public static void lockUser(String username){
+        if(UserDAO.checkNumLogin(username)) UserDAO.updateStatus(2,username);
+    }
+
+    public static void updateNumLogin(String username){
+         UserDAO.updateNumLogin(username);
+    }
+
     public static UserModel findById(int id){
         return UserDAO.findById(id);
     }
@@ -56,6 +64,10 @@ public class UserService {
         return UserDAO.findAll();
     }
 
+    public static UserModel findByUserName(String username) {
+        return UserDAO.findByUser(username);
+    }
+
     public static void save(UserModel user) {
         user.setPassWord(hashPassword(user.getPassWord()));
         UserDAO.save(user);
@@ -64,8 +76,8 @@ public class UserService {
     public static void updateAdmin(UserModel user,String enable) {
         if(enable.equals("on")){
             user.setEnable(1);
-        } else{
-            user.setEnable(0);
+        } else {
+            user.setEnable(2);
         }
         UserDAO.updateUserAdmin(user);
     }
@@ -73,7 +85,6 @@ public class UserService {
     public static void delete(int id) {
         UserDAO.detele(id);
     }
-
 
     public static String hashPassword(String password) {
         try {
@@ -125,5 +136,32 @@ public class UserService {
     public static void deleteToken(int id, String token) {
         UserDAO.deleteToken(id,token);
     }
+
+    // 86400000 milliseconds  = 24 hours
+    private static Timestamp getVerifyExpiry(Long timeNow){
+        return new java.sql.Timestamp(timeNow + 86400000);
+    }
+
+    public static UserModel findByRdData(String rdData) {
+        return UserDAO.findByRdData(rdData);
+    }
+
+    public static void deleteVerify(String rdData) {
+        UserDAO.deleteVerify(rdData);
+    }
+
+    public static void addVerify(int user_id,String rdData) {
+        Long currentTime = getTimeNowInMillis();
+        Timestamp verify_expiry = getVerifyExpiry(currentTime);
+        Timestamp create_date = new java.sql.Timestamp(currentTime);
+        UserDAO.addVerify(user_id,rdData,create_date,verify_expiry);
+    }
+
+    public static UserModel checkVerify(String rdData) {
+        return UserDAO.checkVerify(rdData);
+    }
+
+    public static void setVerified(String rdData) {
+        UserDAO.setVerified(rdData);    }
 }
 

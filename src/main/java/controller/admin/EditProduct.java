@@ -1,5 +1,7 @@
 package controller.admin;
 
+import dao.ProductSearchDAO;
+import model.ImgProductSearchModel;
 import model.Product;
 import model.Product_type;
 import service.ProductService;
@@ -21,6 +23,8 @@ public class EditProduct extends HttpServlet {
         //lay ra san pham tuong ung
         ProductService service = new ProductService();
         Product p = service.getProductById(aid);
+        List<ImgProductSearchModel> imgs = ProductSearchDAO.findImg(aid);
+        request.setAttribute("imgs",imgs);
         request.setAttribute("product", p);
         List<Product_type> listType = service.getAllProduct_type();
         request.setAttribute("listType", listType);
@@ -29,10 +33,8 @@ public class EditProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
         //cai nay la lay du lieu tu form gui len
-        String pid = request.getParameter("id");
+        int pid = Integer.parseInt(request.getParameter("id"));
         String pcode = request.getParameter("code");
         String pname = request.getParameter("ten");
         String pprice = request.getParameter("gianhap");
@@ -46,7 +48,7 @@ public class EditProduct extends HttpServlet {
         String pstatus = request.getParameter("trangthai");
         String pinfo = request.getParameter("mota");
         //su ly de add product
-        Product p = new Product(1111, pname, Integer.parseInt(pprice), Integer.parseInt(pprice_sell), pinfo, pcode, pbrand, pcolor, psize, pattribute, Integer.parseInt(pstatus), Integer.parseInt(ptype), pinsurance);
+        Product p = new Product(pid, pname, Integer.parseInt(pprice), Integer.parseInt(pprice_sell), pinfo, pcode, pbrand, pcolor, psize, pattribute, Integer.parseInt(pstatus), Integer.parseInt(ptype), pinsurance, 0);
         ProductService ser = new ProductService();
         ser.edit(p , Integer.parseInt(id));
         response.sendRedirect("/product_manager");

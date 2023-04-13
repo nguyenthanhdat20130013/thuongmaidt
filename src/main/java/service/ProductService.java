@@ -27,8 +27,7 @@ public class ProductService {
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13), 0);
                 list.add(p);
 
             }
@@ -120,8 +119,7 @@ public class ProductService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                 pro = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13));
-
+                 pro = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13), 0);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -138,12 +136,12 @@ public class ProductService {
         ResultSet rs = null;
         String sql;
         try {
-            sql = "select * from products where product_type =" + typeid;
+            sql = "select * from product where product_type =" + typeid;
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13), 0);
                 list.add(p);
 
             }
@@ -187,7 +185,7 @@ public class ProductService {
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13), 0);
                 list.add(p);
 
             }
@@ -206,12 +204,12 @@ public class ProductService {
         String sql;
         try {
             sql = "SELECT products.*, SUM(order_detail.amount) AS soLgDaBan FROM products" +
-                    " INNER JOIN order_detail ON order_detail.id_product = product.product_id GROUP BY order_detail.id_product ORDER BY soLgDaBan DESC";
+                    " INNER JOIN order_detail ON order_detail.id_product = products.product_id GROUP BY order_detail.id_product ORDER BY soLgDaBan DESC";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12), 0);
                 list.add(p);
 
             }
@@ -234,7 +232,7 @@ public class ProductService {
             list = new ArrayList<>();
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12), 0);
                 list.add(p);
 
             }
@@ -273,10 +271,9 @@ public class ProductService {
         ResultSet rs = null;
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
-
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12), 0);
                 list.add(p);
             }
 
@@ -315,7 +312,7 @@ public class ProductService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12));
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12), 0);
                 list.add(p);
             }
 
@@ -375,19 +372,15 @@ public class ProductService {
             ps.setInt(11, p.getProduct_type());
             ps.setString(12, p.getProduct_insurance());
             rs = ps.executeUpdate();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 
     public static void main(String[] args) {
 
-        System.out.println(getAllProduct());
+        System.out.println(getProductById(1));
     }
 
 }

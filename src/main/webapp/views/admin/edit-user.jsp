@@ -222,8 +222,6 @@
         $("#switch").prop('checked', true);
     }
 
-
-
     $('#select-role option[value=role]').attr('selected','selected');
     $("#select-role").val(role).change();
 

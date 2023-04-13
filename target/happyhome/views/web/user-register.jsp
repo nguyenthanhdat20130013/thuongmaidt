@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String exist_user = (String) request.getAttribute("exist_user");
+    String exist_user = (String) request.getAttribute("message");
 %>
 <html>
 <!-- user-register11:10-->
@@ -43,6 +43,7 @@
             margin-right: 10px;
             margin-top: 5px;
         }
+
     </style>
 </head>
 
@@ -119,7 +120,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div>
-                                                <input class="form-control js-child-focus js-visible-password" id="password" name="password" type="password" placeholder="Mật khẩu" value="<%=request.getParameter("password")==null?"":request.getParameter("password")%>">
+                                                <input class="form-control js-child-focus js-visible-password password" id="password" name="password" type="password" placeholder="Mật khẩu" value="<%=request.getParameter("password")==null?"":request.getParameter("password")%>">
                                                 <label id="password-error" class="error" for="password" style="display: inline;"></label>
                                             </div>
                                         </div>
@@ -146,6 +147,22 @@
 <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script src="<c:url value="/Template/web/libs/jquery/jquery.validate.js"/>"></script>
 <script>
+    $.validator.addMethod('lowercase_pass', function(value) {
+        return value.match(/[a-z]/);
+    }, 'Mật khẩu phải có bao gồm chữ cái thường');
+
+    $.validator.addMethod('uppercase_pass', function(value) {
+        return value.match(/[A-Z]/);
+    }, 'Mật khẩu phải có bao gồm chữ cái in hoa');
+
+    $.validator.addMethod('special_pass', function(value) {
+        return value.match(/[^a-zA-Z\d]/);
+    }, 'Mật khẩu phải có bao gồm kí tự đặc biệt');
+
+    $.validator.addMethod('number_pass', function(value) {
+        return value.match(/\d/);
+    }, 'Mật khẩu phải có bao gồm số');
+
     $.validator.setDefaults({
         errorElement: "label",
         errorClass: "error"
@@ -158,7 +175,12 @@
                     required : true
                 },
                 password: {
-                    required: true
+                    minlength : 5,
+                    required: true,
+                    uppercase_pass : true,
+                    lowercase_pass : true,
+                    number_pass : true,
+                    special_pass : true
                 },
                 email: {
                     required : true,
@@ -173,6 +195,7 @@
                     required : "Phải nhập tên tài khoản",
                 },
                 password: {
+                    minlength : "Mật khẩu phải có ít nhất 5 kí tự",
                     required: "Phải nhập mật khẩu",
                 },
                 email: {

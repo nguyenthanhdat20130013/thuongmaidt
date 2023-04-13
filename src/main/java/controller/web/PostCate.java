@@ -44,7 +44,6 @@ public class PostCate extends HttpServlet {
         ProductService productService = new ProductService();
         List<Product_type> listType = productService.getAllProduct_type();
         request.setAttribute("listType", listType);
-
         request.getRequestDispatcher("/views/web/blog-list-sidebar-left.jsp").forward(request, response);
     }
 

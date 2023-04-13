@@ -35,24 +35,75 @@ public class LoginController extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-
-
+        String login = request.getParameter("login")==null?"":request.getParameter("login");
+        if(login.equals("google")){
+            String userName = request.getParameter("username");
+            String passWord = request.getParameter("password");
+            String email = request.getParameter("email");
+            String full_name = request.getParameter("full_name");
+            if(UserService.checkLogin(userName,passWord) == null){
+                UserService.register(userName,passWord,email,full_name,"null");
+            }
+            UserModel user = UserService.findByUserAndEmail(userName,email);
+            request.getSession().setAttribute("user",user);
+            response.sendRedirect("account");
+            return;
+        }
         RequestDispatcher rd = request.getRequestDispatcher("views/web/user-login.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
-
+        String login = request.getParameter("login")==null?"":request.getParameter("login");
+        if(login.equals("google")){
+            String userName = request.getParameter("username");
+            String passWord = request.getParameter("password");
+            String email = request.getParameter("email");
+            String full_name = request.getParameter("full_name");
+            if(UserService.checkLogin(userName,passWord) == null){
+                UserService.register(userName,passWord,email,full_name,"null");
+            }
+            UserModel user = new UserModel();
+            user.setUserName(userName);
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("account");
+            return;
+        }
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         UserModel user = UserService.checkLogin(userName, passWord);
-
             if (user != null) {
-                if(user.getEnable() != 1 ) {
+                if(user.getEnable() == 0 ) {
+                    request.setAttribute("error", "Tài khoản của bạn chưa được xác thực");
+                    //Lay ra danh sach loai bai viet
+                    ArticleService service = new ArticleService();
+                    ProductService productService = new ProductService();
+                    List<Article_Category> list = service.getListArCategory();
+                    request.setAttribute("listAr", list);
+                    //Lay ra danh sach loai sp de chen vao header
+                    List<Product_type> listType = productService.getAllProduct_type();
+                    request.setAttribute("listType",listType);
+                    //Lay ra thong tin de chen vao footer
+                    IntroService intr = new IntroService();
+                    Introduce intro = intr.getIntro();
+                    request.setAttribute("info", intro);
+                    request.getRequestDispatcher("views/web/user-login.jsp").forward(request, response);
+                    return;
+                }
+                if(user.getEnable() == 2 ) {
+                    //Lay ra danh sach loai bai viet
+                    ArticleService service = new ArticleService();
+                    ProductService productService = new ProductService();
+                    List<Article_Category> list = service.getListArCategory();
+                    request.setAttribute("listAr", list);
+                    //Lay ra danh sach loai sp de chen vao header
+                    List<Product_type> listType = productService.getAllProduct_type();
+                    request.setAttribute("listType",listType);
+                    //Lay ra thong tin de chen vao footer
+                    IntroService intr = new IntroService();
+                    Introduce intro = intr.getIntro();
+                    request.setAttribute("info", intro);
                     request.setAttribute("error", "Tài khoản của bạn đã bị khoá");
                     request.getRequestDispatcher("views/web/user-login.jsp").forward(request, response);
                     return;
@@ -60,7 +111,28 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("user", user);
                 response.sendRedirect("account");
             } else {
-                request.setAttribute("error", "Thông tin đăng nhập không hợp lệ.");
+
+                //Lay ra danh sach loai bai viet
+                ArticleService service = new ArticleService();
+                ProductService productService = new ProductService();
+                List<Article_Category> list = service.getListArCategory();
+                request.setAttribute("listAr", list);
+                //Lay ra danh sach loai sp de chen vao header
+                List<Product_type> listType = productService.getAllProduct_type();
+                request.setAttribute("listType",listType);
+                //Lay ra thong tin de chen vao footer
+                IntroService intr = new IntroService();
+                Introduce intro = intr.getIntro();
+                request.setAttribute("info", intro);
+
+                user = UserService.findByUserName(userName);
+                if(user.getEnable() == 2){
+                    request.setAttribute("error", "Tài khoản này đã bị khoá.");
+                } else {
+                    UserService.updateNumLogin(userName);
+                    UserService.lockUser(userName);
+                    request.setAttribute("error", "Thông tin đăng nhập không hợp lệ.");
+                }
                 request.getRequestDispatcher("views/web/user-login.jsp").forward(request, response);
         }
     }

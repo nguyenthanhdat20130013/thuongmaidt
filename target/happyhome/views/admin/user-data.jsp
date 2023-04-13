@@ -6,6 +6,7 @@
   List<UserModel> users = (List<UserModel>) request.getAttribute("users");
 %>
 <c:url var="UrlAction" value="/data-user?action=delete"/>
+<c:url var="APIurl" value="/api-admin-user"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Danh sách user</title>
   <jsp:include page="/common/admin/css.jsp"></jsp:include>
+  <style>
+    input[type='checkbox']{
+      width: 18px;
+      height: 18px;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -57,14 +64,15 @@
                   </select>
                 </div>
                 <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/data-user?action=add"></c:url>" style="color: white">Thêm mới</a></button>
+                <button id="delete-btn" class="btn btn-danger" style="float: right;">Xoá</button>
               </div>
 
-              <!-- /.card-header -->
+              <!-- /.card-body -->
               <div class="card-body">
                 <c:if test="${success != null}">
                   <div class="alert-success" style="width: 36%;">${success}</div>
                 </c:if>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="user-data" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Tên tài khoản</th>
@@ -72,44 +80,22 @@
                     <th>Quyền</th>
                     <th>Tình trạng</th>
                     <th>Tác vụ</th>
+                    <th><input type="checkbox" id="checkAll"></th>
                   </tr>
                   </thead>
                   <tbody>
-                  <% for (UserModel user : users) {%>
                   <tr>
-                    <td><%=user.getUserName()==null?"Dữ liệu đang cập nhật":user.getUserName()%></td>
-                    <td><%=user.getEmail()==null?"Dữ liệu đang cập nhật":user.getEmail()%></td>
-                    <% if(user.getRole() == 0)  {%>
-                    <td>user</td>
-                    <% } else if(user.getRole() == 1){%>
-                    <td> mod</td>
-                    <% } else {%>
-                    <td> admin </td>
-                    <% } %>
-                    <% if(user.getEnable() == 1)  {%>
-                    <td> mở</td>
-                    <% } else {%>
-                    <td> khoá</td>
-                    <% } %>
-                    <td>
-                      <a class="btn btn-danger" id="delete" href="data-user?action=delete&id=<%=user.getId()%>">Xoá </a>
-                      <a class="btn btn-success"  href="data-user?action=edit&id=<%=user.getId()%>">Sửa </a>
-                    </td>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                   </tr>
-                  <% } %>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Tên tài khoản</th>
-                    <th>Email</th>
-                    <th>Quyền</th>
-                    <th>Tình trạng</th>
-                    <th>Tác vụ</th>
-                  </tr>
-                  </tfoot>
+                  <tbody>
+
+                  </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
@@ -129,20 +115,73 @@
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
-  /* $('#delete').click(function (e) {
-     e.preventDefault();
-     $.ajax({
-       type: "POST",
-       url: '${UrlAction}',
-      data: form.serialize(),
-      success: function () {
-        alert( "Xoá thành công" );
-      },
-      error: function (error){
-        console.log(error);
-      }
+
+    var table = $('#user-data').DataTable({
+      processing: true,
+      serverSide: true,
+      select: true,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "paging": true,
+      "lengthChange": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+      ajax: '/GetDataUser',
+      columns:[
+        {data: 'userName', name: 'username'},
+        {data: 'email', name: 'email'},
+        {data: 'role', name: 'role'},
+        {data: 'enable', name: 'status',render: function (data, type, row) {
+            return (data===0?'<i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>':'<i class="fa fa-check text-primary" aria-hidden="true"></i>')
+          }},
+        {data: 'id', name: 'action',render: function (data) {
+            return '<a class="btn btn-danger" id="delete" href="data-user?action=delete&id=' + data + '"' + '>Xoá </a>'+
+                    '<a class="btn btn-success"  href="data-user?action=edit&id='  + data + '"' + '>Sửa </a>';
+          }},
+        {data: 'id', name: 'action',render: function (data) {
+            return '<input type="checkbox" value="'+ data + '"' +'>';
+          }},
+      ]
     });
-  });*/
+
+    $('#checkAll').click(function (e) {
+      $('#user-data tbody :checkbox').prop('checked', $(this).is(':checked'));
+      e.stopImmediatePropagation();
+    });
+
+    $("#delete-btn").click(function(e) {
+      //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        var data = {};
+        var ids = $('#user-data tbody input[type=checkbox]:checked').map(function () {
+          return $(this).val();
+        }).get();
+      $('input[type=checkbox]:checked').parents('tr').remove();
+        data['ids'] = ids;
+        var actionUrl = '${APIurl}';
+      deleteUser(data,actionUrl);
+    });
+
+    function deleteUser(data,actionUrl){
+      $.ajax({
+        type: "DELETE",
+        url: actionUrl,
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(data), // javacript object to json
+        success: function (result){
+          //window.location.href = "/data-user?message=delete_success";
+        },
+        error: function (error){
+          console.log(error);
+          //window.location.href = "/data-user?message=error_system";
+        }
+      });
+    }
+
 </script>
 </body>
 </html>

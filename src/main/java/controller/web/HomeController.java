@@ -4,7 +4,6 @@ import model.*;
 import service.PostService;
 import service.IntroService;
 import service.ProductService;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -32,7 +31,8 @@ public class HomeController extends HttpServlet {
 //        List<Product> li = productService.getBestSale();
 //        request.setAttribute("bestseller", li);
 
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");
         rd.forward(request,response);
     }

@@ -19,4 +19,5 @@ public class ProductSearchService {
         return ProductSearchDAO.searchByNameOnSale(txtSearch,offset,limit);
     }
 
+
 }

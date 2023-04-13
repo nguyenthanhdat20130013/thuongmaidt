@@ -1,7 +1,10 @@
 package model;
 
-public class UserModel {
+import controller.admin.datatable.Item;
+
+public class UserModel extends Item {
     int id;
+    int [] ids;
     String userName;
     String passWord;
     int role;
@@ -12,6 +15,9 @@ public class UserModel {
 
     String gender;
     int enable;
+
+    int num_log_in;
+
 
     public UserModel(int id, String userName, String passWord, int role, String fullName, String phoneNum, String email, String address, int enable,String gender ) {
         this.id = id;
@@ -119,5 +125,55 @@ public class UserModel {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public int getNum_log_in() {
+        return num_log_in;
+    }
+
+    public void setNum_log_in(int num_log_in) {
+        this.num_log_in = num_log_in;
+    }
+
+    public  int [] getIds() {
+        return ids;
+    }
+
+    public void setIds(int [] ids) {
+        this.ids = ids;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", role=" + role +
+                ", fullName='" + fullName + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", gender='" + gender + '\'' +
+                ", enable=" + enable +
+                ", num_log_in=" + num_log_in +
+                '}' + '\n';
+    }
+
+    @Override
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(id),
+                userName,
+                passWord,
+                String.valueOf(role),
+                fullName,
+                phoneNum,
+                email,
+                address,
+                gender,
+                String.valueOf(enable),
+                String.valueOf(num_log_in),
+        };
     }
 }
