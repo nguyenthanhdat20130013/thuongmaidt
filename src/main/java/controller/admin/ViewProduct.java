@@ -1,5 +1,6 @@
 package controller.admin;
 
+import dao.ProductSearchDAO;
 import model.Product;
 import service.ProductService;
 

@@ -76,7 +76,7 @@ public class UserService {
     public static void updateAdmin(UserModel user,String enable) {
         if(enable.equals("on")){
             user.setEnable(1);
-        } else{
+        } else {
             user.setEnable(2);
         }
         UserDAO.updateUserAdmin(user);

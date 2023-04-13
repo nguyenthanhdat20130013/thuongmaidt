@@ -62,7 +62,7 @@ public class ProductSearchDAO {
     }
 
     public static List<ImgProductSearchModel> findImg(int id){
-        List<ImgProductSearchModel>  list = null;
+        List<ImgProductSearchModel>  list ;
         ResultSet rs;
         PreparedStatement pst;
         String sql;
@@ -74,12 +74,45 @@ public class ProductSearchDAO {
             rs = pst.executeQuery();
             while (rs.next()) {
                 list.add(new ImgProductSearchModel(rs.getString("img_url")));
-
             }
             return list.isEmpty()?null:list;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public static void updateImgs(int id,String [] url){
+        deleteAllImg(id);
+        for(String st : url){
+            addImg(id,st);
+        }
+    }
+
+    public static void addImg(int id,String url){
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "insert into images (product_id,img_url) values(?,?)";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.setString(2, url);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteAllImg(int id){
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "delete from images where product_id = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -108,6 +141,6 @@ public class ProductSearchDAO {
     }
 
     public static void main(String[] args) {
-        System.out.println(searchByName("bàn",0,3));
+
     }
 }

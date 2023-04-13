@@ -513,4 +513,9 @@ public class UserDAO {
         }
     }
 
+    public static void deletes( UserModel userModel) {
+       for(int i : userModel.getIds()){
+           detele(i);
+       }
+    }
 }
