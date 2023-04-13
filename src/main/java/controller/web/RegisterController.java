@@ -1,12 +1,12 @@
 package controller.web;
 
 import domain.Email;
-import model.Article_Category;
 import model.Introduce;
+import model.Post_Category;
 import model.Product_type;
 import model.UserModel;
-import service.ArticleService;
 import service.IntroService;
+import service.PostService;
 import service.ProductService;
 import service.UserService;
 import util.EmailUtil;
@@ -26,9 +26,9 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Lay ra danh sach loai bai viet
-        ArticleService service = new ArticleService();
+        PostService service = new PostService();
         ProductService productService = new ProductService();
-        List<Article_Category> list = service.getListArCategory();
+        List<Post_Category> list = service.getListPostCategory();
         request.setAttribute("listAr", list);
         //Lay ra danh sach loai sp de chen vao header
         List<Product_type> listType = productService.getAllProduct_type();
@@ -51,9 +51,9 @@ public class RegisterController extends HttpServlet {
         if(UserService.checkUserName(username)){
             request.setAttribute("message","Tên tài khoản đã tồn tại");
             //Lay ra danh sach loai bai viet
-            ArticleService service = new ArticleService();
+            PostService service = new PostService();
             ProductService productService = new ProductService();
-            List<Article_Category> list = service.getListArCategory();
+            List<Post_Category> list = service.getListPostCategory();
             request.setAttribute("listAr", list);
             //Lay ra danh sach loai sp de chen vao header
             List<Product_type> listType = productService.getAllProduct_type();

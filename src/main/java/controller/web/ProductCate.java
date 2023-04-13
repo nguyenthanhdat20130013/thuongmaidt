@@ -1,9 +1,11 @@
 package controller.web;
 
 import model.Introduce;
+import model.Post_Category;
 import model.Product;
 import model.Product_type;
 import service.IntroService;
+import service.PostService;
 import service.ProductService;
 
 import javax.servlet.*;
@@ -52,7 +54,9 @@ public class ProductCate extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-
+        PostService serviceP = new PostService();
+        List<Post_Category> listAr = serviceP.getListPostCategory();
+        request.setAttribute("listAr", listAr);
 
         request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
     }

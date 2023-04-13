@@ -77,9 +77,9 @@ public class LoginController extends HttpServlet {
                 if(user.getEnable() == 0 ) {
                     request.setAttribute("error", "Tài khoản của bạn chưa được xác thực");
                     //Lay ra danh sach loai bai viet
-                    ArticleService service = new ArticleService();
+                    PostService service = new PostService();
                     ProductService productService = new ProductService();
-                    List<Article_Category> list = service.getListArCategory();
+                    List<Post_Category> list = service.getListPostCategory();
                     request.setAttribute("listAr", list);
                     //Lay ra danh sach loai sp de chen vao header
                     List<Product_type> listType = productService.getAllProduct_type();
@@ -93,9 +93,9 @@ public class LoginController extends HttpServlet {
                 }
                 if(user.getEnable() == 2 ) {
                     //Lay ra danh sach loai bai viet
-                    ArticleService service = new ArticleService();
+                    PostService service = new PostService();
                     ProductService productService = new ProductService();
-                    List<Article_Category> list = service.getListArCategory();
+                    List<Post_Category> list = service.getListPostCategory();
                     request.setAttribute("listAr", list);
                     //Lay ra danh sach loai sp de chen vao header
                     List<Product_type> listType = productService.getAllProduct_type();
@@ -113,9 +113,9 @@ public class LoginController extends HttpServlet {
             } else {
 
                 //Lay ra danh sach loai bai viet
-                ArticleService service = new ArticleService();
+                PostService service = new PostService();
                 ProductService productService = new ProductService();
-                List<Article_Category> list = service.getListArCategory();
+                List<Post_Category> list = service.getListPostCategory();
                 request.setAttribute("listAr", list);
                 //Lay ra danh sach loai sp de chen vao header
                 List<Product_type> listType = productService.getAllProduct_type();
