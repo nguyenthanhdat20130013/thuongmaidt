@@ -1,4 +1,9 @@
+<%@ page import="model.Favorite" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/common/taglib.jsp"%>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Product" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -12,7 +17,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dach sách mong muốn</title>
+    <title>Dach sách yêu thích</title>
 
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
@@ -48,13 +53,13 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="index-2.html">
+                                <a href="/home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="user-wishlist.jsp">
-                                    <span>Sản phẩm mong muốn</span>
+                                <a href="/favorite">
+                                    <span>Sản phẩm yêu thích</span>
                                 </a>
                             </li>
                         </ol>
@@ -71,32 +76,35 @@
                         <div id="main">
                             <div id="content" class="page-content">
                                 <div id="mywishlist">
-                                    <h1 class="title-page">Danh sách  sản phẩm</h1>
+                                    <h1 class="title-page">Danh sách sản phẩm yêu thích</h1>
                                     <div id="block-history" class="block-center">
                                         <table class="std table">
                                             <thead>
                                                 <tr>
+
                                                     <th class="first_item">Tên sản phẩm</th>
-                                                    <th class="item mywishlist_second">Ngày tạo</th>
+
                                                     <th class="last_item mywishlist_first">Tác vụ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <c:forEach items="${listProduct}" var="item">
                                                 <tr id="wishlist_1">
-                                                    <td>
-                                                        Bàn sofa mặt đá hiện đại, sang trọng TT68185
+                                                    <td><img src="${item.getImage(0)}" width="40" height="40"> &ensp;
+                                                        ${item.getName()}
                                                     </td>
-                                                    <td>10/11/2022</td>
+
                                                     <td class="wishlist_delete">
-                                                        <a href="product-detail.jsp" class="btn btn-default" >Xem</a>
-                                                        <a href="javascript:;"  class="btn btn-default" onclick="return (WishlistDelete('wishlist_1', '1', 'Do you really want to delete this wishlist ?'));">Xoá</a>
+                                                        <a href="product_detail?pid=${item.getProduct_id()}" class="btn btn-default" >Xem sản phẩm</a>
+                                                        <a href="/favorite/del?id=${item.getProduct_id()}"  class="btn btn-default" >Xoá</a>
                                                     </td>
                                                 </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="page-home">
-                                        <a class="btn btn-default" href="table.jsp">
+                                        <a class="btn btn-default" href="/list_product">
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                             <span>Tiếp tục mua hàng</span>
                                         </a>

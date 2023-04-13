@@ -121,13 +121,13 @@
                                                     %>
                                                     <div class="col-md-4">
                                                         <div class="hover-after">
-                                                            <a href="detail_article?pid=<%=ar.article_id%>">
+                                                            <a href="detail_article?pid=<%=ar.post_id%>">
                                                                 <img src="<%=ar.getImagePost(0)%>" alt="img" class="img-fluid">
                                                             </a>
                                                         </div>
                                                         <div class="late-item">
                                                             <p class="content-title">
-                                                                <a href="detail_article?pid=<%=ar.article_id%>"><%=ar.title%></a>
+                                                                <a href="detail_article?pid=<%=ar.post_id%>"><%=ar.title%></a>
                                                             </p>
                                                             <p class="description"><%=ar.content.substring(0,50)%>
                                                             </p>
@@ -140,7 +140,7 @@
                                         <div class="reply late-item">
                                             <div class="blog-comment" id="blog-comment">
                                                 <h2 class="title-block">Bình luận</h2>
-                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/<%=post.article_id%>" data-width="" data-numposts="5"></div>
+                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/<%=post.post_id%>" data-width="" data-numposts="5"></div>
                                             </div>
                                         </div>
 
