@@ -5,6 +5,9 @@ import model.Post_Category;
 import model.Introduce;
 import model.Product_type;
 import model.UserModel;
+import service.API_LOGISTIC.Login_API;
+import service.API_LOGISTIC.Province;
+import service.API_LOGISTIC.Province_API;
 import service.PostService;
 import service.IntroService;
 import service.ProductService;
@@ -40,6 +43,15 @@ public class ProductCheckOutController extends HttpServlet {
         UserModel user = (UserModel)request.getSession().getAttribute("user");
 
 
+     //API LOGISTIC
+        HttpSession session = request.getSession();
+        Login_API login_api = new Login_API();
+        String API_KEY = login_api.login();
+        session.setAttribute("parameterName", API_KEY);
+
+
+
+
         if(Objects.isNull(user)){
             response.sendRedirect("/login");
         } else if (Objects.isNull(cart)) {
@@ -48,6 +60,11 @@ public class ProductCheckOutController extends HttpServlet {
         } else if(!Objects.isNull(user)) {
             UserModel userModel = UserService.findById(user.getId());
             request.setAttribute("user",userModel);
+
+            List<Province> provinces = Province_API.convert(API_KEY);
+            request.setAttribute("listProvinces", provinces);
+
+
             RequestDispatcher rd = request.getRequestDispatcher("/views/web/product-checkout.jsp");
             rd.forward(request,response);
         }
@@ -56,6 +73,8 @@ public class ProductCheckOutController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 
     }
 }
