@@ -162,8 +162,15 @@
                                             <div class="tab-pane fade in active show" role="tabpanel">
                                                     <div>
                                                         <div class="form-group row">
-                                                            <input class="form-control" name="address" type="text" id="address"
-                                                                   placeholder="<%=user.getAddress()%>" value="<%=user.getAddress()%>">
+                                                            <select id="province" name="province">
+                                                                <c:forEach items="${listProvinces}" var="item">
+                                                                <option value="${item.getId()}">${item.getName()}</option>
+                                                                </c:forEach>
+                                                                <!-- Các tùy chọn khác -->
+                                                            </select>
+
+
+
                                                         </div>
                                                     </div>
                                             </div>
