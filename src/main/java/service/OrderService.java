@@ -35,6 +35,40 @@ public class OrderService {
         }
         return od;
     }
+    public List<Order> getAllOderNotCheck() {
+        List<Order> od = new ArrayList<>();
+        Order order = null;
+        ResultSet rs;
+        PreparedStatement ps;
+        String sql = "SELECT  order_id,  user_name,  total_money,  fee,  date_order,  payment,  transport,  status,  address,  note, phoneNum FROM `orders` where status = 0 ";
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10),rs.getString(11));
+                od.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return od;
+    }
+    public int getNumOrderNotCheck(){
+        ResultSet rs;
+        int result = 0;
+        PreparedStatement ps;
+        String sql = "SELECT COUNT(order_id) FROM `orders` where status = 0 ";
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public List<Order> getOderByUname(String uname) {
         List<Order> od = new ArrayList<>();
@@ -159,10 +193,7 @@ public class OrderService {
 
     public static void main(String[] args) {
         OrderService os = new OrderService();
-        int id = os.getMaxMHD();
-        System.out.println(os.getMaxMHD());
-        Date current = Date.valueOf(LocalDate.now());
-        Order od = new Order(id, "huyen", 1000, 0, current, "COD", "TRUCK", 0, "HCM", "note","123");
-        os.addOder(od);
+        System.out.println(os.getNumOrderNotCheck());
+
     }
 }

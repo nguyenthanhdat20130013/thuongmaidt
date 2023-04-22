@@ -1,6 +1,8 @@
 <%@ page import="model.UserModel" %>
 <%@ page import="model.Order" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -192,7 +194,11 @@
                                 <th scope="row"><%=o.getOder_id()%></th>
                                 <td><%=o.getPayment()%></td>
                                 <td><%=o.getDate_order()%></td>
-                                <td><%=o.getTotal_money()%></td>
+                                <%
+                                    Locale localeVN = new Locale("vi", "VN");
+                                    NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+                                %>
+                                <td><%=currencyVN.format(o.getTotal_money() + o.getFee())%></td>
                                 <% String result = "Đã giao hàng";
                                     if(o.getStatus() != 0){
                                         result = "Chưa giao hàng";
