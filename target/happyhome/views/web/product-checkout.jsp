@@ -162,19 +162,35 @@
                                             <div class="tab-pane fade in active show" role="tabpanel">
                                                     <div>
                                                         <div class="form-group row">
+                                                            <label for="province">Chọn tỉnh</label>
                                                             <select id="province" name="province">
                                                                 <c:forEach items="${listProvinces}" var="item">
-                                                                <option value="${item.getId()}">${item.getName()}</option>
+                                                                    <option value="${item.id}">${item.name}</option>
                                                                 </c:forEach>
                                                                 <!-- Các tùy chọn khác -->
                                                             </select>
-
-
-
                                                         </div>
                                                     </div>
+
                                             </div>
+
                                             <!--   data-link-action="sign-in" type="submit"-->
+                                        </div>
+                                        <div>
+
+                                            <label for="district">Huyện:</label>
+                                            <select id="district" name="district">
+                                                <option value="">Chọn huyện</option>
+                                            </select>
+
+                                        </div>
+                                        <div>
+
+                                            <label for="ward">Xã:</label>
+                                            <select id="ward" name="ward">
+                                                <option value="">Chọn xã</option>
+                                            </select>
+
                                         </div>
                                     </div>
                                     <div class="checkout-personal-step">
@@ -286,5 +302,98 @@
 <jsp:include page="/common/web/footer.jsp"></jsp:include>
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
+
+<%--<script>--%>
+<%--    $(document).ready(function() {--%>
+<%--        $('#province').change(function() {--%>
+<%--            var provinceId = $(this).val(); // Lấy giá trị được chọn từ select--%>
+<%--            $.ajax({--%>
+<%--                type: 'POST', // Phương thức gửi yêu cầu--%>
+<%--                url: 'DistrictServlet', // Đường dẫn của servlet xử lý yêu cầu--%>
+<%--                data: {province: provinceId}, // Dữ liệu gửi đến servlet--%>
+<%--                success: function(data) {--%>
+<%--                    // Xử lý dữ liệu trả về từ servlet--%>
+<%--                },--%>
+<%--                error: function() {--%>
+<%--                    alert('Lỗi khi gửi yêu cầu đến server!');--%>
+<%--                }--%>
+<%--            });--%>
+<%--        });--%>
+<%--    });--%>
+
+<%--</script>--%>
+
+<script>
+    $(document).ready(function() {
+        $('#province').change(function() {
+            var provinceId = $(this).val();
+            $.ajax({
+                url: 'DistrictServlet',
+                type: 'POST',
+                data: {
+                    province: provinceId
+                },
+                success: function(response) {
+                    var districtSelect = $('#district');
+                    districtSelect.empty(); // Xóa tất cả các option hiện có trong select box
+                    districtSelect.append('<option value="">Chọn huyện</option>'); // Thêm option mặc định
+                    response.forEach(function(district) {
+                        districtSelect.append('<option value="' + district.DistrictID + '">' + district.DistrictName + '</option>');
+                    });
+                },
+                error: function() {
+                    console.log('Lỗi khi tải danh sách huyện');
+                }
+            });
+        });
+    });
+</script>
+<%--<script>--%>
+<%--    $(document).ready(function() {--%>
+<%--        $('#district').change(function() {--%>
+<%--            // Lấy giá trị đã chọn của select box--%>
+<%--            var districtId = $(this).val();--%>
+<%--            // Gửi yêu cầu Ajax đến Servlet--%>
+<%--            $.ajax({--%>
+<%--                url: 'WardServlet', // Đường dẫn tới Servlet của bạn--%>
+<%--                method: 'POST', // Phương thức gửi yêu cầu--%>
+<%--                data: {districtId: districtId}, // Truyền tham số districtId qua Ajax--%>
+<%--                success: function(response) {--%>
+<%--                    // Xử lý kết quả trả về từ Servlet (nếu cần)--%>
+<%--                },--%>
+<%--                error: function(jqXHR, textStatus, errorThrown) {--%>
+<%--                    console.log(textStatus, errorThrown);--%>
+<%--                }--%>
+<%--            });--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
+<script>
+    $(document).ready(function() {
+        $('#district').change(function() {
+            // Lấy giá trị đã chọn của select box
+            var districtId = $(this).val();
+            // Gửi yêu cầu Ajax đến Servlet
+            $.ajax({
+                url: 'WardServlet',
+                type: 'POST',
+                    data: {districtId: districtId
+                    },
+                success: function(response) {
+                    var wardSelect = $('#ward');
+                    wardSelect.empty(); // Xóa tất cả các option hiện có trong select box
+                    wardSelect.append('<option value="">Chọn xã</option>'); // Thêm option mặc định
+                    response.forEach(function(ward) {
+                        wardSelect.append('<option value="' + ward.WardCode + '">' + ward.WardName + '</option>');
+                    });
+                },
+                error: function() {
+                    console.log('Lỗi khi tải danh sách huyện');
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
