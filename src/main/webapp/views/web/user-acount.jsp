@@ -194,17 +194,8 @@
                                 <th scope="row"><%=o.getOder_id()%></th>
                                 <td><%=o.getPayment()%></td>
                                 <td><%=o.getDate_order()%></td>
-                                <%
-                                    Locale localeVN = new Locale("vi", "VN");
-                                    NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-                                %>
-                                <td><%=currencyVN.format(o.getTotal_money() + o.getFee())%></td>
-                                <% String result = "Đã giao hàng";
-                                    if(o.getStatus() != 0){
-                                        result = "Chưa giao hàng";
-                                    }
-                                %>
-                                <td><%=result%></td>
+                                <td><%=o.formatCurrency(o.getTotal_money() + o.getFee())%></td>
+                                <td><%=o.statusOrder(o.getStatus())%></td>
                             </tr>
                             <% } %>
                             </tbody>

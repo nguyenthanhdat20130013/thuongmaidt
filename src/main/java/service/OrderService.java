@@ -3,17 +3,14 @@ package service;
 import dao.DBConnection;
 import model.Order;
 import model.Order_detail;
-import model.Product;
-import model.ProductSearchModel;
+import service.API_LOGISTIC.Transport;
 
-import javax.xml.crypto.Data;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class OrderService {
@@ -27,7 +24,7 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10),rs.getString(11));
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 od.add(order);
             }
         } catch (Exception e) {
@@ -35,6 +32,7 @@ public class OrderService {
         }
         return od;
     }
+
     public List<Order> getAllOderNotCheck() {
         List<Order> od = new ArrayList<>();
         Order order = null;
@@ -45,7 +43,7 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10),rs.getString(11));
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 od.add(order);
             }
         } catch (Exception e) {
@@ -53,7 +51,8 @@ public class OrderService {
         }
         return od;
     }
-    public int getNumOrderNotCheck(){
+
+    public int getNumOrderNotCheck() {
         ResultSet rs;
         int result = 0;
         PreparedStatement ps;
@@ -82,7 +81,7 @@ public class OrderService {
             pst.setString(1, uname);
             rs = pst.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10),rs.getString(11));
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 od.add(order);
             }
 
@@ -165,7 +164,7 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Order_detail orderDetail = new Order_detail(0, new Order(1, "u", 1, 1, Date.valueOf(LocalDate.now()), "t", "1", 1, "grgr", "fg","phone"), rs.getInt(1), rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
+                Order_detail orderDetail = new Order_detail(0, new Order(1, "u", 1, 1, Date.valueOf(LocalDate.now()), "t", "1", 1, "grgr", "fg", "phone"), rs.getInt(1), rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
                 od.add(orderDetail);
             }
         } catch (Exception e) {
@@ -191,9 +190,59 @@ public class OrderService {
         return result + 1;
     }
 
+    public void updateStatus(int order_id, int status) {
+        String sql = "UPDATE `orders` SET `status` = ? WHERE `order_id` = ?";
+        PreparedStatement ps = null;
+        int rs = 0;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.setInt(1, status);
+            ps.setInt(2, order_id);
+            rs = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addTransport(Transport transport) {
+        String sql = "INSERT INTO transports (id, id_order, created_at, leadTime) VALUES (?, ?, ?, ?)";
+        PreparedStatement ps = null;
+        int rs = 0;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.setString(1, transport.getId());
+            ps.setInt(2, transport.getOrder().getOder_id());
+            ps.setString(3, transport.getCreated_at());
+            ps.setString(4, transport.getLeadTime());
+            rs = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getNumTrans(int id) {
+        ResultSet rs;
+        int result = 0;
+        PreparedStatement ps;
+        String sql = "SELECT COUNT(*) FROM `transports` WHERE id_order =" + id;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         OrderService os = new OrderService();
-        System.out.println(os.getNumOrderNotCheck());
-
+        Order o = new Order();
+//        o.setOder_id(26);
+//        Transport transport = new Transport("0", o,"now","then");
+//        os.addTransport(transport);
+        System.out.println(os.getNumTrans(26));
     }
 }

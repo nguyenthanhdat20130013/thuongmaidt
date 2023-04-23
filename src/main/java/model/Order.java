@@ -1,8 +1,19 @@
 package model;
 
 
+import dao.DBConnection;
+import service.API_LOGISTIC.Login_API;
+import service.API_LOGISTIC.RegisterTransport;
+import service.API_LOGISTIC.Transport;
+import service.OrderService;
+
+import java.io.IOException;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.util.Locale;
 
 public class Order {
     public int oder_id;
@@ -145,9 +156,70 @@ public class Order {
 
 
     }
+    public String getFullName(String user_name){
+        String sql = "Select  full_name from users where user_name = "+ "user_name";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String fullName = null;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
 
-    public static void main(String[] args) {
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                 fullName = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fullName;
+    }
+    public String formatCurrency(double amount) {
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+        return currencyVN.format(amount);
+    }
+    public String statusOrder(int id){
+        String nameStatus = "Lỗi";
+        switch (id){
+            case 0:
+                nameStatus = "Chờ xác nhận";
+                break;
+            case 1:
+                nameStatus = "Đang vận chuyển";
+                break;
+            case 2:
+                nameStatus = "Đã giao";
+                break;
+            case 3:
+                nameStatus = "Đã huỷ đơn hàng";
+                break;
+            case 4:
+                nameStatus = "Giao hàng thất bại";
+                break;
+        }
+        return nameStatus;
+    }
+
+    public static void main(String[] args) throws IOException {
         Order o = new Order();
-        System.out.println(o.getDateCurrent());
+        System.out.println(o.statusOrder(1));
+
+
+        int oid = 26;
+        OrderService orderService = new OrderService();
+        String from_district_id = "2264";
+        String from_ward_id = "90816";
+        String to_district_id = "2270";
+        String to_ward_id = "231013";
+
+        Order order = new Order();
+        order.setOder_id(oid);
+        Login_API login_api = new Login_API();
+        String API_KEY = login_api.login();
+        System.out.println(API_KEY);
+        RegisterTransport register = new RegisterTransport();
+        Transport transport = register.registerTransport(API_KEY, order, from_district_id, from_ward_id, to_district_id, to_ward_id);
+        orderService.addTransport(transport);
     }
 }

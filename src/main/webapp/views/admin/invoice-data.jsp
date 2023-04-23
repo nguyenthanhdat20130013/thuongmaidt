@@ -79,17 +79,13 @@
                                         </td>
                                         <td><%=o.getDate_order()%>
                                         </td>
-                                            <% String result = "Đã giao hàng";
-                                            if(o.getStatus() != 0){
-                                                result = "Chưa giao hàng";
-                                            }
-                                        %>
-                                        <td><%=result%>
+
+                                        <td><%=o.statusOrder(o.getStatus())%>
                                         </td>
                                         <td>
                                             <button class="btn btn-info"><a href="/order_detail?id=<%=o.getOder_id()%>"
                                                                             style="color:white">Chi tiết</a></button>
-                                            <button class="btn btn-success">Sửa</button>
+                                            <button class="btn btn-success"><a href="/check_detail?id=<%=o.getOder_id()%>"style="color:white">Sửa</a></button>
                                             <button class="btn btn-danger">Xoá</button>
                                         </td>
                                             <% } %>
