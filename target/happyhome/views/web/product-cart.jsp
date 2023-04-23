@@ -145,7 +145,7 @@
                                                 <span class="label">
                                                     Tổng phí chuyển hàng:
                                                 </span>
-                                                <span class="value">Miễn phí</span>
+                                                <span class="value">0 (ước tính)</span>
                                                 <div>
                                                     <small class="value"></small>
                                                 </div>

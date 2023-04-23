@@ -159,6 +159,12 @@
                                 <p>Danh sách đơn hàng</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/check_order"/>" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Duyệt đơn hàng</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item" >
