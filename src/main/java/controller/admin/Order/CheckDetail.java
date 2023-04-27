@@ -37,35 +37,6 @@ public class CheckDetail extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String status = request.getParameter("status");
-        String order_id = request.getParameter("order_id");
-        String address = request.getParameter("address");
 
-        // Do something with the selected status
-        OrderService orderService = new OrderService();
-
-        int oid = Integer.parseInt(order_id);
-        int st = Integer.parseInt(status);
-
-
-        int oidd = 26;
-
-        String from_district_id = "2264";
-        String from_ward_id = "90816";
-        String to_district_id = "2270";
-        String to_ward_id = "231013";
-
-        Order order = new Order();
-        order.setOder_id(oidd);
-        Login_API login_api = new Login_API();
-        String API_KEY = login_api.login();
-        System.out.println(API_KEY);
-        RegisterTransport register = new RegisterTransport();
-        Transport transport = register.registerTransport(API_KEY, order, from_district_id, from_ward_id, to_district_id, to_ward_id);
-        orderService.addTransport(transport);
-        orderService.updateStatus(oid, st);
-
-        // Forward to another servlet
-        request.getRequestDispatcher("/check_order").forward(request, response);
     }
 }
