@@ -162,6 +162,21 @@ public class Product implements Serializable {
       result = type_name.getType_name();
       return result;
    }
+   public String statusProduct(int id){
+      String nameStatus = "Lỗi";
+      switch (id){
+         case 0:
+            nameStatus = "Đã hết hàng";
+            break;
+         case 1:
+            nameStatus = "Còn hàng";
+            break;
+         case 2:
+            nameStatus = "Ngừng kinh doanh";
+            break;
+      }
+      return nameStatus;
+   }
 
    @Override
    public String toString() {

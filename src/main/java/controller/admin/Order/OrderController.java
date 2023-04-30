@@ -14,6 +14,7 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OrderService orderService = new OrderService();
+        orderService.updateOrderStatusByTransportLeadTime();
         List<Order> listOrders = orderService.getAllOder();
         request.setAttribute("listOrders",listOrders);
         request.getRequestDispatcher("/views/admin/invoice-data.jsp").forward(request,response);

@@ -4,12 +4,14 @@
 <%@ page import="model.Order_detail" %>
 <%@ page import="java.util.Collections" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="service.API_LOGISTIC.Transport" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <% Order order = (Order) request.getAttribute("order");
     Introduce introduce = (Introduce) request.getAttribute("info");
     ArrayList<Order_detail> order_details = (ArrayList<Order_detail>) request.getAttribute("orderDetails");
+    Transport transport = (Transport) request.getAttribute("transport");
 %>
 <html lang="en">
 <head>
@@ -67,7 +69,7 @@
                                         <strong><%=introduce.getName()%>
                                         </strong><br>
                                         Địa chỉ: <%=introduce.getAddress()%> <br>
-                                        Điện thoại:: <%=introduce.getPhone()%><br>
+                                        Điện thoại: <%=introduce.getPhone()%><br>
                                         Email: <%=introduce.getEmail()%>
                                     </address>
                                 </div>
@@ -84,8 +86,18 @@
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
                                     <b>ID hoá đơn : </b> <%=order.getOder_id()%><br>
-                                    <b>Ngày lập hoá đơn : </b> <%=order.getDate_order()%><br>
-                                    <b>Tài khoản :</b> <%=order.getUser_name()%>
+                                    <b>Ngày lập hoá đơn : </b> <span id="ngay-hoa-don"><%=order.getDate_order()%></span><br>
+                                    <script>
+                                        var ngayHienTai = document.getElementById("ngay-hoa-don").innerHTML;
+                                        var ngayMoi = ngayHienTai.split("-").reverse().join("/");
+                                        document.getElementById("ngay-hoa-don").innerHTML = ngayMoi;
+                                    </script>
+
+                                    <b>Trạng thái đơn hàng:</b> <%=order.statusOrder(order.getStatus())%><br>
+                                    <h5><b>Thông tin vận chuyển</b></h5>
+                                    <b>Mã vận chuyển:</b> <%=transport.getId()%><br>
+                                    <b>Ngày đăng ký vận chuyển:</b> <%=transport.getCreated_at()%><br>
+                                    <b>Ngày giao hàng:</b> <%=transport.getLeadTime()%><br>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -127,6 +139,8 @@
                                 <!-- accepted payments column -->
                                 <div class="col-6">
                                     <p class="lead">Phương thức thanh toán:</p>
+                                    <p><%=order.getPayment()%></p>
+                                    <p>Hỗ trợ thanh toán qua :</p>
                                     <img src="<c:url value="/Template/admin/dist/img/credit/visa.png"/>" alt="Visa">
                                     <img src=" <c:url value="/Template/admin/dist/img/credit/mastercard.png"/>"
                                          alt="Mastercard">

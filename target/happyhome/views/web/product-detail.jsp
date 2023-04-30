@@ -255,25 +255,23 @@
                                                         <span class="price"><%=product.price_sell%> VNĐ</span>
                                                         <span class="float-right">
                                                                 <span class="availb">Khả dụng: </span>
-                                                            <% String result = "Còn hàng";
-                                                                if(product.status == 0){
-                                                                    result = "Hết hàng";
+                                                            <% String result = "<i class=\"fa fa-times\" aria-hidden=\"true\"></i>";
+                                                                if(product.status == 1){
+                                                                    result = "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\"></i>";
                                                                 }
                                                             %>
                                                                 <span class="check">
-                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i><%=result%></span>
+                                                                    <%=result%></span><%=product.statusProduct(product.getStatus())%>
                                                             </span>
-
                                                     </div>
-
-                                                    <div class="option has-border d-lg-flex size-color">
+                                                    <div class="option size-color">
                                                         <div class="size">
-                                                            <span class="size">Kích cỡ : <%=product.size%></span>
-
+                                                            <div class="size">Kích cỡ : <%=product.size%> </b>
+                                                            </div>
                                                         </div>
                                                         <div class="colors">
-                                                            <b class="title">Màu : <%=product.color%> </b>
-
+                                                            <div class="title">Màu : <%=product.color%> </b>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="has-border cart-area">
