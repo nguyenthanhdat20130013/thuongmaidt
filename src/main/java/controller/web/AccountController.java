@@ -33,6 +33,7 @@ public class AccountController extends HttpServlet {
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
         OrderService orderService = new OrderService();
+        orderService.updateOrderStatusByTransportLeadTime();
         UserModel oldUser = (UserModel)request.getSession().getAttribute("user");
         if(oldUser == null){
             response.sendRedirect(request.getContextPath() + "/login");

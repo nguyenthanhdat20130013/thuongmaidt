@@ -272,5 +272,15 @@
     document.getElementById("loading-overlay").style.display = "block";
   });
 </script>
+<script>
+  $(document).ready(function() {
+    var orderStatus = "<%= order.getStatus() %>";
+    $('select[name="status"] option[value="' + orderStatus + '"]').prop('selected', true);
+    if (orderStatus == 1) {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+    }
+  });
+</script>
 </body>
 </html>

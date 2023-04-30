@@ -3,6 +3,7 @@ package controller.admin.Order;
 import model.Introduce;
 import model.Order;
 import model.Order_detail;
+import service.API_LOGISTIC.Transport;
 import service.IntroService;
 import service.OrderService;
 
@@ -27,6 +28,13 @@ public class OrderDetail extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
+        Transport transport = orderService.getTransportId(aid);
+        if(transport != null){
+            request.setAttribute("transport", transport);
+        } else {
+            Transport transport1 = new Transport("Đơn hàng đang chờ xử lý", new Order(), "Đơn hàng đang chờ xử lý", "Đơn hàng đang chờ xử lý");
+            request.setAttribute("transport", transport1);
+        }
         request.getRequestDispatcher("/views/admin/invoice-detail.jsp").forward(request, response);
     }
 

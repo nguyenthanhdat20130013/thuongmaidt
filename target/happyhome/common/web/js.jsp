@@ -23,3 +23,4 @@
 <!-- Template JS -->
 <script src="<c:url value="/Template/web/js/theme.js"/>"></script>
 <script src="<c:url value="/Template/web/libs/jquery/jquery.twbsPagination.js"/>"></script>
+

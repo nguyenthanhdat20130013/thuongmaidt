@@ -16,6 +16,7 @@ public class CheckOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OrderService orderService = new OrderService();
+        orderService.updateOrderStatusByTransportLeadTime();
         List<Order> listOrders = orderService.getAllOderNotCheck();
         request.setAttribute("listOrders",listOrders);
         request.getRequestDispatcher("/views/admin/checkorder-data.jsp").forward(request,response);

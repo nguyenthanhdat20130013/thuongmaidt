@@ -172,35 +172,6 @@
                             Lưu Thông Tin
                         </button>
                     </form>
-                    <div class="order">
-                        <h4>
-                            <span class="detail">Lịch sử mua hàng</span>
-                        </h4>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Mã đơn hàng</th>
-                                <th scope="col">Phương thức thanh toán</th>
-                                <th scope="col">Ngày đặt hàng</th>
-                                <th scope="col">Tổng hoá đơn</th>
-                                <th scope="col">Trạng thái</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <% List<Order> list = (List<Order>) request.getAttribute("od");
-                                for (Order o: list){
-                            %>
-                            <tr>
-                                <th scope="row"><%=o.getOder_id()%></th>
-                                <td><%=o.getPayment()%></td>
-                                <td><%=o.getDate_order()%></td>
-                                <td><%=o.formatCurrency(o.getTotal_money() + o.getFee())%></td>
-                                <td><%=o.statusOrder(o.getStatus())%></td>
-                            </tr>
-                            <% } %>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
 
             </div>

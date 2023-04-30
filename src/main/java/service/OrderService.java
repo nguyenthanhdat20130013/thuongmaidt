@@ -5,10 +5,7 @@ import model.Order;
 import model.Order_detail;
 import service.API_LOGISTIC.Transport;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -236,13 +233,44 @@ public class OrderService {
         }
         return result;
     }
+    public Transport getTransportId(int id){
+        ResultSet rs;
+        Transport transport = null;
+        PreparedStatement ps;
+        String sql = "SELECT id, id_order, created_at, leadTime FROM `transports` WHERE id_order =" + id;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOder_id(rs.getInt(2));
+               transport = new Transport(rs.getString(1), order,rs.getString(3), rs.getString(4));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return transport;
+    }
+    //
+    public void updateOrderStatusByTransportLeadTime() {
+        ResultSet rs;
+        PreparedStatement ps;
+        String sql = "UPDATE `orders` SET `status` = 2 WHERE `order_id` IN "
+                + "(SELECT `id_order` FROM `transports` WHERE DATEDIFF(NOW(), STR_TO_DATE(`leadTime`, '%d/%m/%Y')) >= 0) AND `status` != 2";
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public static void main(String[] args) {
         OrderService os = new OrderService();
         Order o = new Order();
-//        o.setOder_id(26);
-//        Transport transport = new Transport("0", o,"now","then");
-//        os.addTransport(transport);
-        System.out.println(os.getNumTrans(26));
+        System.out.println(os.getOderById(26));
     }
 }

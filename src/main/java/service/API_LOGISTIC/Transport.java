@@ -53,5 +53,14 @@ public class Transport {
         this.leadTime = leadTime;
     }
 
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "id='" + id + '\'' +
+                ", order=" + order +
+                ", created_at='" + created_at + '\'' +
+                ", leadTime='" + leadTime + '\'' +
+                '}';
+    }
 }
 

@@ -176,13 +176,19 @@
                                     </a>
                                 </div>
                                 <% } %>
+                                <% if(user != null) {%>
                                 <div>
-                                    <a class="check-out" href="product-checkout.html" rel="nofollow" title="Checkout">
+                                    <a class="check-out" href="/checkout" rel="nofollow" title="Checkout">
                                         <i class="fa fa-check" aria-hidden="true"></i>
                                         <span>Thanh toán</span>
                                     </a>
                                 </div>
-                                <% if(user != null) {%>
+                                <div class="link_wishlist">
+                                    <a href="/list_order" title="My Wishlists">
+                                        <i class="fa fa-truck"></i>
+                                        <span>Danh sách đơn hàng</span>
+                                    </a>
+                                </div>
                                 <div class="link_wishlist">
                                     <a href="/favorite" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
