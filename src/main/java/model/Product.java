@@ -1,11 +1,13 @@
 package model;
 
+import controller.admin.datatable.Item;
 import service.ProductService;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Product implements Serializable {
+public class Product extends Item implements Serializable {
+   private int [] ids;
    public int product_id;
    public String name;
    public int price;
@@ -19,6 +21,10 @@ public class Product implements Serializable {
    public int status;
    public int product_type;
    public String product_insurance;
+
+   public Product(){
+
+   }
 
    public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance) {
       this.product_id = product_id;
@@ -144,6 +150,14 @@ public class Product implements Serializable {
       this.product_insurance = product_insurance;
    }
 
+   public int[] getIds() {
+      return ids;
+   }
+
+   public void setIds(int[] ids) {
+      this.ids = ids;
+   }
+
    public String getImage(int index){
       ProductService manage = new ProductService();
       ArrayList image = manage.getImage(product_id);
@@ -180,6 +194,17 @@ public class Product implements Serializable {
               ", product_type=" + product_type +
               ", product_insurance='" + product_insurance + '\'' +
               '}';
+   }
+
+   @Override
+   public String[] toArray() {
+      return new String[]{
+              String.valueOf(product_id),
+              name,
+              String.valueOf(price),
+              String.valueOf(price_sell),
+              String.valueOf(product_type),
+      };
    }
 }
 

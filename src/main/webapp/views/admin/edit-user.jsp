@@ -1,7 +1,10 @@
 <%@ page import="model.UserModel" %>
+<%@ page import="model.Role" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+    List<Role> roles = (List<Role>) request.getAttribute("roles");
     UserModel user = (UserModel) request.getAttribute("user");
 %>
 <!DOCTYPE html>
@@ -139,7 +142,10 @@
                                 </div>
                             </div>
                             <div class="card-body" style="display: block; padding:0px ;">
-                                <form action="<c:url value="/data-user?action=edit&id=<%=user.getId()%>"/>" method="post" id="edit-user">
+                                <c:if test="${ messageResponse != null}">
+                                    <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>
+                                </c:if>
+                                <form action="<c:url value="/data-user?action=edit"/>" method="post" id="edit-user">
                                     <div class="card-body">
                                         <c:if test="${success != null}">
                                             <div class="alert-success" style="width: 36%;">${success}</div>
@@ -174,9 +180,9 @@
                                                 <div class="form-group">
                                                     <span>Quyền</span>
                                                     <select class="form-control" id="select-role" name="role">
-                                                        <option value="0" >User</option>
-                                                        <option value="1" >Mod</option>
-                                                        <option value="2" >Admin</option>
+                                                        <%for (Role r : roles) {%>
+                                                        <option value="<%=r.getId()%>"><%=r.getName()%></option>
+                                                        <%}%>
                                                     </select>
                                                 </div>
                                             </div>
@@ -213,6 +219,7 @@
     <jsp:include page="/common/admin/footer.jsp"></jsp:include>
 
 </div>
+
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script type="text/javascript">
     var enable = "<%=user.getEnable()%>"
@@ -239,22 +246,6 @@
     });
 
     +(function ($) {
-        /*  $("#edit-user").submit(function(e) {
-              e.preventDefault();
-              var form = $(this);
-              var actionUrl = form.attr('action');
-              $.ajax({
-                  type: "POST",
-                  url: actionUrl,
-                  data: form.serialize(),
-                  success: function () {
-                      alert( "Thêm thành công" );
-                  },
-                  error: function (error){
-                      console.log(error);
-                  }
-              });
-          });*/
         $("#edit-user").validate({
             rules: {
                 username: {
@@ -277,7 +268,7 @@
                     email : "email không đúng định dạng"
                 },
                 full_name: {
-                    required : "Phải nhập họ và tên  "
+                    required : "Phải nhập họ và tên"
                 },
             }
         });

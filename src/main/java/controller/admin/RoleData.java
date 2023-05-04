@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "RoleData", value = "/role-data")
+@WebServlet(name = "RoleData", value = "/admin-role-data")
 public class RoleData extends HttpServlet {
     private static String editAccess = "sửa quyền";
     private static String deleteAccess = "xoá quyền";
@@ -24,17 +24,27 @@ public class RoleData extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action")==null?"":request.getParameter("action");
-        access(request,response,action);
-
+        UserModel user = (UserModel) request.getSession().getAttribute("auth");
+        Role roleUser = RoleDAO.findById(user.getRole());
+        boolean access = access(action,roleUser);
+        boolean deletePm = Access.checkAccess(roleUser.getPermission(),RoleDAO.findIdPermissionByName(deleteAccess));
         MessageUtil.showMessage(request);
         List<Role> roles = RoleDAO.findAll();
         if(action.equals("add")){
+            if(!access){
+                response.sendRedirect("/admin-role-data?message=not_permission");
+                return;
+            }
             ArrayList<Permission> permissions =  RoleDAO.getAllpermiss();
             request.setAttribute("permissions",permissions);
             request.getRequestDispatcher("views/admin/add-role.jsp").forward(request,response);
             return;
         }
         if(action.equals("delete")){
+            if(!access){
+                response.sendRedirect("/admin-role-data?message=not_permission");
+                return;
+            }
             int id = Integer.parseInt(request.getParameter("id"));
             RoleDAO.delete(id);
             roles = RoleDAO.findAll();
@@ -43,6 +53,10 @@ public class RoleData extends HttpServlet {
             return;
         }
         if(action.equals("edit")){
+            if(!access){
+                response.sendRedirect("/admin-role-data?message=not_permission");
+                return;
+            }
                 int id = Integer.parseInt(request.getParameter("id"));
                 Role role = RoleDAO.findById(id);
                 ArrayList<Permission> permissions =  RoleDAO.getAllpermiss();
@@ -51,6 +65,11 @@ public class RoleData extends HttpServlet {
                 request.getRequestDispatcher("views/admin/edit-role.jsp").forward(request,response);
                 return;
         }
+        if(!access){
+            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
+            return;
+        }
+        request.setAttribute("deletePm",deletePm);
         request.setAttribute("roles", roles);
         request.getRequestDispatcher("views/admin/role-data.jsp").forward(request, response);
     }
@@ -59,7 +78,7 @@ public class RoleData extends HttpServlet {
 
     }
 
-    private static void access(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
+    private static boolean access(String action,Role role) throws ServletException, IOException {
         int access;
         if(action.equals("edit")){
             access = RoleDAO.findIdPermissionByName(editAccess);
@@ -70,11 +89,6 @@ public class RoleData extends HttpServlet {
         } else {
             access = RoleDAO.findIdPermissionByName(listAccess);
         }
-        UserModel user = (UserModel) request.getSession().getAttribute("auth");
-        Role roleUser = RoleDAO.findById(user.getRole());
-        if(!Access.checkAccess(roleUser.getPermission(),access)){
-            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
-            return;
-        }
+        return Access.checkAccess(role.getPermission(),access);
     }
 }

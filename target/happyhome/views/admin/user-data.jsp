@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+  //boolean deletePm = (boolean) request.getAttribute("deletePm");
   List<UserModel> users = (List<UserModel>) request.getAttribute("users");
 %>
 <c:url var="UrlAction" value="/data-user?action=delete"/>
@@ -18,6 +19,14 @@
     input[type='checkbox']{
       width: 18px;
       height: 18px;
+    }
+
+    .btn-danger{
+      margin-right: 9px !important;
+    }
+
+    fa{
+      font-size: 16px !important;
     }
   </style>
 </head>
@@ -64,13 +73,13 @@
                   </select>
                 </div>
                 <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/data-user?action=add"></c:url>" style="color: white">Thêm mới</a></button>
-                <button id="delete-btn" class="btn btn-danger" style="float: right;">Xoá</button>
+                <button id="delete-btn" class="btn btn-danger" style="float: right;margin-right: 10px">Xoá nhiều</button>
               </div>
 
               <!-- /.card-body -->
               <div class="card-body">
-                <c:if test="${success != null}">
-                  <div class="alert-success" style="width: 36%;">${success}</div>
+                <c:if test="${ messageResponse != null}">
+                  <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>
                 </c:if>
                 <table id="user-data" class="table table-bordered table-striped">
                   <thead>
@@ -116,7 +125,7 @@
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
 
-    var table = $('#user-data').DataTable({
+  var table  = $('#user-data').DataTable({
       processing: true,
       serverSide: true,
       select: true,
@@ -130,40 +139,65 @@
       "autoWidth": false,
       "responsive": true,
       ajax: '/GetDataUser',
-      columns:[
+      columns: [
         {data: 'userName', name: 'username'},
         {data: 'email', name: 'email'},
         {data: 'role', name: 'role'},
-        {data: 'enable', name: 'status',render: function (data, type, row) {
-            return (data===0?'<i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>':'<i class="fa fa-check text-primary" aria-hidden="true"></i>')
-          }},
-        {data: 'id', name: 'action',render: function (data) {
-            return '<a class="btn btn-danger" id="delete" href="data-user?action=delete&id=' + data + '"' + '>Xoá </a>'+
-                    '<a class="btn btn-success"  href="data-user?action=edit&id='  + data + '"' + '>Sửa </a>';
-          }},
-        {data: 'id', name: 'action',render: function (data) {
-            return '<input type="checkbox" value="'+ data + '"' +'>';
-          }},
+        {
+          data: 'enable', name: 'status', render: function (data, type, row) {
+            return (data === 0 ? '<i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>' : '<i class="fa fa-check text-primary" aria-hidden="true"></i>')
+          }
+        },
+        {
+          data: 'id', name: 'action', render: function (data) {
+            return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' + '<a class="btn btn-success" title="edit" href="data-user?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+          }
+        },
+        {
+          data: 'id', name: 'action', render: function (data) {
+            return '<input type="checkbox" value="' + data + '"' + '>';
+          }
+        },
       ]
     });
+
+    table.on( 'draw', function () {
+      $(".btn-delete").click(function (e) {
+        $(this).parents('tr').remove();
+        let data ={};
+        let id = [];
+        id.push($(this).parents('tr').find("input").val());
+        $(this).parents('tr').remove();
+        data['ids'] = id;
+        let actionUrl = '${APIurl}';
+        deleteUser(data,actionUrl);
+      });
+    });
+
+
 
     $('#checkAll').click(function (e) {
       $('#user-data tbody :checkbox').prop('checked', $(this).is(':checked'));
       e.stopImmediatePropagation();
     });
 
-    $("#delete-btn").click(function(e) {
-      //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
+/*    var deletePm = ;*/
+      $("#delete-btn").click(function(e) {
+        /*if(deletePm) {
+          alert("you don't have this permission");
+          return;
+        }*/
+        //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var data = {};
         var ids = $('#user-data tbody input[type=checkbox]:checked').map(function () {
           return $(this).val();
         }).get();
-      $('input[type=checkbox]:checked').parents('tr').remove();
+        $('input[type=checkbox]:checked').parents('tr').remove();
         data['ids'] = ids;
         var actionUrl = '${APIurl}';
-      deleteUser(data,actionUrl);
-    });
+        deleteUser(data,actionUrl);
+      });
 
     function deleteUser(data,actionUrl){
       $.ajax({
@@ -173,10 +207,12 @@
         dataType: "json",
         data: JSON.stringify(data), // javacript object to json
         success: function (result){
+          alert("delete success");
           //window.location.href = "/data-user?message=delete_success";
         },
         error: function (error){
           console.log(error);
+          alert("error");
           //window.location.href = "/data-user?message=error_system";
         }
       });

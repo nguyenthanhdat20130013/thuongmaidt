@@ -1,5 +1,6 @@
 package service;
 
+import dao.RoleDAO;
 import dao.UserDAO;
 import model.UserModel;
 
@@ -8,6 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
@@ -163,5 +165,24 @@ public class UserService {
 
     public static void setVerified(String rdData) {
         UserDAO.setVerified(rdData);    }
+
+    public static boolean hasChanged(UserModel oldUser){
+        UserModel newUser = UserDAO.findById(oldUser.getId());
+        //assert newUser != null;
+        int [] oldPm = oldUser.getIdPms();
+        int [] newPm = RoleDAO.findById(newUser.getRole()).getIdPermissions();
+        return !(Arrays.equals(oldPm,newPm));
+    }
+
+    public static List<UserModel> getByIds(UserModel user){
+        return UserDAO.getByIds(user);
+    }
+
+    public static void main(String[] args) {
+        UserModel user = UserService.checkLogin("Dung4","Dung112!");
+        int [] oldPm = user.getIdPms();
+        int [] newPm = {1,3,15};
+        System.out.println(!(Arrays.equals(oldPm,newPm)));
+    }
 }
 

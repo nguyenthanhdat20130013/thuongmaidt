@@ -5,6 +5,8 @@ import controller.admin.datatable.Item;
 public class UserModel extends Item {
     int id;
     int [] ids;
+
+    int [] idPms;
     String userName;
     String passWord;
     int role;
@@ -18,6 +20,7 @@ public class UserModel extends Item {
 
     int num_log_in;
 
+    String access_token;
 
     public UserModel(int id, String userName, String passWord, int role, String fullName, String phoneNum, String email, String address, int enable,String gender ) {
         this.id = id;
@@ -141,6 +144,22 @@ public class UserModel extends Item {
 
     public void setIds(int [] ids) {
         this.ids = ids;
+    }
+
+    public int[] getIdPms() {
+        return idPms;
+    }
+
+    public void setIdPms(int[] idPms) {
+        this.idPms = idPms;
+    }
+
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     @Override

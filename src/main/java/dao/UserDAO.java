@@ -16,13 +16,17 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select uid,user_name,password,role,enable from users where user_name = ? and password = ?";
+            sql = "select uid,user_name,password,role,enable,email from users where user_name = ? and password = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
             rs = pst.executeQuery();
             while (rs.next()) {
                 user = new UserModel(rs.getInt("uid"), rs.getString("user_name"), rs.getString("password"), rs.getInt("role"), rs.getInt("enable"));
+                user.setEmail(rs.getString("email"));
+            }
+            if(user != null){
+                user.setIdPms(RoleDAO.findById(user.getRole()).getIdPermissions());
             }
             return user;
         } catch (ClassNotFoundException | SQLException e) {
@@ -215,7 +219,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USER set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
+            sql = "update USERS set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getFullName());
             pst.setString(2, user.getEmail());
@@ -517,5 +521,13 @@ public class UserDAO {
        for(int i : userModel.getIds()){
            detele(i);
        }
+    }
+
+    public static List<UserModel> getByIds(UserModel user) {
+        List<UserModel> users = new ArrayList<>();
+        for(int i : user.getIds()){
+            users.add(findById(i));
+        }
+        return users;
     }
 }

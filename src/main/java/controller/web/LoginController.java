@@ -45,6 +45,7 @@ public class LoginController extends HttpServlet {
                 UserService.register(userName,passWord,email,full_name,"null");
             }
             UserModel user = UserService.findByUserAndEmail(userName,email);
+            user.setPassWord(passWord);
             request.getSession().setAttribute("user",user);
             response.sendRedirect("account");
             return;
@@ -66,6 +67,7 @@ public class LoginController extends HttpServlet {
             }
             UserModel user = new UserModel();
             user.setUserName(userName);
+            user.setPassWord(passWord);
             request.getSession().setAttribute("user", user);
             response.sendRedirect("account");
             return;
@@ -108,6 +110,7 @@ public class LoginController extends HttpServlet {
                     request.getRequestDispatcher("views/web/user-login.jsp").forward(request, response);
                     return;
                 }
+                user.setPassWord(passWord);
                 request.getSession().setAttribute("user", user);
                 response.sendRedirect("account");
             } else {
