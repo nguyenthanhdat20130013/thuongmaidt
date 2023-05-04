@@ -51,6 +51,9 @@
 <script src="<c:url value="/Template/admin/plugins/inputmask/jquery.inputmask.min.js"/>"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<c:url value="/Template/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"/>"></script>
+<script src="<c:url value="/Template/web/libs/jquery/jquery.validate.js"/>"></script>
+<script src="<c:url value="/Template/admin/plugins/daterangepicker/daterangepicker.js"/>"></script>
+<script src="<c:url value="/Template/admin/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"/>"></script>
 <script>
   $(function () {
     bsCustomFileInput.init();

@@ -1,9 +1,14 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Post" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ include file="../../common/taglib.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    List<Product> bSP = (ArrayList<Product>) request.getAttribute("bSP");
+    List<Product> newP = (ArrayList<Product>) request.getAttribute("newP");
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -51,7 +56,590 @@
                     <div class="container">
 
                         <!-- best seller -->
+                        <div class="section best-sellers col-lg-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="groupproductlist">
+                                        <div class="row d-flex align-items-center">
+                                            <!-- column 4 -->
+                                            <div class="flex-4 col-lg-4 flex-4">
+                                                <h2 class="title-block">
+                                                    <span class="sub-title"></span>Sản phẩm bán chạy
+                                                </h2>
+                                                <div class="content-text">
+                                                    <p>
+                                                    </p>
+                                                    <div>
+                                                        <a href="/list_product"> View all product </a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                            <!-- column 8 -->
+                                            <div class="block-content col-lg-8 flex-8">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade in active show">
+                                                        <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
+                                                            <div class="item text-center">
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(0).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(0).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(0).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(0).getProduct_id()%>"><%=bSP.get(0).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(0).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(0).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(1).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(1).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>"><%=bSP.get(1).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(1).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(1).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item text-center">
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(2).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(2).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(2).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(2).getProduct_id()%>"><%=bSP.get(2).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(2).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(2).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(3).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(3).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(3).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(3).getProduct_id()%>"><%=bSP.get(3).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(3).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(3).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item text-center">
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(4).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(4).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(4).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(4).getProduct_id()%>"><%=bSP.get(4).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(4).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(4).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(5).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(5).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(5).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(5).getProduct_id()%>"><%=bSP.get(5).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(5).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(5).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- newest -->
+                        <div class="section best-sellers col-lg-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="groupproductlist">
+                                        <div class="row d-flex align-items-center">
+                                            <!-- column 4 -->
+                                            <div class="flex-4 col-lg-4 flex-4">
+                                                <h2 class="title-block">
+                                                    <span class="sub-title"></span>Sản phẩm mới
+                                                </h2>
+                                                <div class="content-text">
+                                                    <p>
+                                                    </p>
+                                                    <div>
+                                                        <a href="/list_product"> View all product </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- column 8 -->
+                                            <div class="block-content col-lg-8 flex-8">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade in active show">
+                                                        <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
+                                                            <div class="item text-center">
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=newP.get(0).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=newP.get(0).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=newP.get(0).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=newP.get(0).getProduct_id()%>"><%=newP.get(0).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=newP.get(0).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=newP.get(0).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(1).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(1).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>"><%=bSP.get(1).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=bSP.get(1).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(1).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item text-center">
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=newP.get(2).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=newP.get(2).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=newP.get(2).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=newP.get(2).getProduct_id()%>"><%=newP.get(2).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=newP.get(2).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=newP.get(2).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=newP.get(3).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=newP.get(3).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=newP.get(3).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=newP.get(3).getProduct_id()%>"><%=bSP.get(3).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=newP.get(3).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=newP.get(3).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item text-center">
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=newP.get(4).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=newP.get(4).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=newP.get(4).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=newP.get(4).getProduct_id()%>"><%=bSP.get(4).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=newP.get(4).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=newP.get(4).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="/product_detail?pid=<%=newP.get(5).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=newP.get(5).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=newP.get(5).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="/product_detail?pid=<%=newP.get(5).getProduct_id()%>"><%=newP.get(5).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=newP.get(5).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=newP.get(5).getPrice()%></del>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- banner -->
                         <div class="container" style="margin-top: 140px">

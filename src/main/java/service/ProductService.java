@@ -211,7 +211,6 @@ public class ProductService {
             while (rs.next()) {
                 Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12));
                 list.add(p);
-
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -380,7 +379,6 @@ public class ProductService {
 
     public static void main(String[] args) {
 
-        System.out.println(getProductById(1));
     }
 
 }

@@ -1,6 +1,5 @@
 package controller.admin;
 
-import dao.LogDAO;
 import model.Log;
 import model.UserModel;
 import service.LogService;
@@ -27,19 +26,22 @@ public class LoginControllerAdmin extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserModel user = UserService.checkLogin(username, password);
-        Log log = new Log(Log.INFO,-1,this.name,"",0);
+        Log log = new Log(Log.INFO,-1,this.name,"",0,IpAddress.getClientIpAddr(request));
         if (user != null) {
+            log.setId(user.getId());
             if (user.getEnable() != 1) {
                 log.setSrc(this.name+"  USER LOGIN FALSE");
                 log.setContent(" USER LOGIN FALSE: User - "+ username);
                 log.setLevel(Log.WARNING);
                 request.setAttribute("error", "Tài khoản của bạn đã bị khoá");
                 request.getRequestDispatcher("views/admin/login.jsp").forward(request, response);
+                LogService.addLog(log);
                 return;
             }
             if (user.checkRole(1)) {
+                log.setUserId(user.getId());
                 log.setSrc(this.name+"  USER LOGIN SUCCESS");
-                log.setContent(" USER LOGIN SUCCESS: User - "+ username);
+                log.setContent(" USER LOGIN SUCCESS: User - " + username);
                 request.getSession().setAttribute("auth", user);
                 response.sendRedirect("admin-home");
             } else {
@@ -50,9 +52,9 @@ public class LoginControllerAdmin extends HttpServlet {
                 request.setAttribute("error", "Bạn không có quyền truy cập.");
                 request.getRequestDispatcher("views/admin/login.jsp").forward(request, response);
             }
-        } else{
+        } else {
             log.setSrc(this.name+"  USER LOGIN FALSE");
-            log.setContent(" USER LOGIN FALSE: User - "+ username);
+            log.setContent(" USER LOGIN FALSE: User - " + username);
             log.setLevel(Log.WARNING);
             request.setAttribute("error", "Thông tin đăng nhập không hợp lệ.");
             request.getRequestDispatcher("views/admin/login.jsp").forward(request, response);

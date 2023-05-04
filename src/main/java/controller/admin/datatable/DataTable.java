@@ -3,9 +3,12 @@ package controller.admin.datatable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dao.DBConnection;
+import mapper.LogMapper;
+import mapper.ProductMapper;
 import mapper.RowMapper;
-import mapper.UserMapper;
-import model.UserModel;
+import model.Log;
+import model.Product;
+
 import java.lang.reflect.Modifier;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -58,12 +61,13 @@ public class DataTable<T extends Item> {
         }
     }
 
-    private int queryCounts(String sql){
+    private int queryCounts(String sql,String col){
         int count = 0;
         ResultSet rs;
         PreparedStatement pst;
         try {
             pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setString(1,col);
             rs = pst.executeQuery();
             while(rs.next()){
                 count = rs.getInt(1);
@@ -75,11 +79,23 @@ public class DataTable<T extends Item> {
         }
     }
 
-    public String build(Class<T> type,RowMapper<T> rowMapper) {
+    public String build(Class<T> type,RowMapper<T> rowMapper,String col) {
         String selectSql = "SELECT * FROM " + table +" LIMIT "+start+","+length+"";
-        String countSql = "SELECT COUNT(uid) FROM "+table+"";
+        String countSql = "SELECT COUNT(?) FROM "+table+"";
         List<T> ts = queryLists(selectSql,type,rowMapper);
-        recordsTotal = queryCounts(countSql);
+        recordsTotal = queryCounts(countSql,col);
+        this.data= (List<T>) ts;
+        this.recordsFiltered = ts.size();
+        DataTableOut<T> out = new DataTableOut<T>(this.draw+1, recordsTotal, recordsTotal, ts);
+        return GSON.toJson(out);
+    }
+
+
+    public String buildContainWhere(Class<T> type,RowMapper<T> rowMapper,String col,String value) {
+        String selectSql = "SELECT * FROM " + table +" LIMIT "+start+","+length+"" + " Where " + value;
+        String countSql = "SELECT COUNT(?) FROM "+table+"";
+        List<T> ts = queryLists(selectSql,type,rowMapper);
+        recordsTotal = queryCounts(countSql,col);
         this.data= (List<T>) ts;
         this.recordsFiltered = ts.size();
         DataTableOut<T> out = new DataTableOut<T>(this.draw+1, recordsTotal, recordsTotal, ts);
@@ -98,7 +114,7 @@ public class DataTable<T extends Item> {
     }
 
     public static void main(String[] args) {
-        String users = new DataTable<UserModel>().table("users", 1, 0, 2).build(UserModel.class, new UserMapper());
-        System.out.println(users);
+       String Logs = new DataTable<Log>().table("log",1 ,1, 2).build(Log.class, new LogMapper(),"id");
+       System.out.println(Logs);
     }
 }

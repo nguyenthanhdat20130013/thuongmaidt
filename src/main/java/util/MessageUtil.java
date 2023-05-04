@@ -21,6 +21,12 @@ public class MessageUtil {
             } else if (message.equals("error_system")) {
                 messageResponse = "Error system";
                 alert = "danger";
+            } else if (message.equals("role_reset")){
+                messageResponse = "Something had changed pls re-login";
+                alert = "warning";
+            }  else if (message.equals("not_permission")){
+                messageResponse = "You don't have permission";
+                alert = "danger";
             }
             request.setAttribute("messageResponse", messageResponse);
             request.setAttribute("alert", alert);

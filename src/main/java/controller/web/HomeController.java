@@ -30,9 +30,12 @@ public class HomeController extends HttpServlet {
 //        //san pham ban chay
 //        List<Product> li = productService.getBestSale();
 //        request.setAttribute("bestseller", li);
-
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        List<Product> bSP = productService.getBestSale();
+        List<Product> newP = productService.getNewProduct(6);
+        request.setAttribute("bSP", bSP);
+        request.setAttribute("newP", newP);
         RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");
         rd.forward(request,response);
     }

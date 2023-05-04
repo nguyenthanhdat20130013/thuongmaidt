@@ -1,10 +1,13 @@
 package model;
 
+import controller.admin.datatable.Item;
+
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Log {
+public class Log extends Item {
+    String username;
     int id;
     int level;
     int userId;
@@ -12,6 +15,8 @@ public class Log {
     String content;
     Date creatAt;
     int status;
+
+    String ipAddress;
 
     static Map<Integer, String> levelMapping = new HashMap<>();
 
@@ -31,20 +36,22 @@ public class Log {
 
     }
 
-    public Log( int level,int userId, String src,  String content, Date creatAt, int status) {
+    public Log( int level,int userId, String src,  String content, Date creatAt, int status , String ipAddress) {
         this.level = level;
         this.src = src;
         this.userId = userId;
         this.content = content;
         this.creatAt = creatAt;
         this.status = status;
+        this.ipAddress = ipAddress;
     }
-    public Log( int level,int userId, String src,  String content,int status) {
+    public Log( int level,int userId, String src,  String content,int status,String ipAddress) {
         this.level = level;
         this.src = src;
         this.userId = userId;
         this.content = content;
         this.status = status;
+        this.ipAddress = ipAddress;
     }
 
     public int getId() {
@@ -108,4 +115,30 @@ public class Log {
         this.userId = userId;
     }
 
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(userId),
+                String.valueOf(level),
+                src,
+                String.valueOf(creatAt),
+                ipAddress
+        };
+    }
 }

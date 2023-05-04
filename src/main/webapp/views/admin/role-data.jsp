@@ -46,7 +46,7 @@
                     <div class="col-md-12">
                         <div class="card ">
                             <div class="card-header">
-                                    <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/role-data?action=add"></c:url>" style="color: white">Thêm mới</a></button>
+                                    <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/admin-role-data?action=add"></c:url>" style="color: white">Thêm mới</a></button>
                             </div>
                             <div class="card-body" style="display: block; padding:0px ;">
                                 <c:if test="${ messageResponse != null}">
@@ -69,12 +69,12 @@
                                             <td><%=role.getName()%></td>
                                             <td><%=role.getNumUser()%></td>
                                             <td>
-                                                <a class="btn btn-danger" href="role-data?action=delete&id=<%=id%>">Xoá</a>
-                                                <a class="btn btn-success" href="role-data?action=edit&id=<%=id%>">Sửa</a>
+                                                <a class="btn btn-danger" href="admin-role-data?action=delete&id=<%=id%>">Xoá</a>
+                                                <a class="btn btn-success" href="admin-role-data?action=edit&id=<%=id%>">Sửa</a>
                                             </td>
                                         </tr>
                                             <%}%>
-                                        </tfoot>
+                                        </tbody>
                                     </table>
                                 </form>
                             </div>

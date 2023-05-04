@@ -1,11 +1,15 @@
 package controller.admin;
 
 import controller.admin.datatable.DataTable;
+import dao.RoleDAO;
+import dao.UserDAO;
 import mapper.UserMapper;
 import model.Log;
+import model.Role;
 import model.UserModel;
 import service.LogService;
 import service.UserService;
+import util.MessageUtil;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,18 +24,28 @@ import java.util.Map;
 @WebServlet(name = "DataUserController", value = "/data-user")
 public class DataUserController extends HttpServlet {
     String name="List-User";
+    private static String editAccess = "sửa user";
+    private static String deleteAccess = "xoá user";
+    private static String addAccess = "thêm user";
+    private static String listAccess = "xem danh sách user";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MessageUtil.showMessage(request);
         String action = request.getParameter("action");
         int id = 0;
         UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
-        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0);
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0,IpAddress.getClientIpAddr(request));
         if(request.getParameter("id") != null ) {id = Integer.parseInt(request.getParameter("id"));}
         if(action == null){
+            List<UserModel> users = UserService.findAll();
+            log.setContent(users.toString());
+            LogService.addLog(log);
+            request.setAttribute("users",users);
             request.getRequestDispatcher("views/admin/user-data.jsp").forward(request, response);
             return;
         }
-        if(action.equals("list") ){
+        if(action.equals("list")){
             List<UserModel> users = UserService.findAll();
             log.setContent(users.toString());
             LogService.addLog(log);
@@ -40,34 +54,38 @@ public class DataUserController extends HttpServlet {
             return;
         }
         if(action.equals("edit")){
+            List<Role> roles = RoleDAO.findAll();
             UserModel user = UserService.findById(id);
-            log.setSrc(this.name+" VIEW ");
+            log.setSrc(this.name + " VIEW ");
             log.setContent(user.toString());
             LogService.addLog(log);
+            request.setAttribute("roles",roles);
             request.setAttribute("user",user);
             request.getRequestDispatcher("views/admin/edit-user.jsp").forward(request, response);
             return;
         }
         if(action.equals("add")){
+            List<Role> roles = RoleDAO.findAll();
+            request.setAttribute("roles",roles);
             request.getRequestDispatcher("views/admin/add-user.jsp").forward(request, response);
             return;
         }
         if(action.equals("delete")){
             UserModel deleteUser = UserService.findById(id);
             UserService.delete(id);
-            log.setSrc(this.name+" DELETE ");
+            log.setSrc(this.name + " DELETE ");
             log.setContent(deleteUser.toString());
             log.setLevel(Log.WARNING);
             LogService.addLog(log);
             List<UserModel> users = UserService.findAll();
             request.setAttribute("users",users);
-            request.setAttribute("success","Xoá thành công");
             request.getRequestDispatcher("views/admin/user-data.jsp").forward(request, response);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MessageUtil.showMessage(request);
         String action = request.getParameter("action");
         int id = 0;
         int role = 0;
@@ -78,7 +96,7 @@ public class DataUserController extends HttpServlet {
         String enable = request.getParameter("enable");
 
         UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
-        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0);
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0,IpAddress.getClientIpAddr(request));
 
         if(request.getParameter("id") != null ){ id = Integer.parseInt(request.getParameter("id"));}
         if(request.getParameter("role") != null ) {role = Integer.parseInt(request.getParameter("role"));}
@@ -86,12 +104,12 @@ public class DataUserController extends HttpServlet {
             UserModel oldUser = UserService.findById(id);
             UserModel newUser = new UserModel(id,oldUser.getUserName(),oldUser.getPassWord(),role,full_name,oldUser.getPhoneNum(),email,oldUser.getAddress(),0,oldUser.getGender());
             UserService.updateAdmin(newUser,enable);
-            log.setSrc(this.name+" EDIT ");
+            log.setSrc(this.name + " EDIT ");
             log.setContent(newUser.toString());
             LogService.addLog(log);
             request.setAttribute("success","Cập nhật thành công");
             request.setAttribute("user",newUser);
-            request.getRequestDispatcher("views/admin/edit-user.jsp").forward(request, response);
+            response.sendRedirect("data-user?action=edit&id=" + id + "&message=update_success");
             return;
         }
         if(action.equals("add")){
@@ -111,4 +129,6 @@ public class DataUserController extends HttpServlet {
             request.getRequestDispatcher("views/admin/add-user.jsp").forward(request, response);
         }
     }
+
+
 }

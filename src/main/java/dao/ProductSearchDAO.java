@@ -1,6 +1,7 @@
 package dao;
 
 import model.ImgProductSearchModel;
+import model.Product;
 import model.ProductSearchModel;
 
 import java.sql.PreparedStatement;
@@ -142,5 +143,23 @@ public class ProductSearchDAO {
 
     public static void main(String[] args) {
 
+    }
+
+    public static void deletes(Product product) {
+        for(int i : product.getIds()){
+            detele(i);
+        }
+    }
+    public static void detele(int id){
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "delete from products where product_id = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

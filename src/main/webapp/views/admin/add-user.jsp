@@ -1,6 +1,9 @@
+<%@ page import="model.Role" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+  List<Role> roles = (List<Role>) request.getAttribute("roles");
   String error = (String) request.getAttribute("error");
   String success = (String) request.getAttribute("success");
 %>
@@ -99,19 +102,14 @@
                         <div class="form-group">
                           <span>Quyền</span>
                           <select class="form-control" id="role" name="role">
-                            <option value="0">User</option>
-                            <option value="1">Mod</option>
-                            <option value="2">Admin</option>
+                            <select class="form-control" id="select-role" name="role">
+                              <%for (Role r : roles) {%>
+                              <option value="<%=r.getId()%>"><%=r.getName()%></option>
+                              <%}%>
+                            </select>
                           </select>
                         </div>
                       </div>
-                      <% if(success != null) {%>
-                      <div class="form-group col-md-6 ">
-                        <div class="form-group">
-                          <div class="alert-success"><%=success%></div>
-                        </div>
-                      </div>
-                      <% }%>
                     </div>
                   </div>
                   <!-- /.card-body -->

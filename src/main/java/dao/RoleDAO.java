@@ -160,6 +160,9 @@ public class RoleDAO {
         ResultSet rs;
         PreparedStatement pst;
         String sql;
+        int index = 0;
+        int count = 1;
+        int [] ids = new int[1];
         try {
             role = new Role();
             permissions = new ArrayList<>();
@@ -168,11 +171,16 @@ public class RoleDAO {
             pst.setInt(1,id);
             rs = pst.executeQuery();
             while (rs.next()) {
+                ids = reSize(ids,count);
+                ids[index] = rs.getInt("id_permiss");
                 permissions.add(new Permission(rs.getInt("id_permiss"),rs.getString("permiss")));
+                count++;
+                index++;
             }
             role.setId(id);
             role.setName(findName(id));
             role.setPermission(permissions);
+            role.setIdPermissions(ids);
             return role;
         }
         catch (ClassNotFoundException | SQLException e) {
@@ -252,6 +260,11 @@ public class RoleDAO {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+    }
+    private  static int[] reSize(int[] a, int size){
+        int[] temp = new int [size];
+        System.arraycopy(a, 0, temp, 0, (a.length < size) ? a.length : size);
+        return temp;
     }
 
     public static void main(String[] args) {
