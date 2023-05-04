@@ -418,9 +418,9 @@
                                                                 </div>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>">
-                                                                            <img class="img-fluid image-cover" src="<%=bSP.get(1).getImage(0)%>" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="<%=bSP.get(1).getImage(1)%>" alt="img">
+                                                                        <a href="/product_detail?pid=<%=newP.get(1).getProduct_id()%>">
+                                                                            <img class="img-fluid image-cover" src="<%=newP.get(1).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=newP.get(1).getImage(1)%>" alt="img">
                                                                         </a>
                                                                         <div class="highlighted-informations">
                                                                             <div class="variant-links">
@@ -433,12 +433,12 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>"><%=bSP.get(1).getName()%></a>
+                                                                                <a href="/product_detail?pid=<%=newP.get(1).getProduct_id()%>"><%=newP.get(1).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(1).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(1).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(1).getPrice_sell()%></span>
+                                                                                    <del class="regular-price"><%=newP.get(1).getPrice()%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -519,7 +519,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(3).getProduct_id()%>"><%=bSP.get(3).getName()%></a>
+                                                                                <a href="/product_detail?pid=<%=newP.get(3).getProduct_id()%>"><%=newP.get(3).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -563,7 +563,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(4).getProduct_id()%>"><%=bSP.get(4).getName()%></a>
+                                                                                <a href="/product_detail?pid=<%=newP.get(4).getProduct_id()%>"><%=newP.get(4).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
