@@ -15,13 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "WardServlet", urlPatterns = "/WardServlet")
 public class WardServlet extends HttpServlet {
-
     private static final long serialVersionUID = 1L;
-
     public WardServlet() {
         super();
     }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String districtId = request.getParameter("districtId");
         int value = Integer.parseInt(districtId);

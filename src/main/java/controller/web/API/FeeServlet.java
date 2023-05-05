@@ -16,12 +16,10 @@ import java.io.IOException;
 @WebServlet(name = "FeeServlet", urlPatterns = "/FeeServlet")
 public class FeeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String provinceId = request.getParameter("province");
         String districtId = request.getParameter("district");
         String wardId = request.getParameter("ward");
         // Xử lý dữ liệu ở đây
-
         int pId = Integer.parseInt(provinceId);
         int dId = Integer.parseInt(districtId);
         int wId = Integer.parseInt(wardId);
@@ -40,7 +38,6 @@ public class FeeServlet extends HttpServlet {
 
         // Trả về phí chuyển hàng dưới dạng chuỗi
         String shippingFeeStr = String.valueOf(shippingFee);
-
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(shippingFeeStr);

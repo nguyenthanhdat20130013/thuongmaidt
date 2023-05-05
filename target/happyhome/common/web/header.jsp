@@ -73,14 +73,11 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="" class="parent">Bộ Sưu Tập <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="#" class="parent">Bộ Sưu Tập <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left)">KOLDING Collection</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left) 2">FIJI Collection</a>
+                                            <a href="/collection?cid=1" title="Blog List (Sidebar Left)">KOLDING Collection</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -91,16 +88,16 @@
                                 <div class="dropdown-menu service-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left)"> Các Câu Hỏi Thường Gặp</a>
+                                            <a href="/faqs" title="Blog List (Sidebar Left)"> Các Câu Hỏi Thường Gặp</a>
                                         </li>
                                         <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left) 2"> Hướng Dẫn Đặt Hàng</a>
+                                            <a href="/guide" title="Blog List (Sidebar Left) 2"> Hướng Dẫn Đặt Hàng</a>
                                         </li>
                                         <li class="item">
-                                            <a href="" title="Category Blog (Right column)">Chính Sách Vận Chuyển</a>
+                                            <a href="/delivery" title="Category Blog (Right column)">Chính Sách Vận Chuyển</a>
                                         </li>
                                         <li class="item">
-                                            <a href="" title="Blog List (No Sidebar)">Chính Sách Bảo Mật Thông Tin</a>
+                                            <a href="/privacy" title="Blog List (No Sidebar)">Chính Sách Bảo Mật Thông Tin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,7 +118,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="" class="parent">Liên hệ</a>
+                                <a href="/contact" class="parent">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
@@ -230,11 +227,11 @@
                                                     <a href="product-detail.html"><%=p.getProduct().getName()%></a>
                                                 </div>
                                                 <div>
-                                     <!--               <span class="product-price"><%=p.getQuantity()%> * <%=p.getProduct().getPrice_sell()%> vnđ</span> -->
+                                                   <span class="product-price"><%=p.getQuantity()%> * <%=p.getProduct().formatCurrency(p.getProduct().getPrice_sell())%> = <%=p.getProduct().formatCurrency(p.getQuantity() * p.getProduct().getPrice_sell())%> </span>
                                                 </div>
                                             </td>
                                             <td class="action">
-                                                <a class="remove" href="#">
+                                                <a class="remove" href="/cart/del?id=<%=p.getProduct().getProduct_id()%>">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
                                             </td>
@@ -242,9 +239,16 @@
                                         <%}%>
                                         <tr class="total">
                                             <td colspan="2">Tổng :</td>
-                                            <td>${cart.total} vnđ</td>
+                                            <td id="cart-total"></td>
                                         </tr>
-
+                                        <script>
+                                            // Lấy giá trị số tiền từ đối tượng cart
+                                            const cartTotal = ${cart.total};
+                                            // Chuyển đổi định dạng tiền tệ sang VND
+                                            const formattedCartTotal = cartTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                                            // Hiển thị giá trị đã được định dạng trên trang web
+                                            document.getElementById("cart-total").innerHTML = formattedCartTotal;
+                                        </script>
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">

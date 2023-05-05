@@ -169,7 +169,7 @@
                                                     <div>
                                                         <div class="form-group row">
                                                             <label for="province">Chọn tỉnh</label>
-                                                            <select id="province" name="province">
+                                                            <select class="form-control" id="province" name="province">
                                                                 <c:forEach items="${listProvinces}" var="item">
                                                                     <option value="${item.id}">${item.name}</option>
                                                                 </c:forEach>
@@ -183,7 +183,7 @@
                                             <div>
 
                                                 <label for="district">Huyện:</label>
-                                                <select id="district" name="district">
+                                                <select class="form-control" id="district" name="district">
                                                     <option value="">Chọn huyện</option>
                                                 </select>
 
@@ -191,7 +191,7 @@
                                             <div>
 
                                                 <label for="ward">Xã:</label>
-                                                <select id="ward" name="ward">
+                                                <select class="form-control" id="ward" name="ward">
                                                     <option value="">Chọn xã</option>
                                                 </select>
                                                 <!-- Thêm input để đưa giá trị của select box vào servlet -->
@@ -271,7 +271,7 @@
                                                     <span class="label js-subtotal">
                                                         Tổng Sản phẩm:
                                                     </span>
-                                                    <span class="value">${cart.total} vnđ</span>
+                                                    <span class="value">${cart.total} ₫</span>
                                                 </div>
                                                 <div class="cart-summary-line" id="cart-subtotal-shipping">
 
@@ -284,7 +284,7 @@
                                                 </div>
                                                 <div class="cart-summary-line cart-total">
                                                     <span class="label">Tổng:</span>
-                                                    <span class="value">${cart.total} vnđ (bao gồm thuế.)</span>
+                                                    <span class="value">${cart.total} ₫ (bao gồm thuế.)</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@
                                                     <span class="label js-subtotal">
                                                       <a href=""><%=p.getProduct().getName()%></a>
                                                     </span>
-                                                    <span class="value"><%=p.getQuantity()%> x <%=p.getProduct().getPrice_sell()%> vnđ</span>
+                                                    <span class="value"><%=p.getQuantity()%> x <%=p.getProduct().getPrice_sell()%> =<%=p.getProduct().formatCurrency(p.getQuantity()*p.getProduct().getPrice_sell())%></span>
                                                 </div>
                                                 <%}%>
                                             </div>
@@ -412,10 +412,10 @@
                         $('#shipping-fee-input').val(shippingFee);
 
                         // Hiển thị giá trị trong span
-                        $('#cart-subtotal-shipping .value').text(shippingFee.toLocaleString('vi-VN') + ' vnđ');
+                        $('#cart-subtotal-shipping .value').text(shippingFee.toLocaleString('vi-VN') + '₫');
 
                         // Hiển thị giá trị mới của tổng
-                        $('.cart-total .value').text(newCartTotal.toLocaleString('vi-VN') + ' vnđ (bao gồm thuế.)');
+                        $('.cart-total .value').text(newCartTotal.toLocaleString('vi-VN') + ' ₫ (bao gồm thuế.)');
                     },
                     error: function () {
                         alert('Đã có lỗi xảy ra!');

@@ -7,9 +7,6 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
 <html lang="en">
-
-
-<!-- contact11:09-->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -19,7 +16,6 @@
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
-
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -41,12 +37,12 @@
                         <div class="breadcrumb">
                             <ol>
                                 <li>
-                                    <a href="#">
+                                    <a href="/home">
                                         <span>Trang chủ</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="/contact">
                                         <span>Liên hệ</span>
                                     </a>
                                 </li>

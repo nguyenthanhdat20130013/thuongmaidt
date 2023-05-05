@@ -1,4 +1,6 @@
+<%@ page import="model.Introduce" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Introduce intro = (Introduce) request.getAttribute("info");%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -16,8 +18,6 @@
   <meta name="keywords" content="Furniture, Decor, Interior">
   <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
   <meta name="author" content="tivatheme">
-
-
   <!-- Mobile Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -48,12 +48,12 @@
           <div class="breadcrumb">
             <ol>
               <li>
-                <a href="index.html">
+                <a href="/home">
                   <span>Trang chủ</span>
                 </a>
               </li>
               <li>
-                <a href="recruit.jsp">
+                <a href="/agent">
                   <span>Chính sách đại lý - đối tác </span>
                 </a>
               </li>
@@ -155,7 +155,7 @@
 
                 <p style="text-align: center;"><span style="font-size:18px;">LIÊN HỆ VỚI CHÚNG TÔI</span></p>
 
-                <p style="text-align: center;"><span style="font-size:18px;">HOTLINE: <span style="color:#FF0000;"><strong>0937 447 124</strong></span> | Email: happyhome@gmail.com.vn</span></p>
+                <p style="text-align: center;"><span style="font-size:18px;">HOTLINE: <span style="color:#FF0000;"><strong><%=intro.phone%></strong></span> | Email: <%=intro.email%></span></p>
 
             </div>
           </div>

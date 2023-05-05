@@ -110,14 +110,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(0).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(0).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=bSP.get(0).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -152,14 +152,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(1).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(1).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=bSP.get(1).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -196,14 +196,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(2).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(2).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=bSP.get(2).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -238,14 +238,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(3).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(3).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=bSP.get(3).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -282,14 +282,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(4).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(4).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=bSP.get(4).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -324,14 +324,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(5).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(5).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=bSP.get(5).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -403,14 +403,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(0).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(0).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=newP.get(0).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -445,14 +445,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(1).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(1).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=newP.get(1).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -489,14 +489,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(2).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(2).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=newP.get(2).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -531,14 +531,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(3).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(3).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=newP.get(3).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -575,14 +575,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(4).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(4).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=newP.get(4).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -617,14 +617,14 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(5).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(5).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="product_detail?pid=<%=newP.get(5).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>

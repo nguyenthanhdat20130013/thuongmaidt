@@ -43,12 +43,12 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="#">
+                                <a href="/home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/about">
                                     <span>Giới thiệu về chúng tôi</span>
                                 </a>
                             </li>
@@ -65,19 +65,19 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 right">
                                     <a href="#">
-                                        <img class="img-fluid" src="img/other/1.jpg" alt="#" />
+                                        <img class="img-fluid" src="/Template/web/img/other/1.jpg" alt="#" />
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 left">
                                     <div class="cms-block f-right">
                                         <h3 class="page-subheading">VỀ NỘI THẤT HAPPYHOME</h3>
-                                        <p>Nội thất HAPPYHOME là thương hiệu nội thất đến từ Việt Nam với hơn 35 năm kinh nghiệm trong việc sản xuất và xuất khẩu nội thẩt đạt chuẩn quốc tế </p>
+                                        <p>Nội thất HAPPYHOME là thương hiệu nội thất đến từ Việt Nam với hơn 20 năm kinh nghiệm trong việc sản xuất và xuất khẩu nội thẩt đạt chuẩn quốc tế </p>
                                         <p>Mỗi một chi tiết, mỗi một sản phẩm và hình ảnh đều là những dấu ấn, là câu chuyện mà HAPPYHOME muốn gửi gắm đến mỗi khách hàng.
                                             HAPPYHOME hi vọng trong từng bộ sưu tập, từng sản phẩm và dịch vụ của mình sẽ trở thành một phần trong tổ ấm của mỗi gia đình Việt,
                                             như một thông điệp "mang yêu thương gửi trọn trong từng không gian sống".
                                             Hướng đến sự tiện ích, hiện đại tối giản và thân thiện môi trường là khát khao mà HAPPYHOME không ngừng theo đuổi. </p>
                                         <a>
-                                            <img class="img-fluid" src="img/other/4.png" alt="#" />
+                                            <img class="img-fluid" src="/Template/web/img/other/4.png" alt="#" />
                                             <span>Mr. LÊ ĐÌNH QUỐC DŨNG - CEO</span>
                                         </a>
                                     </div>
@@ -93,12 +93,12 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 left">
                                     <a href="#">
-                                        <img class="img-fluid" src="img/other/2.jpg" alt="#" />
+                                        <img class="img-fluid" src="/Template/web/img/other/2.jpg" alt="#" />
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 right">
                                     <a href="#">
-                                        <img class="img-fluid" src="img/other/4.jpg" alt="#" />
+                                        <img class="img-fluid" src="/Template/web/img/other/4.jpg" alt="#" />
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 left">
@@ -135,7 +135,7 @@
                                                 <div class="position"></div>
                                                 <p>Chúng tôi tạo ra không gian sống tuyệt vời nhất, nơi chúng tôi gọi là “Nhà”. </br>
 
-                                                    "Điều tôi muốn xây dựng ở đây là mang đến những thiết kế cao cấp dành riêng cho người Việt. Tôi muốn giúp khách hàng cá nhân hoá không gian sống thật sự phù hợp và lý tưởng. MOHO, chúng tôi làm tất cả vì khách hàng." Mr. Trần Duy Luận - Giám đốc thiết kế của HAPPYHOME.
+                                                    "Điều tôi muốn xây dựng ở đây là mang đến những thiết kế cao cấp dành riêng cho người Việt. Tôi muốn giúp khách hàng cá nhân hoá không gian sống thật sự phù hợp và lý tưởng. MOHO, chúng tôi làm tất cả vì khách hàng." Mr. Nguyễn Thành Đạt - Giám đốc thiết kế của HAPPYHOME.
                                                 </p>
                                             </div>
                                             <div class="item">

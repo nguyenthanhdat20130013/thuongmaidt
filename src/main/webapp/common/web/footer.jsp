@@ -29,24 +29,23 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="/views/web/">Giới thiệu HappyHome</a>
+                                    <a href="/about">Giới thiệu HappyHome</a>
                                 </li>
                                 <li>
                                     <a href="/contact">Liên hệ</a>
                                 </li>
                                 <li>
-                                    <a href="">Tuyển dụng</a>
+                                    <a href="/recruit">Tuyển dụng</a>
                                 </li>
 
                                 <li>
-                                    <a href="">Chính sách Đại lý/Đối tác</a>
+                                    <a href="/agent">Chính sách Đại lý / Đối tác</a>
                                 </li>
 
                             </ul>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-3 col-md-4">
                     <div class="block">
                         <div class="block-content">
@@ -55,19 +54,19 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="">Các Câu Hỏi Thường Gặp</a>
+                                    <a href="/faqs">Các Câu Hỏi Thường Gặp</a>
                                 </li>
                                 <li>
-                                    <a href="">Hướng Dẫn Đặt Hàng</a>
+                                    <a href="/guide">Hướng Dẫn Đặt Hàng</a>
                                 </li>
                                 <li>
-                                    <a href="">Chính Sách Vận Chuyển</a>
+                                    <a href="/delivery">Chính Sách Vận Chuyển</a>
                                 </li>
                                 <li>
-                                    <a href="">Chính Sách Bảo Hành</a>
+                                    <a href="/warranty">Chính Sách Bảo Hành</a>
                                 </li>
                                 <li>
-                                    <a href="">Chính Sách Bảo Mật Thông Tin</a>
+                                    <a href="/privacy">Chính Sách Bảo Mật Thông Tin</a>
                                 </li>
                             </ul>
                         </div>
@@ -155,7 +154,7 @@
             <div class="row">
                 <div class="text-center col-lg-12 ">
                         <span>
-                            <a href="">Copyright © 2022 Nội Thất HAPPYHOME.</a>
+                            <a href="">Copyright © 2023 Nội Thất HAPPYHOME.</a>
                         </span>
                 </div>
             </div>

@@ -68,7 +68,7 @@
             <div class="row-inhert">
               <div class=""><p><strong>1. </strong><strong>HAPPYHOME<strong> được thành lập lâu chưa?</strong></strong></p>
 
-                <p> <strong>HAPPYHOME</strong> được thành lập từ năm 2022.</p>
+                <p> <strong>HAPPYHOME</strong> được thành lập từ năm 2003.</p>
 
                 <p><strong>2. Sàn phẩm </strong><strong>HAPPYHOME<strong> từ đâu?</strong></strong></p>
 

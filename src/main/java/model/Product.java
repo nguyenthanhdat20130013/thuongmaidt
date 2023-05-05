@@ -4,7 +4,9 @@ import controller.admin.datatable.Item;
 import service.ProductService;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Product extends Item implements Serializable {
    private int [] ids;
@@ -190,6 +192,11 @@ public class Product extends Item implements Serializable {
             break;
       }
       return nameStatus;
+   }
+   public String formatCurrency(double amount) {
+      Locale localeVN = new Locale("vi", "VN");
+      NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+      return currencyVN.format(amount);
    }
 
    @Override

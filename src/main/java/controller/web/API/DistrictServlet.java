@@ -30,7 +30,6 @@ public class DistrictServlet extends HttpServlet {
         String provinceId = request.getParameter("province");
         int value = Integer.parseInt(provinceId);
         Login_API login_api = new Login_API();
-        System.out.println(value);
         String API_KEY = login_api.login();
         List<District> districts = District_API.convert(API_KEY, value);
 

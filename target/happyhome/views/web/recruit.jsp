@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Tuyển dụng</title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
   <meta name="keywords" content="Furniture, Decor, Interior">
   <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
   <meta name="author" content="tivatheme">
@@ -45,12 +45,12 @@
           <div class="breadcrumb">
             <ol>
               <li>
-                <a href="index.html">
+                <a href="/home">
                   <span>Trang chủ</span>
                 </a>
               </li>
               <li>
-                <a href="recruit.jsp">
+                <a href="/recruit">
                   <span>Tuyển dụng</span>
                 </a>
               </li>
@@ -122,7 +122,7 @@
                         Đừng ngại ngùng nữa hãy ứng tuyển NGAY vào công ty chúng tôi để khai phá tiềm năng của bạn nhé!<br>
                         -----<br>
                         Liên hệ<br>
-                        Các bạn ứng tuyển vui lòng gửi CV về địa chỉ Email : HAPPYHOME@Gmail.com.vn</p>
+                        Các bạn ứng tuyển vui lòng gửi CV về địa chỉ Email : contact@happyhome.com</p>
                     </div>
                   </div>
                 </div>
