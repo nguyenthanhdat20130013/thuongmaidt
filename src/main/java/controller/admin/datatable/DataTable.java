@@ -3,9 +3,11 @@ package controller.admin.datatable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dao.DBConnection;
+import mapper.ImportProductMapper;
 import mapper.LogMapper;
 import mapper.ProductMapper;
 import mapper.RowMapper;
+import model.ImportProduct;
 import model.Log;
 import model.Product;
 
@@ -114,7 +116,7 @@ public class DataTable<T extends Item> {
     }
 
     public static void main(String[] args) {
-       String Logs = new DataTable<Log>().table("log",1 ,1, 2).build(Log.class, new LogMapper(),"id");
+       String Logs = new DataTable<ImportProduct>().table("import_products",1 ,1, 2).build(ImportProduct.class, new ImportProductMapper(),"id");
        System.out.println(Logs);
     }
 }

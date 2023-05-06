@@ -175,7 +175,6 @@
     });
 
 
-
     $('#checkAll').click(function (e) {
       $('#user-data tbody :checkbox').prop('checked', $(this).is(':checked'));
       e.stopImmediatePropagation();
@@ -196,6 +195,7 @@
         $('input[type=checkbox]:checked').parents('tr').remove();
         data['ids'] = ids;
         var actionUrl = '${APIurl}';
+        console.log(JSON.stringify(data));
         deleteUser(data,actionUrl);
       });
 

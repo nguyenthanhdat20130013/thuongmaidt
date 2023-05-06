@@ -5,13 +5,11 @@ import model.Product;
 import model.Image;
 import model.Product_type;
 import model.Slider;
-
-import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ProductService {
@@ -65,6 +63,21 @@ public class ProductService {
 
 
     }
+
+    public static void updateQuantity(int id, int quantity) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "UPDATE products  set quantity = (quantity + ?) where product_id = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,quantity);
+            pst.setInt(2,id);
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     //lay ra hinh anh tuong ung
     public ArrayList<Image> getImage(int id) {
         ArrayList<Image> imgUrl = new ArrayList<>();
@@ -378,7 +391,33 @@ public class ProductService {
 
 
     public static void main(String[] args) {
-
+            ProductService service = new ProductService();
+            System.out.println(service.getProductByName("ghế"));
     }
 
+    public  List<Product> getProductByName(String txtSearch) {
+        List<Product> list = new ArrayList<>();
+        String sql = "SELECT product_id,`name`,price,price_sell FROM products WHERE `name` LIKE ?";
+        PreparedStatement ps ;
+        ResultSet rs ;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.setString(1,"%" + txtSearch + "%");
+            //ps.setObject(1, "%" + txtSearch + "%", Types.VARCHAR);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setName(rs.getString("name"));
+                p.setProduct_id(rs.getInt("product_id"));
+                p.setPrice(rs.getInt("price"));
+                p.setPrice_sell(rs.getInt("price_sell"));
+                p.setImg1(p.getImage(0));
+                list.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return list;
+    }
 }
