@@ -22,6 +22,8 @@ public class Product extends Item implements Serializable {
    public int product_type;
    public String product_insurance;
 
+   public String img1;
+
    public Product(){
 
    }
@@ -146,6 +148,14 @@ public class Product extends Item implements Serializable {
       return product_insurance;
    }
 
+   public void setImg1(String url){
+      this.img1 = url;
+   }
+
+   public String getImg1(){
+      return this.img1;
+   }
+
    public void setProduct_insurance(String product_insurance) {
       this.product_insurance = product_insurance;
    }
@@ -169,6 +179,7 @@ public class Product extends Item implements Serializable {
       }
       return "";
    }
+
    public String getNType(){
       String result = null;
       ProductService ser = new ProductService();
@@ -176,6 +187,8 @@ public class Product extends Item implements Serializable {
       result = type_name.getType_name();
       return result;
    }
+
+
    public String statusProduct(int id){
       String nameStatus = "Lỗi";
       switch (id){
