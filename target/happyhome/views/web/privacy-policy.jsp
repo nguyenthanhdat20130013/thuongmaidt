@@ -11,7 +11,7 @@
   <!-- Basic Page Needs -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chính sách bảo hành</title>
+  <title>Chính sách bảo mật thông tin</title>
   <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
   <meta name="keywords" content="Furniture, Decor, Interior">
   <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
@@ -47,12 +47,12 @@
               <div class="breadcrumb">
                 <ol>
                   <li>
-                    <a href="index.html">
+                    <a href="/home">
                       <span>Trang chủ</span>
                     </a>
                   </li>
                   <li>
-                    <a href="recruit.jsp">
+                    <a href="/privacy">
                       <span>Chính sách bảo mật</span>
                     </a>
                   </li>
@@ -135,15 +135,7 @@
                     <p style="margin-left:22.5pt;">- Vì vậy, bạn đã đồng ý rằng, khi bạn sử dụng website của chúng tôi sau khi chỉnh sửa nghĩa là bạn đã thừa nhận, đồng ý tuân thủ cũng như tin tưởng vào sự chỉnh sửa này. Do đó, chúng tôi đề nghị bạn nên xem trước nội dung trang này trước khi truy cập các nội dung khác trên website cũng như bạn nên đọc và t ham khảo kỹ nội dung “Chính sách bảo mật” của từng website mà bạn đang truy cập.</p>
 
                     <p><strong>9. Thông tin liên hệ:</strong></p>
-
-                    <p style="margin-left:22.5pt;">- Chúng tôi luôn hoan nghênh các ý kiến đóng góp, liên hệ và phản hồi thông tin từ bạn về “Chính sách bảo mật” này. Nếu bạn có những thắc mắc liên quan xin vui lòng liên hệ theo địa chỉ Email:&nbsp;<a href="#">HappyHome@gmail.com.vn</a></p>
-
-                    <p ><strong>Công ty TNHH Thương mại Dịch vụ HappyHome</strong><br>
-                      <strong>Website: www.HappyHome.com.vn</strong>&nbsp;<br>
-                      Lần cập nhật: thứ nhất<br>
-                      Thời gian cập nhật: giờ: 10h00 ngày 12 tháng 11 năm 2022</p>
-
-                    <p>&nbsp;</p>
+                    <a href="/contact">Liên hệ</a>
 
                 </div>
               </div>
@@ -153,7 +145,7 @@
       </div>
     </div>
 
-    <jsp:include page="/common/web/header.jsp"></jsp:include>
+    <jsp:include page="/common/web/footer.jsp"></jsp:include>
     <!-- Vendor JS -->
     <jsp:include page="/common/web/js.jsp"></jsp:include>
 </body>

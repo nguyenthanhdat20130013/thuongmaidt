@@ -62,13 +62,12 @@
                                 <a href="<c:url value="/list_product"/>" class="parent">Sản Phẩm<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
-                                        <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
-                                            for (Product_type pty: list0) {%>
+                                            <c:forEach var="pty" items="${listType}">
                                         <li class="item living-room-drop">
-                                            <a href="productCate?cid=<%=pty.getType_id()%>" title="<%=pty.getType_name()%>"> <%=pty.getType_name()%> </i>
+                                            <a href="<c:url value="/productCate?cid=${pty.type_id}"/>" title="${pty.type_name}"> ${pty.type_name} </i>
                                             </a>
                                         </li>
-                                        <%}%>
+                                            </c:forEach>
                                     </ul>
                                 </div>
                             </li>
@@ -77,7 +76,7 @@
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="/collection?cid=1" title="Blog List (Sidebar Left)">KOLDING Collection</a>
+                                            <a href="<c:url value="/collection?cid=1"/>" title="Blog List (Sidebar Left)">KOLDING Collection</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -88,16 +87,16 @@
                                 <div class="dropdown-menu service-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="/faqs" title="Blog List (Sidebar Left)"> Các Câu Hỏi Thường Gặp</a>
+                                            <a href="<c:url value="/faqs"/>" title="Blog List (Sidebar Left)"> Các Câu Hỏi Thường Gặp</a>
                                         </li>
                                         <li class="item">
-                                            <a href="/guide" title="Blog List (Sidebar Left) 2"> Hướng Dẫn Đặt Hàng</a>
+                                            <a href="<c:url value="/guide"/>" title="Blog List (Sidebar Left) 2"> Hướng Dẫn Đặt Hàng</a>
                                         </li>
                                         <li class="item">
-                                            <a href="/delivery" title="Category Blog (Right column)">Chính Sách Vận Chuyển</a>
+                                            <a href="<c:url value="/delivery"/>" title="Category Blog (Right column)">Chính Sách Vận Chuyển</a>
                                         </li>
                                         <li class="item">
-                                            <a href="/privacy" title="Blog List (No Sidebar)">Chính Sách Bảo Mật Thông Tin</a>
+                                            <a href="<c:url value="/privacy"/>" title="Blog List (No Sidebar)">Chính Sách Bảo Mật Thông Tin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -118,7 +117,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="/contact" class="parent">Liên hệ</a>
+                                <a href="<c:url value="/contact"/>" class="parent">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
@@ -175,19 +174,19 @@
                                 <% } %>
                                 <% if(user != null) {%>
                                 <div>
-                                    <a class="check-out" href="/checkout" rel="nofollow" title="Checkout">
+                                    <a class="check-out" href="<c:url value="/checkout"/>" rel="nofollow" title="Checkout">
                                         <i class="fa fa-check" aria-hidden="true"></i>
                                         <span>Thanh toán</span>
                                     </a>
                                 </div>
                                 <div class="link_wishlist">
-                                    <a href="/list_order" title="My Wishlists">
+                                    <a href="<c:url value="/list_order"/>" title="My Wishlists">
                                         <i class="fa fa-truck"></i>
                                         <span>Danh sách đơn hàng</span>
                                     </a>
                                 </div>
                                 <div class="link_wishlist">
-                                    <a href="/favorite" title="My Wishlists">
+                                    <a href="<c:url value="/favorite"/>" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
                                         <span>Danh sách yêu thích</span>
                                     </a>
@@ -214,29 +213,28 @@
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
-                                        <%  Collection<ProductInCart> list = cart.getListProductInCart();
-                                            for (ProductInCart p: list) {%>
-                                        <tr>
-                                            <td class="product-image">
-                                                <a href="product-detail.html">
-                                                    <img src="<%=p.getProduct().getImage(0)%>" alt="Product">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="product-name">
-                                                    <a href="product-detail.html"><%=p.getProduct().getName()%></a>
-                                                </div>
-                                                <div>
-                                                   <span class="product-price"><%=p.getQuantity()%> * <%=p.getProduct().formatCurrency(p.getProduct().getPrice_sell())%> = <%=p.getProduct().formatCurrency(p.getQuantity() * p.getProduct().getPrice_sell())%> </span>
-                                                </div>
-                                            </td>
-                                            <td class="action">
-                                                <a class="remove" href="/cart/del?id=<%=p.getProduct().getProduct_id()%>">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <%}%>
+                                        <c:forEach var="p" items="${cart.listProductInCart}">
+                                            <tr>
+                                                <td class="product-image">
+                                                    <a href="<c:url value='/product_detail?pid=${p.product.product_id}' />">
+                                                        <img src="${p.product.getImage(0)}" alt="Product">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <div class="product-name">
+                                                        <a href="<c:url value='/product_detail?pid=${p.product.product_id}' />">${p.product.getName()}</a>
+                                                    </div>
+                                                    <div>
+                                                        <span class="product-price">${p.quantity} * ${p.product.formatCurrency(p.product.getPrice_sell())} = ${p.product.formatCurrency(p.quantity * p.product.getPrice_sell())}</span>
+                                                    </div>
+                                                </td>
+                                                <td class="action">
+                                                    <a class="remove" href="<c:url value="/cart/del?id=${p.product.getProduct_id()}"/>">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                         <tr class="total">
                                             <td colspan="2">Tổng :</td>
                                             <td id="cart-total"></td>
