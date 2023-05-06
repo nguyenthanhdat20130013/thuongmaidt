@@ -82,7 +82,7 @@
                                                                 <a class="label" href="/product_detail?pid=<%=p.getProduct().getProduct_id()%>" data-id_customization="0"><%=p.getProduct().getName()%></a>
                                                             </div>
                                                             <div class="product-line-info product-price">
-                                                                <span class="value"><%=p.getProduct().getPrice_sell()%> vnđ</span>
+                                                                <span class="value"><%=p.getProduct().formatCurrency(p.getProduct().getPrice_sell())%></span>
                                                             </div>
 
                                                         </div>
@@ -107,7 +107,7 @@
                                                                 <div class="col-md-5 col price">
                                                                     <div class="label">Tổng:</div>
                                                                     <div class="product-price total">
-                                                                        <%=priceI%> vnđ
+                                                                        <%=p.getProduct().formatCurrency(priceI)%>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-2 col text-xs-right align-self-end">
@@ -139,7 +139,7 @@
                                                 <span class="label js-subtotal">
                                                     Tổng Sản phẩm:
                                                 </span>
-                                                <span class="value">${cart.total} vnđ</span>
+                                                <span class="value" id="cart-total1"></span>
                                             </div>
                                             <div class="cart-summary-line" id="cart-subtotal-shipping">
                                                 <span class="label">
@@ -152,8 +152,9 @@
                                             </div>
                                             <div class="cart-summary-line cart-total">
                                                 <span class="label">Tổng:</span>
-                                                <span class="value">${cart.total} vnđ (bao gồm thuế.)</span>
+                                                <span class="value" id="cart-total"></span>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -170,5 +171,17 @@
 
     <!-- Vendor JS -->
     <jsp:include page="/common/web/js.jsp"></jsp:include>
+<script>
+    // Lấy giá trị số tiền từ đối tượng cart
+    const cartTotal = ${cart.total};
+
+    // Chuyển đổi định dạng tiền tệ sang VND
+    const formattedCartTotal = cartTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+
+    // Hiển thị giá trị đã được định dạng trên trang web
+    document.getElementById("cart-total").innerHTML = formattedCartTotal + " (bao gồm thuế.)";
+    document.getElementById("cart-total1").innerHTML = formattedCartTotal + " (bao gồm thuế.)";
+
+</script>
 </body>
 </html>

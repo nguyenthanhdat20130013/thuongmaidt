@@ -49,12 +49,12 @@
           <div class="breadcrumb">
             <ol>
               <li>
-                <a href="index.html">
+                <a href="/home">
                   <span>Trang chủ</span>
                 </a>
               </li>
               <li>
-                <a href="recruit.jsp">
+                <a href="/delivery">
                   <span>Chính sách vận chuyển</span>
                 </a>
               </li>
@@ -168,7 +168,7 @@
               <p style="margin-left: 40px;">- Các đơn hàng được đặt vào Chủ Nhật sẽ được xử lý vào thứ 2 tuần kế tiếp</p>
               <p style="margin-left: 21pt;"><strong>Thời gian xác nhận giao hàng</strong></p>
               <p style="margin-left: 40px;">+ Thời gian chính xác sẽ được thông báo khi gọi xác nhận đơn hàng</p>
-              <p style="margin-top: 40px">Các chính sách và quy định khác: Đối với các đơn hàng yêu cầu giao hỏa tốc, khách hàng vui lòng liên hệ hotline<span style="color: rgb(255, 0, 0); font-size: 16px; font-weight: 600; text-align: center;"> 0909905138 </span>để được tư vấn cụ thể.</p>
+              <p style="margin-top: 40px">Các chính sách và quy định khác: Đối với các đơn hàng yêu cầu giao hỏa tốc, khách hàng vui lòng liên hệ hotline<span style="color: rgb(255, 0, 0); font-size: 16px; font-weight: 600; text-align: center;"> 028 3896 0711 </span>để được tư vấn cụ thể.</p>
 
             </div>
           </div>

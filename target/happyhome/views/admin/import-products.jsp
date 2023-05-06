@@ -117,7 +117,7 @@
         ajax: '/GetDataImportProduct',
         columns:[
             {data: 'pro_id', name: 'product_id'},
-            {data: 'username', name: 'user_name'},
+            {data: 'username', name: 'username'},
             {data: 'quantity', name: 'quantity'},
             {data: 'date', name: 'date'},
         ]
