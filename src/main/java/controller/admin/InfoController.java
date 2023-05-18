@@ -1,6 +1,10 @@
 package controller.admin;
 
+import dao.RoleDAO;
 import model.Introduce;
+import model.Role;
+import model.RoleModel;
+import model.UserModel;
 import service.IntroService;
 
 import javax.servlet.*;
@@ -8,10 +12,20 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "InfoController", value = "/info_controller")
+@WebServlet(name = "InfoController", value = "/admin-info_controller")
 public class InfoController extends HttpServlet {
+
+    String listAccess = "sửa thông tin trên website";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        UserModel user = (UserModel) request.getSession().getAttribute("auth");
+        Role roleUser = RoleDAO.findById(user.getRole());
+        boolean access = Access.checkAccess(roleUser.getPermission(),RoleDAO.findIdPermissionByName(listAccess));
+        if(!access){
+            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
+            return;
+        }
         IntroService intro = new IntroService();
         Introduce in = intro.getIntro();
         request.setAttribute("info",in);

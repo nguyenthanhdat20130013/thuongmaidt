@@ -90,7 +90,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="<c:url value="/views/admin/home.jsp"/>" class="nav-link ">
+                    <a href="<c:url value="/admin-home"/>" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Trang chủ
@@ -108,19 +108,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/data-category?access="/>" class="nav-link">
+                            <a href="<c:url value="/admin-data-category"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh mục sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/product_manager"/>" class="nav-link ">
+                            <a href="<c:url value="/admin-product_manager"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách sản phẩm </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/add_product"/>" class="nav-link ">
+                            <a href="<c:url value="/admin-add_product"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm sản phẩm</p>
                             </a>
@@ -137,7 +137,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/data-user?action=list"/>" class="nav-link" id="data-user">
+                            <a href="<c:url value="/admin-data-user?action=list"/>" class="nav-link" id="data-user">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Danh sách user</p>
                             </a>
@@ -154,13 +154,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/order_controller"/>" class="nav-link ">
+                            <a href="<c:url value="/admin-order_controller"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách đơn hàng</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/check_order"/>" class="nav-link ">
+                            <a href="<c:url value="/admin-check_order"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Duyệt đơn hàng</p>
                             </a>
@@ -177,9 +177,72 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/info_controller" class="nav-link">
+                            <a href="/admin-info_controller" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thông tin trên website</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" >
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Quản lý quyền
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin-role-data" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách các quyền</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" >
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Quản lý Kho
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin-import-products" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách phiếu nhập hàng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin-import-product" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm phiếu nhập hàng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" >
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Quản lý log
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin-log-data" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách log</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin-statistics-log" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thống kê log</p>
                             </a>
                         </li>
                     </ul>

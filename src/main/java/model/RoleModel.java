@@ -1,9 +1,19 @@
 package model;
 
 public class RoleModel {
+    private int [] ids;
+
     private int id;
     private String title;
     private int [] idPermissions;
+
+    public int[] getIds() {
+        return ids;
+    }
+
+    public void setIds(int[] ids) {
+        this.ids = ids;
+    }
 
     public int getId() {
         return id;

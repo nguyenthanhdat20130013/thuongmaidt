@@ -1,5 +1,8 @@
 package controller.admin;
 
+import dao.RoleDAO;
+import model.Role;
+import model.UserModel;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +13,16 @@ import java.io.IOException;
 
 @WebServlet(name = "LogData" , value = "/admin-log-data")
 public class LogData extends HttpServlet {
-
+    private static String listAccess = "xem danh sách log";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserModel user = (UserModel) request.getSession().getAttribute("auth");
+        Role roleUser = RoleDAO.findById(user.getRole());
+        boolean access = Access.checkAccess(roleUser.getPermission(),RoleDAO.findIdPermissionByName(listAccess));
+        if(!access){
+            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
+            return;
+        }
         RequestDispatcher rd = request.getRequestDispatcher("views/admin/log-data.jsp");
         rd.forward(request, response);
     }
@@ -21,4 +31,5 @@ public class LogData extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
 }

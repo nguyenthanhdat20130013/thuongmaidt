@@ -27,6 +27,9 @@ public class MessageUtil {
             }  else if (message.equals("not_permission")){
                 messageResponse = "You don't have permission";
                 alert = "danger";
+            }  else if (message.equals("not_login")){
+                messageResponse = "You need login";
+                alert = "danger";
             }
             request.setAttribute("messageResponse", messageResponse);
             request.setAttribute("alert", alert);

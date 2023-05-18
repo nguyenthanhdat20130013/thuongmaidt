@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url var="APIurl" value="/api-admin-product"/>
+<%
+  boolean deletePm = (boolean) request.getAttribute("deletePm");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,12 +58,15 @@
                   </select>
 
                 </div>
-                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/add_product"/>" style="color: white">Thêm mới</a></button>
+                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/admin-add_product"/>" style="color: white">Thêm mới</a></button>
                 <button id="delete-btn" class="btn btn-danger" style="float: right;margin-right: 10px">Xoá</button>
               </div>
 
               <!-- /.card-header -->
               <div class="card-body">
+                <c:if test="${ messageResponse != null}">
+                  <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>
+                </c:if>
                 <table id="product-data" class="table table-bordered table-striped">
 
                   <thead>
@@ -126,53 +132,11 @@
       {data: 'price_sell', name: 'price_sell'},
       {data: 'product_type', name: 'product_type'},
       {data: 'product_id', name: 'action',render: function (data) {
-          return  '<button class="btn btn-success"><a href="/edit_product?pid=' + data +  '"' + 'style="color: white">Sửa sản phẩm </a></button>' +
-          '<button class="btn btn-info"> <a href="/view_product?pid=' + data + '"' +  'style="color: white" ' + '> Xem sản phẩm </a></button>';
-        }},
-      {data: 'product_id', name: 'action',render: function (data) {
-          return '<input type="checkbox" value="'+ data + '"' +'>';
+          return '<a class="btn btn-success" title="edit" href="data-user?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
         }},
     ]
   });
 
-
-
-  $('#checkAll').click(function (e) {
-    $('#product-data tbody :checkbox').prop('checked', $(this).is(':checked'));
-    e.stopImmediatePropagation();
-  });
-
-  $("#delete-btn").click(function(e) {
-    //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-    var data = {};
-    var ids = $('#product-data tbody input[type=checkbox]:checked').map(function () {
-      return $(this).val();
-    }).get();
-    $('input[type=checkbox]:checked').parents('tr').remove();
-    data['ids'] = ids;
-    var actionUrl = '${APIurl}';
-    deleteUser(data,actionUrl);
-  });
-
-  function deleteUser(data,actionUrl){
-    $.ajax({
-      type: "DELETE",
-      url: actionUrl,
-      contentType: "application/json",
-      dataType: "json",
-      data: JSON.stringify(data), // javacript object to json
-      success: function (result){
-        //window.location.href = "/data-user?message=delete_success";
-        alert("xoá thành công");
-      },
-      error: function (error){
-        console.log(error);
-        alert("đã có lỗi xảy ra");
-        //window.location.href = "/data-user?message=error_system";
-      }
-    });
-  }
 </script>
 </body>
 </html>

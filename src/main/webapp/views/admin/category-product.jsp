@@ -1,9 +1,8 @@
-<%@ page import="model.CategoryProModel" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url var="APIurl" value="/api-admin-category-product"/>
 <%
-  List<CategoryProModel> list = (List<CategoryProModel>) request.getAttribute("listCate");
+  boolean deletePm = (boolean) request.getAttribute("deletePm");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +57,7 @@
                 </c:if>
 
                 <form style="padding:10px">
-                  <table id="example1" class="table table-bordered table-striped" >
+                  <table id="cate-product" class="table table-bordered table-striped" >
                     <thead>
                     <tr>
                       <th>Mã Danh mục </th>
@@ -68,17 +67,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <% for (CategoryProModel cate : list) {%>
-                   <tr>
-                      <td><%=cate.getId()%></td>
-                      <td><%=cate.getName()%></td>
-                      <td><%=cate.getNumbOfPro()%></td>
-                      <td>
-                        <a class="btn btn-danger" href="data-category?action=delete&id=<%=cate.getId()%>">Xoá</a>
-                        <a class="btn btn-success" href="data-category?action=edit&id=<%=cate.getId()%>">Sửa</a>
-                      </td>
-                    </tr>
-                    <%}%>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tbody>
                     </tfoot>
                   </table>
 
@@ -97,7 +90,8 @@
                   </button>
                 </div>
               </div>
-              <form id="add-cate" action="<c:url value="/data-category"/>" method="get">
+              <a href="/productCate?"></a>
+              <form id="add-cate" action="<c:url value="/admin-data-category"/>" method="get">
               <div class="card-body" style="display: block">
                 <div class="form-group">
                   <label for="cate">Tên danh mục</label>
@@ -125,5 +119,90 @@
 <!-- ./wrapper -->
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
+<script>
+  var table = $('#cate-product').DataTable({
+    processing: true,
+    serverSide: true,
+    select: true,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+    "paging": true,
+    "lengthChange": false,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+    ajax: '/GetDataRole',
+    columns:[
+      {data: 'id', name: 'id'},
+      {data: 'name', name: 'name'},
+      {data: 'numUser', name: 'numUser'},
+      {data: 'id', name: 'action',render: function (data) {
+          return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' +
+                  '<a class="btn btn-success" title="edit" href="data-category?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+        }},
+      {data: 'id', name: 'action',render: function (data) {
+          return '<input type="checkbox" value="'+ data + '"' +'>';
+        }},
+    ]
+  });
+
+  $('#checkAll').click(function (e) {
+    $('#role-data tbody :checkbox').prop('checked', $(this).is(':checked'));
+    e.stopImmediatePropagation();
+  });
+
+  $("#delete-btn").click(function(e) {
+
+    //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    var data = {};
+    var ids = $('#role-data tbody input[type=checkbox]:checked').map(function () {
+      return $(this).val();
+    }).get();
+    $('input[type=checkbox]:checked').parents('tr').remove();
+    data['ids'] = ids;
+    var actionUrl = '${APIurl}';
+    deleteRole(data,actionUrl);
+  });
+
+  table.on( 'draw', function () {
+    $(".btn-delete").click(function (e) {
+      $(this).parents('tr').remove();
+      let data ={};
+      let id = [];
+      id.push($(this).parents('tr').find("input").val());
+      $(this).parents('tr').remove();
+      data['ids'] = id;
+      let actionUrl = '${APIurl}';
+      deleteRole(data,actionUrl);
+    });
+  });
+
+  function deleteRole(data,actionUrl){
+    var deletePm = <%=deletePm%>;
+    if(deletePm) {
+      alert("you don't have this permission");
+      return;
+    }
+    $.ajax({
+      type: "DELETE",
+      url: actionUrl,
+      contentType: "application/json",
+      dataType: "json",
+      data: JSON.stringify(data), // javacript object to json
+      success: function (result){
+        //window.location.href = "/data-user?message=delete_success";
+        alert("xoá thành công");
+      },
+      error: function (error){
+        console.log(error);
+        alert("đã có lỗi xảy ra");
+        //window.location.href = "/data-user?message=error_system";
+      }
+    });
+  }
+</script>
 </body>
 </html>

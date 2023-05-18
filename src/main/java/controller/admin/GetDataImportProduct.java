@@ -3,6 +3,10 @@ package controller.admin;
 import controller.admin.datatable.DataTable;
 import mapper.ImportProductMapper;
 import model.ImportProduct;
+import model.Log;
+import model.UserModel;
+import service.LogService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +20,11 @@ import java.util.Map;
 
 @WebServlet(name = "GetDataImportProduct", value = "/GetDataImportProduct")
 public class GetDataImportProduct extends HttpServlet {
-
+    String name = "List-Import-Product";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0,IpAddress.getClientIpAddr(request));
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -29,6 +35,8 @@ public class GetDataImportProduct extends HttpServlet {
             int length = Integer.parseInt(parameterMap.get("length"));
             int draw = Integer.parseInt(parameterMap.get("draw"));
             products = new DataTable<ImportProduct>().table("import_products",draw ,start, length).build(ImportProduct.class, new ImportProductMapper(),"id");
+            log.setContent(products);
+            LogService.addLog(log);
             out.println(products);
             out.flush();
         } catch (NumberFormatException e){

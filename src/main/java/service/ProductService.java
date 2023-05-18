@@ -78,6 +78,14 @@ public class ProductService {
         }
     }
 
+    public static List<Product> getByIds(Product product) {
+        List<Product> products = new ArrayList<>();
+        for (int id:product.getIds()) {
+            products.add(getProductById(id));
+        }
+        return products;
+    }
+
     //lay ra hinh anh tuong ung
     public ArrayList<Image> getImage(int id) {
         ArrayList<Image> imgUrl = new ArrayList<>();

@@ -1,7 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="controller.web.ListProduct" %>
-<%@ page import="model.Product" %>
-<%@ page import="java.util.List" %>
 <%@ page import="model.Product_type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -68,15 +65,26 @@
                                     <div class="sidebar-block">
 
                                         <div class="title-block">Thể loại</div>
-                                        <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
+                                        <c:forEach items="${listType}" var="type" >
+                                            <c:url var="uri" value="/productCate">
+                                                <c:param name="cid" value="${type.type_id}"/>
+                                            </c:url>
+                                            <div class="block-content">
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <a href="${uri}">${type.type_name}</a>
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+
+                                        <%--<% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
                                             for (Product_type pty: list0
                                             ) {%>
                                         <div class="block-content">
                                             <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="productCate?cid=<%=pty.getType_id()%>"><%= pty.getType_name()%></a>
+                                                <a class="cateItem" href="/productCate?cid=<%=pty.getType_id()%>"><%= pty.getType_name()%></a>
                                             </div>
                                         </div>
-                                        <%}%>
+                                        <%}%>--%>
                                     </div>
 
                                 </div>
@@ -121,20 +129,25 @@
 
                                         <div id="grid" class="related tab-pane fade in active show">
 
-
                                             <div class="row" id="data-product-row">
-
-
-                                                <% List<Product> list = (List<Product>) request.getAttribute("list");
-                                                    for (Product p: list) {%>
+                                                <c:forEach items="${list}" var="product" >
+                                                    <c:url var="urlProduct" value="/product_detail">
+                                                        <c:param name="pid" value="${product.product_id}"/>
+                                                    </c:url>
+                                                    <c:url var="urlCart" value="/cart/add">
+                                                        <c:param name="id" value="${product.product_id}"/>
+                                                    </c:url>
+                                                    <c:url var="urlFavorite" value="/favorite/add">
+                                                        <c:param name="id" value="${product.product_id}"/>
+                                                    </c:url>
 
                                                 <div class="item text-center col-md-4">
 
                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                         <div class="thumbnail-container border">
-                                                            <a href="product_detail?pid=<%=p.product_id%>">
-                                                                <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
-                                                                <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
+                                                            <a href="${urlProduct}">
+                                                                <img class="img-fluid image-cover" src="${product.getImage(0)}" alt="img">
+                                                                <img class="img-fluid image-secondary" src="${product.getImage(1)}" alt="img">
                                                             </a>
                                                             <div class="highlighted-informations">
                                                                 <div class="variant-links">
@@ -147,7 +160,7 @@
                                                         <div class="product-description">
                                                             <div class="product-groups">
                                                                 <div class="product-title">
-                                                                    <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
+                                                                    <a href="${urlProduct}">${product.name}</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -160,21 +173,22 @@
                                                                 </div>
                                                                 <div class="product-group-price">
                                                                     <div class="product-price-and-shipping">
-                                                                        <span class="price"><%=p.getPrice_sell() %> vnđ</span>
+                                                                        <span class="price"> ${product.price_sell} vnđ</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="product-buttons d-flex justify-content-center">
                                                                 <form action="#" method="post" class="formAddToCart">
                                                                     <input type="hidden" name="id_product" value="1">
-                                                                    <a class="add-to-cart" href="/cart/add?id=<%=p.product_id%>" data-button-action="add-to-cart">
+
+                                                                    <a class="add-to-cart" href="${urlCart}" data-button-action="add-to-cart">
                                                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                     </a>
                                                                 </form>
-                                                                <a class="addToWishlist" href="/favorite/add?id=<%=p.product_id%>" data-rel="1" onclick="">
+                                                                <a class="addToWishlist" href="${urlFavorite}" data-rel="1" onclick="">
                                                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                                                 </a>
-                                                                <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                <a href="${urlProduct}" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                                 </a>
                                                             </div>
@@ -182,7 +196,7 @@
                                                     </div>
 
                                                 </div>
-                                                <%}%>
+                                                </c:forEach>
                                             </div>
 
                                         </div>
@@ -192,14 +206,21 @@
                                                 <div class="item col-md-12">
                                                     <div class="product-miniature item-one first-item">
                                                         <div class="row">
-                                                            <% List<Product> list2 = (List<Product>) request.getAttribute("list");
-                                                                for (Product p: list
-                                                                ) {%>
+                                                            <c:forEach items="${list}" var="product" >
+                                                            <c:url var="urlProduct" value="/product_detail">
+                                                                <c:param name="pid" value="${product.product_id}"/>
+                                                            </c:url>
+                                                            <c:url var="urlCart" value="/cart/add">
+                                                                <c:param name="id" value="${product.product_id}"/>
+                                                            </c:url>
+                                                            <c:url var="urlFavorite" value="/favorite/add">
+                                                                <c:param name="id" value="${product.product_id}"/>
+                                                            </c:url>
                                                             <div class="col-md-4">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product_detail?pid=<%=p.product_id%>">
-                                                                        <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
+                                                                    <a href="${urlProduct}">
+                                                                        <img class="img-fluid image-cover" src="${product.getImage(0)}" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="${product.getImage(1)}" alt="img">
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -207,16 +228,21 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
-                                                                            <% String result = "Còn hàng";
-                                                                                if(p.status == 0){
-                                                                                    result = "Hết hàng";
-                                                                                }
-                                                                            %>
-                                                                            <span class="info-stock">
-                                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                   <%=result%>
-                                                                                </span>
+                                                                            <a href="${urlProduct}">${product.name}</a>
+                                                                            <c:choose>
+                                                                                <c:when test="${product.status == 0}">
+                                                                                    <span class="info-stock">
+                                                                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                                                           còn hàng
+                                                                                    </span>
+                                                                                </c:when>
+                                                                                <c:otherwise>
+                                                                                    <span class="info-stock">
+                                                                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                                                           hết hàng
+                                                                                    </span>
+                                                                                </c:otherwise>
+                                                                            </c:choose>
                                                                         </div>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -229,30 +255,30 @@
                                                                         </div>
                                                                         <div class="product-group-price">
                                                                             <div class="product-price-and-shipping">
-                                                                                <span class="price"><%=p.getPrice_sell()%> vnđ</span>
+                                                                                <span class="price">${product.price_cell} vnđ</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="discription">
-                                                                            <%=p.getInfo() %>
+                                                                                ${product.info}
                                                                         </div>
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
                                                                         <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="<c:url value="/cart/add?id=<%=p.product_id%>"></c:url>" data-button-action="add-to-cart">
+                                                                            <a class="add-to-cart" href="${urlCart}" data-button-action="add-to-cart">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng
                                                                             </a>
                                                                         </form>
-                                                                        <a class="addToWishlist" href="/favorite/add?id=<%=p.product_id%>" data-rel="1" onclick="">
+                                                                        <a class="addToWishlist" href="${urlFavorite}" data-rel="1" onclick="">
                                                                             <i class="fa fa-heart" aria-hidden="true"></i>
                                                                         </a>
-                                                                        <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                        <a href="${urlProduct}" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                                                         </a>
                                                                     </div>
                                                                 </div>
 
                                                             </div>
-                                                            <%}%>
+                                                            </c:forEach>
                                                         </div>
 
                                                     </div>

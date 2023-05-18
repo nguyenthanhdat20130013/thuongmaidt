@@ -2,7 +2,10 @@ package controller.admin;
 
 import controller.admin.datatable.DataTable;
 import mapper.UserMapper;
+import model.Log;
 import model.UserModel;
+import service.LogService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +19,11 @@ import java.util.Map;
 
 @WebServlet(name = "GetDataUser", value = "/GetDataUser")
 public class GetDataUser extends HttpServlet {
-
+    String name = "List-User";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+        UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0,IpAddress.getClientIpAddr(request));
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -29,6 +34,8 @@ public class GetDataUser extends HttpServlet {
             int length = Integer.parseInt(parameterMap.get("length"));
             int draw = Integer.parseInt(parameterMap.get("draw"));
             users = new DataTable<UserModel>().table("users",draw ,start, length).build(UserModel.class, new UserMapper(),"uid");
+            log.setContent(users);
+            LogService.addLog(log);
             out.println(users);
             out.flush();
         } catch (NumberFormatException e){

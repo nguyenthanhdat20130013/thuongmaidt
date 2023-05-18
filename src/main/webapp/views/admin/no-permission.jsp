@@ -74,6 +74,6 @@
 </div>
 <!-- ./wrapper -->
 
-<jsp:include page="/common/admin/css.jsp"></jsp:include>
+<jsp:include page="/common/admin/js.jsp"></jsp:include>
 </body>
 </html>

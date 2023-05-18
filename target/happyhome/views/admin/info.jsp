@@ -206,7 +206,6 @@
                   </div>
 
 
-
                 </div>
                 <div class="modal-footer">
                   <input type="button" onclick="my_submit()" class="btn btn-success" value="Lưu chỉnh sửa"></input>

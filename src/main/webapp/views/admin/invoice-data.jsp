@@ -56,7 +56,9 @@
 
                             <!-- /.card-header -->
                             <div class="card-body">
-
+                                <c:if test="${ messageResponse != null}">
+                                    <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>
+                                </c:if>
                                 <table id="example1" class="table table-bordered table-striped">
 
                                     <thead>
@@ -83,9 +85,9 @@
                                         <td><%=o.statusOrder(o.getStatus())%>
                                         </td>
                                         <td>
-                                            <button class="btn btn-info"><a href="/order_detail?id=<%=o.getOder_id()%>"
+                                            <button class="btn btn-info"><a class="order_detail" href="/order_detail?id=<%=o.getOder_id()%>"
                                                                             style="color:white">Chi tiết</a></button>
-                                            <button class="btn btn-success"><a href="/check_detail?id=<%=o.getOder_id()%>"style="color:white">Sửa</a></button>
+                                            <button class="btn btn-success"><a class="check_detail" href="/check_detail?id=<%=o.getOder_id()%>"style="color:white">Sửa</a></button>
                                             <button class="btn btn-danger">Xoá</button>
                                         </td>
                                             <% } %>
@@ -111,5 +113,30 @@
 <!-- ./wrapper -->
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
+<script>
+    var checkPm = ${checkPm};
+    var detailPm = ${detailPm};
+
+    if (!checkPm) {
+        $(".order_detail").attr("href", "#")
+    }
+    if (!detailPm) {
+        $(".check_detail").attr("href", "#")
+    }
+
+    $(".btn-success").click(function (e) {
+        if (!checkPm) {
+            alert("you dont have permission!")
+            e.preventDefault();
+        }
+    })
+
+    $(".btn-info").click(function (e) {
+        if (!detailPm) {
+            alert("you dont have permission!")
+            e.preventDefault();
+        }
+    })
+</script>
 </body>
 </html>
