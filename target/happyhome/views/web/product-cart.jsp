@@ -152,7 +152,7 @@
                                             </div>
                                             <div class="cart-summary-line cart-total">
                                                 <span class="label">Tổng:</span>
-                                                <span class="value" id="cart-total"></span>
+                                                <span class="value" id="cart-total222"></span>
                                             </div>
 
                                         </div>
@@ -173,14 +173,14 @@
     <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script>
     // Lấy giá trị số tiền từ đối tượng cart
-    const cartTotal = ${cart.total};
+    const cartTotal22 = ${cart.total};
 
     // Chuyển đổi định dạng tiền tệ sang VND
-    const formattedCartTotal = cartTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    const formattedCartTotal22 = cartTotal22.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
     // Hiển thị giá trị đã được định dạng trên trang web
-    document.getElementById("cart-total").innerHTML = formattedCartTotal + " (bao gồm thuế.)";
-    document.getElementById("cart-total1").innerHTML = formattedCartTotal + " (bao gồm thuế.)";
+    document.getElementById("cart-total222").innerHTML = formattedCartTotal22 + " (bao gồm thuế.)";
+    document.getElementById("cart-total1").innerHTML = formattedCartTotal22 + " (bao gồm thuế.)";
 
 </script>
 </body>
