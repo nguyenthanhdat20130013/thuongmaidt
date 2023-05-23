@@ -279,6 +279,11 @@
     if (orderStatus == 1) {
       $('select[name="status"] option[value="3"]').hide();
       $('select[name="status"] option[value="1"]').hide();
+    } else if (orderStatus == 2) {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="2"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
     }
   });
 </script>

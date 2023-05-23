@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="model.Introduce" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- footer -->
@@ -29,17 +30,17 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="/about">Giới thiệu HappyHome</a>
+                                    <a href="<c:url value="/about"/>">Giới thiệu HappyHome</a>
                                 </li>
                                 <li>
-                                    <a href="/contact">Liên hệ</a>
+                                    <a href="<c:url value="/contact"/>">Liên hệ</a>
                                 </li>
                                 <li>
-                                    <a href="/recruit">Tuyển dụng</a>
+                                    <a href="<c:url value="/recruit"/>">Tuyển dụng</a>
                                 </li>
 
                                 <li>
-                                    <a href="/agent">Chính sách Đại lý / Đối tác</a>
+                                    <a href="<c:url value="/agent"/>">Chính sách Đại lý / Đối tác</a>
                                 </li>
 
                             </ul>
@@ -54,19 +55,19 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="/faqs">Các Câu Hỏi Thường Gặp</a>
+                                    <a href="<c:url value="/faqs"/>">Các Câu Hỏi Thường Gặp</a>
                                 </li>
                                 <li>
-                                    <a href="/guide">Hướng Dẫn Đặt Hàng</a>
+                                    <a href="<c:url value="/guide"/>">Hướng Dẫn Đặt Hàng</a>
                                 </li>
                                 <li>
-                                    <a href="/delivery">Chính Sách Vận Chuyển</a>
+                                    <a href="<c:url value="/delivery"/>">Chính Sách Vận Chuyển</a>
                                 </li>
                                 <li>
-                                    <a href="/warranty">Chính Sách Bảo Hành</a>
+                                    <a href="<c:url value="/warranty"/>">Chính Sách Bảo Hành</a>
                                 </li>
                                 <li>
-                                    <a href="/privacy">Chính Sách Bảo Mật Thông Tin</a>
+                                    <a href="<c:url value="/privacy"/>">Chính Sách Bảo Mật Thông Tin</a>
                                 </li>
                             </ul>
                         </div>

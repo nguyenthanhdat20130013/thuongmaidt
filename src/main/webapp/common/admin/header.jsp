@@ -90,7 +90,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="<c:url value="/views/admin/home.jsp"/>" class="nav-link ">
+                    <a href="<c:url value="/admin-home"/>" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Trang chủ
@@ -129,7 +129,7 @@
                 </li>
                 <li class="nav-item" id="quan-ly-user">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
                             Quản lý user
                             <i class="right fas fa-angle-left"></i>
@@ -169,7 +169,7 @@
                 </li>
                 <li class="nav-item" >
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+                        <i class="nav-icon fas fa-rss"></i>
                         <p>
                             Quản lý thông tin web
                             <i class="fas fa-angle-left right"></i>
@@ -177,9 +177,26 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/info_controller" class="nav-link">
+                            <a href="<c:url value="/info_controller"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thông tin trên website</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" >
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Thống kê
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<c:url value="/info_controller"/>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sản phẩm bán chạy</p>
                             </a>
                         </li>
                     </ul>
