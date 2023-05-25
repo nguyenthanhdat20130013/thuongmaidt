@@ -18,5 +18,13 @@ public class DBConnection {
             return null;
         }
     }
+
+    public static void main(String[] args) {
+        try {
+            System.out.println(getConnection());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

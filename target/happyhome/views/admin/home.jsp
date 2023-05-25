@@ -210,92 +210,33 @@
                 </div>
 
                 <h3 class="text-center">Chi tiết</h3>
-                <div class="row mb-3">
-                    <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+                        <div class="row mb-3">
+                         <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
                         <div class="card">
-                        <div class="card-header pb-0">
-                            <div class="row">
-                                <div class="col-lg-6 col-7">
-                                    <h6>Đơn hàng gần đây</h6>
-                                    <p class="text-sm mb-0">
-                                        <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                        <span class="font-weight-bold ms-1">30 done</span> this month
-                                    </p>
-                                </div>
-                                <div class="col-lg-6 col-5 my-auto text-end">
-                                    <div class="dropdown float-lg-end pe-4">
-                                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v text-secondary"></i>
-                                        </a>
-                                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                                            <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                            <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                            <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                        </ul>
+                            <div class="card-header pb-0">
+                                <div class="row">
+                                    <div class="col-lg-6 col-5">
+                                        <h5>Đơn hàng gần đây</h5>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body px-0 pb-2">
-                            <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Companies</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Members</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Budget</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Completion</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Material XD Version</h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                                    <img src="../assets/img/team-1.jpg" alt="team1">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                                    <img src="../assets/img/team-2.jpg" alt="team2">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                                                    <img src="../assets/img/team-3.jpg" alt="team3">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                                    <img src="../assets/img/team-4.jpg" alt="team4">
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $14,000 </span>
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="progress-wrapper w-75 mx-auto">
-                                                <div class="progress-info">
-                                                    <div class="progress-percentage">
-                                                        <span class="text-xs font-weight-bold">60%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div class="table">
+                                <div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
+                                    <table class="table align-items-center mb-0">
+                                        <tr>
+                                            <th class="text-uppercase">Mã đơn hàng</th>
+                                            <th class="text-uppercase">Tên khách hàng</th>
+                                            <th class="text-uppercase">Số điện thoại</th>
+                                            <th class="text-uppercase">Ngày đặt</th>
+                                            <th class="text-uppercase">Tổng tiền</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="orderTableBody">
+                                         </tbody>
+                            </table>
                         </div>
                     </div>
+                         </div>
                         <div class="card">
                         <div class="card-header pb-0">
                             <div class="row">
@@ -304,15 +245,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table">
-                            <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
+                            <div class="table">
+                                <div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
+                                    <table class="table align-items-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên sản phẩm</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giá bán ra</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 opacity-7">Số lượng đã bán</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 opacity-7">Chi tiết</th>
+                                        <th class="text-uppercase">Tên sản phẩm</th>
+                                        <th class="text-uppercase">Giá bán ra</th>
+                                        <th class="text-uppercase">Số lượng đã bán</th>
+                                        <th class="text-uppercase">Chi tiết</th>
                                     </tr>
                                     </thead>
                                     <tbody id="productTableBody">
@@ -323,48 +264,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-80">
-                        <div class="card-header pb-0">
-                            <h6>Orders overview</h6>
-                            <p class="text-sm">
-                                <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                                <span class="font-weight-bold">24%</span> this month
-                            </p>
-                        </div>
-                        <div class="card-body p-3">
-                            <div class="timeline-one-side">
-                                <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="material-icons text-success text-gradient">notifications</i>
-                    </span>
-                                    <div class="timeline-content">
-                                        <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
-                                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card h-80">
+                                    <div class="card-header pb-0">
+                                        <h5>Tổng sản phẩm đã nhập</h5>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <div class="table">
+                                            <div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
+                                                <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="text-uppercase">Tên sản phẩm</th>
+                                                        <th class="text-uppercase">Số lượng</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="importTableBody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
             </div>
-            <!-- /.col-md-6 -->
-
-            <!-- /.row -->
-
-            <!-- /.container-fluid -->
         </div>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Main Footer -->
     <jsp:include page="/common/admin/footer.jsp"></jsp:include>
 </div>
-<!-- ./wrapper -->
-
 <!-- REQUIRED SCRIPTS -->
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -377,8 +305,16 @@
                 $('#datepicker-container').show();
                 $('#result-container').hide();
                 // Đặt giá trị mặc định cho result-thang
-                var defaultResult = 'Bạn đang xem tháng';
+                var defaultResult = 'Thông tin thống kê ngày';
+                var defaultValue = '0';
                 $('#result').text(defaultResult);
+                $('#doanhthuthang').text(defaultValue);
+                $('#sanphamthang').text(defaultValue);
+                $('#donhangthang').text(defaultValue);
+                $('#vanchuyenthang').text(defaultValue);
+                $('#orderTableBody').empty();
+                $('#productTableBody').empty();
+                $('#importTableBody').empty();
             } else {
                 $('#datepicker-container').hide();
                 $('#result-container').hide();
@@ -397,6 +333,109 @@
             var result = 'Thông tin thống kê cho ngày ' + selectedDate;
             $('#result').text(result);
             $('#result-container').show();
+            //ajax
+            $.ajax({
+                type: 'GET',
+                url: 'day_analysis',
+                data: { selectedDate: selectedDate },
+                dataType: 'json',
+                success: function(response) {
+                    // Xử lý dữ liệu doanh thu
+                    var result = response.resultDay;
+                    var formattedResult = Number(result).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                    $('#doanhthuthang').text(formattedResult);
+                    //xử lý dữ liệu đơn hàng
+                    var order = response.orderNumDay;
+                    $('#donhangthang').text(order);
+                    //xử lý dữ liệu sản phẩm
+                    var product = response.productNumDay;
+                    $('#sanphamthang').text(product);
+                    //xử lý dữ liệu vận chuyển
+                    var ship = response.orderNumShippingDay;
+                    $('#vanchuyenthang').text(ship);
+                    //xử lý sản phẩm bán chạy
+                    var productTableBody = $('#productTableBody');
+                    productTableBody.empty();
+                    for (var i = 0; i < response.productsDay.length; i++) {
+                        var product = response.productsDay[i];
+                        var productName = product.name;
+                        var productImageSrc = product.image;
+                        var productPrice = product.price;
+                        var productQuantitySold = product.amountSell;
+                        var productRow = $('<tr>');
+                        var productImage = $('<img>').attr('src', productImageSrc).addClass('avatar avatar-sm me-3').css({height: '50px', width: '50px', borderRadius: '50%'});
+                        var productNameElement = $('<h6>').addClass('mb-xl-0').css('padding-left', '10px').text(productName);
+                        var productInfoDiv = $('<div>').addClass('d-flex flex-column justify-content-center').append(productNameElement);
+                        var productDetailsDiv = $('<div>').addClass('d-flex px-2 py-1').append($('<div>').append(productImage), productInfoDiv);
+                        var productDetailsColumn = $('<td>').append(productDetailsDiv);
+                        var productPriceColumn = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productPrice));
+                        var productQuantitySoldColumn = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productQuantitySold));
+                        var productDetailLinkColumn = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').append($('<i>').addClass('fa fa-eye').attr('aria-hidden', 'true')));
+                        productRow.append(productDetailsColumn, productPriceColumn, productQuantitySoldColumn, productDetailLinkColumn);
+                        productTableBody.append(productRow);
+                    }
+                    var orderTableBody = $('#orderTableBody');
+                    orderTableBody.empty();
+                    for (var j = 0; j < response.ordersDay.length; j++) {
+                        var order = response.ordersDay[j];
+                        var id = order.id;
+                        var name = order.name;
+                        var phone = order.phone;
+                        var date = order.date;
+                        var totalMoney = order.totalMoney;
+                        var row = $('<tr>');
+                        var idColumn = $('<td>').html('<div class="d-flex"><h6 class="mb-xl-0">' + id + '</h6></div>');
+                        var nameColumn = $('<td>').html('<h6 class="mb-xl-0">' + name + '</h6>');
+                        var phoneColumn = $('<td>').html('<h6 class="mb-xl-0">' + phone + '</h6>');
+                        var dateColumn = $('<td>').html('<h6 class="mb-xl-0">' + date + '</h6>');
+                        var totalMoneyColumn = $('<td>').html('<h6 class="mb-xl-0">' + totalMoney + '</h6>');
+                        row.append(idColumn);
+                        row.append(nameColumn);
+                        row.append(phoneColumn);
+                        row.append(dateColumn);
+                        row.append(totalMoneyColumn);
+                        orderTableBody.append(row);
+                    }
+                    //Xử lý nhập hàng
+                    var importTableBody = $('#importTableBody');
+
+                    // Xóa bỏ các sản phẩm hiện có trong <tbody>
+                    importTableBody.empty();
+
+                    // Lặp qua danh sách sản phẩm
+                    for (var h = 0; h < response.importProductDay.length; h++) {
+                        var producti = response.importProductDay[h];
+                        var productNamei = producti.name;
+                        var productImageSrci = producti.image;
+                        var productQuantitySoldi = producti.amountSell;
+
+                        // Tạo các thành phần HTML cho mỗi sản phẩm
+                        var productRowi = $('<tr>');
+                        var productImagei = $('<img>').attr('src', productImageSrci).addClass('avatar avatar-sm me-3').css({
+                            height: '50px',
+                            width: '50px',
+                            borderRadius: '50%'
+                        });
+                        var productNameElementi = $('<h6>').addClass('mb-xl-0').css('padding-left', '10px').text(productNamei);
+                        var productInfoDivi = $('<div>').addClass('d-flex flex-column justify-content-center').append(productNameElementi);
+                        var productDetailsDivi = $('<div>').addClass('d-flex px-2 py-1').append($('<div>').append(productImagei), productInfoDivi);
+                        var productDetailsColumni = $('<td>').append(productDetailsDivi);
+                        var productQuantitySoldColumni = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productQuantitySoldi));
+
+
+                        // Thêm các thành phần vào hàng sản phẩm
+                        productRowi.append(productDetailsColumni, productQuantitySoldColumni);
+
+                        // Thêm hàng sản phẩm vào <tbody>
+                        importTableBody.append(productRowi);
+
+                   }
+
+                },
+                error: function(xhr, status, error) {
+                    // Xử lý lỗi (nếu có)
+                }
+            });
         });
     });
 </script>
@@ -447,8 +486,8 @@
             minViewMode: 'months'
         });
         // Tạo sự kiện onchange cho select month
-        $('#datepicker-month').change(function() {
-            var selectedMonth = $(this).val();
+        $('#btn-xem-thang').click(function() {
+            var selectedMonth = $('#datepicker-month').val();
             $('#result').text('Thông tin thống kê tháng ' + selectedMonth);
 
             // Gửi giá trị selectedMonth đến servlet bằng Ajax
@@ -473,25 +512,15 @@
                     $('#vanchuyenthang').text(ship);
                     //xử lý sản phẩm bán chạy
                     var productTableBody = $('#productTableBody');
-
-                    // Xóa bỏ các sản phẩm hiện có trong <tbody>
                     productTableBody.empty();
-
-                    // Lặp qua danh sách sản phẩm
                     for (var i = 0; i < response.products.length; i++) {
                         var product = response.products[i];
                         var productName = product.name;
                         var productImageSrc = product.image;
                         var productPrice = product.price;
                         var productQuantitySold = product.amountSell;
-
-                        // Tạo các thành phần HTML cho mỗi sản phẩm
                         var productRow = $('<tr>');
-                        var productImage = $('<img>').attr('src', productImageSrc).addClass('avatar avatar-sm me-3').css({
-                            height: '50px',
-                            width: '50px',
-                            borderRadius: '50%'
-                        });
+                        var productImage = $('<img>').attr('src', productImageSrc).addClass('avatar avatar-sm me-3').css({height: '50px', width: '50px', borderRadius: '50%'});
                         var productNameElement = $('<h6>').addClass('mb-xl-0').css('padding-left', '10px').text(productName);
                         var productInfoDiv = $('<div>').addClass('d-flex flex-column justify-content-center').append(productNameElement);
                         var productDetailsDiv = $('<div>').addClass('d-flex px-2 py-1').append($('<div>').append(productImage), productInfoDiv);
@@ -499,20 +528,72 @@
                         var productPriceColumn = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productPrice));
                         var productQuantitySoldColumn = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productQuantitySold));
                         var productDetailLinkColumn = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').append($('<i>').addClass('fa fa-eye').attr('aria-hidden', 'true')));
-
-                        // Thêm các thành phần vào hàng sản phẩm
                         productRow.append(productDetailsColumn, productPriceColumn, productQuantitySoldColumn, productDetailLinkColumn);
-
-                        // Thêm hàng sản phẩm vào <tbody>
                         productTableBody.append(productRow);
                     }
+                    var orderTableBody = $('#orderTableBody');
+                    orderTableBody.empty();
+                    for (var j = 0; j < response.orders.length; j++) {
+                        var order = response.orders[j];
+                        var id = order.id;
+                        var name = order.name;
+                        var phone = order.phone;
+                        var date = order.date;
+                        var totalMoney = order.totalMoney;
+                        var row = $('<tr>');
+                        var idColumn = $('<td>').html('<div class="d-flex"><h6 class="mb-xl-0">' + id + '</h6></div>');
+                        var nameColumn = $('<td>').html('<h6 class="mb-xl-0">' + name + '</h6>');
+                        var phoneColumn = $('<td>').html('<h6 class="mb-xl-0">' + phone + '</h6>');
+                        var dateColumn = $('<td>').html('<h6 class="mb-xl-0">' + date + '</h6>');
+                        var totalMoneyColumn = $('<td>').html('<h6 class="mb-xl-0">' + totalMoney + '</h6>');
+                        row.append(idColumn);
+                        row.append(nameColumn);
+                        row.append(phoneColumn);
+                        row.append(dateColumn);
+                        row.append(totalMoneyColumn);
+                        orderTableBody.append(row);
+                    }
+                    //Xử lý nhập hàng
+                    var importTableBody = $('#importTableBody');
+
+                    // Xóa bỏ các sản phẩm hiện có trong <tbody>
+                    importTableBody.empty();
+
+                    // Lặp qua danh sách sản phẩm
+                    for (var h = 0; h < response.importProduct.length; h++) {
+                        var producti = response.importProduct[h];
+                        var productNamei = producti.name;
+                        var productImageSrci = producti.image;
+                        var productQuantitySoldi = producti.amountSell;
+
+                        // Tạo các thành phần HTML cho mỗi sản phẩm
+                        var productRowi = $('<tr>');
+                        var productImagei = $('<img>').attr('src', productImageSrci).addClass('avatar avatar-sm me-3').css({
+                            height: '50px',
+                            width: '50px',
+                            borderRadius: '50%'
+                        });
+                        var productNameElementi = $('<h6>').addClass('mb-xl-0').css('padding-left', '10px').text(productNamei);
+                        var productInfoDivi = $('<div>').addClass('d-flex flex-column justify-content-center').append(productNameElementi);
+                        var productDetailsDivi = $('<div>').addClass('d-flex px-2 py-1').append($('<div>').append(productImagei), productInfoDivi);
+                        var productDetailsColumni = $('<td>').append(productDetailsDivi);
+                        var productQuantitySoldColumni = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productQuantitySoldi));
+
+
+                        // Thêm các thành phần vào hàng sản phẩm
+                        productRowi.append(productDetailsColumni, productQuantitySoldColumni);
+
+                        // Thêm hàng sản phẩm vào <tbody>
+                        importTableBody.append(productRowi);
+
+                    }
+
                 },
                 error: function(xhr, status, error) {
                     // Xử lý lỗi (nếu có)
                 }
             });
         });
-
 // Tự động truyền giá trị ban đầu của select month khi trang được tải
         $(document).ready(function() {
             var selectedMonth = $('#datepicker-month').val();
@@ -540,11 +621,7 @@
                     $('#vanchuyenthang').text(ship);
                     //xử lý sản phẩm bán chạy
                     var productTableBody = $('#productTableBody');
-
-                    // Xóa bỏ các sản phẩm hiện có trong <tbody>
                     productTableBody.empty();
-
-                    // Lặp qua danh sách sản phẩm
                     for (var i = 0; i < response.products.length; i++) {
                         var product = response.products[i];
                         var productName = product.name;
@@ -552,14 +629,8 @@
                         var productPrice = product.price;
                         var productQuantitySold = product.amountSell;
                         var productURL = product.url;
-
-                        // Tạo các thành phần HTML cho mỗi sản phẩm
                         var productRow = $('<tr>');
-                        var productImage = $('<img>').attr('src', productImageSrc).addClass('avatar avatar-sm me-3').css({
-                            height: '50px',
-                            width: '50px',
-                            borderRadius: '50%'
-                        });
+                        var productImage = $('<img>').attr('src', productImageSrc).addClass('avatar avatar-sm me-3').css({height: '50px', width: '50px', borderRadius: '50%'});
                         var productNameElement = $('<h6>').addClass('mb-xl-0').css('padding-left', '10px').text(productName);
                         var productInfoDiv = $('<div>').addClass('d-flex flex-column justify-content-center').append(productNameElement);
                         var productDetailsDiv = $('<div>').addClass('d-flex px-2 py-1').append($('<div>').append(productImage), productInfoDiv);
@@ -573,13 +644,49 @@
                                 )
                             )
                         );
-
-
-                        // Thêm các thành phần vào hàng sản phẩm
                         productRow.append(productDetailsColumn, productPriceColumn, productQuantitySoldColumn, productDetailLinkColumn);
-
-                        // Thêm hàng sản phẩm vào <tbody>
                         productTableBody.append(productRow);
+                    }
+                    // Xử lý đơn hàng
+                    var orderTableBody = $('#orderTableBody');
+                    orderTableBody.empty();
+                    for (var j = 0; j < response.orders.length; j++) {
+                        var order = response.orders[j];
+                        var id = order.id;
+                        var name = order.name;
+                        var phone = order.phone;
+                        var date = order.date;
+                        var totalMoney = order.totalMoney;
+                        var row = $('<tr>');
+                        var idColumn = $('<td>').html('<div class="d-flex"><h6 class="mb-xl-0">' + id + '</h6></div>');
+                        var nameColumn = $('<td>').html('<h6 class="mb-xl-0">' + name + '</h6>');
+                        var phoneColumn = $('<td>').html('<h6 class="mb-xl-0">' + phone + '</h6>');
+                        var dateColumn = $('<td>').html('<h6 class="mb-xl-0">' + date + '</h6>');
+                        var totalMoneyColumn = $('<td>').html('<h6 class="mb-xl-0">' + totalMoney + '</h6>');
+                        row.append(idColumn);
+                        row.append(nameColumn);
+                        row.append(phoneColumn);
+                        row.append(dateColumn);
+                        row.append(totalMoneyColumn);
+                        orderTableBody.append(row);
+                    }
+                    //Xử lý nhập hàng
+                    var importTableBody = $('#importTableBody');
+                    importTableBody.empty();
+                    for (var h = 0; h < response.importProduct.length; h++) {
+                        var producti = response.importProduct[h];
+                        var productNamei = producti.name;
+                        var productImageSrci = producti.image;
+                        var productQuantitySoldi = producti.amountSell;
+                        var productRowi = $('<tr>');
+                        var productImagei = $('<img>').attr('src', productImageSrci).addClass('avatar avatar-sm me-3').css({height: '50px', width: '50px', borderRadius: '50%'});
+                        var productNameElementi = $('<h6>').addClass('mb-xl-0').css('padding-left', '10px').text(productNamei);
+                        var productInfoDivi = $('<div>').addClass('d-flex flex-column justify-content-center').append(productNameElementi);
+                        var productDetailsDivi = $('<div>').addClass('d-flex px-2 py-1').append($('<div>').append(productImagei), productInfoDivi);
+                        var productDetailsColumni = $('<td>').append(productDetailsDivi);
+                        var productQuantitySoldColumni = $('<td>').addClass('align-middle text-sm').append($('<h6>').addClass('mb-xl-0').text(productQuantitySoldi));
+                        productRowi.append(productDetailsColumni, productQuantitySoldColumni);
+                        importTableBody.append(productRowi);
                     }
                 },
                 error: function(xhr, status, error) {
