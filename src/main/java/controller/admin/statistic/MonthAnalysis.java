@@ -1,6 +1,7 @@
 package controller.admin.statistic;
 
 import com.google.gson.Gson;
+import dao.DBConnection;
 import model.Introduce;
 import model.Order;
 import model.Order_detail;
@@ -28,6 +29,7 @@ public class MonthAnalysis extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Lấy dữ liệu từ request
+        DBConnection.resetConnection();
         String selectedMonth = request.getParameter("selectedMonth");
         // Tách chuỗi thành tháng và năm
         String[] parts = selectedMonth.split("/");
