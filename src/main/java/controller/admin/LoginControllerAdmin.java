@@ -4,6 +4,8 @@ import model.Log;
 import model.UserModel;
 import service.LogService;
 import service.UserService;
+import util.MessageUtil;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,7 @@ public class LoginControllerAdmin extends HttpServlet {
     String name= "AUTH";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MessageUtil.showMessage(request);
         RequestDispatcher rd = request.getRequestDispatcher("views/admin/login.jsp");
         rd.forward(request, response);
     }

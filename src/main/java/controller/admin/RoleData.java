@@ -23,6 +23,7 @@ public class RoleData extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String action = request.getParameter("action")==null?"":request.getParameter("action");
         UserModel user = (UserModel) request.getSession().getAttribute("auth");
         Role roleUser = RoleDAO.findById(user.getRole());
@@ -57,7 +58,7 @@ public class RoleData extends HttpServlet {
                 response.sendRedirect("/admin-role-data?message=not_permission");
                 return;
             }
-                int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("id"));
                 Role role = RoleDAO.findById(id);
                 ArrayList<Permission> permissions =  RoleDAO.getAllpermiss();
                 request.setAttribute("permissions",permissions);

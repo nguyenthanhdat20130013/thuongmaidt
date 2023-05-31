@@ -1,9 +1,7 @@
 package controller.admin;
 
-import model.Log;
-import model.Product;
-import model.Product_type;
-import model.UserModel;
+import dao.RoleDAO;
+import model.*;
 import service.LogService;
 import service.ProductService;
 
@@ -13,11 +11,19 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AddProduct", value = "/add_product")
+@WebServlet(name = "AddProduct", value = "/admin-add_product")
 public class AddProduct extends HttpServlet {
     String name ="Add-Product";
+    private String addAccess = "thêm sản phẩm";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserModel user = (UserModel) request.getSession().getAttribute("auth");
+        Role roleUser = RoleDAO.findById(user.getRole());
+        boolean access = Access.checkAccess(roleUser.getPermission(),RoleDAO.findIdPermissionByName(addAccess));
+        if(!access){
+            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
+            return;
+        }
         ProductService service = new ProductService();
         List<Product_type> listType = service.getAllProduct_type();
         request.setAttribute("listType", listType);

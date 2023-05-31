@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url var="APIurl" value="/api-admin-user"/>
+<c:url var="APIurl" value="/api-admin-log"/>
+<%
+    boolean deletePm = (boolean) request.getAttribute("deletePm");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +52,6 @@
                                     </select>
 
                                 </div>
-                                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/add_product"/>" style="color: white">Thêm mới</a></button>
                             </div>
 
                             <!-- /.card-header -->
@@ -62,6 +64,7 @@
                                         <th>Src</th>
                                         <th>Date </th>
                                         <th>ipAddress</th>
+                                        <th><input type="checkbox" id="checkAll"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -112,24 +115,35 @@
             {data: 'src', name: 'src'},
             {data: 'creatAt', name: 'creatAt'},
             {data: 'ipAddress', name: 'ipAddress'},
+            {
+                data: 'userId', name: 'action', render: function (data) {
+                    return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' ;
+                }
+            },
+            {
+                data: 'id', name: 'action', render: function (data) {
+                    return '<input type="checkbox" value="' + data + '"' + '>';
+                }
+            },
         ]
     });
 
     $('#checkAll').click(function (e) {
-        $('#user-data tbody :checkbox').prop('checked', $(this).is(':checked'));
+        $('#log-data tbody :checkbox').prop('checked', $(this).is(':checked'));
         e.stopImmediatePropagation();
     });
 
     //var deletePm =
     $("#delete-btn").click(function(e) {
-        if(deletePm) {
+        var deletePm = <%=deletePm%>;
+        if(!deletePm) {
             alert("you don't have this permission");
             return;
         }
         //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var data = {};
-        var ids = $('#user-data tbody input[type=checkbox]:checked').map(function () {
+        var ids = $('#log-data tbody input[type=checkbox]:checked').map(function () {
             return $(this).val();
         }).get();
         $('input[type=checkbox]:checked').parents('tr').remove();

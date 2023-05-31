@@ -43,9 +43,10 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
-
+                                <c:if test="${ messageResponse != null}">
+                                    <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>
+                                </c:if>
                                 <table id="example1" class="table table-bordered table-striped">
-
                                     <thead>
                                     <tr>
                                         <th>Mã đơn hàng</th>
@@ -69,7 +70,7 @@
                                         <td><%=o.statusOrder(o.getStatus())%>
                                         </td>
                                         <td>
-                                            <button class="btn btn-info"><a href="/check_detail?id=<%=o.getOder_id()%>"
+                                            <button class="btn btn-info"><a class="check_detail" href="/check_detail?id=<%=o.getOder_id()%>"
                                                                             style="color:white">Duyệt đơn hàng</a></button>
                                         </td>
                                             <% } %>
@@ -95,5 +96,18 @@
 <!-- ./wrapper -->
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
+<script>
+    var checkPm = ${checkPm};
+    if (!checkPm) {
+        $(".check_detail").attr("href", "#")
+    }
+    $(".btn-info").click(function (e) {
+        if (!checkPm) {
+            alert("you dont have permission!")
+            e.preventDefault();
+        }
+    })
+
+</script>
 </body>
 </html>

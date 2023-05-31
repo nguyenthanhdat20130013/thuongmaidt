@@ -1,8 +1,8 @@
 package controller.admin.Order;
 
-import model.Introduce;
-import model.Order;
-import model.Order_detail;
+import controller.admin.IpAddress;
+import dao.LogDAO;
+import model.*;
 import service.API_LOGISTIC.Transport;
 import service.IntroService;
 import service.OrderService;
@@ -15,8 +15,11 @@ import java.util.List;
 
 @WebServlet(name = "OrderDetail", value = "/order_detail")
 public class OrderDetail extends HttpServlet {
+    String name = "Order-Detail";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0, IpAddress.getClientIpAddr(request));
         String idd = request.getParameter("id");
         int aid = Integer.parseInt(idd);
         OrderService orderService = new OrderService();
@@ -35,6 +38,8 @@ public class OrderDetail extends HttpServlet {
             Transport transport1 = new Transport("Đơn hàng đang chờ xử lý", new Order(), "Đơn hàng đang chờ xử lý", "Đơn hàng đang chờ xử lý");
             request.setAttribute("transport", transport1);
         }
+        log.setContent(od.toString());
+        LogDAO.addLog(log);
         request.getRequestDispatcher("/views/admin/invoice-detail.jsp").forward(request, response);
     }
 

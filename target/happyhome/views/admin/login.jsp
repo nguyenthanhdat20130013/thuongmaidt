@@ -24,6 +24,9 @@
       <% if(error != null) {%>
       <div class="alert-danger"><%=error%></div>
       <% } %>
+      <c:if test="${ messageResponse != null}">
+        <div class="alert-${alert}">${messageResponse}</div>
+      </c:if>
       <form action="<c:url value="/admin-login"/>" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" id="username" placeholder="username">

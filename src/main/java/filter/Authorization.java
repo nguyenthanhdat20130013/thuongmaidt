@@ -30,7 +30,7 @@ public class Authorization implements Filter {
             if(session.getAttribute("auth") == null){
                 response.sendRedirect("/admin-login?message=not_login&alert=danger");
             } else if (((UserModel)session.getAttribute("auth")).getRole()<1){
-                response.sendRedirect("/admin-login?message=n ot_permission&alert=danger");
+                response.sendRedirect("/admin-login?message=not_permission&alert=danger");
             } else {
                 filterChain.doFilter(servletRequest, servletResponse);
             }

@@ -3,6 +3,7 @@ package dao;
 import model.Permission;
 import model.Role;
 import model.RoleModel;
+import model.UserModel;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -269,5 +270,19 @@ public class RoleDAO {
 
     public static void main(String[] args) {
         System.out.println( findById(19));
+    }
+
+    public static void deletes(RoleModel roleModel) {
+        for (int i: roleModel.getIds()) {
+            delete(i);
+        }
+    }
+
+    public static List<RoleModel> getByIds(RoleModel roleModel) {
+        List<RoleModel> roles = new ArrayList<>();
+        for (int i: roleModel.getIds()) {
+            findById(i);
+        }
+        return roles;
     }
 }

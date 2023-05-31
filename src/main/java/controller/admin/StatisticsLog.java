@@ -2,8 +2,11 @@ package controller.admin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.LogDAO;
+import dao.RoleDAO;
 import model.Log;
 import model.LogStatistics;
+import model.Role;
+import model.UserModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,10 +18,18 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-@WebServlet(name="StatisticsLog" , value = "/statistics-log")
+@WebServlet(name="StatisticsLog" , value = "/admin-statistics-log")
 public class StatisticsLog extends HttpServlet {
+    private static String listAccess = "thống kê log";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserModel user = (UserModel) request.getSession().getAttribute("auth");
+        Role roleUser = RoleDAO.findById(user.getRole());
+        boolean access = Access.checkAccess(roleUser.getPermission(),RoleDAO.findIdPermissionByName(listAccess));
+        if(!access){
+            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
+            return;
+        }
         List<LogStatistics>  logsToDay = LogDAO.countBytoDay();
         List<LogStatistics> logsThisMonth = LogDAO.countThisMonth();
         List<LogStatistics> logsIpAddress = LogDAO.countByIpAddress();

@@ -6,8 +6,8 @@ import java.sql.Date;
 
 public class ImportProduct extends Item {
 
-    int [] ids;
-    int [] quantities;
+    private int [] ids;
+    private int [] quantities;
     int pro_id;
     String username;
     int quantity;

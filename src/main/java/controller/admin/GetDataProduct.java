@@ -20,9 +20,11 @@ import java.util.Map;
 
 @WebServlet(name = "GetDataProduct", value = "/GetDataProduct")
 public class GetDataProduct extends HttpServlet {
-    String name="List-Product";
+    String name = "List-Product";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+        UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0,IpAddress.getClientIpAddr(request));
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -33,6 +35,8 @@ public class GetDataProduct extends HttpServlet {
             int length = Integer.parseInt(parameterMap.get("length"));
             int draw = Integer.parseInt(parameterMap.get("draw"));
             Products = new DataTable<Product>().table("products",draw ,start, length).build(Product.class, new ProductMapper(),"product_id");
+            log.setContent(Products);
+            LogService.addLog(log);
             out.println(Products);
             out.flush();
         } catch (NumberFormatException e){

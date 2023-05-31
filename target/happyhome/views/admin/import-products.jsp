@@ -55,7 +55,7 @@
                                     </select>
 
                                 </div>
-                                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/import-product"/>" style="color: white">Nhập hàng</a></button>
+                                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/admin-import-product"/>" style="color: white">Nhập hàng</a></button>
                             </div>
 
                             <!-- /.card-header -->

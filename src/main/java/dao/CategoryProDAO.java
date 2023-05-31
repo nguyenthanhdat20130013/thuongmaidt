@@ -123,4 +123,18 @@ public class CategoryProDAO {
             return null;
         }
     }
+
+    public static void deletes(CategoryProModel categoryPro) {
+        for (int id:categoryPro.getIds()) {
+            deleteCate(id);
+        }
+    }
+
+    public static List<CategoryProModel> findByIds(CategoryProModel categoryPro) {
+        List<CategoryProModel> categoryProModels = new ArrayList<>();
+        for (int id: categoryPro.getIds()) {
+            categoryProModels.add(findById(id));
+        }
+        return categoryProModels;
+    }
 }

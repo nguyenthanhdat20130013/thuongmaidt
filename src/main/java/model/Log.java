@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Log extends Item {
+    int [] ids;
     String username;
     int id;
     int level;
@@ -52,6 +53,14 @@ public class Log extends Item {
         this.content = content;
         this.status = status;
         this.ipAddress = ipAddress;
+    }
+
+    public int[] getIds() {
+        return ids;
+    }
+
+    public void setIds(int[] ids) {
+        this.ids = ids;
     }
 
     public int getId() {

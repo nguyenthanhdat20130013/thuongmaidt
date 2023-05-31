@@ -139,4 +139,55 @@ public class LogDAO {
             return null;
         }
     }
+
+    public static  Log findById(int id){
+        PreparedStatement pst;
+        ResultSet rs;
+        String sql;
+        Log log ;
+        try {
+            log = new Log();
+            sql = "SELECT * from log";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()){
+               log.setId(rs.getInt("id"));
+                log.setContent(rs.getString("content"));
+                log.setSrc(rs.getString("src"));
+                log.setLevel(rs.getInt("level"));
+                log.setCreatAt(rs.getDate("createAt"));
+            }
+            return log;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Log> getByIds(Log logModel) {
+        List<Log> logs = new ArrayList<>();
+        for (int id : logModel.getIds()) {
+            logs.add(findById(id));
+        }
+        return logs;
+    }
+
+    public static void deletes(Log logModel) {
+        for (int id : logModel.getIds()) {
+            delete(id);
+        }
+    }
+
+    public static void delete(int id){
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "delete * from log where id = ?";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,id);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

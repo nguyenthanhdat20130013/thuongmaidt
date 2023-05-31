@@ -1,9 +1,11 @@
 package model;
 
+import controller.admin.datatable.Item;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Role {
+public class Role extends Item {
     private int id;
     private String name;
 
@@ -75,5 +77,14 @@ public class Role {
                 ", numUser=" + numUser +
                 ", idPermissions=" + Arrays.toString(idPermissions) +
                 '}';
+    }
+
+    @Override
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(id),
+                name,
+                String.valueOf(numUser)
+        };
     }
 }

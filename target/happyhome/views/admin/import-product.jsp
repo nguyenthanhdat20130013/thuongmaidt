@@ -177,14 +177,14 @@
                                 '<div class="form-group">' +
                                 '<span>Tên sản phẩm</span>' +
                                 '<input  name="product_name" type="text" class="form-control" disabled value="'+ result.name +'">' +
-                                '<input  name="id" type="hidden" value="'+ result.product_id +'">' +
+                                '<input  type="hidden" value="'+ result.product_id +'">' +
                                 '<label id="username-error" class="error" style="display: inline;"></label>' +
                                 '</div>' +
                                 '</div>' +
                                 '<div class="form-group col-md-6">' +
                                 '<div class="form-group">' +
                                 '<span>Số lượng sản phẩm</span>' +
-                                '<input  name="quantity" type="number" class="form-control"  value="">' +
+                                '<input  type="number" class="form-control"  value="">' +
                                 '<label id="quantity-error" class="error"  style="display: inline;"></label>' +
                                 '</div>' +
                                 '</div>');
@@ -211,27 +211,31 @@
         var ids = $('.display-product input[type=hidden]').map(function () {
             return $(this).val();
         }).get();
-        var quantity = $('.display-product input[name=quantity]').map(function () {
+        var quantity = $('.display-product input[type=number]').map(function () {
             return $(this).val();
         }).get();
         data['ids'] = ids;
         data['quantities'] = quantity;
-        console.log(JSON.stringify(data));
+        console.log(data);
+        import_product(data);
+    })
+
+    function import_product(data){
         $.ajax({
             type: "POST",
-            url: "/import-product",
+            url: "/admin-import-product",
             contentType: "application/json",
             dataType: "json",
             data: JSON.stringify(data),
             success : function (result){
                 console.log(result);
-                //window.href = "/import-products?message=insert_success&alert=success";
+                window.href = "/admin-import-product?message=insert_success&alert=success";
             },
-            error : function (){
+            error : function (error){
                 console.log(error);
             },
         });
-    })
+    }
 
     $('#search-product').on("click",function(){
         var display_result = document.getElementById("product-name-search-result");

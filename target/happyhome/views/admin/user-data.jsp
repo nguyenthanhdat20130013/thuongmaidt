@@ -1,12 +1,8 @@
-<%@ page import="model.UserModel" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-  //boolean deletePm = (boolean) request.getAttribute("deletePm");
-  List<UserModel> users = (List<UserModel>) request.getAttribute("users");
+  boolean deletePm = (boolean) request.getAttribute("deletePm");
 %>
-<c:url var="UrlAction" value="/data-user?action=delete"/>
 <c:url var="APIurl" value="/api-admin-user"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +68,7 @@
                     <option>Washington</option>
                   </select>
                 </div>
-                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/data-user?action=add"></c:url>" style="color: white">Thêm mới</a></button>
+                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/admin-data-user?action=add"></c:url>" style="color: white">Thêm mới</a></button>
                 <button id="delete-btn" class="btn btn-danger" style="float: right;margin-right: 10px">Xoá nhiều</button>
               </div>
 
@@ -182,10 +178,6 @@
 
 /*    var deletePm = ;*/
       $("#delete-btn").click(function(e) {
-        /*if(deletePm) {
-          alert("you don't have this permission");
-          return;
-        }*/
         //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var data = {};
@@ -200,6 +192,11 @@
       });
 
     function deleteUser(data,actionUrl){
+      var deletePm = <%=deletePm%>;
+      if(!deletePm) {
+        alert("you don't have this permission");
+        return;
+      }
       $.ajax({
         type: "DELETE",
         url: actionUrl,

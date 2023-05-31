@@ -1,9 +1,9 @@
 package controller.admin;
 
 import dao.ProductSearchDAO;
-import model.ImgProductSearchModel;
-import model.Product;
-import model.Product_type;
+import dao.RoleDAO;
+import model.*;
+import service.LogService;
 import service.ProductService;
 
 import javax.servlet.*;
@@ -12,11 +12,20 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "EditProduct", value = "/edit_product")
+@WebServlet(name = "EditProduct", value = "/admin-edit_product")
 public class EditProduct extends HttpServlet {
     public String id;
+    String name = "Edit-Product";
+    private String editAccess = "sửa sản phẩm";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserModel user = (UserModel) request.getSession().getAttribute("auth");
+        Role roleUser = RoleDAO.findById(user.getRole());
+        boolean access = Access.checkAccess(roleUser.getPermission(),RoleDAO.findIdPermissionByName(editAccess));
+        if(!access){
+            request.getRequestDispatcher("views/admin/no-permission.jsp").forward(request, response);
+            return;
+        }
         //lay ra id tu request
         id = request.getParameter("pid");
         int aid = Integer.parseInt(id);
@@ -34,6 +43,8 @@ public class EditProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //cai nay la lay du lieu tu form gui len
+        UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
+        Log log = new Log(Log.INFO,currentUser.getId(),this.name,"",0,IpAddress.getClientIpAddr(request));
         int pid = Integer.parseInt(request.getParameter("id"));
         String pcode = request.getParameter("code");
         String pname = request.getParameter("ten");
@@ -49,6 +60,8 @@ public class EditProduct extends HttpServlet {
         String pinfo = request.getParameter("mota");
         //su ly de add product
         Product p = new Product(pid, pname, Integer.parseInt(pprice), Integer.parseInt(pprice_sell), pinfo, pcode, pbrand, pcolor, psize, pattribute, Integer.parseInt(pstatus), Integer.parseInt(ptype), pinsurance);
+        log.setContent(p.toString());
+        LogService.addLog(log);
         ProductService ser = new ProductService();
         ser.edit(p , Integer.parseInt(id));
         response.sendRedirect("/product_manager");
