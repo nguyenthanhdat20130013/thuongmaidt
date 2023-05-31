@@ -11,6 +11,7 @@ public class HttpUtil {
     public HttpUtil (String value) {
         this.value = value;
     }
+    public HttpUtil(){};
 
     public <T> T toModel(Class<T> tClass) {
         try {
@@ -33,4 +34,11 @@ public class HttpUtil {
         }
         return new HttpUtil(sb.toString());
     }
+
+
+    public String getValue(){
+        return this.value;
+    }
+
+
 }

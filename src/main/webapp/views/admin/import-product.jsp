@@ -72,6 +72,9 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Nhập hàng </h1>
+                        <c:if test="${ messageResponse != null}">
+                            <div class="alert-${alert}">${messageResponse}</div>
+                        </c:if>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -104,7 +107,7 @@
 
                                     </div>
                                 </div>
-                                <form  method="post" id="import-product">
+                                <form  id="import-product">
                                     <div class="card-body">
                                         <div style="display: flex" class="row display-product">
 
@@ -118,7 +121,7 @@
                     </div>
 
                     <div class="card-footer row" style="width: 100%;">
-                        <button type="submit" class="btn btn-primary" form="import-product" >Nhập hàng</button>
+                        <button class="btn btn-primary" id="import-product-btn" >Nhập hàng</button>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -201,12 +204,13 @@
         });
     }
 
-    $("#import-product").submit(function () {
+    $("#import-product-btn").click(function () {
         if ($('.display-product').is(':empty')){
             alert("vui lòng thêm sản phẩm");
             return;
         }
         var data = {};
+        //var data;
         $(".display-product")
         var ids = $('.display-product input[type=hidden]').map(function () {
             return $(this).val();
@@ -217,10 +221,6 @@
         data['ids'] = ids;
         data['quantities'] = quantity;
         console.log(data);
-        import_product(data);
-    })
-
-    function import_product(data){
         $.ajax({
             type: "POST",
             url: "/admin-import-product",
@@ -229,7 +229,24 @@
             data: JSON.stringify(data),
             success : function (result){
                 console.log(result);
-                window.href = "/admin-import-product?message=insert_success&alert=success";
+                window.location.href = "/admin-import-product?message=insert_success&alert=success";
+            },
+            error : function (error){
+                console.log(error);
+            },
+        });
+        //import_product(data);
+    })
+
+    function import_product(data){
+        $.ajax({
+            type: "POST",
+            url: "/admin-import-product",
+            contentType: "application/json",
+            dataType: "json",
+            data: data,
+            success : function (result){
+                console.log(result);
             },
             error : function (error){
                 console.log(error);
