@@ -32,7 +32,7 @@ public class DataUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MessageUtil.showMessage(request);
-        String action = request.getParameter("action");
+        String action = request.getParameter("action")==null?"":request.getParameter("action");
         UserModel currentUser = (UserModel) request.getSession().getAttribute("auth");
         Role roleUser = RoleDAO.findById(currentUser.getRole());
         boolean access = access(action,roleUser);

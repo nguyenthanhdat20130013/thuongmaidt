@@ -52,7 +52,6 @@
                                     </select>
 
                                 </div>
-                                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/add_product"/>" style="color: white">Thêm mới</a></button>
                             </div>
 
                             <!-- /.card-header -->

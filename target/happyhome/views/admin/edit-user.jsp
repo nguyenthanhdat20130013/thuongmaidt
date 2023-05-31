@@ -145,7 +145,7 @@
                                 <c:if test="${ messageResponse != null}">
                                     <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>
                                 </c:if>
-                                <form action="<c:url value="/data-user?action=edit"/>" method="post" id="edit-user">
+                                <form action="<c:url value="/admin-data-user?action=edit"/>" method="post" id="edit-user">
                                     <div class="card-body">
                                         <c:if test="${success != null}">
                                             <div class="alert-success" style="width: 36%;">${success}</div>
