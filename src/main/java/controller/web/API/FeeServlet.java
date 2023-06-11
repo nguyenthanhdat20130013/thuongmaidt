@@ -20,21 +20,22 @@ public class FeeServlet extends HttpServlet {
         String districtId = request.getParameter("district");
         String wardId = request.getParameter("ward");
         // Xử lý dữ liệu ở đây
-        int pId = Integer.parseInt(provinceId);
-        int dId = Integer.parseInt(districtId);
-        int wId = Integer.parseInt(wardId);
+//        int pId = Integer.parseInt(provinceId);
+//        int dId = Integer.parseInt(districtId);
+//        int wId = Integer.parseInt(wardId);
         Login_API login_api = new Login_API();
         String API_KEY = login_api.login();
         //
-        int ProvinceID = 202;
-        int DistrictID = 3695;
-        int WardCode = 90737;
-        int height = 100;
-        int length = 100;
-        int width = 100;
-        int weight = 100;
+        String ProvinceID = "202";
+        String DistrictID = "3695";
+        String WardCode = "90737";
+        String height = "100";
+        String length = "100";
+        String width = "100";
+        String weight = "100";
 
-        double shippingFee = GetFee.calculateShippingFee(DistrictID, WardCode, dId, wId, height, length, width, weight, API_KEY);
+     //   calculateShippingFee(String token, String from_district_id, String from_ward_id, String to_district_id, String to_ward_id)
+        double shippingFee = GetFee.calculateShippingFee(API_KEY, DistrictID, WardCode, districtId, wardId);
 
         // Trả về phí chuyển hàng dưới dạng chuỗi
         String shippingFeeStr = String.valueOf(shippingFee);

@@ -12,21 +12,15 @@
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/ImportProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/ImportProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/HttpUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/import-product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/import-product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/ImportProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/ImportProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/ImportProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/ImportProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/import-product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/import-product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Order_detail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order_detail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/ProductSearchModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ProductSearchModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Transport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Transport.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="gop-code-3" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,22 +73,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/LapTrinhWeb/cuoi ky/HappyHome&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dat-clone-gopcode4",
+    "last_opened_file_path": "E:/LapTrinhWeb/cuoi ky/HappyHome",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
@@ -124,6 +119,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GetFee" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.GetFee" />
+      <module name="happyhome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.API_LOGISTIC.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LogDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -132,21 +140,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogisticAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-20" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="controller.web.API.LogisticAPI" />
-      <module name="happyhome" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.web.API.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.34" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:/Program Files/Java/jdk-20" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.34" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="happyhome:war">
@@ -190,7 +183,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="9046a473-12dd-4af9-98f2-d96f43d59ad0" />
+        <option name="BASE_DIRECTORY_NAME" value="e6508265-88eb-455d-8c7d-d1d4fdbcac5e" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -198,7 +191,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="49728" />
+        <option name="DEBUG_PORT" value="51881" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -268,20 +261,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.GetFee" />
       <item itemvalue="Application.DataTable" />
       <item itemvalue="Application.LogDAO" />
-      <item itemvalue="Application.LogisticAPI" />
       <item itemvalue="Application.ProductSearchDAO" />
       <item itemvalue="Application.ProductService" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.34" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GetFee" />
         <item itemvalue="Application.DataTable" />
         <item itemvalue="Application.ProductService" />
         <item itemvalue="Application.ProductSearchDAO" />
         <item itemvalue="Application.LogDAO" />
-        <item itemvalue="Application.LogisticAPI" />
       </list>
     </recent_temporary>
   </component>
