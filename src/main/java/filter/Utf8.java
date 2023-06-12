@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(filterName = "Filter")
+@WebFilter(filterName = "Utf8Filter", urlPatterns = {"/*"})
 public class Utf8 implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
