@@ -43,12 +43,12 @@
               <div class="breadcrumb">
                 <ol>
                   <li>
-                    <a href="/home">
+                    <a href="home">
                       <span>Trang chủ</span>
                     </a>
                   </li>
                   <li>
-                    <a href="/list_product">
+                    <a href="list_product">
                       <span>Bộ sưu tập </span>
                     </a>
                   </li>
@@ -148,11 +148,11 @@
                               <div class="product-buttons d-flex justify-content-center">
                                 <form action="#" method="post" class="formAddToCart">
                                   <input type="hidden" name="id_product" value="1">
-                                  <a class="add-to-cart" href="/cart/add?id=<%=p.product_id%>" data-button-action="add-to-cart">
+                                  <a class="add-to-cart" href="cart/add?id=<%=p.product_id%>" data-button-action="add-to-cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                   </a>
                                 </form>
-                                <a class="addToWishlist" href="/favorite/add?id=<%=p.product_id%>" data-rel="1" onclick="">
+                                <a class="addToWishlist" href="favorite/add?id=<%=p.product_id%>" data-rel="1" onclick="">
                                   <i class="fa fa-heart" aria-hidden="true"></i>
                                 </a>
                                 <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">

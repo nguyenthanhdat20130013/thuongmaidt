@@ -109,13 +109,13 @@
                             <div class="breadcrumb">
                                 <ol>
                                     <li>
-                                        <a href="#">
+                                        <a href="home">
                                             <span>Trang chủ</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <span>Bàn</span>
+                                            <span>Chi tiết sản phẩm</span>
                                         </a>
                                     </li>
                                 </ol>
@@ -295,7 +295,7 @@
                                                                              <a class="addToWishlist" href="#" id="addToCartLink" data-product-id="<%=product.product_id%>">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=product.product_id%>">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=product.product_id%>">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                         </span>
@@ -450,11 +450,11 @@
                                                                 </div>
                                                                 <div class="product-buttons d-flex justify-content-center">
                                                                     <form action="#" method="post" class="formAddToCart">
-                                                                        <a class="add-to-cart" href="/cart/add?id=<%=psm.product_id%>" data-button-action="add-to-cart">
+                                                                        <a class="add-to-cart" href="cart/add?id=<%=psm.product_id%>" data-button-action="add-to-cart">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                         </a>
                                                                     </form>
-                                                                    <a class="addToWishlist" href="/favorite/add?id=<%=psm.product_id%>" data-rel="1" onclick="">
+                                                                    <a class="addToWishlist" href="favorite/add?id=<%=psm.product_id%>" data-rel="1" onclick="">
                                                                         <i class="fa fa-heart" aria-hidden="true"></i>
                                                                     </a>
                                                                     <a href="product_detail?pid=<%=psm.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -521,7 +521,7 @@
         event.preventDefault();
         var productId = this.dataset.productId;
         var quantity = document.getElementById("quantity_wanted").value;
-        var url = "/cart/addNum?id=" + productId + "&quantity=" + quantity;
+        var url = "cart/addNum?id=" + productId + "&quantity=" + quantity;
         // Chuyển hướng đến trang servlet với URL vừa tạo
         window.location.href = url;
     });

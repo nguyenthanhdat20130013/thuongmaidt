@@ -41,12 +41,12 @@
         <div class="breadcrumb">
           <ol>
             <li>
-              <a href="index-2.html">
+              <a href="home">
                 <span>Trang chủ</span>
               </a>
             </li>
             <li>
-              <a href="user-login.jsp">
+              <a href="#">
                 <span>Xác thực</span>
               </a>
             </li>

@@ -70,7 +70,7 @@
                                                     <p>
                                                     </p>
                                                     <div>
-                                                        <a href="/list_product"> View all product </a>
+                                                        <a href="list_product">Xem toàn bộ</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +83,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(0).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=bSP.get(0).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=bSP.get(0).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=bSP.get(0).getImage(1)%>" alt="img">
                                                                         </a>
@@ -98,7 +98,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(0).getProduct_id()%>"><%=bSP.get(0).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=bSP.get(0).getProduct_id()%>"><%=bSP.get(0).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -110,11 +110,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(0).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=bSP.get(0).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(0).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=bSP.get(0).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=bSP.get(0).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -125,7 +125,7 @@
                                                                 </div>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=bSP.get(1).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=bSP.get(1).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=bSP.get(1).getImage(1)%>" alt="img">
                                                                         </a>
@@ -140,7 +140,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(1).getProduct_id()%>"><%=bSP.get(1).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=bSP.get(1).getProduct_id()%>"><%=bSP.get(1).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -152,11 +152,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(1).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=bSP.get(1).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(1).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=bSP.get(1).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=bSP.get(1).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -169,7 +169,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(2).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=bSP.get(2).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=bSP.get(2).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=bSP.get(2).getImage(1)%>" alt="img">
                                                                         </a>
@@ -184,7 +184,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(2).getProduct_id()%>"><%=bSP.get(2).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=bSP.get(2).getProduct_id()%>"><%=bSP.get(2).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -196,11 +196,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(2).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=bSP.get(2).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(2).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=bSP.get(2).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=bSP.get(2).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -211,7 +211,7 @@
                                                                 </div>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(3).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=bSP.get(3).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=bSP.get(3).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=bSP.get(3).getImage(1)%>" alt="img">
                                                                         </a>
@@ -226,7 +226,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(3).getProduct_id()%>"><%=bSP.get(3).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=bSP.get(3).getProduct_id()%>"><%=bSP.get(3).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -238,11 +238,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(3).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=bSP.get(3).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(3).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=bSP.get(3).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=bSP.get(3).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -255,7 +255,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(4).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=bSP.get(4).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=bSP.get(4).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=bSP.get(4).getImage(1)%>" alt="img">
                                                                         </a>
@@ -270,7 +270,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(4).getProduct_id()%>"><%=bSP.get(4).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=bSP.get(4).getProduct_id()%>"><%=bSP.get(4).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -282,11 +282,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(4).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=bSP.get(4).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(4).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=bSP.get(4).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=bSP.get(4).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -297,7 +297,7 @@
                                                                 </div>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=bSP.get(5).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=bSP.get(5).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=bSP.get(5).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=bSP.get(5).getImage(1)%>" alt="img">
                                                                         </a>
@@ -312,7 +312,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=bSP.get(5).getProduct_id()%>"><%=bSP.get(5).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=bSP.get(5).getProduct_id()%>"><%=bSP.get(5).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -324,11 +324,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=bSP.get(5).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=bSP.get(5).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=bSP.get(5).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=bSP.get(5).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=bSP.get(5).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -363,7 +363,7 @@
                                                     <p>
                                                     </p>
                                                     <div>
-                                                        <a href="/list_product"> View all product </a>
+                                                        <a href="list_product">Xem toàn bộ</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -376,7 +376,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=newP.get(0).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=newP.get(0).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=newP.get(0).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=newP.get(0).getImage(1)%>" alt="img">
                                                                         </a>
@@ -391,7 +391,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(0).getProduct_id()%>"><%=newP.get(0).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=newP.get(0).getProduct_id()%>"><%=newP.get(0).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -403,11 +403,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(0).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=newP.get(0).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(0).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=newP.get(0).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=newP.get(0).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -433,7 +433,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(1).getProduct_id()%>"><%=newP.get(1).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=newP.get(1).getProduct_id()%>"><%=newP.get(1).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -445,11 +445,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(1).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=newP.get(1).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(1).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=newP.get(1).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=newP.get(1).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -462,7 +462,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=newP.get(2).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=newP.get(2).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=newP.get(2).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=newP.get(2).getImage(1)%>" alt="img">
                                                                         </a>
@@ -477,7 +477,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(2).getProduct_id()%>"><%=newP.get(2).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=newP.get(2).getProduct_id()%>"><%=newP.get(2).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -489,11 +489,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(2).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=newP.get(2).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(2).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=newP.get(2).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=newP.get(2).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -504,7 +504,7 @@
                                                                 </div>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=newP.get(3).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=newP.get(3).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=newP.get(3).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=newP.get(3).getImage(1)%>" alt="img">
                                                                         </a>
@@ -519,7 +519,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(3).getProduct_id()%>"><%=newP.get(3).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=newP.get(3).getProduct_id()%>"><%=newP.get(3).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -531,11 +531,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(3).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=newP.get(3).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(3).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=newP.get(3).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=newP.get(3).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -548,7 +548,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=newP.get(4).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=newP.get(4).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=newP.get(4).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=newP.get(4).getImage(1)%>" alt="img">
                                                                         </a>
@@ -563,7 +563,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(4).getProduct_id()%>"><%=newP.get(4).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=newP.get(4).getProduct_id()%>"><%=newP.get(4).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -575,11 +575,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(4).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=newP.get(4).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(4).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=newP.get(4).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=newP.get(4).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
@@ -590,7 +590,7 @@
                                                                 </div>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="/product_detail?pid=<%=newP.get(5).getProduct_id()%>">
+                                                                        <a href="product_detail?pid=<%=newP.get(5).getProduct_id()%>">
                                                                             <img class="img-fluid image-cover" src="<%=newP.get(5).getImage(0)%>" alt="img">
                                                                             <img class="img-fluid image-secondary" src="<%=newP.get(5).getImage(1)%>" alt="img">
                                                                         </a>
@@ -605,7 +605,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="/product_detail?pid=<%=newP.get(5).getProduct_id()%>"><%=newP.get(5).getName()%></a>
+                                                                                <a href="product_detail?pid=<%=newP.get(5).getProduct_id()%>"><%=newP.get(5).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
@@ -617,11 +617,11 @@
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
                                                                                 <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="/cart/add?id=<%=newP.get(5).getProduct_id()%>" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="cart/add?id=<%=newP.get(5).getProduct_id()%>" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href="/favorite/add?id=<%=newP.get(5).getProduct_id()%>" data-rel="1" onclick="">
+                                                                            <a class="addToWishlist" href="favorite/add?id=<%=newP.get(5).getProduct_id()%>" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                             <a href="product_detail?pid=<%=newP.get(5).getProduct_id()%>" class="quick-view hidden-sm-down" data-link-action="quickview">

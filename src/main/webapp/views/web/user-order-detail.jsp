@@ -23,6 +23,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Chi tiết đơn hàng</title>
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <jsp:include page="/common/web/css.jsp"></jsp:include>
     <style>
         .error{
@@ -65,12 +66,12 @@
                 <div class="breadcrumb">
                     <ol>
                         <li>
-                            <a href="/home">
+                            <a href="home">
                                 <span>Trang chủ</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/list_order">
+                            <a href="list_order">
                                 <span>Danh sách đơn hàng</span>
                             </a>
                         </li>

@@ -48,12 +48,12 @@
           <div class="breadcrumb">
             <ol>
               <li>
-                <a href="index.html">
+                <a href="home">
                   <span>Trang chủ</span>
                 </a>
               </li>
               <li>
-                <a href="recruit.jsp">
+                <a href="recruit">
                   <span>Các câu hỏi thường gặp</span>
                 </a>
               </li>

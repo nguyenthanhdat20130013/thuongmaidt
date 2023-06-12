@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dach sách yêu thích</title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
@@ -53,12 +53,12 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="/home">
+                                <a href="home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/favorite">
+                                <a href="favorite">
                                     <span>Sản phẩm yêu thích</span>
                                 </a>
                             </li>
@@ -96,7 +96,7 @@
 
                                                     <td class="wishlist_delete">
                                                         <a href="product_detail?pid=${item.getProduct_id()}" class="btn btn-default" >Xem sản phẩm</a>
-                                                        <a href="/favorite/del?id=${item.getProduct_id()}"  class="btn btn-default" >Xoá</a>
+                                                        <a href="favorite/del?id=${item.getProduct_id()}"  class="btn btn-default" >Xoá</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -104,7 +104,7 @@
                                         </table>
                                     </div>
                                     <div class="page-home">
-                                        <a class="btn btn-default" href="/list_product">
+                                        <a class="btn btn-default" href="list_product">
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                             <span>Tiếp tục mua hàng</span>
                                         </a>

@@ -43,12 +43,12 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="/home">
+                                <a href="home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/about">
+                                <a href="about">
                                     <span>Giới thiệu về chúng tôi</span>
                                 </a>
                             </li>

@@ -9,18 +9,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix tính giá vận chuyển">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Order_detail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order_detail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/ProductSearchModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ProductSearchModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Transport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Transport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/about-us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/about-us.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/agent-partner-policy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/agent-partner-policy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/blog-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/blog-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/blog-list-sidebar-left.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/blog-list-sidebar-left.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/collection.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/collection.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/contact.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/contact.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/delivery-policy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/delivery-policy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/faqs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/faqs.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/order-success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/order-success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/privacy-policy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/privacy-policy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/recruit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/recruit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/shopping-guide.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/shopping-guide.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-acount.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-acount.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-change-password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-change-password.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-reset-password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-reset-password.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-wishlist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-wishlist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/verified.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/verified.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/verify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/verify.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/warranty-policy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/warranty-policy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,23 +93,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dat-clone-gopcode4",
-    "last_opened_file_path": "E:/LapTrinhWeb/cuoi ky/HappyHome",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dat-clone-gopcode4&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/LapTrinhWeb/cuoi ky/HappyHome&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
@@ -379,7 +399,16 @@
       <workItem from="1685514771711" duration="8594000" />
       <workItem from="1685523391811" duration="1237000" />
       <workItem from="1685539494472" duration="2128000" />
+      <workItem from="1686574450898" duration="10328000" />
     </task>
+    <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
+      <created>1686505220241</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686505220241</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +436,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix tính giá vận chuyển" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix tính giá vận chuyển" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
