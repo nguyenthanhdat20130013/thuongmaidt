@@ -39,12 +39,12 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="index.html">
+                                <a href="home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="order-success.jsp">
+                                <a href="#">
                                     <span>Đặt hàng thành công </span>
                                 </a>
                             </li>
@@ -63,7 +63,7 @@
 
 
                         <div class="text-center">
-                            <a href="/cart_detail" title="View Cart"><i class="fa fa-home" aria-hidden="true"></i>     TRỞ LẠI TRANG CHỦ</a>
+                            <a href="home" title="View Cart"><i class="fa fa-home" aria-hidden="true"></i>TRỞ LẠI TRANG CHỦ</a>
                         </div>
                     </div>
                 </div>

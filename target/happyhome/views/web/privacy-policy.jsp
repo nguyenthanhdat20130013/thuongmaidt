@@ -47,12 +47,12 @@
               <div class="breadcrumb">
                 <ol>
                   <li>
-                    <a href="/home">
+                    <a href="home">
                       <span>Trang chủ</span>
                     </a>
                   </li>
                   <li>
-                    <a href="/privacy">
+                    <a href="privacy">
                       <span>Chính sách bảo mật</span>
                     </a>
                   </li>
@@ -135,7 +135,7 @@
                     <p style="margin-left:22.5pt;">- Vì vậy, bạn đã đồng ý rằng, khi bạn sử dụng website của chúng tôi sau khi chỉnh sửa nghĩa là bạn đã thừa nhận, đồng ý tuân thủ cũng như tin tưởng vào sự chỉnh sửa này. Do đó, chúng tôi đề nghị bạn nên xem trước nội dung trang này trước khi truy cập các nội dung khác trên website cũng như bạn nên đọc và t ham khảo kỹ nội dung “Chính sách bảo mật” của từng website mà bạn đang truy cập.</p>
 
                     <p><strong>9. Thông tin liên hệ:</strong></p>
-                    <a href="/contact">Liên hệ</a>
+                    <a href="contact">Liên hệ</a>
 
                 </div>
               </div>

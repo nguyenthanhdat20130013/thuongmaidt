@@ -271,7 +271,7 @@
                                                     <span class="label js-subtotal">
                                                         Tổng Sản phẩm:
                                                     </span>
-                                                    <span class="value">${cart.total} ₫</span>
+                                                    <span class="value" id="cart-totalThanhtoan"></span>
                                                 </div>
                                                 <div class="cart-summary-line" id="cart-subtotal-shipping">
 
@@ -284,7 +284,7 @@
                                                 </div>
                                                 <div class="cart-summary-line cart-total">
                                                     <span class="label">Tổng:</span>
-                                                    <span class="value">${cart.total} ₫ (bao gồm thuế.)</span>
+                                                    <span class="value" id="cart-totalThanhtoan1"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@
                                                     <span class="label js-subtotal">
                                                       <a href=""><%=p.getProduct().getName()%></a>
                                                     </span>
-                                                    <span class="value"><%=p.getQuantity()%> x <%=p.getProduct().getPrice_sell()%> =<%=p.getProduct().formatCurrency(p.getQuantity()*p.getProduct().getPrice_sell())%></span>
+                                                    <span class="value"><%=p.getQuantity()%> x <%=p.getProduct().formatCurrency(p.getProduct().getPrice_sell())%> =<%=p.getProduct().formatCurrency(p.getQuantity()*p.getProduct().getPrice_sell())%></span>
                                                 </div>
                                                 <%}%>
                                             </div>
@@ -318,6 +318,18 @@
 <jsp:include page="/common/web/footer.jsp"></jsp:include>
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
+<script>
+    // Lấy giá trị số tiền từ đối tượng cart
+    const cartTotal22 = ${cart.total};
+
+    // Chuyển đổi định dạng tiền tệ sang VND
+    const formattedCartTotal22 = cartTotal22.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+
+    // Hiển thị giá trị đã được định dạng trên trang web
+    document.getElementById("cart-totalThanhtoan").innerHTML = formattedCartTotal22 ;
+    document.getElementById("cart-totalThanhtoan1").innerHTML = formattedCartTotal22 + " (bao gồm thuế.)";
+
+</script>
 
 <script>
     $(document).ready(function () {
@@ -390,7 +402,8 @@
             district = $(this).val();
             $('#ward').val('');
         });
-
+        // Lưu giá trị ban đầu của cartTotal vào biến tạm thời
+        var initialCartTotal = parseInt($('.cart-total .value').text().replace(/[^\d]/g, ''));
         // Lấy giá trị của select box Xã và gửi dữ liệu lên server
         $('#ward').change(function () {
             ward = $(this).val();
@@ -405,8 +418,8 @@
                     },
                     success: function (result) {
                         var shippingFee = parseInt(result);
-                        var cartTotal = parseInt($('.cart-total .value').text().replace(/[^\d]/g, ''));
-                        var newCartTotal = cartTotal + shippingFee;
+                        // Tính toán newCartTotal bằng cách cộng giá trị mới của cartTotal với shippingFee
+                        var newCartTotal = initialCartTotal + shippingFee;
 
                         // Set giá trị cho input
                         $('#shipping-fee-input').val(shippingFee);

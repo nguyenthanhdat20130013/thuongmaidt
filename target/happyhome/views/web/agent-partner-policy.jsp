@@ -48,12 +48,12 @@
           <div class="breadcrumb">
             <ol>
               <li>
-                <a href="/home">
+                <a href="home">
                   <span>Trang chủ</span>
                 </a>
               </li>
               <li>
-                <a href="/agent">
+                <a href="agent">
                   <span>Chính sách đại lý - đối tác </span>
                 </a>
               </li>
@@ -69,7 +69,7 @@
 
                 <p><strong>Nội Thất HappyHome</strong> được thành lập vào đầu năm 2013, tại thời điểm mà công nghệ bắt đầu phát triển mạnh mẽ, kéo theo đó là các sản phẩm công nghệ phổ ngày một biến hơn và xu hướng làm việc tại nhà được rất nhiều người ưu chuộng, Happy Home là một trong những thương hiệu đi tiên phong trong lĩnh vực <strong>Nội Thất Online</strong>, chúng tôi luôn nỗ lực tạo ra các&nbsp;dòng sản phẩm mang lại giá trị tốt nhất cho khách hàng, giúp họ có được&nbsp;trải nghiệm một cách tốt nhất. Những sản phẩm mang tính công nghệ&nbsp;nổi&nbsp;tiếng được&nbsp;<em>Tinh Tế</em>...</p>
 
-                <p>Chúng tôi hoạt động xoay quanh triết lý “<em>kinh doanh&nbsp;chất xám chứ không kinh doanh nội thất</em>”, bạn có thể nhận thấy điều này qua các sản phẩm nội thất trên website <a href="index-2.html"><span style="color:#0066cc;"><em>happyhome.com.vn</em></span></a>. Các dòng sản phẩm của Happy Home mang thiết kế sáng tạo, đơn giản nhưng hiện đại và cũng không kém phần tiện dụng. Nhờ đó mà Nội Thất Happy Home đã lấy được thiện cảm và được nhiều khách hàng lựa chọn, chúng tôi đã phục vụ hơn 30,000 lượt khách mua lẻ và họ rất hài lòng.</p>
+                <p>Chúng tôi hoạt động xoay quanh triết lý “<em>kinh doanh&nbsp;chất xám chứ không kinh doanh nội thất</em>”, bạn có thể nhận thấy điều này qua các sản phẩm nội thất trên website <a href="home"><span style="color:#0066cc;"><em>happyhome.com.vn</em></span></a>. Các dòng sản phẩm của Happy Home mang thiết kế sáng tạo, đơn giản nhưng hiện đại và cũng không kém phần tiện dụng. Nhờ đó mà Nội Thất Happy Home đã lấy được thiện cảm và được nhiều khách hàng lựa chọn, chúng tôi đã phục vụ hơn 30,000 lượt khách mua lẻ và họ rất hài lòng.</p>
 
                 <p>Định hướng phát triển trong tương lai&nbsp;của Nội Thất Happy Home là tiếp tục tạo ra các&nbsp;dòng sản phẩm nội thất&nbsp;chất lượng, đa dạng mẫu mã, phục vụ cho thị trường&nbsp;Việt Nam. Nếu như bạn có một&nbsp;<strong>ý tưởng kinh doanh nội thất</strong> và đang cần&nbsp;<strong>tìm làm nhà phân phối nội thất</strong>&nbsp;chất lượng, uy tín,&nbsp;có chính sách&nbsp;<strong>bỏ sỉ nội thất</strong>&nbsp;tốt ở Việt Nam hoặc bạn đã có cửa hàng nội thất và muốn trở thành <strong>đại lý nội thất</strong>? Hãy liên hệ ngay với chúng tôi để được <strong>tư vấn kinh doanh nội thất </strong>ngay nhé.&nbsp;</p>
 

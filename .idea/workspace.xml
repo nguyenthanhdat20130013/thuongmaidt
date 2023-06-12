@@ -9,19 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Order_detail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order_detail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/ProductSearchModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ProductSearchModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Transport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Transport.class" afterDir="false" />
-    </list>
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="chỉnh lại url của các trang ở user + fix tính giá vận chuyển khi thay đổi địa điểm" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,23 +61,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dat-clone-gopcode4",
-    "last_opened_file_path": "E:/LapTrinhWeb/cuoi ky/HappyHome",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dat-clone-gopcode4&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/LapTrinhWeb/cuoi ky/HappyHome&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
@@ -379,7 +367,23 @@
       <workItem from="1685514771711" duration="8594000" />
       <workItem from="1685523391811" duration="1237000" />
       <workItem from="1685539494472" duration="2128000" />
+      <workItem from="1686574450898" duration="10701000" />
     </task>
+    <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
+      <created>1686505220241</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686505220241</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chỉnh lại url của các trang ở user + fix tính giá vận chuyển khi thay đổi địa điểm">
+      <created>1686585237046</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686585237046</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +411,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix tính giá vận chuyển" />
+    <MESSAGE value="chỉnh lại url của các trang ở user + fix tính giá vận chuyển khi thay đổi địa điểm" />
+    <option name="LAST_COMMIT_MESSAGE" value="chỉnh lại url của các trang ở user + fix tính giá vận chuyển khi thay đổi địa điểm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

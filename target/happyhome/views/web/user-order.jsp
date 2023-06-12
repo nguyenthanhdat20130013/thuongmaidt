@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Danh sách đơn hàng</title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
@@ -68,12 +68,12 @@
                 <div class="breadcrumb">
                     <ol>
                         <li>
-                            <a href="index-2.html">
+                            <a href="home">
                                 <span>Trang chủ</span>
                             </a>
                         </li>
                         <li>
-                            <a href="user-acount.jsp">
+                            <a href="#">
                                 <span>Danh sách đơn hàng</span>
                             </a>
                         </li>
@@ -103,11 +103,11 @@
                             %>
                             <tr>
                                 <td><%=o.getOder_id()%></td>
-                                <td><%=o.convertDate(o.getDate_order().toString())%></td>
+                                <td><%=Order.convertDate(o.getDate_order().toString())%></td>
                                 <td><%=o.formatCurrency(o.getTotal_money() + o.getFee())%></td>
                                 <td><%=o.statusOrder(o.getStatus())%></td>
                                 <td>
-                                    <button class="btn btn-info"><a href="/user_order?id=<%=o.getOder_id()%>"
+                                    <button class="btn btn-info"><a href="user_order?id=<%=o.getOder_id()%>"
                                                                     style="color:white">Chi tiết</a></button>
                                 </td>
                             </tr>

@@ -45,12 +45,12 @@
           <div class="breadcrumb">
             <ol>
               <li>
-                <a href="/home">
+                <a href="home">
                   <span>Trang chủ</span>
                 </a>
               </li>
               <li>
-                <a href="/recruit">
+                <a href="recruit">
                   <span>Tuyển dụng</span>
                 </a>
               </li>

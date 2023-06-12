@@ -43,7 +43,7 @@
                 <div class="breadcrumb">
                     <ol>
                         <li>
-                            <a href="#">
+                            <a href="home">
                                 <span>Trang chủ</span>
                             </a>
                         </li>

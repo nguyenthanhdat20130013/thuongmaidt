@@ -10,7 +10,6 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
 <% Post post = (Post) request.getAttribute("ar");
-
 %>
 <html lang="zxx">
 <!-- blog-detail10:38-->
@@ -50,7 +49,7 @@
                                 <div class="breadcrumb">
                                     <ol>
                                         <li>
-                                            <a href="#">
+                                            <a href="home">
                                                 <span>Trang chủ</span>
                                             </a>
                                         </li>

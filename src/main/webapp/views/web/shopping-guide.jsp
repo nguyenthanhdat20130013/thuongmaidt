@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hướng dẫn đặt hàng </title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
@@ -49,12 +49,12 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="index.html">
+                                <a href="home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="recruit.jsp">
+                                <a href="#">
                                     <span>Hướng dẫn đặt hàng </span>
                                 </a>
                             </li>

@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Kết quả tìm kiếm  "${textSearch}"</title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
@@ -133,7 +133,7 @@
                             <div class="breadcrumb">
                                 <ol>
                                     <li>
-                                        <a href="#">
+                                        <a href="home">
                                             <span>Trang chủ</span>
                                         </a>
                                     </li>
@@ -243,7 +243,7 @@
                                                 <div class="item text-center col-md-3" >
                                                     <div class="product-miniature js-product-miniature item-one first-item" >
                                                         <div class="thumbnail-container border" >
-                                                            <a href = "product-detail.jsp" >
+                                                            <a href="product_detail?pid=<%=pro.getId()%>">
                                                                 <img class="img-fluid image-cover" src="<%=pro.getListImg().get(0).getUrl()%>" alt="img" >
                                                                 <img class="img-fluid image-secondary" src="<%=pro.getListImg().get(1).getUrl()%>" alt="img" >
                                                             </a >
@@ -258,7 +258,7 @@
                                                         <div class="product-description" >
                                                             <div class="product-groups" >
                                                                 <div class="product-title" >
-                                                                    <a href = "product-detail.jsp" ><%=pro.getName()%></a >
+                                                                    <a href="product_detail?pid=<%=pro.getId()%>"><%=pro.getName()%></a >
                                                                 </div >
                                                                 <div class="rating" >
                                                                     <div class="star-content" >
@@ -286,14 +286,14 @@
                                                             <div class="product-buttons d-flex justify-content-center" >
                                                                 <form action = "#" method = "post" class="formAddToCart" >
                                                                     <input type = "hidden" name = "id_product" value = "1" >
-                                                                    <a class="add-to-cart" href = "#" data-button-action = "add-to-cart" >
+                                                                    <a class="add-to-cart" href="cart/add?id=<%=pro.getId()%>" data-button-action = "add-to-cart" >
                                                                         <i class="fa fa-shopping-cart" aria-hidden = "true" ></i >
                                                                     </a >
                                                                 </form >
-                                                                <a class="addToWishlist" href = "#" data-rel = "1" onclick = "" >
+                                                                <a class="addToWishlist" href="favorite/add?id=<%=pro.getId()%>" data-rel = "1" onclick = "" >
                                                                     <i class="fa fa-heart" aria-hidden = "true" ></i >
                                                                 </a>
-                                                                <a href = "#" class="quick-view hidden-sm-down" data-link-action = "quickview" >
+                                                                <a href="product_detail?pid=<%=pro.getId()%>" class="quick-view hidden-sm-down" data-link-action = "quickview" >
                                                                     <i class="fa fa-eye" aria-hidden = "true" ></i >
                                                                 </a >
                                                             </div >
@@ -311,7 +311,7 @@
                                                         <div class="row">
                                                             <div class="col-md-3">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.jsp">
+                                                                    <a href="product_detail?pid=<%=pro.getId()%>">
                                                                         <img class="img-fluid image-cover" src="<%=pro.getListImg().get(0).getUrl()%>" alt="img" >
                                                                         <img class="img-fluid image-secondary" src="<%=pro.getListImg().get(1).getUrl()%>" alt="img" >
                                                                     </a>
@@ -321,7 +321,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.jsp"><%=pro.getName()%></a>
+                                                                            <a href="product_detail?pid=<%=pro.getId()%>"><%=pro.getName()%></a>
                                                                             <%--   <% if (pro.getQuantity() > 0) { %>
                                                                                <span class="info-stock">
                                                <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -361,14 +361,14 @@
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
                                                                         <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                            <a class="add-to-cart" href="cart/add?id=<%=pro.getId()%>" data-button-action="add-to-cart">
                                                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng
                                                                             </a>
                                                                         </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                        <a class="addToWishlist" href="favorite/add?id=<%=pro.getId()%>" data-rel="1" onclick="">
                                                                             <i class="fa fa-heart" aria-hidden="true"></i>
                                                                         </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                        <a href="product_detail?pid=<%=pro.getId()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                                                         </a>
                                                                     </div>
@@ -387,7 +387,7 @@
                                                 <div class="item text-center col-md-3" >
                                                     <div class="product-miniature js-product-miniature item-one first-item" >
                                                         <div class="thumbnail-container border" >
-                                                            <a href = "product-detail.jsp" >
+                                                            <a href="product_detail?pid=<%=pro.getId()%>">
                                                                 <img class="img-fluid image-cover" src="<%=pro.getListImg().get(0).getUrl()%>" alt="img" >
                                                                 <img class="img-fluid image-secondary" src="<%=pro.getListImg().get(1).getUrl()%>" alt="img" >
                                                             </a >
@@ -402,7 +402,7 @@
                                                         <div class="product-description" >
                                                             <div class="product-groups" >
                                                                 <div class="product-title" >
-                                                                    <a href = "product-detail.jsp" ><%=pro.getName()%></a >
+                                                                    <a href="product_detail?pid=<%=pro.getId()%>"><%=pro.getName()%></a >
                                                                 </div >
                                                                 <div class="rating" >
                                                                     <div class="star-content" >
@@ -429,14 +429,14 @@
                                                             <div class="product-buttons d-flex justify-content-center" >
                                                                 <form action = "#" method = "post" class="formAddToCart" >
                                                                     <input type = "hidden" name = "id_product" value = "1" >
-                                                                    <a class="add-to-cart" href = "#" data-button-action = "add-to-cart" >
+                                                                    <a class="add-to-cart" href="cart/add?id=<%=pro.getId()%>" data-button-action = "add-to-cart" >
                                                                         <i class="fa fa-shopping-cart" aria-hidden = "true" ></i >
                                                                     </a >
                                                                 </form >
-                                                                <a class="addToWishlist" href = "#" data-rel = "1" onclick = "" >
+                                                                <a class="addToWishlist" href="favorite/add?id=<%=pro.getId()%>" data-rel = "1" onclick = "" >
                                                                     <i class="fa fa-heart" aria-hidden = "true" ></i >
                                                                 </a>
-                                                                <a href = "#" class="quick-view hidden-sm-down" data-link-action = "quickview" >
+                                                                <a href="product_detail?pid=<%=pro.getId()%>" class="quick-view hidden-sm-down" data-link-action = "quickview" >
                                                                     <i class="fa fa-eye" aria-hidden = "true" ></i >
                                                                 </a >
                                                             </div >
@@ -454,7 +454,7 @@
                                                         <div class="row">
                                                             <div class="col-md-3">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.jsp">
+                                                                    <a href="product_detail?pid=<%=pro.getId()%>">
                                                                         <img class="img-fluid image-cover" src="<%=pro.getListImg().get(0).getUrl()%>" alt="img" >
                                                                         <img class="img-fluid image-secondary" src="<%=pro.getListImg().get(1).getUrl()%>" alt="img" >
                                                                     </a>
@@ -464,7 +464,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.jsp"><%=pro.getName()%></a>
+                                                                            <a href="product_detail?pid=<%=pro.getId()%>"><%=pro.getName()%></a>
                                                                             <%-- <% if (pro.getQuantity() > 0) { %>
                                                                              <span class="info-stock">
                                              <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -504,14 +504,14 @@
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
                                                                         <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                            <a class="add-to-cart" href="cart/add?id=<%=pro.getId()%>" data-button-action="add-to-cart">
                                                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng
                                                                             </a>
                                                                         </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                        <a class="addToWishlist" href="favorite/add?id=<%=pro.getId()%>" data-rel="1" onclick="">
                                                                             <i class="fa fa-heart" aria-hidden="true"></i>
                                                                         </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                        <a href="product_detail?pid=<%=pro.getId()%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                                                         </a>
                                                                     </div>
