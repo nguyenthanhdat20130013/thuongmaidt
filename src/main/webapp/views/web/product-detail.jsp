@@ -252,7 +252,7 @@
                                             <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                                 <div class="detail-description">
                                                     <div class="price-del">
-                                                        <span class="price"><%=product.price_sell%> VNĐ</span>
+                                                        <span class="price"><%=product.formatCurrency(product.price_sell)%></span>
                                                         <span class="float-right">
                                                                 <span class="availb">Khả dụng: </span>
                                                             <% String result = "<i class=\"fa fa-times\" aria-hidden=\"true\"></i>";
@@ -443,7 +443,7 @@
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price"><%=psm.price_sell%> vnd</span>
+                                                                            <span class="price"><%=psm.formatCurrency(psm.price_sell)%> vnd</span>
 
                                                                         </div>
                                                                     </div>

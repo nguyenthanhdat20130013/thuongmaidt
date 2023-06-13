@@ -9,29 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix @WebFilter(filterName = &quot;Utf8Filter&quot;, urlPatterns = {&quot;/*&quot;}) add urlPatterns = {&quot;/*&quot;} for all page">
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix định dạng tiền đ + fix phân trang">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/Order/CheckSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/Order/CheckSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ListProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ListProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/PostCate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/PostCate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ProductCate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ProductCate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/check-invoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/check-invoice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/checkorder-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/checkorder-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/collection.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/collection.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/Order/CheckSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/Order/CheckSuccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/filter/Utf8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/filter/Utf8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/Order/CheckSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/Order/CheckSuccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/filter/Utf8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/filter/Utf8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/ListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/ListProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/PostCate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/PostCate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/ProductCate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/ProductCate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/ListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/ListProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/PostCate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/PostCate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/ProductCate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/ProductCate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/check-invoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/check-invoice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/checkorder-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/checkorder-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/collection.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/collection.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/product-checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/product-checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/table.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -391,7 +390,7 @@
       <workItem from="1685523391811" duration="1237000" />
       <workItem from="1685539494472" duration="2128000" />
       <workItem from="1686574450898" duration="14005000" />
-      <workItem from="1686662458634" duration="8634000" />
+      <workItem from="1686662458634" duration="9133000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -421,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686588527443</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix định dạng tiền đ + fix phân trang">
+      <created>1686673520350</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686673520350</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +461,8 @@
     <MESSAGE value="chỉnh lại url của các trang ở user + fix tính giá vận chuyển khi thay đổi địa điểm" />
     <MESSAGE value="up thiếu file + chỉnh lại url của các trang ở user + fix tính giá vận chuyển khi thay đổi địa điểm" />
     <MESSAGE value="fix @WebFilter(filterName = &quot;Utf8Filter&quot;, urlPatterns = {&quot;/*&quot;}) add urlPatterns = {&quot;/*&quot;} for all page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix @WebFilter(filterName = &quot;Utf8Filter&quot;, urlPatterns = {&quot;/*&quot;}) add urlPatterns = {&quot;/*&quot;} for all page" />
+    <MESSAGE value="fix định dạng tiền đ + fix phân trang" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix định dạng tiền đ + fix phân trang" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

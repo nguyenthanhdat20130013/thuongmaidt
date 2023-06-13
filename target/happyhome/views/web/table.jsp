@@ -173,7 +173,7 @@
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price"> ${product.price_sell} vnđ</span>
+                                                                            <span class="price"> ${product.formatCurrency(product.getPrice_sell())}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -258,7 +258,7 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price">${p.getPrice_sell()} vnđ</span>
+                                                                                    <span class="price">${p.formatCurrency(p.getPrice_sell())} vnđ</span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="discription">
