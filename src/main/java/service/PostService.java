@@ -100,7 +100,7 @@ public class PostService {
     public List<Post> pagingPost(int index){
         List<Post> list = new ArrayList<>();
         String sql = "SELECT * FROM posts\n" +
-                "ORDER BY post_id LIMIT "+((index -1)*3)+",3";
+                "ORDER BY post_id LIMIT "+((index -1) * 10)+",10";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{

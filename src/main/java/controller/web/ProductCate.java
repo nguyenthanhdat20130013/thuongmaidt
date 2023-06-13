@@ -33,8 +33,8 @@ public class ProductCate extends HttpServlet {
 
         List<Product> list= service.pagingProductBType(index,pid);
         int count = service.getTotalProductType(pid);
-        int endPage = count/5; //moi trang 3 bai
-        if(count % 5 != 0){
+        int endPage = count/10; //moi trang 10 sp
+        if(count % 10 != 0){
             endPage ++;
         }
         request.setAttribute("endP", endPage);

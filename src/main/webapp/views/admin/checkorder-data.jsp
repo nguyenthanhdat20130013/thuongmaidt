@@ -65,7 +65,7 @@
                                         </td>
                                         <td><%=o.getUser_name()%>
                                         </td>
-                                        <td><%=o.getDate_order()%>
+                                        <td><%=Order.convertDate(o.getDate_order().toString())%>
                                         </td>
                                         <td><%=o.statusOrder(o.getStatus())%>
                                         </td>

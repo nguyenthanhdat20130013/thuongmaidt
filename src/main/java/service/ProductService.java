@@ -286,7 +286,7 @@ public class ProductService {
     public List<Product> pagingProduct(int index) {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM products\n" +
-                "ORDER BY product_id LIMIT " + ((index - 1) * 5) + ",5";
+                "ORDER BY product_id LIMIT " + ((index - 1) * 15) + ",15";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -325,7 +325,7 @@ public class ProductService {
     public List<Product> pagingProductBType(int index, int typeid) {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM products\n" + " WHERE product_type = " + typeid +
-                " ORDER BY product_id LIMIT " + ((index - 1) * 5) + ",5";
+                " ORDER BY product_id LIMIT " + ((index - 1) * 10) + ",10";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {

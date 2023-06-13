@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="product-group-price">
                                   <div class="product-price-and-shipping">
-                                    <span class="price"><%=p.getPrice_sell() %> vnđ</span>
+                                    <span class="price"><%=p.formatCurrency(p.getPrice_sell())%></span>
                                   </div>
                                 </div>
                               </div>
@@ -192,8 +192,8 @@
                                         }
                                       %>
                                       <span class="info-stock">
-                                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                   <%=result%>
+                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                        <%=result%>
                                       </span>
                                     </div>
                                     <div class="rating">
@@ -207,7 +207,7 @@
                                     </div>
                                     <div class="product-group-price">
                                       <div class="product-price-and-shipping">
-                                        <span class="price"><%=p.getPrice_sell()%> vnđ</span>
+                                        <span class="price"><%=p.formatCurrency(p.getPrice_sell())%></span>
                                       </div>
                                     </div>
                                     <div class="discription">

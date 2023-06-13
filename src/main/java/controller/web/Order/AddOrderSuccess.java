@@ -48,20 +48,25 @@ public class AddOrderSuccess extends HttpServlet {
         String phone = request.getParameter("phone");
         String paymentMethod = request.getParameter("paymentMethod");
         String address = request.getParameter("address");
-        String transport = "API";
         String message = request.getParameter("message");
         long totalAmount = cart.getTotal();
         Date orderDate = Date.valueOf(LocalDate.now());
         OrderService orderService = new OrderService();
         String shippingFee = request.getParameter("shippingFee");
         int fee = Integer.parseInt(shippingFee);
+        //dia chi giao hang
+        String provinceId = request.getParameter("province-id");
+        String districtId = request.getParameter("district-id");
+        String wardId = request.getParameter("ward-id");
+        String valId = provinceId+":"+districtId+":"+wardId;
+        //
         String provinceValue = request.getParameter("province-value");
         String districtValue = request.getParameter("district-value");
         String wardValue = request.getParameter("ward-value");
-        String valAdd = provinceValue+":"+districtValue+":"+wardValue;
+        String valAdd = wardValue +", "+ districtValue+", "+provinceValue;
 
         try {
-            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, orderDate, paymentMethod, transport, 0, valAdd, message, phone);
+            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, orderDate, paymentMethod, valId, 0, valAdd, message, phone);
             orderService.addOder(order);
 
             order.setOder_id(orderid);

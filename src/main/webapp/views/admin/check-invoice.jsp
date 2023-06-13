@@ -118,7 +118,7 @@
                         <div class="form-group">
                           <label>Ngày đặt hàng:</label>
                           <div class="input-group date" id="reservationdate2" data-target-input="nearest">
-                            <div class="form-control"><%=order.getDate_order()%></div>
+                            <div class="form-control"><%=Order.convertDate(order.getDate_order().toString())%></div>
                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
@@ -131,6 +131,11 @@
                         <label>Địa chỉ giao hàng</label>
                         <div class="form-control"><%=order.getAddress()%></div>
                         <input type="hidden" name="address" id="address" class="form-control" value="<%= order.getAddress() %>">
+                      </div>
+                      <div class="form-group col-md-12 ">
+                        <label>Mã địa chỉ giao hàng</label>
+                        <div class="form-control"><%=order.getTransport()%></div>
+                        <input type="hidden" name="addressId" id="addressId" class="form-control" value="<%= order.getTransport() %>">
                       </div>
                     </div>
                     <div style="display: flex" class="row">

@@ -198,6 +198,10 @@
                                                 <input type="hidden" id="province-value" name="province-value">
                                                 <input type="hidden" id="district-value" name="district-value">
                                                 <input type="hidden" id="ward-value" name="ward-value">
+                                                <!-- Thêm input để đưa giá trị của select box vào servlet -->
+                                                <input type="hidden" id="province-id" name="province-id">
+                                                <input type="hidden" id="district-id" name="district-id">
+                                                <input type="hidden" id="ward-id" name="ward-id">
                                             </div>
                                         </div>
                                         <div class="checkout-personal-step">
@@ -442,17 +446,20 @@
     $(document).ready(function() {
         $('#province').on('change', function() {
             var provinceId = $(this).val();
-            $('#province-value').val(provinceId);
+            $('#province-id').val(provinceId);
+            $('#province-value').val($(this).find("option:selected").text());
         });
 
         $('#district').on('change', function() {
             var districtId = $(this).val();
-            $('#district-value').val(districtId);
+            $('#district-id').val(districtId);
+            $('#district-value').val($(this).find("option:selected").text());
         });
 
         $('#ward').on('change', function() {
             var wardCode = $(this).val();
-            $('#ward-value').val(wardCode);
+            $('#ward-id').val(wardCode);
+            $('#ward-value').val($(this).find("option:selected").text());
         });
     });
 

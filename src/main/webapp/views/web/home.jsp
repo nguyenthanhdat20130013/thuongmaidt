@@ -102,8 +102,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(0).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(0).getPrice()%></del>
+                                                                                    <span class="price"><%=bSP.get(0).formatCurrency(bSP.get(0).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(0).formatCurrency(bSP.get(0).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -144,8 +144,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(1).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(1).getPrice()%></del>
+                                                                                    <span class="price"><%=bSP.get(1).formatCurrency(bSP.get(1).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(1).formatCurrency(bSP.get(1).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -188,8 +188,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(2).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(2).getPrice()%></del>
+                                                                                    <span class="price"><%=bSP.get(2).formatCurrency(bSP.get(2).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(2).formatCurrency(bSP.get(2).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -230,8 +230,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(3).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(3).getPrice()%></del>
+                                                                                    <span class="price"><%=bSP.get(3).formatCurrency(bSP.get(3).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(3).formatCurrency(bSP.get(3).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -274,8 +274,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(4).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(4).getPrice()%></del>
+                                                                                    <span class="price"><%=bSP.get(4).formatCurrency(bSP.get(4).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(4).formatCurrency(bSP.get(4).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -316,8 +316,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=bSP.get(5).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=bSP.get(5).getPrice()%></del>
+                                                                                    <span class="price"><%=bSP.get(5).formatCurrency(bSP.get(5).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=bSP.get(5).formatCurrency(bSP.get(5).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -395,8 +395,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=newP.get(0).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=newP.get(0).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(0).formatCurrency(newP.get(0).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=newP.get(0).formatCurrency(newP.get(0).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -437,8 +437,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=newP.get(1).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=newP.get(1).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(1).formatCurrency(newP.get(1).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=newP.get(1).formatCurrency(newP.get(1).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -481,8 +481,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=newP.get(2).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=newP.get(2).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(2).formatCurrency(newP.get(2).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=newP.get(2).formatCurrency(newP.get(2).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -523,8 +523,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=newP.get(3).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=newP.get(3).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(3).formatCurrency(newP.get(3).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=newP.get(3).formatCurrency(newP.get(3).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -567,8 +567,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=newP.get(4).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=newP.get(4).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(4).formatCurrency(newP.get(4).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=newP.get(4).formatCurrency(newP.get(4).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -609,8 +609,8 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=newP.get(5).getPrice_sell()%></span>
-                                                                                    <del class="regular-price"><%=newP.get(5).getPrice()%></del>
+                                                                                    <span class="price"><%=newP.get(5).formatCurrency(newP.get(5).getPrice_sell())%></span>
+                                                                                    <del class="regular-price"><%=newP.get(5).formatCurrency(newP.get(5).getPrice())%></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

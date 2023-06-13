@@ -29,7 +29,7 @@ public class CheckSuccess extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String status = request.getParameter("status");
         String order_id = request.getParameter("order_id");
-        String address = request.getParameter("address");
+        String address = request.getParameter("addressId");
         String[] arr = address.split(":");
         String value1 = arr[0]; // giá trị đầu tiên
         String to_district_id = arr[1]; // giá trị thứ hai

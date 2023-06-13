@@ -28,8 +28,8 @@ public class PostCate extends HttpServlet {
         PostService service = new PostService();
         List<Post> list = service.getAllPostByCID(id);
         int count = service.getNumPostCID(id);
-        int endPage = count / 3; //moi trang 3 bai
-        if (count % 3 != 0) {
+        int endPage = count / 10; //moi trang 10 bai
+        if (count % 10 != 0) {
             endPage++;
         }
         List<Post_Category> listAr = service.getListPostCategory();
