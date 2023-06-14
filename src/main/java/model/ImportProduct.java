@@ -6,6 +6,7 @@ import java.sql.Date;
 
 public class ImportProduct extends Item {
 
+    private String name;
     private int [] ids;
     private int [] quantities;
     int pro_id;
@@ -70,6 +71,14 @@ public class ImportProduct extends Item {
 
     public void setQuantities(int[] quantities) {
         this.quantities = quantities;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
