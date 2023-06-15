@@ -194,9 +194,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/"/>" class="nav-link">
+                            <a href="<c:url value="/admin-remaining-controller"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Sản phẩm bán chạy</p>
+                                <p>Tổng quan về kho hàng</p>
                             </a>
                         </li>
                     </ul>

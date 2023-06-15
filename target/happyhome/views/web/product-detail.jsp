@@ -291,6 +291,7 @@
                                                                                 </button>
                                                                             </span>
                                                                     </div>
+                                                                    <input type="hidden" id="productStatus" value="<%=product.status%>">
                                                                     <span class="add">
                                                                              <a class="addToWishlist" href="#" id="addToCartLink" data-product-id="<%=product.product_id%>">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -516,15 +517,27 @@
 
 </script>
 <script>
+    var productStatus = document.getElementById("productStatus").value;
     var addToCartLink = document.getElementById("addToCartLink");
+
     addToCartLink.addEventListener("click", function(event) {
         event.preventDefault();
-        var productId = this.dataset.productId;
-        var quantity = document.getElementById("quantity_wanted").value;
-        var url = "cart/addNum?id=" + productId + "&quantity=" + quantity;
-        // Chuyển hướng đến trang servlet với URL vừa tạo
-        window.location.href = url;
+        if (productStatus === "0") {
+            showAlert("Sản phẩm đã hết hàng");
+        } else if (productStatus === "2") {
+            showAlert("Sản phẩm đã ngừng kinh doanh");
+        } else {
+
+            var productId = this.dataset.productId;
+            var quantity = document.getElementById("quantity_wanted").value;
+            var url = "cart/addNum?id=" + productId + "&quantity=" + quantity;
+            // Chuyển hướng đến trang servlet với URL vừa tạo
+            window.location.href = url;
+        }
     });
+    function showAlert(message) {
+        alert(message);
+    }
 </script>
 </body>
 </html>
