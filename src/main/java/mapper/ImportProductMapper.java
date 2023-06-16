@@ -10,6 +10,7 @@ public class ImportProductMapper implements RowMapper<ImportProduct> {
     public ImportProduct mapRow(ResultSet rs) {
         try {
             ImportProduct product = new ImportProduct();
+            product.setName(rs.getString("name"));
             product.setPro_id(rs.getInt("product_id"));
             product.setUsername(rs.getString("user_name"));
             product.setQuantity(rs.getInt("quantity"));

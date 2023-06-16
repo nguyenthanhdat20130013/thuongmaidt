@@ -77,7 +77,7 @@
                     <th>Giá bán ra</th>
                     <th>Loại sản phẩm</th>
                     <th>Tác vụ</th>
-                    <th><input type="checkbox" id="checkAll"></th>
+                    <%--<th><input type="checkbox" id="checkAll"></th>--%>
                   </tr>
                   </thead>
 
@@ -132,7 +132,7 @@
       {data: 'price_sell', name: 'price_sell'},
       {data: 'product_type', name: 'product_type'},
       {data: 'product_id', name: 'action',render: function (data) {
-          return '<a class="btn btn-success" title="edit" href="data-user?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+          return '<a class="btn btn-success" title="edit" href="admin-edit_product?pid=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
         }},
     ]
   });
