@@ -11,17 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/LogData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/LogData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/ImportProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/ImportProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ImportProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ImportProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/log-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/log-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/user-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/user-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ImportProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ImportProductMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/ImportProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ImportProduct.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/mapper/ImportProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/mapper/ImportProductMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/ImportProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/ImportProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/user-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/user-data.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +38,19 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="83052ad5-3776-40fc-bbf7-f5ba8a8f1dd6" />
+        <option name="url" value="https://github.com/20130236/HappyHome.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -80,7 +83,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/LapTrinhWeb/cuoi ky/HappyHome&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/LapTrinhWeb/cuoi ky/Furniture&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -382,7 +385,9 @@
       <workItem from="1685523391811" duration="1237000" />
       <workItem from="1685539494472" duration="2128000" />
       <workItem from="1685693057341" duration="2486000" />
-      <workItem from="1686747638408" duration="2766000" />
+      <workItem from="1686747638408" duration="5348000" />
+      <workItem from="1686882263354" duration="24000" />
+      <workItem from="1686889913818" duration="323000" />
     </task>
     <servers />
   </component>
