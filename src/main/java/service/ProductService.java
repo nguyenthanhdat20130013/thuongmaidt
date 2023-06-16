@@ -98,7 +98,12 @@ public class ProductService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {
-                img = new Image(rs.getInt(1), rs.getInt(2), rs.getString(3));
+                String imageUrl = rs.getString(3);
+                if (imageUrl == null) {
+                    // Trả về URL thay thế nếu giá trị là null
+                    imageUrl = "https://static.vecteezy.com/system/resources/previews/006/736/566/original/illustration-file-not-found-or-404-error-page-free-vector.jpg";
+                }
+                img = new Image(rs.getInt(1), rs.getInt(2), imageUrl);
                 imgUrl.add(img);
             }
         } catch (Exception e) {

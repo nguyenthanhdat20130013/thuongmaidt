@@ -444,7 +444,7 @@
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price"><%=psm.formatCurrency(psm.price_sell)%> vnd</span>
+                                                                            <span class="price"><%=psm.formatCurrency(psm.price_sell)%></span>
 
                                                                         </div>
                                                                     </div>
