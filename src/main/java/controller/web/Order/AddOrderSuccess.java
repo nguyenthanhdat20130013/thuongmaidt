@@ -37,12 +37,12 @@ public class AddOrderSuccess extends HttpServlet {
         HttpSession session = request.getSession();
         UserModel user = (UserModel) session.getAttribute("user");
         if (user == null) {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/lab/login");
             return;
         }
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null || cart.getTotal() == 0) {
-            response.sendRedirect(request.getContextPath() + "/home");
+            response.sendRedirect(request.getContextPath() + "/lab/home");
             return;
         }
         String phone = request.getParameter("phone");
@@ -82,7 +82,7 @@ public class AddOrderSuccess extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
         }
-        response.sendRedirect("/success");
+        response.sendRedirect("/lab/success");
 //        RequestDispatcher rd = request.getRequestDispatcher("/views/web/order-success.jsp");
 //        rd.forward(request, response);
     }

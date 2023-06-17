@@ -25,17 +25,17 @@ public class AddFavorite extends HttpServlet {
 
         int pid = Integer.parseInt(id);
         if (Objects.isNull(user)) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/lab/login");
         } else if (!Objects.isNull(user)) {
             try {
                 String userName = user.getUserName();
                 Favorite favorite = new Favorite(1, userName, pid);
                 favser.addFav(favorite);
             } catch (Exception e) {
-                response.sendRedirect(request.getContextPath() + "/home");
+                response.sendRedirect(request.getContextPath() + "/lab/home");
                 return;
             }
-            response.sendRedirect("/favorite");
+            response.sendRedirect("/lab/favorite");
         }
 
 

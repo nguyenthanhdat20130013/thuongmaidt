@@ -37,7 +37,7 @@ public class ListFavorite extends HttpServlet {
         FavoriteService favser = new FavoriteService();
 
         if (Objects.isNull(user)) {
-            response.sendRedirect("/home");
+            response.sendRedirect("/lab/home");
         } else if (!Objects.isNull(user)) {
             UserModel userModel = UserService.findById(user.getId());
             request.setAttribute("user", userModel);

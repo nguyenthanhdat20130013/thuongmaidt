@@ -22,7 +22,7 @@ public class CartSub extends HttpServlet {
         cart.sub(p);
 
         request.getSession().setAttribute("cart",cart);
-        response.sendRedirect("/cart_detail");
+        response.sendRedirect("/lab/cart_detail");
     }
 
     @Override

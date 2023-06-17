@@ -21,9 +21,9 @@ public class CategoryControllerAdmin extends HttpServlet {
 
     String name = "List-Category-Product";
     private static String editAccess = "sửa danh mục sản phẩm";
-    private static String deleteAccess = "xóa danh mục sản phẩm";
+    private static String deleteAccess = "xoa danh muc san pham";
     private static String addAccess = "thêm danh mục sản phẩm";
-    private static String listAccess = "xem danh sách danh mục sản phẩm";
+    private static String listAccess = "xem danh sach danh muc san pham";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = "";

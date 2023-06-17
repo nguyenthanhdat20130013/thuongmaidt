@@ -34,7 +34,7 @@ public class DelFavorite extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/home");
                 return;
             }
-            response.sendRedirect("/favorite");
+            response.sendRedirect("/lab/favorite");
         }
 
 

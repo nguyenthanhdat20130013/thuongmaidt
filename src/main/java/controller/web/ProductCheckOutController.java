@@ -46,9 +46,9 @@ public class ProductCheckOutController extends HttpServlet {
         session.setAttribute("parameterName", API_KEY);
 
         if (Objects.isNull(user)) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/lab/login");
         } else if (Objects.isNull(cart)) {
-            response.sendRedirect("/home");
+            response.sendRedirect("/lab/home");
 
         } else if (!Objects.isNull(user)) {
             UserModel userModel = UserService.findById(user.getId());
