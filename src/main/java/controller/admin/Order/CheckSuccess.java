@@ -52,6 +52,6 @@ public class CheckSuccess extends HttpServlet {
             orderService.addTransport(transport);
         }
         // Forward to another servlet
-        response.sendRedirect("/admin-check_order");
+        response.sendRedirect("admin-check_order");
     }
 }

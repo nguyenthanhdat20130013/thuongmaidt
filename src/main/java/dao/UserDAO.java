@@ -219,7 +219,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "update USERS set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
+            sql = "update users set full_name = ?, email = ?,role = ?, enable = ? where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getFullName());
             pst.setString(2, user.getEmail());

@@ -28,9 +28,9 @@ public class Authorization implements Filter {
         HttpSession session = request.getSession();
         if(url.startsWith("/admin")){
             if(session.getAttribute("auth") == null){
-                response.sendRedirect("/admin-login?message=not_login&alert=danger");
+                response.sendRedirect("admin-login?message=not_login&alert=danger");
             } else if (((UserModel)session.getAttribute("auth")).getRole()<1){
-                response.sendRedirect("/admin-login?message=not_permission&alert=danger");
+                response.sendRedirect("admin-login?message=not_permission&alert=danger");
             } else {
                 filterChain.doFilter(servletRequest, servletResponse);
             }

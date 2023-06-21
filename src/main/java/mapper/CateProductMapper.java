@@ -10,9 +10,9 @@ public class CateProductMapper implements RowMapper<CategoryProModel>{
     public CategoryProModel mapRow(ResultSet rs) {
         try {
             CategoryProModel categoryProModel = new CategoryProModel();
-            categoryProModel.setId(rs.getInt("'id"));
+            categoryProModel.setId(rs.getInt("type_id"));
             categoryProModel.setName(rs.getString("type_name"));
-            categoryProModel.setNumbOfPro(CategoryProDAO.countProByCateId(rs.getInt("'id")));
+            categoryProModel.setNumbOfPro(CategoryProDAO.countProByCateId(rs.getInt("type_id")));
             return categoryProModel;
         } catch (SQLException e){
             return null;

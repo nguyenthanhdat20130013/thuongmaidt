@@ -296,7 +296,7 @@
                                                                              <a class="addToWishlist" href="#" id="addToCartLink" data-product-id="<%=product.product_id%>">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a class="addToWishlist" href="favorite/add?id=<%=product.product_id%>">
+                                                                            <a class="addToWishlist" href="#" id="addToFavLink" data-product-id="<%=product.product_id%>">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
                                                                         </span>
@@ -444,7 +444,7 @@
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price"><%=psm.formatCurrency(psm.price_sell)%> vnd</span>
+                                                                            <span class="price"><%=psm.formatCurrency(psm.price_sell)%></span>
 
                                                                         </div>
                                                                     </div>
@@ -530,10 +530,26 @@
 
             var productId = this.dataset.productId;
             var quantity = document.getElementById("quantity_wanted").value;
-            var url = "cart/addNum?id=" + productId + "&quantity=" + quantity;
+            var url = "/lab/cart/addNum?id=" + productId + "&quantity=" + quantity;
             // Chuyển hướng đến trang servlet với URL vừa tạo
             window.location.href = url;
         }
+    });
+    function showAlert(message) {
+        alert(message);
+    }
+</script>
+<script>
+    var productStatus = document.getElementById("productStatus").value;
+    var addToFavLink = document.getElementById("addToFavLink");
+
+    addToFavLink.addEventListener("click", function(event) {
+
+            var productId = this.dataset.productId;
+            var url = "/lab/favorite/add?id=" + productId;
+            // Chuyển hướng đến trang servlet với URL vừa tạo
+            window.location.href = url;
+
     });
     function showAlert(message) {
         alert(message);

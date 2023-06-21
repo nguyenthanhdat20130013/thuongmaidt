@@ -120,7 +120,8 @@
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
-
+  const  getDataUrl = '<c:url value="/GetDataUser"></c:url>';
+  const  editUrl = '<c:url value="/admin-data-user?action=edit&id="></c:url>';
   var table  = $('#user-data').DataTable({
       processing: true,
       serverSide: true,
@@ -134,11 +135,11 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
-      ajax: '/GetDataUser',
+      ajax: getDataUrl,
       columns: [
         {data: 'userName', name: 'username'},
         {data: 'email', name: 'email'},
-        {data: 'role', name: 'role'},
+        {data: 'roleTitle', name: 'role'},
         {
           data: 'enable', name: 'status', render: function (data, type, row) {
             return (data === 0 ? '<i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>' : '<i class="fa fa-check text-primary" aria-hidden="true"></i>')
@@ -146,7 +147,7 @@
         },
         {
           data: 'id', name: 'action', render: function (data) {
-            return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' + '<a class="btn btn-success" title="edit" href="admin-data-user?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+            return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' + '<a class="btn btn-success" title="edit" href="'+ editUrl + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
           }
         },
         {

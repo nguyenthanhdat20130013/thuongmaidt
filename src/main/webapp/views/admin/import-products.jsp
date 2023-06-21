@@ -101,6 +101,7 @@
 <!-- ./wrapper -->
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
+    const  getDataUrl = '<c:url value="/GetDataImportProduct"></c:url>';
     var table = $('#product-data').DataTable({
         processing: true,
         serverSide: true,
@@ -114,7 +115,7 @@
         "info": true,
         "autoWidth": false,
         "responsive": true,
-        ajax: '/GetDataImportProduct',
+        ajax: getDataUrl,
         columns:[
             {data: 'pro_id', name: 'product_id'},
             {data: 'username', name: 'username'},

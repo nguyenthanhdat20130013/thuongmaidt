@@ -70,7 +70,7 @@
                                         <td><%=o.statusOrder(o.getStatus())%>
                                         </td>
                                         <td>
-                                            <button class="btn btn-info"><a class="check_detail" href="/check_detail?id=<%=o.getOder_id()%>"
+                                            <button class="btn btn-info"><a class="check_detail" href="<c:url value="/check_detail?id="></c:url><%=o.getOder_id()%>"
                                                                             style="color:white">Duyệt đơn hàng</a></button>
                                         </td>
                                             <% } %>

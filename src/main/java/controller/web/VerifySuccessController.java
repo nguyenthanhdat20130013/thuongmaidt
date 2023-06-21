@@ -59,7 +59,7 @@ public class VerifySuccessController extends HttpServlet {
                         sb.append("<p style=\"font-size:24px;\">Chào mừng quý khách hàng đến với Nội Thất HappyHome!</p>");
                         sb.append("<span>Xin chào ").append(user.getFullName()).append("</span><br>");
                         sb.append("<span>Chúc mừng quý khách hàng đã kích hoạt tài khoản khách hàng thành công. Lần mua hàng tiếp theo, hãy đăng nhập để tích lũy điểm nhận ưu đãi và việc thanh toán sẽ thuận tiện hơn.</span>").append("<br><br>");
-                        sb.append("<button style=\"padding:20px 15px;color:#fff;font-size:16px;background-color:#343a40;border-radius:4px\"><a style=\"color:#fff;text-decoration: none;\" href=http://localhost:8080/").append(request.getContextPath() + "/home>").append("Ghé thăm website của HappyHome</a></button>").append("<br><br>");
+                        sb.append("<button style=\"padding:20px 15px;color:#fff;font-size:16px;background-color:#343a40;border-radius:4px\"><a style=\"color:#fff;text-decoration: none;\" href=https://datng.name.vn/lab").append("/home>").append("Ghé thăm website của HappyHome</a></button>").append("<br><br>");
                         sb.append("<span>Trân trọng!</span>").append("<br>");
                         sb.append("<span> Cảm ơn </span>");
                         sb.append("</div>");

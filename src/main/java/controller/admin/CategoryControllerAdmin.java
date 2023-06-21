@@ -21,9 +21,9 @@ public class CategoryControllerAdmin extends HttpServlet {
 
     String name = "List-Category-Product";
     private static String editAccess = "sửa danh mục sản phẩm";
-    private static String deleteAccess = "xoa danh muc san pham";
+    private static String deleteAccess = "xoa danh muc sản phẩm";
     private static String addAccess = "thêm danh mục sản phẩm";
-    private static String listAccess = "xem danh sach danh muc san pham";
+    private static String listAccess = "xem danh sach danh muc sản phẩm";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = "";
@@ -38,33 +38,27 @@ public class CategoryControllerAdmin extends HttpServlet {
         List<CategoryProModel> listCate;
         if(action.equals("add")){
             if(!access){
-                response.sendRedirect("/admin-role-data?message=not_permission");
+                response.sendRedirect("admin-data-category?message=not_permission");
                 return;
             }
             String name = request.getParameter("cate");
             CategoryProService.addCate(name);
-            listCate = CategoryProService.findAll();
-            request.setAttribute("listCate",listCate);
-            request.setAttribute("success","Thêm thành công");
-            request.getRequestDispatcher("views/admin/category-product.jsp").forward(request,response);
+            response.sendRedirect("admin-data-category?message=insert_success");
             return;
         }
         if(action.equals("delete")){
             if(!access){
-                response.sendRedirect("/admin-role-data?message=not_permission");
+                response.sendRedirect("admin-data-category?message=not_permission");
                 return;
             }
             int id = Integer.parseInt(request.getParameter("id"));
             CategoryProService.deleteCate(id);
-            listCate = CategoryProService.findAll();
-            request.setAttribute("listCate",listCate);
-            request.setAttribute("success","Xoá thành công");
-            request.getRequestDispatcher("views/admin/category-product.jsp").forward(request,response);
+            response.sendRedirect("admin-data-category?message=delete_success");
             return;
         }
         if(action.equals("edit")){
             if(!access){
-                response.sendRedirect("/admin-role-data?message=not_permission");
+                response.sendRedirect("admin-data-category?message=not_permission");
                 return;
             }
             String name = request.getParameter("cate");

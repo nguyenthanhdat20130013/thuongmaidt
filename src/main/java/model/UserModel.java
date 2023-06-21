@@ -22,6 +22,8 @@ public class UserModel extends Item {
 
     String access_token;
 
+    String roleTitle;
+
     public UserModel(int id, String userName, String passWord, int role, String fullName, String phoneNum, String email, String address, int enable,String gender ) {
         this.id = id;
         this.userName = userName;
@@ -162,6 +164,14 @@ public class UserModel extends Item {
         this.access_token = access_token;
     }
 
+    public String getRoleTitle() {
+        return roleTitle;
+    }
+
+    public void setRoleTitle(String roleTitle) {
+        this.roleTitle = roleTitle;
+    }
+
     @Override
     public String toString() {
         return "UserModel{" +
@@ -193,6 +203,7 @@ public class UserModel extends Item {
                 gender,
                 String.valueOf(enable),
                 String.valueOf(num_log_in),
+                roleTitle,
         };
     }
 }

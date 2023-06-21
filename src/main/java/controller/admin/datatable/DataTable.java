@@ -93,6 +93,7 @@ public class DataTable<T extends Item> {
     }
 
 
+
     public String buildContainWhere(Class<T> type,RowMapper<T> rowMapper,String col,String value) {
         String selectSql = "SELECT * FROM " + table +" LIMIT "+start+","+length+"" + " Where " + value;
         String countSql = "SELECT COUNT(?) FROM "+table+"";

@@ -17,7 +17,7 @@
     <title>Trang chủ</title>
     <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
-    <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
+    <meta name="description" content="Nội thất HappyHome">
     <meta name="author" content="tivatheme">
     <jsp:include page="/common/web/css.jsp"></jsp:include>
 
@@ -64,7 +64,7 @@
                                             <!-- column 4 -->
                                             <div class="flex-4 col-lg-4 flex-4">
                                                 <h2 class="title-block">
-                                                    <span class="sub-title"></span>Sản phẩm bán chạy
+                                                    <span class="sub-title"></span>Sản phẩm bán chạy 12345
                                                 </h2>
                                                 <div class="content-text">
                                                     <p>

@@ -41,7 +41,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<c:url value="/add_product"/>" method="post" name="editform" id="editform">
+      <form action="<c:url value="/admin-add_product"/>" method="post" name="editform" id="editform">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-8">

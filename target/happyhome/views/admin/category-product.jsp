@@ -120,6 +120,8 @@
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
+  const  getDataUrl = '<c:url value="/GetDataCateProduct"></c:url>';
+  const  editUrl = '<c:url value="/admin-data-category?action=edit&id="></c:url>';
   var table = $('#cate-product').DataTable({
     processing: true,
     serverSide: true,
@@ -133,17 +135,14 @@
     "info": true,
     "autoWidth": false,
     "responsive": true,
-    ajax: '/GetDataRole',
+    ajax: getDataUrl,
     columns:[
       {data: 'id', name: 'id'},
       {data: 'name', name: 'name'},
-      {data: 'numUser', name: 'numUser'},
+      {data: 'numbOfPro', name: 'numOfPro'},
       {data: 'id', name: 'action',render: function (data) {
           return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' +
-                  '<a class="btn btn-success" title="edit" href="data-category?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
-        }},
-      {data: 'id', name: 'action',render: function (data) {
-          return '<input type="checkbox" value="'+ data + '"' +'>';
+                  '<a class="btn btn-success" title="edit" href="'+ editUrl + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
         }},
     ]
   });

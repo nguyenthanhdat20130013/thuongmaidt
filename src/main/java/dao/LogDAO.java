@@ -59,7 +59,7 @@ public class LogDAO {
         List<LogStatistics> logs;
         try {
             logs = new ArrayList<>();
-            sql = "select  user_name,`user`,count(id) as active_times from log INNER JOIN users on log.user = users.uid where DAY(createAt) = DAY(NOW())   and `user` <> -1 group by `user`";
+            sql = "select  user_name,`user`,count(log.id) as active_times from log INNER JOIN users on log.user = users.uid where DAY(createAt) = DAY(NOW())   and `user` <> -1 group by `user`,user_name";
             pst = DBConnection.getConnection().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()){
@@ -127,7 +127,7 @@ public class LogDAO {
         List<LogStatistics> logs;
         try {
             logs = new ArrayList<>();
-            sql = "select  user_name,`user`,count(id) as active_times from log INNER JOIN users on log.user = users.uid where Month(createAt) = Month(NOW()) and `user` <> -1 group by `user`";
+            sql = "select  user_name,`user`,count(log.id) as active_times from log INNER JOIN users on log.user = users.uid where Month(createAt) = Month(NOW()) and `user` <> -1 group by `user`,user_name";
             pst = DBConnection.getConnection().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()){

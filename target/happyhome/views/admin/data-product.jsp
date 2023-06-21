@@ -111,6 +111,8 @@
 <!-- ./wrapper -->
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
+  const  getDataUrl = '<c:url value="/GetDataProduct"></c:url>';
+  const  editUrl = '<c:url value="/admin-edit_product?pid="></c:url>';
   var table = $('#product-data').DataTable({
     processing: true,
     serverSide: true,
@@ -124,7 +126,7 @@
     "info": true,
     "autoWidth": false,
     "responsive": true,
-    ajax: '/GetDataProduct',
+    ajax: getDataUrl,
     columns:[
       {data: 'product_id', name: 'product_id'},
       {data: 'name', name: 'name'},
@@ -132,7 +134,7 @@
       {data: 'price_sell', name: 'price_sell'},
       {data: 'product_type', name: 'product_type'},
       {data: 'product_id', name: 'action',render: function (data) {
-          return '<a class="btn btn-success" title="edit" href="admin-edit_product?pid=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+          return '<a class="btn btn-success" title="edit" href="' + editUrl + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
         }},
     ]
   });

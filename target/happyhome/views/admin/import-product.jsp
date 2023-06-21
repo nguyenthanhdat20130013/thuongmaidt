@@ -136,13 +136,16 @@
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script src="<c:url value="/Template/web/libs/jquery/jquery.validate.js"/>"></script>
 <script>
-
+    const  getProductByIdDataUrl = '<c:url value="/getProductById"></c:url>';
+    const  searchDataUrl = '<c:url value="/searchProductName"></c:url>';
+    const  importUrl = '<c:url value="/admin-import-product"></c:url>';
+    const successUrl = '<c:url value="/admin-import-product?message=insert_success&alert=success"></c:url>';
     var search_result = $("#product-name-search-result .resultsContent");
     function searchByName(param) {
         var textSearch = param.value;
         $.ajax({
             type: "GET",
-            url: "/searchProductName",
+            url: searchDataUrl,
             data: {
                 txtSearch : textSearch,
             },
@@ -171,7 +174,7 @@
                     var import_products = $(".display-product");
                     $.ajax({
                         type: "GET",
-                        url: "/getProductById",
+                        url: getProductByIdDataUrl,
                         data: {
                             id_product: id_product,
                         },
@@ -223,13 +226,13 @@
         console.log(data);
         $.ajax({
             type: "POST",
-            url: "/admin-import-product",
+            url: importUrl,
             contentType: "application/json",
             dataType: "json",
             data: JSON.stringify(data),
             success : function (result){
                 console.log(result);
-                window.location.href = "/admin-import-product?message=insert_success&alert=success";
+                window.location.href = successUrl;
             },
             error : function (error){
                 console.log(error);

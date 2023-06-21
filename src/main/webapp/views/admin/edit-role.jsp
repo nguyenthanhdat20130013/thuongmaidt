@@ -10,7 +10,7 @@
     String alert = (String) request.getAttribute("alert");
 %>
 <c:url var="APIurl" value="/api-admin-role"/>
-<c:url var="ROLEurl" value="/role-data"/>
+<c:url var="ROLEurl" value="/admin-role-data"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="card-body" style="display: block; padding:0px ;">
-                                <form action="<c:url value="/role-data?action=add"/>" method="post" id="add-role">
+                                <form action="<c:url value="/admin-role-data?action=add"/>" method="post" id="add-role">
                                     <div class="card-body">
                                         <c:if test="${ messageResponse != null}">
                                             <div class="alert-${alert}" style="width: 36%;">${messageResponse}</div>

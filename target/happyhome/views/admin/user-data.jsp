@@ -120,7 +120,8 @@
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
-
+  const  getDataUrl = '<c:url value="/GetDataUser"></c:url>';
+  const  editUrl = '<c:url value="/admin-data-user?action=edit&id="></c:url>';
   var table  = $('#user-data').DataTable({
       processing: true,
       serverSide: true,
@@ -146,7 +147,7 @@
         },
         {
           data: 'id', name: 'action', render: function (data) {
-            return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' + '<a class="btn btn-success" title="edit" href="admin-data-user?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+            return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' + '<a class="btn btn-success" title="edit" href="'+ editUrl + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
           }
         },
         {

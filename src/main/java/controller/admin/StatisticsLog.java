@@ -32,10 +32,10 @@ public class StatisticsLog extends HttpServlet {
         }
         List<LogStatistics>  logsToDay = LogDAO.countBytoDay();
         List<LogStatistics> logsThisMonth = LogDAO.countThisMonth();
-        List<LogStatistics> logsIpAddress = LogDAO.countByIpAddress();
+        //List<LogStatistics> logsIpAddress = LogDAO.countByIpAddress();
         request.setAttribute("logsToDay",logsToDay);
         request.setAttribute("logsThisMonth",logsThisMonth);
-        request.setAttribute("logsIpAddress",logsIpAddress);
+        //request.setAttribute("logsIpAddress",logsIpAddress);
         request.getRequestDispatcher("/views/admin/statistics-log.jsp").forward(request,response);
     }
 

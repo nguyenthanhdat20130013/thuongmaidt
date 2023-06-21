@@ -62,7 +62,7 @@
                 </div>
               </div>
               <div class="card-body" style="display: block; padding:0px ;">
-                <form action="<c:url value="/data-user?action=add"/>" method="post" id="add-user">
+                <form action="<c:url value="/admin-data-user?action=add"/>" method="post" id="add-user">
                   <div class="card-body">
                     <div style="display: flex" class="row">
                       <div class="form-group col-md-6">

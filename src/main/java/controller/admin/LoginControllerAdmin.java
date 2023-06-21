@@ -22,6 +22,7 @@ public class LoginControllerAdmin extends HttpServlet {
         MessageUtil.showMessage(request);
         RequestDispatcher rd = request.getRequestDispatcher("views/admin/login.jsp");
         rd.forward(request, response);
+        //request.getRequestDispatcher("views/admin/login.jsp").forward(request, response);
     }
 
     @Override

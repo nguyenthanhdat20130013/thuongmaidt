@@ -52,7 +52,7 @@
                                 <c:if test="${success != null}">
                                     <div class="alert-success" style="width: 30%">${success}</div>
                                 </c:if>
-                                <form style="padding:10px" action="<c:url value="/data-category"/>" method="get" id="edit-cate">
+                                <form style="padding:10px" action="<c:url value="/admin-data-category"/>" method="get" id="edit-cate">
                                     <div class="form-group">
                                         <label for="cate">Tên Danh mục</label>
                                         <input type="text" class="form-control" name="cate" id="cate" placeholder="Tên danh mục" value="${cate.getName()}">

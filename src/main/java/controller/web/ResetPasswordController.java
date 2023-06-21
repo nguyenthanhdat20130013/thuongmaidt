@@ -70,16 +70,17 @@ public class ResetPasswordController extends HttpServlet {
                     sb.append("<span>Xin chào </span>").append(user.getFullName()).append("<br><br>");
                     sb.append("<span>Click vào đường dẫn dưới đây để thiết lập mật khẩu tài khoản của quý khách hàng tại").append("<strong> Nội Thất HappyHome</strong></span>").append("<br>");
                     sb.append("<span>Quý khách hàng có 10 phút để thay đổi mật khẩu, sau 10 phút đường dẫn sẽ không còn tồn tại.</span>").append("<br>");
-                    sb.append("<span>Nếu quý khách hàng không có yêu cầu thay đổi mật khẩu, xin hãy xóa email này để bảo mật thông tin.</span>").append("<br><br>");
-                    sb.append("<button style=\"padding:20px 15px;color:#fff;background-color:#343a40;border-radius:4px;\"><a href=http://localhost:8080/").append(request.getContextPath()).append("/change-password?token=").append(token).append(" style=\"font-size:16px;text-decoration: none;color:#fff\">Thiết lập lại mật khẩu</a></button>").append("<br><br>");
+                    sb.append("<span>Nếu quý khách hàng không có yêu cầu thay đổi mật khẩu, xin hãy xóa email này để bảo mật thông tin.</span>").append("<br><br>"); /*append(request.getContextPath())*/
+                    sb.append("<button style=\"padding:20px 15px;color:#fff;background-color:#343a40;border-radius:4px;\"><a href=https://datng.name.vn/lab").append("/change-password?token=").append(token).append(" style=\"font-size:16px;text-decoration: none;color:#fff\">Thiết lập lại mật khẩu</a></button>").append("<br><br>");
                     sb.append("<span>Trân trọng!</span>").append("<br>");
                     sb.append("<span>Cảm ơn</span>");
                     email.setContent(sb.toString());
                     EmailUtil.send(email);
-                    request.setAttribute("message", "Link thiết lập lại mật khẩu đã được gửi vào email của bạn."
-                            + "Vui lòng check email của bạn");
                 }
             });
+            request.setAttribute("message", "Link thiết lập lại mật khẩu đã được gửi vào email của bạn."
+                    + "Vui lòng check email của bạn");
+            mailThread.start();
         }
         PostService service = new PostService();
         ProductService productService = new ProductService();

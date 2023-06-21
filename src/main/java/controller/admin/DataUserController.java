@@ -67,7 +67,7 @@ public class DataUserController extends HttpServlet {
         }
         if(action.equals("delete")){
             if(!access){
-                response.sendRedirect("/admin-role-data?message=not_permission");
+                response.sendRedirect("/admin-data-user?message=not_permission");
                 return;
             }
             UserModel deleteUser = UserService.findById(id);
@@ -120,7 +120,7 @@ public class DataUserController extends HttpServlet {
             LogService.addLog(log);
             request.setAttribute("success","Cập nhật thành công");
             request.setAttribute("user",newUser);
-            response.sendRedirect("data-user?action=edit&id=" + id + "&message=update_success");
+            response.sendRedirect("admin-data-user?action=edit&id=" + id + "&message=update_success");
             return;
         }
         if(action.equals("add")){

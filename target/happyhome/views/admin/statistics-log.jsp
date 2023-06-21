@@ -70,7 +70,7 @@
                                     <!-- /.input group -->
                                     <canvas id="LogsFromTo" style="width:100%;max-width:600px"></canvas>
                                 </div>
-                                <div class="form-group">
+                               <%-- <div class="form-group">
                                     <label>IP mask:</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -81,7 +81,7 @@
                                     <!-- /.input group -->
                                     <canvas id="LogsIpAddress" style="width:100%;max-width:600px"></canvas>
                                 </div>
-                                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>--%>
                             </div>
                             <!-- /.card-body -->
                         </div>

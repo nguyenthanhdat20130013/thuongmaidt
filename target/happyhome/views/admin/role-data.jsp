@@ -101,13 +101,17 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
+    
     <jsp:include page="/common/admin/footer.jsp"></jsp:include>
+    <a href="<c:url value="/GetDataRole"></c:url>"></a>
 </div>
 <!-- ./wrapper -->
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
+    const getDataUrl =  '<c:url value="/GetDataRole"></c:url>';
+    const editUrl =  '<c:url value="/admin-role-data?action=edit&id="></c:url>';
+    const deleteUrl =  '<c:url value="/admin-role-data?action=delete&id="></c:url>';
 
     var table = $('#role-data').DataTable({
         processing: true,
@@ -122,14 +126,14 @@
         "info": true,
         "autoWidth": false,
         "responsive": true,
-        ajax: '/GetDataRole',
+        ajax: getDataUrl,
         columns:[
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'numUser', name: 'numUser'},
             {data: 'id', name: 'action',render: function (data) {
-                    return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' +
-                        '<a class="btn btn-success" title="edit" href="admin-role-data?action=edit&id=' + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
+                    return '<a class="btn btn-danger btn-delete"  title="delete href="'+ deleteUrl + data + '"' + '><i class="fa fa-trash"></i></a>' +
+                        '<a class="btn btn-success" title="edit" href="' + editUrl + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
                 }},
             {data: 'id', name: 'id',render: function (data) {
                     return '<input type="checkbox" value="'+ data + '"' +'>';

@@ -60,7 +60,7 @@
                                         <th>Level</th>
                                         <th>Src</th>
                                         <th>Date </th>
-                                        <th>ipAddress</th>
+                                        <%--<th>ipAddress</th>--%>
                                         <%--<th><input type="checkbox" id="checkAll"></th>--%>
                                     </tr>
                                     </thead>
@@ -92,6 +92,7 @@
 <!-- ./wrapper -->
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
 <script>
+    const  getDataUrl = '<c:url value="/GetDataLog"></c:url>';
     var table = $('#log-data').DataTable({
         processing: true,
         serverSide: true,
@@ -105,13 +106,12 @@
         "info": true,
         "autoWidth": false,
         "responsive": true,
-        ajax: '/GetDataLog',
+        ajax: '<c:url value="/GetDataLog"></c:url>',
         columns:[
             {data: 'userId', name: 'userId'},
             {data: 'level', name: 'level'},
             {data: 'src', name: 'src'},
             {data: 'creatAt', name: 'creatAt'},
-            {data: 'ipAddress', name: 'ipAddress'},
         ]
     });
 

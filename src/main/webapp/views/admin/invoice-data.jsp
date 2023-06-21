@@ -85,9 +85,9 @@
                                         <td><%=o.statusOrder(o.getStatus())%>
                                         </td>
                                         <td>
-                                            <button class="btn btn-info"><a class="order_detail" href="/order_detail?id=<%=o.getOder_id()%>"
+                                            <button class="btn btn-info"><a class="order_detail" href="<c:url value="/order_detail?id="></c:url><%=o.getOder_id()%>"
                                                                             style="color:white">Chi tiết</a></button>
-                                            <button class="btn btn-success"><a class="check_detail" href="/check_detail?id=<%=o.getOder_id()%>"style="color:white">Sửa</a></button>
+                                            <button class="btn btn-success"><a class="check_detail" href="<c:url value="/check_detail?id="></c:url><%=o.getOder_id()%>" style="color:white">Sửa</a></button>
                                             <button class="btn btn-danger">Xoá</button>
                                         </td>
                                             <% } %>
