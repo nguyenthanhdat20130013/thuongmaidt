@@ -53,7 +53,7 @@ public class AddOrderSuccess extends HttpServlet {
         Date orderDate = Date.valueOf(LocalDate.now());
         OrderService orderService = new OrderService();
         String shippingFee = request.getParameter("shippingFee");
-        int fee = Integer.parseInt(shippingFee);
+        int fee = 0;
         //dia chi giao hang
         String provinceId = request.getParameter("province-id");
         String districtId = request.getParameter("district-id");
