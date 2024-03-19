@@ -64,9 +64,11 @@
                                     <thead>
                                     <tr>
                                         <th>Mã đơn hàng</th>
-                                        <th>Username</th>
-                                        <th>Ngày lập</th>
-                                        <th>Tình trạng</th>
+                                        <th>Khách hàng</th>
+                                        <th>Ngày tạo đơn hàng</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Hình thức thanh toán</th>
+                                        <th>Trạng thái đơn hàng</th>
                                         <th>Tác vụ</th>
                                     </tr>
                                     </thead>
@@ -81,7 +83,8 @@
                                         </td>
                                         <td><%=Order.convertDate(o.getDate_order().toString())%>
                                         </td>
-
+                                        <td><%=o.formatCurrency(o.getTotal_money())%></td>
+                                        <td><%=o.getPayment()%></td>
                                         <td><%=o.statusOrder(o.getStatus())%>
                                         </td>
                                         <td>

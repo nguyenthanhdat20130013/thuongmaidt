@@ -530,4 +530,14 @@ public class UserDAO {
         }
         return users;
     }
+
+    public static void main(String[] args) {
+        List<UserModel> users = new ArrayList<>();
+        users = findAll();
+
+        for (UserModel u : users){
+            System.out.println(u.toString());
+        }
+
+    }
 }

@@ -58,16 +58,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header" style="margin-top: 10px;margin-bottom: -10px">
-                <div class="form-group" style="width: 50%;float: left">
-                  <select class="form-control " >
-                    <option selected="selected" disabled="disabled">Tìm kiếm theo</option>
-                    <option>Sản Phẩm mới</option>
-                    <option>Sản Phẩm hot</option>
-                    <option>Hết hàng</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select>
-                </div>
+
                 <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/admin-data-user?action=add"></c:url>" style="color: white">Thêm mới</a></button>
                 <button id="delete-btn" class="btn btn-danger" style="float: right;margin-right: 10px">Xoá nhiều</button>
               </div>

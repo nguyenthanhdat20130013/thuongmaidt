@@ -111,7 +111,7 @@
                                 </fb:login-button></div>--%>
                                 <div id="google-btn" style="width:  240px;margin-left: auto;margin-right: auto"></div>
                                 <div id="g_id_onload"
-                                     data-client_id="249998432598-rnscpsfgi8fvqnhqan6q8hv7vidpcmla.apps.googleusercontent.com"
+                                     data-client_id="134024970920-c7aegb1s5oofkrgv064q1ru8402qdeeo.apps.googleusercontent.com"
                                      data-callback="handleCredentialResponse">
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
 
         window.onload = function () {
         google.accounts.id.initialize({
-            client_id: "249998432598-1tvhf8obtkut97t10hnonpoqofbl9m3t.apps.googleusercontent.com",
+            client_id: "134024970920-c7aegb1s5oofkrgv064q1ru8402qdeeo.apps.googleusercontent.com",
             callback: handleCredentialResponse
         });
         google.accounts.id.renderButton(

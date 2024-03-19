@@ -1,6 +1,7 @@
 package controller.admin;
 
 import controller.admin.datatable.DataTable;
+import dao.UserDAO;
 import mapper.UserMapper;
 import model.Log;
 import model.UserModel;
@@ -34,6 +35,7 @@ public class GetDataUser extends HttpServlet {
             int length = Integer.parseInt(parameterMap.get("length"));
             int draw = Integer.parseInt(parameterMap.get("draw"));
             users = new DataTable<UserModel>().table("users u inner join roles r on u.role = r.id",draw ,start, length).build(UserModel.class, new UserMapper(),"uid");
+//            System.out.println(users);
             log.setContent(users);
             LogService.addLog(log);
             out.println(users);

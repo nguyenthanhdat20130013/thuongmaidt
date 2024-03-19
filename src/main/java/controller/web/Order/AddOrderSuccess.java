@@ -53,7 +53,7 @@ public class AddOrderSuccess extends HttpServlet {
         Date orderDate = Date.valueOf(LocalDate.now());
         OrderService orderService = new OrderService();
         String shippingFee = request.getParameter("shippingFee");
-        int fee = Integer.parseInt(shippingFee);
+        int fee = 0;
         //dia chi giao hang
         String provinceId = request.getParameter("province-id");
         String districtId = request.getParameter("district-id");
@@ -82,7 +82,7 @@ public class AddOrderSuccess extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
         }
-        response.sendRedirect("/lab/success");
+        response.sendRedirect("/success");
 //        RequestDispatcher rd = request.getRequestDispatcher("/views/web/order-success.jsp");
 //        rd.forward(request, response);
     }
