@@ -64,7 +64,7 @@
                                             <!-- column 4 -->
                                             <div class="flex-4 col-lg-4 flex-4">
                                                 <h2 class="title-block">
-                                                    <span class="sub-title"></span>Sản phẩm bán chạy 12345
+                                                    <span class="sub-title"></span>Sản phẩm bán chạy
                                                 </h2>
                                                 <div class="content-text">
                                                     <p>

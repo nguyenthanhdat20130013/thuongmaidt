@@ -5,7 +5,7 @@
 <%
     List<LogStatistics> logsToday = (List<LogStatistics>) request.getAttribute("logsToDay");
     List<LogStatistics> logsThisMonth = (List<LogStatistics>) request.getAttribute("logsThisMonth");
-    List<LogStatistics> logsIpAddress = (List<LogStatistics>) request.getAttribute("logsIpAddress");
+    //List<LogStatistics> logsIpAddress = (List<LogStatistics>) request.getAttribute("logsIpAddress");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,23 +50,23 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Date and time:</label>
+                                    <%--<label>Date and time:</label>
                                     <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                                         <input id="log-date" type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime">
                                         <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
-                                    </div>
+                                    </div>--%>
                                     <canvas id="LogsDay" style="width:100%;max-width:600px"></canvas>
                                 </div>
                                 <div class="form-group">
-                                    <label>Date and time range:</label>
+                                   <%-- <label>Date and time range:</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="far fa-clock"></i></span>
                                         </div>
                                         <input id="log-from-to" name="datetime" type="text" class="form-control float-right" id="reservationtime">
-                                    </div>
+                                    </div>--%>
                                     <!-- /.input group -->
                                     <canvas id="LogsFromTo" style="width:100%;max-width:600px"></canvas>
                                 </div>
@@ -193,33 +193,9 @@
         });
 
 
-        var ipXValues = [];
-        var ipYValues = [];
-
-        <% for (LogStatistics l : logsIpAddress) {%>
-        ipXValues.push('<%=l.getIpAddress()%>');
-        ipYValues.push('<%=l.getNum0fId()%>');
-        <% } %>
-        new Chart("LogsIpAddress", {
-            type: "pie",
-            data: {
-                labels: ipXValues,
-                datasets: [{
-                    backgroundColor: barColors,
-                    data: ipYValues
-                }]
-            },
-            options: {
-                legend: {display: false},
-                title: {
-                    display: true,
-                    text: (ipXValues.length < 1)?"không có dữ liêu":"Tổng số hoạt động của ip ",
-                }
-            }
-        });
 
 
-    $('#reservationdate').datetimepicker({
+  /*  $('#reservationdate').datetimepicker({
         format: 'L'
     });
 
@@ -261,7 +237,7 @@
         format: 'LT'
     });
 
-    $('[data-mask]').inputmask();
+    $('[data-mask]').inputmask();*/
     });
 </script>
 </body>

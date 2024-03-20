@@ -55,6 +55,9 @@
                 <c:if test="${success != null}">
                   <div class="alert-success" style="width: 30%">${success}</div>
                 </c:if>
+                <c:if test="${messageResponse != null}">
+                  <div class="alert-${alert}" style="width: 30%">${messageResponse}</div>
+                </c:if>
 
                 <form style="padding:10px">
                   <table id="cate-product" class="table table-bordered table-striped" >
@@ -122,6 +125,7 @@
 <script>
   const  getDataUrl = '<c:url value="/GetDataCateProduct"></c:url>';
   const  editUrl = '<c:url value="/admin-data-category?action=edit&id="></c:url>';
+  const  deleteUrl = '<c:url value="/admin-data-category?action=delete&id="></c:url>';
   var table = $('#cate-product').DataTable({
     processing: true,
     serverSide: true,
@@ -141,67 +145,11 @@
       {data: 'name', name: 'name'},
       {data: 'numbOfPro', name: 'numOfPro'},
       {data: 'id', name: 'action',render: function (data) {
-          return '<a class="btn btn-danger btn-delete"  title="delete" ><i class="fa fa-trash"></i></a>' +
+          return '<a class="btn btn-danger btn-delete"  title="delete" href="'+ deleteUrl + data + '"' + '><i class="fa fa-trash"></i></a>' +
                   '<a class="btn btn-success" title="edit" href="'+ editUrl + data + '"' + '><i class="fa fa-pen" ></i>' + '</a>';
         }},
     ]
   });
-
-  $('#checkAll').click(function (e) {
-    $('#role-data tbody :checkbox').prop('checked', $(this).is(':checked'));
-    e.stopImmediatePropagation();
-  });
-
-  $("#delete-btn").click(function(e) {
-
-    //table.row.delete( $('input[type=checkbox]:checked').parents('tr')).draw().show().draw(false);
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-    var data = {};
-    var ids = $('#role-data tbody input[type=checkbox]:checked').map(function () {
-      return $(this).val();
-    }).get();
-    $('input[type=checkbox]:checked').parents('tr').remove();
-    data['ids'] = ids;
-    var actionUrl = '${APIurl}';
-    deleteRole(data,actionUrl);
-  });
-
-  table.on( 'draw', function () {
-    $(".btn-delete").click(function (e) {
-      $(this).parents('tr').remove();
-      let data ={};
-      let id = [];
-      id.push($(this).parents('tr').find("input").val());
-      $(this).parents('tr').remove();
-      data['ids'] = id;
-      let actionUrl = '${APIurl}';
-      deleteRole(data,actionUrl);
-    });
-  });
-
-  function deleteRole(data,actionUrl){
-    var deletePm = <%=deletePm%>;
-    if(deletePm) {
-      alert("you don't have this permission");
-      return;
-    }
-    $.ajax({
-      type: "DELETE",
-      url: actionUrl,
-      contentType: "application/json",
-      dataType: "json",
-      data: JSON.stringify(data), // javacript object to json
-      success: function (result){
-        //window.location.href = "/data-user?message=delete_success";
-        alert("xoá thành công");
-      },
-      error: function (error){
-        console.log(error);
-        alert("đã có lỗi xảy ra");
-        //window.location.href = "/data-user?message=error_system";
-      }
-    });
-  }
 </script>
 </body>
 </html>
