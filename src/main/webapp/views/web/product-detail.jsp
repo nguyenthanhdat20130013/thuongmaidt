@@ -530,7 +530,7 @@
 
             var productId = this.dataset.productId;
             var quantity = document.getElementById("quantity_wanted").value;
-            var url = "/lab/cart/addNum?id=" + productId + "&quantity=" + quantity;
+            var url = "/cart/addNum?id=" + productId + "&quantity=" + quantity;
             // Chuyển hướng đến trang servlet với URL vừa tạo
             window.location.href = url;
         }
