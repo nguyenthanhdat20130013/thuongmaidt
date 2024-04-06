@@ -138,7 +138,7 @@ public class DataUserController extends HttpServlet {
             log.setContent("ADD USER SUCCESS"  + user.toString());
             LogService.addLog(log);
             request.setAttribute("success","Thêm thành công");
-            request.getRequestDispatcher("views/admin/add-user.jsp").forward(request, response);
+            request.getRequestDispatcher("views/admin/user-data.jsp").forward(request, response);
         }
     }
 

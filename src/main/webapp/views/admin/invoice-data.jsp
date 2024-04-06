@@ -49,9 +49,6 @@
                                         <option>Sản Phẩm hot</option>
                                     </select>
                                 </div>
-                                <button class="btn btn-primary" style="float: right;"><a href="#"
-                                                                                         style="color: white">Thêm
-                                    mới</a></button>
                             </div>
 
                             <!-- /.card-header -->

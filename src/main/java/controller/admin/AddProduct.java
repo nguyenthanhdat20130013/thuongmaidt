@@ -56,6 +56,6 @@ public class AddProduct extends HttpServlet {
         log.setContent(p.toString());
         log.setLevel(Log.ALERT);
         LogService.addLog(log);
-        response.sendRedirect("/product_manager");
+        response.sendRedirect("/admin-product_manager");
     }
 }

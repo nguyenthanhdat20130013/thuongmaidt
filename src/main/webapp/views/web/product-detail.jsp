@@ -21,13 +21,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%=product.name%></title>
     <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0&appId=1206844166904552" nonce="OI7J3mbH"></script>
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
-
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=1827192387637142&autoLogAppEvents=1" nonce="TPPeMGh0"></script>
-    <meta property="fb:app_id" content="1827192387637142" />
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -265,10 +263,14 @@
                                                             </span>
                                                     </div>
                                                     <div class="option size-color">
-                                                        <div class="size">
-                                                            <div class="size">Kích cỡ : <%=product.size%> </b>
+<%--                                                        <div class="size">--%>
+<%--                                                            <div class="size">Giá  : <%=product.size%> </b>--%>
+<%--                                                            </div>--%>
+<%--                                                        </div>--%>
+                                                            <div class="size" style="font-size: 15px;font-weight: bold;">
+                                                                <del><%=product.formatCurrency(product.price)%></del>
+
                                                             </div>
-                                                        </div>
                                                         <div class="colors">
                                                             <div class="title">Màu : <%=product.color%> </b>
                                                             </div>
@@ -377,10 +379,10 @@
                                                     <a data-toggle="tab" href="#description" class="active show">Mô tả sản phẩm </a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#tag">Đặc điểm sản phẩm</a>
+                                                    <a data-toggle="tab" href="#review">Đánh giá sản phẩm</a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#review">Nhận xét</a>
+                                                    <a data-toggle="tab" href="#tag">Bình luận</a>
                                                 </li>
                                             </ul>
 
@@ -390,15 +392,79 @@
                                                     </p>
                                                 </div>
 
-                                                <div id="review" class="tab-pane fade">
+                                                <div id="tag" class="tab-pane fade">
                                                     <div class="spr-form">
-                                                        <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/p<%=product.product_id%>" data-width="100%" data-numposts="5"></div>
+                                                        <div class="fb-comments" data-href="https://datthanhnguyen1920.000webhostapp.com/<%=product.product_id%>" data-width="" data-numposts="10"></div>
                                                     </div>
 
+
                                                 </div>
-                                                <div id="tag" class="tab-pane fade in">
-                                                    <p><%=product.attribute%>
-                                                    </p>
+<%--                                                <div id="tag" class="tab-pane fade in">--%>
+<%--                                                    <p><%=product.attribute%>--%>
+<%--                                                    </p>--%>
+<%--                                                </div>--%>
+                                                <div id="review" class="tab-pane fade">
+                                                    <div class="spr-form">
+                                                        <div class="user-comment">
+                                                            <div class="spr-review">
+                                                                <div class="spr-review-header">
+                                                                        <span class="spr-review-header-byline">
+                                                                            <strong>UserTest</strong> -
+                                                                            <span>06/04/2024</span>
+                                                                        </span>
+                                                                    <div class="rating">
+                                                                        <div class="star-content">
+                                                                            <div class="star"></div>
+                                                                            <div class="star"></div>
+                                                                            <div class="star"></div>
+                                                                            <div class="star"></div>
+                                                                            <div class="star"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spr-review-content">
+                                                                    <p class="spr-review-content-body">Sản phẩm tốt và chất lượng</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <form method="post" action="#" class="new-review-form">
+                                                        <input type="hidden" name="review[rating]" value="3">
+                                                        <input type="hidden" name="product_id">
+                                                        <h3 class="spr-form-title">Viết đánh giá</h3>
+                                                        <fieldset>
+                                                            <div class="spr-form-review-rating">
+                                                                <label class="spr-form-label">Chất lượng sản phẩm</label>
+                                                                <fieldset class="ratings">
+                                                                    <input type="radio" id="star5" name="rating" value="5" />
+                                                                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                                                    <input type="radio" id="star4half" name="rating" value="4 and a half" />
+                                                                    <input type="radio" id="star4" name="rating" value="4" />
+                                                                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                                                    <input type="radio" id="star3half" name="rating" value="3 and a half" />
+                                                                    <input type="radio" id="star3" name="rating" value="3" />
+                                                                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+                                                                    <input type="radio" id="star2half" name="rating" value="2 and a half" />
+                                                                    <input type="radio" id="star2" name="rating" value="2" />
+                                                                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                                    <input type="radio" id="star1half" name="rating" value="1 and a half" />
+                                                                    <input type="radio" id="star1" name="rating" value="1" />
+                                                                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                                                    <input type="radio" id="starhalf" name="rating" value="half" />
+                                                                </fieldset>
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset>
+                                                            <div class="spr-form-review-body">
+                                                                <div class="spr-form-input">
+                                                                    <textarea class="spr-form-input-textarea" rows="5" placeholder="Hãy chia sẻ nhận xét cho sản phẩm này bạn nhé !!!"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <div class="submit">
+                                                            <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Gửi đánh giá">
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -546,7 +612,7 @@
     addToFavLink.addEventListener("click", function(event) {
 
             var productId = this.dataset.productId;
-            var url = "/lab/favorite/add?id=" + productId;
+            var url = "/favorite/add?id=" + productId;
             // Chuyển hướng đến trang servlet với URL vừa tạo
             window.location.href = url;
 
