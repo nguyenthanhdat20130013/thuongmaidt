@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="sua loi va cai thien chuc nang nguoi dung va admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/AddProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/DataUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/RoleDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -479,6 +474,7 @@
       <workItem from="1712248616844" duration="95000" />
       <workItem from="1712331883572" duration="705000" />
       <workItem from="1712403041973" duration="11477000" />
+      <workItem from="1712593242000" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -554,7 +550,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712506727847</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="sua loi va cai thien chuc nang nguoi dung va admin">
+      <option name="closed" value="true" />
+      <created>1712593571801</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712593571801</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,6 +600,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="sua loi va cai thien chuc nang admin" />
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/dat' into dat&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung va admin" />
     <option name="LAST_COMMIT_MESSAGE" value="sua loi va cai thien chuc nang nguoi dung va admin" />
   </component>
