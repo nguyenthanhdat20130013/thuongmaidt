@@ -9,19 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix">
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="sua loi va cai thien chuc nang nguoi dung va admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/GetDataUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/GetDataUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/datatable/DataTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/datatable/DataTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/AddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/DataUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/DataUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/EditProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RoleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RoleDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/add-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/add-user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/AddProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/DataUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/EditProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/RoleDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -552,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710946598659</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="sua loi va cai thien chuc nang nguoi dung va admin">
+      <option name="closed" value="true" />
+      <created>1712506727847</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712506727847</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +596,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="sua loi va cai thien chuc nang admin" />
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung" />
-    <option name="LAST_COMMIT_MESSAGE" value="sua loi va cai thien chuc nang nguoi dung" />
+    <MESSAGE value="sua loi va cai thien chuc nang nguoi dung va admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="sua loi va cai thien chuc nang nguoi dung va admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
