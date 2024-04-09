@@ -8,7 +8,9 @@ import model.Statics.ProductSellNum;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,7 +127,14 @@ public class ServiceStatistics {
             statement.setInt(2, year);
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
-                    order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                    Timestamp timestamp = rs.getTimestamp("date_order");
+
+                    // Chuyển đổi Timestamp thành LocalDateTime
+                    LocalDateTime dateOrder = null;
+                    if (timestamp != null) {
+                        dateOrder = timestamp.toLocalDateTime();
+                    }
+                    order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), dateOrder, rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                     od.add(order);
                 }
             }

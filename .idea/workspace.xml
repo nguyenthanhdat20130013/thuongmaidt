@@ -9,11 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="sua loi va cai thien chuc nang nguoi dung va admin">
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="sua loi va ca&#10;i thien chuc nang nguoi dung va admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/datatable/DataTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/datatable/DataTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/DataUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/DataUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/statistic/DayAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/statistic/DayAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/statistic/MonthAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/statistic/MonthAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Statics/ProductImportNum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Statics/ProductImportNum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceStatisticsDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceStatisticsDay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/check-invoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/check-invoice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/checkorder-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/checkorder-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/invoice-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +145,7 @@
     "git-widget-placeholder": "dat",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/HappyHome_fixapi/src/main/webapp/views/admin",
+    "last_opened_file_path": "D:/change/attt",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -479,6 +490,7 @@
       <workItem from="1712331883572" duration="705000" />
       <workItem from="1712403041973" duration="11477000" />
       <workItem from="1712593242000" duration="657000" />
+      <workItem from="1712674243301" duration="3739000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -562,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712593571801</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="sua loi va ca&#10;i thien chuc nang nguoi dung va admin">
+      <option name="closed" value="true" />
+      <created>1712596185671</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712596185671</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +626,8 @@
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung" />
     <MESSAGE value="Merge remote-tracking branch 'origin/dat' into dat&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung va admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="sua loi va cai thien chuc nang nguoi dung va admin" />
+    <MESSAGE value="sua loi va ca&#10;i thien chuc nang nguoi dung va admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="sua loi va ca&#10;i thien chuc nang nguoi dung va admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

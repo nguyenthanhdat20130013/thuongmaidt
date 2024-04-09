@@ -7,6 +7,7 @@ import service.API_LOGISTIC.Transport;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,14 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                Timestamp timestamp = rs.getTimestamp("date_order");
+
+                // Chuyển đổi Timestamp thành LocalDateTime
+                LocalDateTime dateOrder = null;
+                if (timestamp != null) {
+                    dateOrder = timestamp.toLocalDateTime();
+                }
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), dateOrder, rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 od.add(order);
             }
         } catch (Exception e) {
@@ -40,7 +48,14 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                Timestamp timestamp = rs.getTimestamp("date_order");
+
+                // Chuyển đổi Timestamp thành LocalDateTime
+                LocalDateTime dateOrder = null;
+                if (timestamp != null) {
+                    dateOrder = timestamp.toLocalDateTime();
+                }
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), dateOrder, rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 od.add(order);
             }
         } catch (Exception e) {
@@ -78,7 +93,14 @@ public class OrderService {
             pst.setString(1, uname);
             rs = pst.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                Timestamp timestamp = rs.getTimestamp("date_order");
+
+                // Chuyển đổi Timestamp thành LocalDateTime
+                LocalDateTime dateOrder = null;
+                if (timestamp != null) {
+                    dateOrder = timestamp.toLocalDateTime();
+                }
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), dateOrder, rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 od.add(order);
             }
 
@@ -100,7 +122,14 @@ public class OrderService {
             pst = DBConnection.getConnection().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                Timestamp timestamp = rs.getTimestamp("date_order");
+
+                // Chuyển đổi Timestamp thành LocalDateTime
+                LocalDateTime dateOrder = null;
+                if (timestamp != null) {
+                    dateOrder = timestamp.toLocalDateTime();
+                }
+                order = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), dateOrder, rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11));
 
             }
 
@@ -121,7 +150,8 @@ public class OrderService {
             ps.setString(2, o.getUser_name());
             ps.setInt(3, (int) o.getTotal_money());
             ps.setInt(4, o.getFee());
-            ps.setDate(5, o.getDate_order());
+            // Chuyển đổi LocalDateTime thành Timestamp
+            ps.setTimestamp(5, Timestamp.valueOf(o.getDate_order()));
             ps.setString(6, o.getPayment());
             ps.setString(7, o.getTransport());
             ps.setInt(8, o.getStatus());
@@ -161,7 +191,12 @@ public class OrderService {
             ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Order_detail orderDetail = new Order_detail(0, new Order(1, "u", 1, 1, Date.valueOf(LocalDate.now()), "t", "1", 1, "grgr", "fg", "phone"), rs.getInt(1), rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
+
+
+                // Chuyển đổi Timestamp thành LocalDateTime
+                LocalDateTime dateOrder = null;
+
+                Order_detail orderDetail = new Order_detail(0, new Order(1, "u", 1, 1, dateOrder, "t", "1", 1, "grgr", "fg", "phone"), rs.getInt(1), rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
                 od.add(orderDetail);
             }
         } catch (Exception e) {
@@ -169,7 +204,6 @@ public class OrderService {
         }
         return od;
     }
-
     public int getMaxMHD() {
         ResultSet rs;
         int result = 0;

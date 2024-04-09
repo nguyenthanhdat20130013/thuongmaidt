@@ -17,6 +17,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @WebServlet(name = "AddOrderSuccess", value = "/add_order_success")
@@ -66,7 +69,16 @@ public class AddOrderSuccess extends HttpServlet {
         String valAdd = wardValue +", "+ districtValue+", "+provinceValue;
 
         try {
-            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, orderDate, paymentMethod, valId, 0, valAdd, message, phone);
+            // Lấy múi giờ của Việt Nam
+            ZoneId vietnamTimeZone = ZoneId.of("Asia/Ho_Chi_Minh");
+            // Định dạng thời gian với múi giờ của Việt Nam
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(vietnamTimeZone);
+            // Lấy thời gian hiện tại trong múi giờ của Việt Nam và định dạng thành chuỗi
+            LocalDateTime currentDateTime = LocalDateTime.now(vietnamTimeZone);
+            String formattedDateTime = currentDateTime.format(formatter);
+            // Chuyển đổi chuỗi thời gian thành LocalDateTime
+            LocalDateTime parsedDateTime = LocalDateTime.parse(formattedDateTime, formatter);
+            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, parsedDateTime, paymentMethod, valId, 0, valAdd, message, phone);
             orderService.addOder(order);
 
             order.setOder_id(orderid);
