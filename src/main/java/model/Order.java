@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -19,7 +20,7 @@ public class Order {
     public String user_name;
     public long total_money;
     public int fee;
-    public Date date_order;
+    public LocalDateTime date_order;
     public String payment;
     public String transport;
     public int status;
@@ -27,7 +28,7 @@ public class Order {
     public String note;
     public String phoneNum;
 
-    public Order(int oder_id, String user_name, long total_money, int fee, Date date_order, String payment, String transport, int status, String address, String note, String phoneNum) {
+    public Order(int oder_id, String user_name, long total_money, int fee, LocalDateTime date_order, String payment, String transport, int status, String address, String note, String phoneNum) {
         this.oder_id = oder_id;
         this.user_name = user_name;
         this.total_money = total_money;
@@ -73,11 +74,11 @@ public class Order {
         this.fee = fee;
     }
 
-    public Date getDate_order() {
+    public LocalDateTime getDate_order() {
         return date_order;
     }
 
-    public void setDate_order(Date date_order) {
+    public void setDate_order(LocalDateTime date_order) {
         this.date_order = date_order;
     }
 
@@ -178,9 +179,9 @@ public class Order {
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
         return currencyVN.format(amount);
     }
-    public String statusOrder(int id){
+    public String statusOrder(int id) {
         String nameStatus = "Lỗi";
-        switch (id){
+        switch (id) {
             case 0:
                 nameStatus = "Chờ xác nhận";
                 break;
@@ -196,12 +197,29 @@ public class Order {
             case 4:
                 nameStatus = "Giao hàng thất bại";
                 break;
+            case 5:
+                nameStatus = "Đơn hàng bị huỷ";
+                break;
+            case 6:
+                nameStatus = "Đơn hàng bị huỷ - và hoàn tiền";
+                break;
+            case 7:
+                nameStatus = "Đơn hàng bị huỷ do lộ Private Key";
+                break;
         }
         return nameStatus;
     }
-    public static String convertDate(String dateString) {
-        LocalDate date = LocalDate.parse(dateString);
-        return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//    public static String convertDate(String dateString) {
+//        LocalDate date = LocalDate.parse(dateString);
+//        return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//    }
+    public static String convertDateTime(String dateTimeString) {
+        // Chuyển đổi chuỗi thành LocalDateTime
+        LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+        // Định dạng lại LocalDateTime theo định dạng mong muốn
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
+        return dateTime.format(formatter);
     }
 
     public static void main(String[] args) throws IOException {

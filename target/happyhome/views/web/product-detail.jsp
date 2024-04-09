@@ -546,7 +546,7 @@
     addToFavLink.addEventListener("click", function(event) {
 
             var productId = this.dataset.productId;
-            var url = "/lab/favorite/add?id=" + productId;
+            var url = "favorite/add?id=" + productId;
             // Chuyển hướng đến trang servlet với URL vừa tạo
             window.location.href = url;
 

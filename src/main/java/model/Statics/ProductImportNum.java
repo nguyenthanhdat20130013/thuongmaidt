@@ -103,9 +103,9 @@ public class ProductImportNum {
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
         return currencyVN.format(amount);
     }
-    public static String convertDate(String dateString) {
-        LocalDate date = LocalDate.parse(dateString);
-        return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    }
+//    public static String convertDate(String dateString) {
+//        LocalDate date = LocalDate.parse(dateString);
+//        return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//    }
 
 }

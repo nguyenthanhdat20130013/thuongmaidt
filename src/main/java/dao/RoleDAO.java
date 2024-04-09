@@ -270,6 +270,11 @@ public class RoleDAO {
 
     public static void main(String[] args) {
         System.out.println( findById(1));
+        List<Role> roles = new ArrayList<>();
+        roles.addAll(findAll());
+        for(Role u: roles){
+            System.out.println(u);
+        }
     }
 
     public static void deletes(RoleModel roleModel) {

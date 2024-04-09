@@ -201,7 +201,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "insert into USER (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
+            sql = "insert into USERS (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getUserName());
             pst.setString(2, user.getPassWord());
@@ -532,12 +532,13 @@ public class UserDAO {
     }
 
     public static void main(String[] args) {
-        List<UserModel> users = new ArrayList<>();
-        users = findAll();
-
-        for (UserModel u : users){
-            System.out.println(u.toString());
-        }
-
+//        List<UserModel> users = new ArrayList<>();
+//        users = findAll();
+//
+//        for (UserModel u : users){
+//            System.out.println(u.toString());
+//        }
+        UserModel userModel =  new UserModel(10000, "String userName", "String passWord", 1, "String fullName", "String phoneNum", "String email", "String address", 1,"String gender" );
+save(userModel);
     }
 }

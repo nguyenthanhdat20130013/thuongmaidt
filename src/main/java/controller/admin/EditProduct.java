@@ -64,6 +64,6 @@ public class EditProduct extends HttpServlet {
         LogService.addLog(log);
         ProductService ser = new ProductService();
         ser.edit(p , Integer.parseInt(id));
-        response.sendRedirect("/product_manager");
+        response.sendRedirect("/admin-product_manager");
     }
 }

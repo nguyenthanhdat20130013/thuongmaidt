@@ -26,11 +26,20 @@ public class DayAnalysis extends HttpServlet {
         DBConnection.resetConnection();
 
         try {
-            // Tách chuỗi thành tháng và năm
-            String[] parts = selectedMonth.split("/");
-            int day = Integer.parseInt(parts[0]);
-            int month = Integer.parseInt(parts[1]);
-            int year = Integer.parseInt(parts[2]);
+            int day, month, year;
+            try{
+                // Tách chuỗi thành tháng và năm
+                String[] parts = selectedMonth.split("/");
+                 day = Integer.parseInt(parts[0]);
+                 month = Integer.parseInt(parts[1]);
+                 year = Integer.parseInt(parts[2]);
+            } catch (Exception e){
+                 day = 1;
+                 month = 1;
+                 year = 2024;
+            }
+
+
             //Tạo đối tượng ServiceStatisticsDay
             ServiceStatisticsDay serviceStatistics = new ServiceStatisticsDay();
 //            //lấy doanh thu theo tháng
@@ -118,7 +127,7 @@ public class DayAnalysis extends HttpServlet {
                 for (Order order : orders) {
                     JSONObject orderJson = new JSONObject();
                     String date = String.valueOf(order.getDate_order());
-                    String convertDate = order.convertDate(date);
+                    String convertDate = Order.convertDateTime(date);
                     long totalMoney = order.getTotal_money();
                     int fee = order.getFee();
                     String formatTotalMoney = order.formatCurrency(totalMoney + fee);
