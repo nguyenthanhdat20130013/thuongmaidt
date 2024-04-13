@@ -26,6 +26,8 @@
             color:#dc3545 !important;
         }
     </style>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0&appId=1206844166904552" nonce="jxyoW2Ve"></script>
 </head>
 
 <body class="user-login blog">
@@ -97,6 +99,7 @@
                                 <a href="#" class="btn btn-block " style="background-color: #4267B2;color: #ffffff;border-radius: 1.25rem;width: 265px;margin-left: auto;margin-right: auto;margin-bottom: 24px;">
                                     <i class="fab fa-facebook mr-2"></i> Đăng nhập bằng  Facebook
                                 </a>
+                                <div class="fb-login-button" data-width="400px" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
                               <%--  <a href="https://accounts.google.com/gsi/select?client_id=249998432598-rnscpsfgi8fvqnhqan6q8hv7vidpcmla.apps.googleusercontent.com&ux_mode=popup&ui_mode=card&as=HSExaEn25%2BCHLkOFN9%2BrsQ&channel_id=60793b2ca73ceb762bc65f8926883c31784b052018680741fab2f40c7c1ac3f9&origin=http%3A%2F%2Flocalhost%3A8080" class="btn btn-block btn-default">
                                     <i class="fab fa-google-plus mr-2"></i> Đăng nhập bằng  Google+
                                 </a>

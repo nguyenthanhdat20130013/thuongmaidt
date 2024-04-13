@@ -56,7 +56,7 @@ public class AddOrderSuccess extends HttpServlet {
         Date orderDate = Date.valueOf(LocalDate.now());
         OrderService orderService = new OrderService();
         String shippingFee = request.getParameter("shippingFee");
-        int fee = 0;
+        int fee ;
         //dia chi giao hang
         String provinceId = request.getParameter("province-id");
         String districtId = request.getParameter("district-id");
@@ -67,7 +67,11 @@ public class AddOrderSuccess extends HttpServlet {
         String districtValue = request.getParameter("district-value");
         String wardValue = request.getParameter("ward-value");
         String valAdd = wardValue +", "+ districtValue+", "+provinceValue;
-
+        if(paymentMethod.equals("Giao hàng thu tiền tận nhà") || paymentMethod.equals("Nhận hàng tại cửa hàng")){
+            fee = 0;
+        } else {
+            fee = Integer.parseInt(shippingFee);
+        }
         try {
             // Lấy múi giờ của Việt Nam
             ZoneId vietnamTimeZone = ZoneId.of("Asia/Ho_Chi_Minh");
@@ -84,7 +88,7 @@ public class AddOrderSuccess extends HttpServlet {
             order.setOder_id(orderid);
 
             for (ProductInCart product : cart.getListProductInCart()) {
-                Order_detail orderDetail = new Order_detail(0, order, product.getProduct().getProduct_id(), product.getProduct().getPrice_sell(), product.getQuantity(), 0, (product.getProduct().getPrice_sell() * product.getQuantity()));
+                Order_detail orderDetail = new Order_detail(0, order, product.getProduct().getProduct_id(), product.getProduct().getPrice_sell(), product.getQuantity(), fee, (product.getProduct().getPrice_sell() * product.getQuantity()));
                 orderService.addOrderDetail(orderDetail);
             }
 
