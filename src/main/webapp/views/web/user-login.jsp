@@ -26,8 +26,6 @@
             color:#dc3545 !important;
         }
     </style>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0&appId=1206844166904552" nonce="jxyoW2Ve"></script>
 </head>
 
 <body class="user-login blog">
@@ -95,11 +93,10 @@
                                 </div>
                             </div>
                             <div class="social-auth-links text-center mb-3">
-                                <p>- OR -</p>
-                                <a href="#" class="btn btn-block " style="background-color: #4267B2;color: #ffffff;border-radius: 1.25rem;width: 265px;margin-left: auto;margin-right: auto;margin-bottom: 24px;">
+                                <p>- Hoặc đăng nhập bằng -</p>
+                                <a href="#" id="fbLoginBtn" class="btn btn-block " style="background-color: #4267B2;color: #ffffff;border-radius: 1.25rem;width: 240px;margin-left: auto;margin-right: auto;margin-bottom: 24px;">
                                     <i class="fab fa-facebook mr-2"></i> Đăng nhập bằng  Facebook
                                 </a>
-                                <div class="fb-login-button" data-width="400px" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
                               <%--  <a href="https://accounts.google.com/gsi/select?client_id=249998432598-rnscpsfgi8fvqnhqan6q8hv7vidpcmla.apps.googleusercontent.com&ux_mode=popup&ui_mode=card&as=HSExaEn25%2BCHLkOFN9%2BrsQ&channel_id=60793b2ca73ceb762bc65f8926883c31784b052018680741fab2f40c7c1ac3f9&origin=http%3A%2F%2Flocalhost%3A8080" class="btn btn-block btn-default">
                                     <i class="fab fa-google-plus mr-2"></i> Đăng nhập bằng  Google+
                                 </a>
@@ -130,6 +127,9 @@
 <jsp:include page="/common/web/footer.jsp"></jsp:include>
 
 <jsp:include page="/common/web/js.jsp"></jsp:include>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="<c:url value="/Template/web/libs/jquery/jquery.validate.js"/>"></script>
 <script>
     $.validator.setDefaults({
@@ -158,47 +158,62 @@
         });
     })(jQuery);
 
-    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-        console.log('statusChangeCallback');
-        console.log(response);                   // The current login status of the person.
-        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-            testAPI();
-        } else {                                 // Not logged into your webpage or we are unable to tell.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into this webpage.';
-        }
-    }
+    (function() {
+        console.log('Start file login with firebase');
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCOrh2Dzy847iVJzOxzkt4MYX6pGkGYuZY",
+            authDomain: "sso-happyauth.firebaseapp.com",
+            databaseURL: "sso-happyauth.firebaseio.com",
+            projectId: "sso-happyauth",
+            storageBucket: "sso-happyauth.appspot.com",
+            messagingSenderId: "690263108453"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // Xử lý đăng nhập bằng Facebook
+        document.getElementById('fbLoginBtn').addEventListener('click', function() {
+            var provider = new firebase.auth.FacebookAuthProvider();
+            firebase.auth()
+                .signInWithPopup(provider)
+                .then(function(result) {
+                    // Đăng nhập thành công, lấy thông tin người dùng
+                    var user = result.user;
+                    const gender = "nam";
+                    console.log('Display Name:', user.displayName);
+                    console.log('Email:', user.email);
+                    console.log('Photo URL:', user.photoURL);
+                    console.log('UID:', user.uid);
+                    const uidData = user.providerData[0].uid;
+                    console.log("UID xac thuc: ", uidData);
+                    let data = "password=" + user.uid +  "&full_name=" + user.displayName + "&email=" + user.email + "&gender=" + gender + "&username=" + uidData;
+                    window.location.href = "login?login=google&" + data;
+                    // $.ajax({
+                    //     type: "POST",
+                    //     url: "/login?login=facebook",
+                    //     data: {
+                    //         password: user.uid,
+                    //         full_name: user.displayName,
+                    //         email: user.email,
+                    //         gender: gender,
+                    //         username: uidData
+                    //     },
+                    //     success: function(response) {
+                    //         console.log(response);
+                    //         // Không cần chuyển hướng ở đây, vì servlet đã chuyển hướng rồi
+                    //     },
+                    //     error: function(xhr, status, error) {
+                    //         console.error(error);
+                    //     }
+                    // });
 
-    function checkLoginState() {               // Called when a person is finished with the Login Button.
-        FB.getLoginStatus(function(response) {   // See the onlogin handler
-            statusChangeCallback(response);
+                })
         });
-    }
+    }())
 
 
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '{app-id}',
-            cookie     : true,                     // Enable cookies to allow the server to access the session.
-            xfbml      : true,                     // Parse social plugins on this webpage.
-            version    : '{api-version}'           // Use this Graph API version for this call.
-        });
 
-        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-            statusChangeCallback(response);        // Returns the login status.
-        });
-    };
-
-    function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
-        });
-    }
-
-        window.onload = function () {
+    window.onload = function () {
         google.accounts.id.initialize({
             client_id: "134024970920-c7aegb1s5oofkrgv064q1ru8402qdeeo.apps.googleusercontent.com",
             callback: handleCredentialResponse

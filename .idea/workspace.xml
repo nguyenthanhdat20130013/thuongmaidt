@@ -9,24 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix date">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix orders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/API/FeeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/District_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/District_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/Login_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/Login_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/Province_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/Province_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/Ward_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/Ward_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/API/FeeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/District_API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/District_API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/Login_API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/Login_API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/Province_API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/Province_API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/Ward_API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/Ward_API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-material/fonts/Material-Design-Iconic-Fontd1f1-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-material/fonts/Material-Design-Iconic-Fontd1f1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/css.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/css.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +166,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.web" />
       <recent name="controller.admin.statistic" />
     </key>
   </component>
@@ -493,7 +489,10 @@
       <workItem from="1712674243301" duration="5192000" />
       <workItem from="1712751035686" duration="8700000" />
       <workItem from="1712852137855" duration="259000" />
-      <workItem from="1713008952061" duration="2521000" />
+      <workItem from="1713008952061" duration="6718000" />
+      <workItem from="1713104492623" duration="4711000" />
+      <workItem from="1713151657201" duration="6371000" />
+      <workItem from="1713178351544" duration="13250000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -601,7 +600,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712679059976</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix orders">
+      <option name="closed" value="true" />
+      <created>1713016206767</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713016206767</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +654,8 @@
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung va admin" />
     <MESSAGE value="sua loi va ca&#10;i thien chuc nang nguoi dung va admin" />
     <MESSAGE value="fix date" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix date" />
+    <MESSAGE value="fix orders" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix orders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

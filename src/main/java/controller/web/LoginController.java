@@ -50,6 +50,20 @@ public class LoginController extends HttpServlet {
             response.sendRedirect("account");
             return;
         }
+        if(login.equals("facebook")){
+            String userName = request.getParameter("username");
+            String passWord = request.getParameter("password");
+            String email = request.getParameter("email");
+            String full_name = request.getParameter("full_name");
+            if(UserService.checkLogin(userName,passWord) == null){
+                UserService.register(userName,passWord,email,full_name,"null");
+            }
+            UserModel user = UserService.findByUserAndEmail(userName,email);
+            user.setPassWord(passWord);
+            request.getSession().setAttribute("user",user);
+            response.sendRedirect("account");
+            return;
+        }
         RequestDispatcher rd = request.getRequestDispatcher("views/web/user-login.jsp");
         rd.forward(request, response);
     }
@@ -58,6 +72,21 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login")==null?"":request.getParameter("login");
         if(login.equals("google")){
+            String userName = request.getParameter("username");
+            String passWord = request.getParameter("password");
+            String email = request.getParameter("email");
+            String full_name = request.getParameter("full_name");
+            if(UserService.checkLogin(userName,passWord) == null){
+                UserService.register(userName,passWord,email,full_name,"null");
+            }
+            UserModel user = new UserModel();
+            user.setUserName(userName);
+            user.setPassWord(passWord);
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("account");
+            return;
+        }
+        if(login.equals("facebook")){
             String userName = request.getParameter("username");
             String passWord = request.getParameter("password");
             String email = request.getParameter("email");
