@@ -28,6 +28,8 @@
 
 <!-- main content -->
 <div class="main-content">
+    <%@ include file="/common/web/chatWidget.jsp" %>
+
     <div class="wrap-banner">
         <!-- slide show -->
         <div class="section banner">
