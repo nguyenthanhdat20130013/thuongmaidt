@@ -25,9 +25,10 @@
             line-height: 60px;
             font-size: 30px;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+
         #chat-bubble:hover {
             background-color: #0056b3;
         }
@@ -42,7 +43,7 @@
             height: 500px;
             background-color: white;
             border: 1px solid #ccc;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             z-index: 1000;
         }
@@ -54,11 +55,13 @@
             color: white;
             padding: 10px;
         }
+
         .tab-header div {
             flex: 1;
             text-align: center;
             cursor: pointer;
         }
+
         .tab-header .active {
             background-color: #0056b3;
         }
@@ -172,11 +175,14 @@
     </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    window.onload = function() {
+    $(document).ready(function () {
         toggleChat();
         switchTab('admin-chat');
-    }
+        setInterval(fetchMessages, 5000);
+        fetchMessages();
+    });
 
     function toggleChat() {
         var chatInterface = document.getElementById('chat-interface');
@@ -196,15 +202,52 @@
 
     function sendMessage(tabId) {
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
-        var message = input.value;
-        if (message.trim()) {
-            var newMessage = document.createElement('div');
-            newMessage.className = 'chat-message user-message';
-            newMessage.innerHTML = '<img src="<%= userAvatar %>" alt="User" class="avatar">' + message;
-            document.getElementById(tabId).appendChild(newMessage);
-            input.value = '';
+        var message = input.value.trim();
+        fetchMessages(); // Fetch messages before sending new message
+        if (message) {
+            $.ajax({
+                url: 'messages',
+                type: 'POST',
+                data: {
+                    message: message,
+                    senderId: 68, // Assuming 1 is the user ID; replace with session or dynamic data
+                    receiverId: 69 // Assuming 2 is the admin ID; replace with actual admin ID
+                },
+                success: function (response) {
+                    var newMessage = $('<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message + '</div>');
+                    $('#' + tabId).append(newMessage);
+                    input.value = '';
+                },
+                error: function (error) {
+                    console.log('Error sending message: ', error);
+                }
+            });
         }
     }
+
+    function fetchMessages() {
+        $.ajax({
+            url: 'messages',
+            type: 'GET',
+            data: {
+                userId: 68, // User ID
+                adminId: 69 // Admin ID
+            },
+            success: function (messages) {
+                var chatDiv = $('#admin-chat');
+                chatDiv.empty(); // Clear previous messages
+                $.each(messages, function (index, message) {
+                    var msgDiv = (message.senderId == 68) ? '<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message.messageText + '</div>' : '<div class="chat-message admin-message"><img src="<%= adminAvatar %>" alt="Admin" class="avatar">' + message.messageText + '</div>';
+                    chatDiv.append(msgDiv);
+                });
+            },
+            error: function (error) {
+                console.log('Error fetching messages: ', error);
+            }
+        });
+    }
 </script>
+
+
 </body>
 </html>
