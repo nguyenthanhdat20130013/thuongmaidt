@@ -186,10 +186,22 @@
     });
 
     function toggleChat() {
-        fetchMessages();
         var chatInterface = document.getElementById('chat-interface');
-        chatInterface.style.display = chatInterface.style.display === 'none' ? 'block' : 'none';
+        var isVisible = chatInterface.style.display === 'block';
+        chatInterface.style.display = isVisible ? 'none' : 'block';
+        if (!isVisible) {
+            fetchMessages(); // Fetch messages when opening the chat
+            setTimeout(() => {
+                var chatContents = document.querySelectorAll('.chat-content');
+                chatContents.forEach(chatContent => {
+                    if (chatContent.style.display === 'block') {
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    }
+                });
+            }, 100); // Allow time for messages to load and adjust the scroll
+        }
     }
+
 
     function switchTab(tabName) {
         var tabs = document.getElementsByClassName('chat-content');
