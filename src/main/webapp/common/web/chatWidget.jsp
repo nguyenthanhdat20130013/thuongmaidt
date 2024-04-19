@@ -148,20 +148,23 @@
     </div>
     <div id="admin-chat" class="chat-content">
         <!-- Chat messages and input for admin chat -->
-        <div class="chat-message admin-message">
-            <img src="<%= adminAvatar %>" alt="Admin" class="avatar">
-            Hello! How can I help you today?
-        </div>
-        <!-- User's message -->
-        <div class="chat-message user-message">
-            <img src="<%= userAvatar %>" alt="User" class="avatar">
-            I need help with my order.
+        <div id="admin-chat-messages" class="chat-messages">
+            <div class="chat-message admin-message">
+                <img src="<%= adminAvatar %>" alt="Admin" class="avatar">
+                Hello! How can I help you today?
+            </div>
+            <!-- User's message -->
+            <div class="chat-message user-message">
+                <img src="<%= userAvatar %>" alt="User" class="avatar">
+                I need help with my order.
+            </div>
         </div>
         <div class="chat-input">
-            <input type="text" placeholder="Type your message...">
+            <input id="admin-chat-input" type="text" placeholder="Type your message...">
             <button onclick="sendMessage('admin-chat')">Send</button>
         </div>
     </div>
+
     <div id="ai-chat" class="chat-content">
         <!-- Chat messages and input for AI chatbot -->
         <div class="chat-message admin-message">
@@ -178,13 +181,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        toggleChat();
+        // toggleChat();
         switchTab('admin-chat');
-        setInterval(fetchMessages, 5000);
-        fetchMessages();
     });
 
     function toggleChat() {
+        fetchMessages();
         var chatInterface = document.getElementById('chat-interface');
         chatInterface.style.display = chatInterface.style.display === 'none' ? 'block' : 'none';
     }
@@ -203,7 +205,6 @@
     function sendMessage(tabId) {
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
         var message = input.value.trim();
-        fetchMessages(); // Fetch messages before sending new message
         if (message) {
             $.ajax({
                 url: 'messages',
@@ -234,7 +235,7 @@
                 adminId: 69 // Admin ID
             },
             success: function (messages) {
-                var chatDiv = $('#admin-chat');
+                var chatDiv = $('#admin-chat-messages');
                 chatDiv.empty(); // Clear previous messages
                 $.each(messages, function (index, message) {
                     var msgDiv = (message.senderId == 68) ? '<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message.messageText + '</div>' : '<div class="chat-message admin-message"><img src="<%= adminAvatar %>" alt="Admin" class="avatar">' + message.messageText + '</div>';
@@ -242,6 +243,7 @@
                 });
             },
             error: function (error) {
+                fetchMessages(); // Retry fetching messages
                 console.log('Error fetching messages: ', error);
             }
         });

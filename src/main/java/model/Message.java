@@ -36,4 +36,13 @@ public class Message {
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "senderId=" + senderId +
+                ", receiverId=" + receiverId +
+                ", messageText='" + messageText + '\'' +
+                '}';
+    }
 }
