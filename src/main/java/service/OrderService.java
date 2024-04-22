@@ -304,7 +304,8 @@ public class OrderService {
 
     public static void main(String[] args) {
         OrderService os = new OrderService();
-        Order o = new Order();
-        System.out.println(os.getOderById(26));
+//        Order o = new Order();
+//        System.out.println(os.getOderById(26));os
+        os.updateOrderStatusByTransportLeadTime();
     }
 }

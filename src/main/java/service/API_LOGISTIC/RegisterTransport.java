@@ -14,10 +14,14 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.TimeZone;
 
 public class RegisterTransport {
+
     public static Transport registerTransport(String token, Order order,String from_district_id, String from_ward_id, String to_district_id, String to_ward_id) throws IOException {
         String height = "100";
         String length = "100";
@@ -83,22 +87,63 @@ public class RegisterTransport {
         }
         return null;
     }
+    public static String convertUnixTime(long unixSeconds) {
+        // Thêm số giây vào Unix Epoch và áp dụng chênh lệch múi giờ
+        LocalDateTime dateTime = LocalDateTime.ofEpochSecond(unixSeconds, 0, ZoneOffset.UTC)
+                .plusHours(7);
 
+        // Định dạng ngày tháng năm và giờ
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
+        // Trả về ngày tháng năm và giờ dưới dạng chuỗi
+        return dateTime.format(formatter);
+    }
+    public static void compareDateTime(String dateTimeStr1, String dateTimeStr2) {
+        // Định dạng để chuyển đổi chuỗi thành LocalDateTime
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-    public static void main(String[] args) throws IOException, JSONException, ParseException {
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTQwLjIzOC41NC4xMzYvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODIyMjk4MTYsImV4cCI6MTY4MjIzMDQxNiwibmJmIjoxNjgyMjI5ODE2LCJqdGkiOiJuZEtUU3pRZ1JacUtNa0R1Iiwic3ViIjoiODNjNGM1MWQ2N2Q1NGM0ODg4NWE4M2JjOGViYTJkZGMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.4Szj5kC8JjsHAEh4GPiEJtTC7cEWwrssofLb51fWiDE";
-        try {
-            String from_district_id = "2264";
-            String from_ward_id = "90816";
-            String to_district_id = "2270";
-            String to_ward_id = "231013";
-            Order order = new Order();
-            Transport transport = registerTransport(token,order, from_district_id, from_ward_id, to_district_id, to_ward_id);
-            System.out.println("Transport: " + transport.toString());
-        } catch (IOException e) {
-            System.err.println("Error calculating transport: " + e.getMessage());
+        // Chuyển đổi chuỗi thành LocalDateTime
+        LocalDateTime dateTime1 = LocalDateTime.parse(dateTimeStr1, formatter);
+        LocalDateTime dateTime2 = LocalDateTime.parse(dateTimeStr2, formatter);
+
+        // So sánh hai LocalDateTime
+        int comparisonResult = dateTime1.compareTo(dateTime2);
+
+        // In kết quả
+        if (comparisonResult < 0) {
+            System.out.println(dateTimeStr1 + " đến trước " + dateTimeStr2);
+        } else if (comparisonResult > 0) {
+            System.out.println(dateTimeStr1 + " đến sau " + dateTimeStr2);
+        } else {
+            System.out.println(dateTimeStr1 + " và " + dateTimeStr2 + " bằng nhau");
         }
+    }
+    public static String getCurrentDateTime(){
+        // Lấy ngày giờ hiện tại
+        LocalDateTime currentDateTime = LocalDateTime.now();
 
+        // Định dạng ngày tháng năm và giờ
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        // Chuyển đổi và in kết quả
+        return currentDateTime.format(formatter);
+    }
+    public static void main(String[] args) throws IOException, JSONException, ParseException {
+//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTQwLjIzOC41NC4xMzYvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODIyMjk4MTYsImV4cCI6MTY4MjIzMDQxNiwibmJmIjoxNjgyMjI5ODE2LCJqdGkiOiJuZEtUU3pRZ1JacUtNa0R1Iiwic3ViIjoiODNjNGM1MWQ2N2Q1NGM0ODg4NWE4M2JjOGViYTJkZGMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.4Szj5kC8JjsHAEh4GPiEJtTC7cEWwrssofLb51fWiDE";
+//        try {
+//            String from_district_id = "2264";
+//            String from_ward_id = "90816";
+//            String to_district_id = "2270";
+//            String to_ward_id = "231013";
+//            Order order = new Order();
+//            Transport transport = registerTransport(token,order, from_district_id, from_ward_id, to_district_id, to_ward_id);
+//            System.out.println("Transport: " + transport.toString());
+//        } catch (IOException e) {
+//            System.err.println("Error calculating transport: " + e.getMessage());
+//        }
+        System.out.println(convertLeadTime(1713916799));
+        System.out.println(convertUnixTime(1714089599));
+        compareDateTime(getCurrentDateTime(), convertUnixTime(1714089599));
     }
 }
+
