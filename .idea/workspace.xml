@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war" />
+      <artifact name="happyhome:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,18 +10,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix orders">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-material/fonts/Material-Design-Iconic-Fontd1f1-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-material/fonts/Material-Design-Iconic-Fontd1f1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/css.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/css.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/AddProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/DataUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/EditProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/statistic/MonthAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/statistic/MonthAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/AddFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/AddFavorite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RoleDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Statics/ProductImportNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Statics/ProductImportNum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/District_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/District_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Login_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Login_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Province_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Province_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Ward_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Ward_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ServiceStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ServiceStatistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ServiceStatisticsDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ServiceStatisticsDay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/AddProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/DataUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/EditProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/MonthAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/MonthAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/API/FeeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/AddFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/AddFavorite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/RoleDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Statics/ProductImportNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Statics/ProductImportNum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/District_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/District_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Login_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Login_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Province_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Province_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Ward_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Ward_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatisticsDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatisticsDay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/common/web/css.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/web/css.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/common/web/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/web/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/add-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/add-user.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/check-invoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/check-invoice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/checkorder-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/checkorder-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/product-cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/product-cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/product-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/user-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/user-login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/user-order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/user-order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/user-order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/user-order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +161,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -121,44 +180,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.DataTable.executor&quot;: &quot;Run&quot;,
-    &quot;Application.District_API.executor&quot;: &quot;Run&quot;,
-    &quot;Application.GetFee.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Province_API.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RoleDAO.executor&quot;: &quot;Run&quot;,
-    &quot;Application.UserDAO.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Ward_API.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.Build HappyHome.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:DBConnection.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:GetFee.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:ProductService.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:RoleDAO.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ecommerce [build].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dat__fix&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/change/attt&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.DataTable.executor": "Run",
+    "Application.District_API.executor": "Run",
+    "Application.GetFee.executor": "Run",
+    "Application.Province_API.executor": "Run",
+    "Application.RoleDAO.executor": "Run",
+    "Application.UserDAO.executor": "Run",
+    "Application.Ward_API.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Build HappyHome.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.HappyHome [:DBConnection.main()].executor": "Run",
+    "Gradle.HappyHome [:GetFee.main()].executor": "Run",
+    "Gradle.HappyHome [:ProductService.main()].executor": "Run",
+    "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
+    "Gradle.ecommerce [build].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dat__fix",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/TMDT/thuongmaidt/src/main/webapp/views/admin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TMDT\thuongmaidt\src\main\webapp\views\admin" />
       <recent name="D:\HappyHome_fixapi\src\main\webapp\views\admin" />
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
     </key>
@@ -166,6 +226,8 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.admin" />
+      <recent name="service" />
       <recent name="controller.web" />
       <recent name="controller.admin.statistic" />
     </key>
@@ -244,18 +306,16 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="https://localhost:8443/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war">
+        <artifact name="happyhome:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/happyhome_war" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="0dee723c-1f35-4de3-9ff4-549d5fe4123f" />
-        <option name="HTTPS_PORT" value="8443" />
+        <option name="BASE_DIRECTORY_NAME" value="2ac72c26-06a2-4367-b1f2-6f253a7a5d3b" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -263,7 +323,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62824" />
+        <option name="DEBUG_PORT" value="60773" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -328,7 +388,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war" />
+          <artifact name="happyhome:war" />
         </option>
       </method>
     </configuration>
@@ -493,6 +553,7 @@
       <workItem from="1713104492623" duration="4711000" />
       <workItem from="1713151657201" duration="6371000" />
       <workItem from="1713178351544" duration="13250000" />
+      <workItem from="1713875894872" duration="870000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>

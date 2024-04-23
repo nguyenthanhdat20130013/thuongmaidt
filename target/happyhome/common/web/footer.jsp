@@ -155,7 +155,7 @@
             <div class="row">
                 <div class="text-center col-lg-12 ">
                         <span>
-                            <a href="">Copyright © 2023 Nội Thất HAPPYHOME.</a>
+                            <a href="">Copyright © 2024 Nội Thất HAPPYHOME.</a>
                         </span>
                 </div>
             </div>
