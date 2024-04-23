@@ -11,14 +11,45 @@
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix date">
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/Order/CheckSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/Order/CheckSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/RegisterTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/RegisterTransport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/admin/AddProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/admin/DataUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/admin/EditProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/admin/Order/CheckSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/admin/Order/CheckSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/admin/statistic/MonthAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/admin/statistic/MonthAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/web/API/FeeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/web/AddFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/web/AddFavorite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/web/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/RoleDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Statics/ProductImportNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Statics/ProductImportNum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/District_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/District_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/GetFee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/Login_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/Login_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/Province_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/Province_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/RegisterTransport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/RegisterTransport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/Ward_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/API_LOGISTIC/Ward_API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/ServiceStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/ServiceStatistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/ServiceStatisticsDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/ServiceStatisticsDay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/Order/CheckSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/Order/CheckSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/RegisterTransport.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/API_LOGISTIC/RegisterTransport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ProductCheckOutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ProductCheckOutController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,39 +149,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.DataTable.executor": "Run",
-    "Application.OrderService.executor": "Run",
-    "Application.RegisterTransport.executor": "Run",
-    "Application.RoleDAO.executor": "Run",
-    "Application.UserDAO.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build HappyHome.executor": "Run",
-    "Gradle.HappyHome [:DBConnection.main()].executor": "Run",
-    "Gradle.HappyHome [:GetFee.main()].executor": "Run",
-    "Gradle.HappyHome [:ProductService.main()].executor": "Run",
-    "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
-    "Gradle.ecommerce [build].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dat__fix",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/change/attt",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.DataTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OrderService.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegisterTransport.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoleDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserDAO.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build HappyHome.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:DBConnection.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:GetFee.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:ProductService.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:RoleDAO.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ecommerce [build].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dat__fix&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/change/attt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\HappyHome_fixapi\src\main\webapp\views\admin" />
@@ -170,7 +201,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RegisterTransport">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.87">
     <configuration name="OrderService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="service.OrderService" />
       <module name="happyhome.main" />
@@ -342,9 +373,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ecommerce [build]" />
         <item itemvalue="Application.RegisterTransport" />
         <item itemvalue="Application.OrderService" />
-        <item itemvalue="Gradle.ecommerce [build]" />
         <item itemvalue="Application.UserDAO" />
         <item itemvalue="Application.RoleDAO" />
       </list>
@@ -490,6 +521,8 @@
       <workItem from="1713452765462" duration="244000" />
       <workItem from="1713454007648" duration="693000" />
       <workItem from="1713787514822" duration="9812000" />
+      <workItem from="1713850652754" duration="947000" />
+      <workItem from="1713852098270" duration="1200000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
