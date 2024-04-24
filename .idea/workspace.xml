@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war" />
+      <artifact name="happyhome:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -11,17 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix orders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-material/fonts/Material-Design-Iconic-Fontd1f1-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Template/web/libs/font-material/fonts/Material-Design-Iconic-Fontd1f1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/css.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/css.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/Template/web/libs/font-awesome/fonts/fontawesome-webfont3e6e.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/RevenueStatisticsByCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/RevenueStatisticsByCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/TotalRevenueStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/TotalRevenueStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/StatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/StatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/bar-chart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/bar-chart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/pie-chart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/pie-chart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +104,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -147,7 +149,7 @@
     &quot;git-widget-placeholder&quot;: &quot;dat__fix&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/change/attt&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/TMDT/thuongmaidt/src/main/webapp/views/admin&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -159,6 +161,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TMDT\thuongmaidt\src\main\webapp\views\admin" />
       <recent name="D:\HappyHome_fixapi\src\main\webapp\views\admin" />
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
     </key>
@@ -166,6 +169,8 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.admin" />
+      <recent name="service" />
       <recent name="controller.web" />
       <recent name="controller.admin.statistic" />
     </key>
@@ -244,18 +249,16 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="https://localhost:8443/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war">
+        <artifact name="happyhome:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/happyhome_war" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="0dee723c-1f35-4de3-9ff4-549d5fe4123f" />
-        <option name="HTTPS_PORT" value="8443" />
+        <option name="BASE_DIRECTORY_NAME" value="2ac72c26-06a2-4367-b1f2-6f253a7a5d3b" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -263,7 +266,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62824" />
+        <option name="DEBUG_PORT" value="60773" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -328,7 +331,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war" />
+          <artifact name="happyhome:war" />
         </option>
       </method>
     </configuration>
@@ -493,6 +496,9 @@
       <workItem from="1713104492623" duration="4711000" />
       <workItem from="1713151657201" duration="6371000" />
       <workItem from="1713178351544" duration="13250000" />
+      <workItem from="1713875894872" duration="1169000" />
+      <workItem from="1713928373748" duration="686000" />
+      <workItem from="1713947014543" duration="14738000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>

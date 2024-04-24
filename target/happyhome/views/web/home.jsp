@@ -56,7 +56,7 @@
                     <div class="container">
 
                         <!-- best seller -->
-                        <div class="section best-sellers col-lg-12 col-xs-12">
+                        <div class="section best-sellers col-lg-12 col-xs-12" style="margin-top: -50px">
                             <div class="row">
                                 <div class="col-md-12 col-xs-12">
                                     <div class="groupproductlist">
@@ -349,7 +349,7 @@
                         </div>
 
                         <!-- newest -->
-                        <div class="section best-sellers col-lg-12 col-xs-12">
+                        <div class="section best-sellers col-lg-12 col-xs-12" style="margin-top: -150px">
                             <div class="row">
                                 <div class="col-md-12 col-xs-12">
                                     <div class="groupproductlist">
@@ -640,10 +640,109 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="featured-category">
+                            <div class="container">
+                                <div class="tab-content text-center">
+                                    <div class="title-block" style="margin-top: -50px">Danh mục sản phẩm</div>
+                                    <div class="featured owl-carousel owl-theme">
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/27.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Bàn trang trí</a>
+                                                </h3>
+                                                <p>120 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/28.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Ghế bành</a>
+                                                </h3>
+                                                <p>35 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/29.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Bàn ăn</a>
+                                                </h3>
+                                                <p>127 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/30.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Gối sofa</a>
+                                                </h3>
+                                                <p>130 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/31.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Đồng hồ</a>
+                                                </h3>
+                                                <p>47 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/32.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Đèn trang trí</a>
+                                                </h3>
+                                                <p>20 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                        <div class="content-category">
+                                            <div class="content-img">
+                                                <a href="product-grid-sidebar-left.html">
+                                                    <img class="img-fluid" src="/Template/web/img/product/33.jpg" alt="Side Table" title="Side Table">
+                                                </a>
+                                            </div>
+                                            <div class="info-category">
+                                                <h3>
+                                                    <a href="product-grid-sidebar-left.html">Soffa</a>
+                                                </h3>
+                                                <p>12 Sản phẩm</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- banner -->
                         <div class="container" style="margin-top: 140px">
-                            <div class="title-block" style="padding-bottom: 150px;margin-top: -100px">Bộ sưu tập nổi bật</div>
+                            <div class="title-block" style="padding-bottom: 120px;margin-top: -100px">Bộ sưu tập nổi bật</div>
                             <div class="section spacing-10 group-image-special col-lg-12 col-xs-12">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
@@ -731,6 +830,63 @@
                                                             <div class="policy-des">Miễn phí</div>
                                                         </div>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+
+                            <!-- partner -->
+                            <div class="section introduct-logo" style="margin-top: -10px">
+                                <div class="row" style="padding-bottom: 25px">
+                                    <div class="tiva-manufacture  col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                        <div class="block" >
+                                            <div id="manufacture" class="owl-carousel owl-theme owl-loaded owl-drag">
+                                                <div class="item">
+                                                    <div class="logo-manu">
+                                                        <a href="#" title="view products">
+                                                            <img class="img-fluid" src="/Template/web/img/home/icon-logo1.jpg" alt="img" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="logo-manu">
+                                                        <a href="#" title="view products">
+                                                            <img class="img-fluid" src="/Template/web/img/home/icon-logo2.jpg" alt="img" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="logo-manu">
+                                                        <a href="#" title="view products">
+                                                            <img class="img-fluid" src="/Template/web/img/home/icon-logo3.jpg" alt="img" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="logo-manu">
+                                                        <a href="#" title="view products">
+                                                            <img class="img-fluid" src="/Template/web/img/home/icon-logo4.jpg" alt="img" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="logo-manu">
+                                                        <a href="#" title="view products">
+                                                            <img class="img-fluid" src="/Template/web/img/home/icon-logo5.jpg" alt="img" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="logo-manu">
+                                                        <a href="#" title="view products">
+                                                            <img class="img-fluid" src="/Template/web/img/home/icon-logo6.jpg" alt="img" />
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

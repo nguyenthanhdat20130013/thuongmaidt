@@ -49,9 +49,6 @@
                                         <option>Sản Phẩm hot</option>
                                     </select>
                                 </div>
-                                <button class="btn btn-primary" style="float: right;"><a href="#"
-                                                                                         style="color: white">Thêm
-                                    mới</a></button>
                             </div>
 
                             <!-- /.card-header -->
@@ -81,7 +78,7 @@
                                         </td>
                                         <td><%=o.getUser_name()%>
                                         </td>
-                                        <td><%=Order.convertDate(o.getDate_order().toString())%>
+                                        <td><%=Order.convertDateTime(o.getDate_order().toString())%>
                                         </td>
                                         <td><%=o.formatCurrency(o.getTotal_money())%></td>
                                         <td><%=o.getPayment()%></td>
