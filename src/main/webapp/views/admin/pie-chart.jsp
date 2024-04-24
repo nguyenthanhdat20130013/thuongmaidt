@@ -18,6 +18,11 @@
         #pieChart {
             margin: 30px auto;
         }
+        #nodata {
+            font-size: 50px;
+            width: fit-content;
+            margin: 10% auto;
+        }
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -54,12 +59,11 @@
                             <label for="monthPicker">Chọn tháng:</label>
                             <div style="display: flex;width: fit-content">
                                 <input type="month" id="monthPicker" class="form-control">
-                                <button id="reloadButton" class="btn btn-primary" style="margin-left: 10px">Reload</button>
                             </div>
                         </div>
                         <!-- Phần tử cho biểu đồ tròn -->
                         <canvas id="pieChart" width="700" height="750"></canvas>
-
+                        <div id="nodata">Chưa có dữ liệu thống kê</div>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -84,6 +88,7 @@
 <script>
     var currentChart;
     function setDataPieChart(labels, data){
+        notifyNoData(data)
         // Dữ liệu cho biểu đồ tròn
         var pieData = {
             labels: labels,
@@ -111,7 +116,16 @@
         var pieChartCanvas = document.getElementById("pieChart").getContext("2d");
         currentChart = new Chart(pieChartCanvas, {
             type: 'pie',
-            data: pieData
+            data: pieData,
+            options: {
+                plugins: {
+                    labels: {
+                        render: data,
+                        fontSize: 14,
+                        fontColor: '#fff'
+                    }
+                }
+            }
         });
     }
     function setDefaultMonth() {
@@ -121,11 +135,11 @@
         const currentYear = currentDate.getFullYear();
         const currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
         // Đặt giá trị mặc định cho input
-        <%--const defaultValue = `${currentYear}-${currentMonth}`;--%>
         const defaultValue = currentYear + '-' + currentMonth;
         monthPicker.value = defaultValue;
     }
     function updateChartData(labels, data) {
+        notifyNoData(data)
         if (currentChart) {
             currentChart.data.labels = labels;
             currentChart.data.datasets.forEach((dataset) => {
@@ -134,13 +148,26 @@
             currentChart.update();
         }
     }
+    function showNoData(){
+        document.getElementById("pieChart").style.display = "none"
+        document.getElementById("nodata").style.display = "block"
+    }
+    function hideNoData(){
+        document.getElementById("pieChart").style.display = "block"
+        document.getElementById("nodata").style.display = "none"
+    }
+    function notifyNoData(data){
+        if(data.length > 0){
+            hideNoData();
+        }else{
+            showNoData();
+        }
+    }
 
-    // Sự kiện khi nhấn nút reload
+    // Sự kiện khi thay đổi tháng
     document.addEventListener("DOMContentLoaded", function() {
-        // Lắng nghe sự kiện khi nhấn nút Reload
-        const reloadButton = document.getElementById("reloadButton");
-        reloadButton.addEventListener("click", function() {
-            const monthPicker = document.getElementById("monthPicker");
+        const monthPicker = document.getElementById("monthPicker");
+        monthPicker.addEventListener("change", function() {
             const selectedDate = monthPicker.value;
             // Gửi yêu cầu AJAX tới Servlet
             const xhr = new XMLHttpRequest();

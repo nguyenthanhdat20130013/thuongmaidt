@@ -10,70 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix orders">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/AddProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/DataUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/statistic/MonthAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/statistic/MonthAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/API/FeeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/AddFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/AddFavorite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RoleDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Statics/ProductImportNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Statics/ProductImportNum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/District_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/District_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Login_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Login_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Province_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Province_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Ward_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/API_LOGISTIC/Ward_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/ServiceStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ServiceStatistics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/ServiceStatisticsDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ServiceStatisticsDay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/RevenueStatisticsByCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/RevenueStatisticsByCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/TotalRevenueStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/TotalRevenueStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/StatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/StatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/bar-chart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/bar-chart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/pie-chart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/pie-chart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/AddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/AddProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/DataUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/DataUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/DayAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/DayAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/MonthAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/admin/statistic/MonthAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/API/FeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/API/FeeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/AddFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/AddFavorite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/RoleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/RoleDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Statics/ProductImportNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/model/Statics/ProductImportNum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/District_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/District_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/GetFee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/GetFee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Login_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Login_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Province_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Province_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Ward_API.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/API_LOGISTIC/Ward_API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatistics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatisticsDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/WEB-INF/classes/service/ServiceStatisticsDay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/common/web/css.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/web/css.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/common/web/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/web/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/add-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/add-user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/check-invoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/check-invoice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/checkorder-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/checkorder-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/invoice-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/admin/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/product-cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/product-cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/product-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/user-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/user-login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/user-order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/user-order-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/user-order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/user-order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,42 +123,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.DataTable.executor": "Run",
-    "Application.District_API.executor": "Run",
-    "Application.GetFee.executor": "Run",
-    "Application.Province_API.executor": "Run",
-    "Application.RoleDAO.executor": "Run",
-    "Application.UserDAO.executor": "Run",
-    "Application.Ward_API.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build HappyHome.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.HappyHome [:DBConnection.main()].executor": "Run",
-    "Gradle.HappyHome [:GetFee.main()].executor": "Run",
-    "Gradle.HappyHome [:ProductService.main()].executor": "Run",
-    "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
-    "Gradle.ecommerce [build].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dat__fix",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/TMDT/thuongmaidt/src/main/webapp/views/admin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.DataTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.District_API.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GetFee.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Province_API.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoleDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Ward_API.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build HappyHome.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:DBConnection.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:GetFee.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:ProductService.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:RoleDAO.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ecommerce [build].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dat__fix&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/TMDT/thuongmaidt/src/main/webapp/views/admin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\TMDT\thuongmaidt\src\main\webapp\views\admin" />
@@ -553,7 +496,9 @@
       <workItem from="1713104492623" duration="4711000" />
       <workItem from="1713151657201" duration="6371000" />
       <workItem from="1713178351544" duration="13250000" />
-      <workItem from="1713875894872" duration="870000" />
+      <workItem from="1713875894872" duration="1169000" />
+      <workItem from="1713928373748" duration="686000" />
+      <workItem from="1713947014543" duration="14738000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>

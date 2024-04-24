@@ -46,21 +46,6 @@ public class RevenueStatisticsByCategory extends HttpServlet {
         for (String s : labels) {
             data.add(result.get(s));
         }
-
-        // Thực hiện lấy dữ liệu mới dựa trên tháng
-//        List<String> labels = new ArrayList<>();
-//        labels.add("X");
-//        labels.add("Y");
-//        labels.add("Z");
-//        labels.add("K");
-//        labels.add("Z=G");
-//        List<Double> data = new ArrayList<>();
-//        data.add(165.0);
-//        data.add(12.0);
-//        data.add(14.3);
-//        data.add(112.0);
-//        data.add(194.3);
-
         // Gửi dữ liệu mới dưới dạng JSON về cho trình duyệt
         String jsonData = "{\"labels\": " + new Gson().toJson(labels) + ", \"data\": " + new Gson().toJson(data) + "}";
         response.setContentType("application/json");
