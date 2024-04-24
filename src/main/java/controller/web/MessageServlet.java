@@ -16,10 +16,10 @@ public class MessageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            int userId = Integer.parseInt(request.getParameter("userId"));
-            int adminId = Integer.parseInt(request.getParameter("adminId"));
+            int senderId = Integer.parseInt(request.getParameter("senderId"));
+            int receiverId = Integer.parseInt(request.getParameter("receiverId"));
 
-            List<Message> messages = MessageService.getMessages(userId, adminId);
+            List<Message> messages = MessageService.getMessages(senderId, receiverId);
             String messagesJson = gson.toJson(messages);
 
             response.setContentType("application/json");
