@@ -156,13 +156,13 @@ To change this template use File | Settings | File Templates.
         <!-- Chat messages and input for admin chat -->
         <div id="admin-chat-messages" class="chat-messages">
             <div class="chat-message admin-message">
-<%--                <img src="<%= adminAvatar %>" alt="Admin" class="avatar">--%>
-<%--                Hello! How can I help you today?--%>
+                <%--                <img src="<%= adminAvatar %>" alt="Admin" class="avatar">--%>
+                <%--                Hello! How can I help you today?--%>
             </div>
             <!-- User's message -->
             <div class="chat-message user-message">
-<%--                <img src="<%= userAvatar %>" alt="User" class="avatar">--%>
-<%--                I need help with my order.--%>
+                <%--                <img src="<%= userAvatar %>" alt="User" class="avatar">--%>
+                <%--                I need help with my order.--%>
             </div>
         </div>
         <div class="chat-input">
@@ -188,12 +188,14 @@ To change this template use File | Settings | File Templates.
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-    var userId = <%= userId %>;
-    var adminId = <%= 69 %>;
-
+    var senderId = <%= userId %>;
+    var receiverId = <%= 69 %>;
+    var webSocket;
+    var readyState;
     $(document).ready(function () {
         // toggleChat();
         switchTab('admin-chat');
+        initializeWebSocket();
     });
 
     function toggleChat() {
@@ -201,7 +203,11 @@ To change this template use File | Settings | File Templates.
         var isVisible = chatInterface.style.display === 'block';
         chatInterface.style.display = isVisible ? 'none' : 'block';
         if (!isVisible) {
-            fetchMessages(); // Fetch messages when opening the chat
+
+            if (webSocket === null || readyState !== WebSocket.OPEN) // Khởi tạo WebSocket nếu đã đóng
+                initializeWebSocket();
+
+            fetchMessages();
             setTimeout(() => {
                 var chatContents = document.querySelectorAll('.chat-content');
                 chatContents.forEach(chatContent => {
@@ -226,43 +232,45 @@ To change this template use File | Settings | File Templates.
     }
 
     function sendMessage(tabId) {
+        console.log('sendMessage');
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
         var message = input.value.trim();
-        if (message) {
-            $.ajax({
-                url: 'messages',
-                type: 'POST',
-                data: {
-                    message: message,
-                    senderId: userId,
-                    receiverId: adminId // Assuming 2 is the admin ID; replace with actual admin ID
-                },
-                success: function (response) {
-                    var newMessage = $('<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message + '</div>');
-                    $('#' + tabId).append(newMessage);
-                    input.value = '';
-                },
-                error: function (error) {
-                    console.log('Error sending message: ', error);
-                }
-            });
+        if (message && receiverId !== -1 && webSocket && webSocket.readyState === WebSocket.OPEN) {
+            var msgObj = {
+                senderId: senderId,
+                receiverId: receiverId,
+                messageText: message
+            };
+            webSocket.send(JSON.stringify(msgObj));
+            displayMessage(msgObj, true);
+            input.value = ''; // Clear input field
         }
     }
 
+    function displayMessage(message, isSender) {
+        var chatDiv = $('#admin-chat-messages');
+        var messageClass = isSender ? "user-message" : "admin-message"; // Toggle classes based on the message sender
+        var avatarURL = isSender ? "<%= userAvatar %>" : "<%= adminAvatar %>";
+        var alignment = isSender ? "right" : "left"; // Right-align user's messages, left-align admin's messages
+        var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" class="avatar" alt="' + (isSender ? 'User' : 'Admin') + '">' + message.messageText + '</div>');
+        chatDiv.append(msgDiv);
+        chatDiv.scrollTop(chatDiv.prop("scrollHeight")); // Auto-scroll to the newest message
+    }
+
     function fetchMessages() {
-        if (userId === -1) return;  // Do not fetch messages if user is not logged in
+        if (senderId === -1) return;  // Do not fetch messages if user is not logged in
         $.ajax({
             url: 'messages',
             type: 'GET',
             data: {
-                senderId: userId,
-                receiverId: adminId // Admin ID
+                senderId: senderId,
+                receiverId: receiverId // Admin ID
             },
             success: function (messages) {
                 var chatDiv = $('#admin-chat-messages');
                 chatDiv.empty(); // Clear previous messages
                 $.each(messages, function (index, message) {
-                    var msgDiv = (message.senderId == userId) ? '<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message.messageText + '</div>' : '<div class="chat-message admin-message"><img src="<%= adminAvatar %>" alt="Admin" class="avatar">' + message.messageText + '</div>';
+                    var msgDiv = (message.senderId == senderId) ? '<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message.messageText + '</div>' : '<div class="chat-message admin-message"><img src="<%= adminAvatar %>" alt="Admin" class="avatar">' + message.messageText + '</div>';
                     chatDiv.append(msgDiv);
                 });
             },
@@ -272,6 +280,34 @@ To change this template use File | Settings | File Templates.
             }
         });
     }
+
+    function initializeWebSocket() {
+        var protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+        var wsUri = protocol + window.location.hostname + ":8887?userId=" + senderId; // Add userId to the query string
+        webSocket = new WebSocket(wsUri);
+
+        webSocket.onopen = function (evt) {
+            console.log("WebSocket connection opened.");
+            readyState = webSocket.readyState;
+        };
+
+        webSocket.onmessage = function (evt) {
+            var message = JSON.parse(evt.data);
+            if (message.receiverId === senderId && message.senderId === receiverId) {
+                displayMessage(message, false);
+
+            }
+        };
+
+        webSocket.onerror = function (evt) {
+            console.error("WebSocket error observed:", evt);
+        };
+
+        webSocket.onclose = function (evt) {
+            console.log("WebSocket connection closed.");
+        };
+    }
+
 </script>
 
 

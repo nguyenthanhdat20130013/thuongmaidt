@@ -186,12 +186,12 @@ To change this template use File | Settings | File Templates.
         <div id="admin-chat-messages" class="chat-messages">
             <div class="chat-message admin-message">
                 <img src="<%= adminAvatar %>" alt="Admin" class="avatar">
-                Hello! How can I help you today?
+<%--                Hello! How can I help you today?--%>
             </div>
             <!-- User's message -->
             <div class="chat-message user-message">
                 <img src="<%= userAvatar %>" alt="User" class="avatar">
-                I need help with my order.
+<%--                I need help with my order.--%>
             </div>
         </div>
         <div class="chat-input">
@@ -223,29 +223,25 @@ To change this template use File | Settings | File Templates.
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-    var adminId = <%= adminId %>;
-    var userId = <%= 70 %>;
+    var senderId = <%= adminId %>;
+    var receiverId = 70; // Initially no user selected
     var webSocket;
-
+    var readyState;
     $(document).ready(function () {
-        // toggleChat();
-        switchTab('admin-chat');
-        console.log('testWebSocket')
-        // testWebSocket();
         initializeWebSocket();
+        switchTab('admin-chat');
     });
 
     function toggleChat() {
-        initializeWebSocket();
-        // testWebSocket();
-
         var chatInterface = document.getElementById('chat-interface');
-        var userList = document.getElementById('user-list');
         var isVisible = chatInterface.style.display === 'block';
         chatInterface.style.display = isVisible ? 'none' : 'block';
-        userList.style.display = isVisible ? 'none' : 'block';
         if (!isVisible) {
-            fetchMessages(); // Fetch messages when opening the chat
+
+            if (webSocket === null || readyState !== WebSocket.OPEN) // Khởi tạo WebSocket nếu đã đóng
+                initializeWebSocket();
+
+            fetchMessages();
             setTimeout(() => {
                 var chatContents = document.querySelectorAll('.chat-content');
                 chatContents.forEach(chatContent => {
@@ -256,7 +252,6 @@ To change this template use File | Settings | File Templates.
             }, 100); // Allow time for messages to load and adjust the scroll
         }
     }
-
 
     function switchTab(tabName) {
         var tabs = document.getElementsByClassName('chat-content');
@@ -272,47 +267,48 @@ To change this template use File | Settings | File Templates.
     function sendMessage(tabId) {
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
         var message = input.value.trim();
-        if (message) {
-            $.ajax({
-                url: 'messages',
-                type: 'POST',
-                data: {
-                    message: message,
-                    senderId: adminId,
-                    receiverId: userId
-                },
-                success: function (response) {
-                    // Check if the sender is the admin or the user
-                    var messageClass = (adminId == 69) ? "admin-message" : "user-message"; // Assuming 69 is always the adminId
-                    var avatarURL = (adminId == 69) ? "<%= adminAvatar %>" : "<%= userAvatar %>";
-                    var newMessage = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" alt="User" class="avatar">' + message + '</div>');
-                    $('#admin-chat-messages').append(newMessage);
-                    input.value = '';
-                },
-                error: function (error) {
-                    console.log('Error sending message: ', error);
-                }
-            });
+        if (message && receiverId !== -1 && webSocket && webSocket.readyState === WebSocket.OPEN) {
+            var msgObj = {
+                senderId: senderId,
+                receiverId: receiverId,
+                messageText: message
+            };
+            webSocket.send(JSON.stringify(msgObj));
+            displayMessage(msgObj, true);
+            input.value = ''; // Clear input field
         }
     }
 
+    function displayMessage(message, isSender) {
+        var chatDiv = $('#admin-chat-messages');
+        var messageClass = isSender ? "admin-message" : "user-message";
+        var avatarURL = isSender ? "<%= adminAvatar %>" : "<%= userAvatar %>";
+        var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" alt="User" class="avatar">' + message.messageText + '</div>');
+        chatDiv.append(msgDiv);
+        chatDiv.scrollTop(chatDiv.prop("scrollHeight"));
+    }
+
+    function selectUser(userId) {
+        receiverId = userId;
+        $('#user-list .user-entry').removeClass('active-user');
+        $('#user-' + userId).addClass('active-user');
+        fetchMessages();
+    }
+
     function fetchMessages() {
-        if (adminId === -1) return;  // Do not fetch messages if admin is not logged in
+        if (senderId === -1 || receiverId === -1) return; // Do not fetch messages if no user is selected
         $.ajax({
             url: 'messages',
             type: 'GET',
             data: {
-                senderId: adminId,
-                receiverId: userId
+                senderId: senderId,
+                receiverId: receiverId
             },
             success: function (messages) {
                 var chatDiv = $('#admin-chat-messages');
                 chatDiv.empty(); // Clear previous messages
                 $.each(messages, function (index, message) {
-                    var messageClass = (message.senderId == adminId) ? "admin-message" : "user-message";
-                    var avatarURL = (message.senderId == adminId) ? "<%= adminAvatar %>" : "<%= userAvatar %>";
-                    var msgDiv = '<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" alt="User" class="avatar">' + message.messageText + '</div>';
-                    chatDiv.append(msgDiv);
+                    displayMessage(message, message.senderId === senderId);
                 });
             },
             error: function (error) {
@@ -323,52 +319,27 @@ To change this template use File | Settings | File Templates.
 
     function initializeWebSocket() {
         var protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
-        var wsUri = protocol + window.location.hostname + ":8887";
-        console.log("Connecting to WebSocket at " + wsUri);
+        var wsUri = protocol + window.location.hostname + ":8887?userId=" + senderId;
         webSocket = new WebSocket(wsUri);
 
         webSocket.onopen = function(evt) {
             console.log("WebSocket connection opened.");
-            webSocket.send("Hello Server!");
+            readyState = webSocket.readyState;
         };
 
         webSocket.onmessage = function(evt) {
-            console.log("Received: " + evt.data);
-            // Handle incoming websocket message
+            var message = JSON.parse(evt.data);
+            if (message.receiverId === senderId && message.senderId === receiverId) {
+                displayMessage(message, false);
+            }
+        };
+
+        webSocket.onerror = function(evt) {
+            console.error("WebSocket error observed:", evt);
         };
 
         webSocket.onclose = function(evt) {
             console.log("WebSocket connection closed.");
-        };
-
-        webSocket.onerror = function(evt) {
-            console.error("WebSocket error: " + evt.data);
-        };
-    }
-
-    function testWebSocket() {
-        // Create a WebSocket object
-        console.log('testWebSocketDing...');
-        console.log("ws://" + window.location.hostname + ":8080/websocket/messages");
-        var protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
-        webSocket = new WebSocket(protocol + window.location.hostname + ":8080/websocket/messages");
-        // Define WebSocket event listeners
-        webSocket.onopen = function(event) {
-            console.log("WebSocket connection opened.");
-            // Send a test message to the WebSocket server
-            webSocket.send("Test message from client");
-        };
-
-        webSocket.onmessage = function(event) {
-            console.log("Received message from server:", event.data);
-        };
-
-        webSocket.onclose = function(event) {
-            console.log("WebSocket connection closed.");
-        };
-
-        webSocket.onerror = function(event) {
-            console.error("WebSocket error: ", event);
         };
     }
 </script>
