@@ -341,14 +341,14 @@ To change this template use File | Settings | File Templates.
                         userListDiv.append(userEntry);
 
                         // tu dong chon user dau tien neu chua co user nao duoc chon
-                        if (index === 0 && receiverId === 70) {  // kiem tra xem co user nao duoc chon truoc do chua
+                        if (index === 0 && receiverId === -1) {  // kiem tra xem co user nao duoc chon truoc do chua
                             selectUser(user.id);
                             userSelected = true;
                         }
                     });
 
                     // neu chua co user nao duoc chon truoc do thi chon user dau tien
-                    if (!userSelected && receiverId !== 70) {
+                    if (!userSelected && receiverId !== -1) {
                         $('#user-' + receiverId).addClass('active-user');
                     }
                 } else {
