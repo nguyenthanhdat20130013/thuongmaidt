@@ -186,12 +186,12 @@ To change this template use File | Settings | File Templates.
         <div id="admin-chat-messages" class="chat-messages">
             <div class="chat-message admin-message">
                 <img src="<%= adminAvatar %>" alt="Admin" class="avatar">
-<%--                Hello! How can I help you today?--%>
+                <%--                Hello! How can I help you today?--%>
             </div>
             <!-- User's message -->
             <div class="chat-message user-message">
                 <img src="<%= userAvatar %>" alt="User" class="avatar">
-<%--                I need help with my order.--%>
+                <%--                I need help with my order.--%>
             </div>
         </div>
         <div class="chat-input">
@@ -214,9 +214,9 @@ To change this template use File | Settings | File Templates.
 </div>
 
 <div id="user-list">
-    <div class="user-entry active-user">User 1</div>
-    <div class="user-entry">User 2</div>
-    <div class="user-entry">User 3</div>
+    <%--    <div class="user-entry active-user">User 1</div>--%>
+    <%--    <div class="user-entry">User 2</div>--%>
+    <%--    <div class="user-entry">User 3</div>--%>
     <!-- Additional users can be added here -->
 </div>
 
@@ -224,7 +224,7 @@ To change this template use File | Settings | File Templates.
 
 <script>
     var senderId = <%= adminId %>;
-    var receiverId = 70; // Initially no user selected
+    var receiverId = -1;
     var webSocket;
     var readyState;
     $(document).ready(function () {
@@ -234,22 +234,18 @@ To change this template use File | Settings | File Templates.
 
     function toggleChat() {
         var chatInterface = document.getElementById('chat-interface');
+        var userList = document.getElementById('user-list');
         var isVisible = chatInterface.style.display === 'block';
         chatInterface.style.display = isVisible ? 'none' : 'block';
-        if (!isVisible) {
+        userList.style.display = isVisible ? 'none' : 'block';
 
+        if (!isVisible) {
+            fetchUserList();
             if (webSocket === null || readyState !== WebSocket.OPEN) // Khởi tạo WebSocket nếu đã đóng
                 initializeWebSocket();
 
             fetchMessages();
-            setTimeout(() => {
-                var chatContents = document.querySelectorAll('.chat-content');
-                chatContents.forEach(chatContent => {
-                    if (chatContent.style.display === 'block') {
-                        chatContent.scrollTop = chatContent.scrollHeight;
-                    }
-                });
-            }, 100); // Allow time for messages to load and adjust the scroll
+
         }
     }
 
@@ -264,6 +260,26 @@ To change this template use File | Settings | File Templates.
         headers[Array.from(headers).findIndex(header => header.textContent.includes(tabName.split('-')[0]))].classList.add('active');
     }
 
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    // tao ham debounce de khong bi goi nhieu lan
+    var debouncedFetchUserList = debounce(function() {
+        fetchUserList();
+    }, 1000, false); // chac chan rang chi goi ham fetchUserList sau 1s
+
     function sendMessage(tabId) {
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
         var message = input.value.trim();
@@ -275,9 +291,11 @@ To change this template use File | Settings | File Templates.
             };
             webSocket.send(JSON.stringify(msgObj));
             displayMessage(msgObj, true);
-            input.value = ''; // Clear input field
+            input.value = '';
         }
+        debouncedFetchUserList(); // dung de cap nhat lai danh sach user sau khi gui tin nhan
     }
+
 
     function displayMessage(message, isSender) {
         var chatDiv = $('#admin-chat-messages');
@@ -285,7 +303,18 @@ To change this template use File | Settings | File Templates.
         var avatarURL = isSender ? "<%= adminAvatar %>" : "<%= userAvatar %>";
         var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" alt="User" class="avatar">' + message.messageText + '</div>');
         chatDiv.append(msgDiv);
-        chatDiv.scrollTop(chatDiv.prop("scrollHeight"));
+        ensureScrollToBottom();
+    }
+
+    function ensureScrollToBottom() {
+        setTimeout(() => {
+            var chatContents = document.querySelectorAll('.chat-content');
+            chatContents.forEach(chatContent => {
+                if (chatContent.style.display === 'block') {
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                }
+            });
+        }, 100);
     }
 
     function selectUser(userId) {
@@ -295,10 +324,49 @@ To change this template use File | Settings | File Templates.
         fetchMessages();
     }
 
-    function fetchMessages() {
-        if (senderId === -1 || receiverId === -1) return; // Do not fetch messages if no user is selected
+    function fetchUserList() {
+        console.log("fetchUserList");
         $.ajax({
-            url: 'messages',
+            url: 'messages?action=listUsers&adminId=' + senderId,
+            type: 'GET',
+            dataType: 'json',
+            success: function (users) {
+                var userListDiv = $('#user-list');
+                userListDiv.empty();
+                var userSelected = false;  // danh dau de biet user da duoc chon truoc do
+
+                if (users.length > 0) {
+                    users.forEach(function (user, index) {
+                        var userEntry = $('<div id="user-' + user.id + '" class="user-entry" onclick="selectUser(' + user.id + ')">' + user.fullName + '</div>');
+                        userListDiv.append(userEntry);
+
+                        // tu dong chon user dau tien neu chua co user nao duoc chon
+                        if (index === 0 && receiverId === 70) {  // kiem tra xem co user nao duoc chon truoc do chua
+                            selectUser(user.id);
+                            userSelected = true;
+                        }
+                    });
+
+                    // neu chua co user nao duoc chon truoc do thi chon user dau tien
+                    if (!userSelected && receiverId !== 70) {
+                        $('#user-' + receiverId).addClass('active-user');
+                    }
+                } else {
+                    console.log('No users to display');
+                }
+                console.log('success fetching user list');
+            },
+            error: function () {
+                console.log('Error fetching user list');
+            }
+        });
+    }
+
+
+    function fetchMessages() {
+        if (senderId === -1 || receiverId === -1) return;
+        $.ajax({
+            url: 'messages?action=getMessages',
             type: 'GET',
             data: {
                 senderId: senderId,
@@ -306,10 +374,13 @@ To change this template use File | Settings | File Templates.
             },
             success: function (messages) {
                 var chatDiv = $('#admin-chat-messages');
-                chatDiv.empty(); // Clear previous messages
+                chatDiv.empty();
                 $.each(messages, function (index, message) {
                     displayMessage(message, message.senderId === senderId);
                 });
+
+                ensureScrollToBottom();
+
             },
             error: function (error) {
                 console.log('Error fetching messages: ', error);
@@ -322,23 +393,25 @@ To change this template use File | Settings | File Templates.
         var wsUri = protocol + window.location.hostname + ":8887?userId=" + senderId;
         webSocket = new WebSocket(wsUri);
 
-        webSocket.onopen = function(evt) {
+        webSocket.onopen = function (evt) {
             console.log("WebSocket connection opened.");
             readyState = webSocket.readyState;
         };
 
-        webSocket.onmessage = function(evt) {
+        webSocket.onmessage = function (evt) {
+            fetchUserList();
+
             var message = JSON.parse(evt.data);
             if (message.receiverId === senderId && message.senderId === receiverId) {
                 displayMessage(message, false);
             }
         };
 
-        webSocket.onerror = function(evt) {
+        webSocket.onerror = function (evt) {
             console.error("WebSocket error observed:", evt);
         };
 
-        webSocket.onclose = function(evt) {
+        webSocket.onclose = function (evt) {
             console.log("WebSocket connection closed.");
         };
     }

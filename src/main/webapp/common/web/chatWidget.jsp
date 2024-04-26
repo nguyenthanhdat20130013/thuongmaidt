@@ -84,12 +84,13 @@ To change this template use File | Settings | File Templates.
 
         .admin-message {
             background-color: #f1f1f1;
-            color: white;
+            color: black;
             text-align: left;
         }
 
         .user-message {
             background-color: #007bff;
+            color: white;
             text-align: right;
             direction: rtl;
         }
@@ -189,7 +190,7 @@ To change this template use File | Settings | File Templates.
 
 <script>
     var senderId = <%= userId %>;
-    var receiverId = <%= 69 %>;
+    var receiverId = <%= 69 %>; // admin nhan tin nhan ho tro
     var webSocket;
     var readyState;
     $(document).ready(function () {
@@ -251,16 +252,26 @@ To change this template use File | Settings | File Templates.
         var chatDiv = $('#admin-chat-messages');
         var messageClass = isSender ? "user-message" : "admin-message"; // Toggle classes based on the message sender
         var avatarURL = isSender ? "<%= userAvatar %>" : "<%= adminAvatar %>";
-        var alignment = isSender ? "right" : "left"; // Right-align user's messages, left-align admin's messages
         var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" class="avatar" alt="' + (isSender ? 'User' : 'Admin') + '">' + message.messageText + '</div>');
         chatDiv.append(msgDiv);
-        chatDiv.scrollTop(chatDiv.prop("scrollHeight")); // Auto-scroll to the newest message
+        ensureScrollToBottom();
+    }
+
+    function ensureScrollToBottom() {
+        setTimeout(() => {
+            var chatContents = document.querySelectorAll('.chat-content');
+            chatContents.forEach(chatContent => {
+                if (chatContent.style.display === 'block') {
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                }
+            });
+        }, 100);
     }
 
     function fetchMessages() {
         if (senderId === -1) return;  // Do not fetch messages if user is not logged in
         $.ajax({
-            url: 'messages',
+            url: 'messages?action=getMessages',
             type: 'GET',
             data: {
                 senderId: senderId,
@@ -273,6 +284,8 @@ To change this template use File | Settings | File Templates.
                     var msgDiv = (message.senderId == senderId) ? '<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message.messageText + '</div>' : '<div class="chat-message admin-message"><img src="<%= adminAvatar %>" alt="Admin" class="avatar">' + message.messageText + '</div>';
                     chatDiv.append(msgDiv);
                 });
+                ensureScrollToBottom();
+
             },
             error: function (error) {
                 fetchMessages(); // Retry fetching messages

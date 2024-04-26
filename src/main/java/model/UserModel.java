@@ -45,6 +45,11 @@ public class UserModel extends Item {
         this.enable = enable;
     }
 
+    public UserModel(int id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
+    }
+
     public UserModel() {
 
     }

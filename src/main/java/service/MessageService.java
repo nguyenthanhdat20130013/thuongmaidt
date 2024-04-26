@@ -2,6 +2,7 @@ package service;
 
 import dao.DBConnection;
 import model.Message;
+import model.UserModel;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -53,11 +54,39 @@ public class MessageService {
         }
     }
 
+    public static List<UserModel> getUsersWhoMessagedAdmin(int receiverId) {
+        List<UserModel> users = new ArrayList<>();
+        String sql = "SELECT u.uid, u.full_name, MAX(m.timestamp) as last_interaction_time " +
+                "FROM messages m " +
+                "JOIN users u ON u.uid = m.sender_id OR u.uid = m.receiver_id " +
+                "WHERE m.sender_id = ? OR m.receiver_id = ? " +
+                "GROUP BY u.uid, u.full_name " +
+                "ORDER BY last_interaction_time DESC";  // Order by the latest interaction time
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, receiverId);
+            ps.setInt(2, receiverId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    if (rs.getInt("uid") != receiverId) { // Exclude the admin's own entry
+                        users.add(new UserModel(rs.getInt("uid"), rs.getString("full_name")));
+                    }
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException("Database error during fetching users who interacted with admin", e);
+        }
+        return users;
+    }
+
     public static void main(String[] args) {
         // Test the MessageService class
-        Message message = new Message(68, 69, "Hello, how are you?");
+        Message message = new Message(71, 69, "Hello, how are you?");
         sendMessage(message);
         List<Message> messages = getMessages(68, 69);
-        System.out.println(messages);
+//        System.out.println(messages);
+        System.out.println(MessageService.getUsersWhoMessagedAdmin(69));
     }
 }
