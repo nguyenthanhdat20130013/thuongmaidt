@@ -17,6 +17,8 @@
 
 <!-- product-checkout07:12-->
 <head>
+    <script src="https://www.paypal.com/sdk/js?client-id=AYnX4oblQKnzP1fFH6fxHl5bETK1p36Dbzg1aKIZRnD61UGRUGRFOujOhHuUrimR2oonzPBsj-lIhNgG"></script>
+
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,6 +71,9 @@
 
         .cart-summary a {
             color: #fff;
+        }
+        .hide-paypal-button {
+            display: none;
         }
 
     </style>
@@ -234,11 +239,13 @@
                                                     Giảm ngay 50.000đ nếu khách hàng nhận hàng tại
                                                     HappyHome ( Áp dụng sản phẩm từ : 1 triệu)
                                                 </div>
-                                                <input type="radio" id="bank-transfer" name="paymentMethod"
-                                                       value="Thanh toán qua ngân hàng">
-                                                <label for="bank-transfer">Thanh toán qua ngân hàng</label><br>
+                                                <input type="radio" id="paypal-radio" name="paymentMethod" value="PayPal">
+                                                <label for="paypal-radio">Thanh toán qua PayPal</label><br>
+                                                <div id="paypal-button-container" class="hide-paypal-button"></div>
+
+
                                                 <div class="ty-payments-list__description">
-                                                    Khách hàng chuyển khoản thanh toán vào các tài khoản
+                                                    Khách hàng chuyển khoản thanh toán vào các tài khoản PayPal
                                                     của HappyHome
                                                 </div>
                                                 <div class="tab-pane fade in active show" role="tabpanel">
@@ -323,6 +330,14 @@
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script>
+    // Calculate cart total in USD
+    const cartTotalUSD = (${cart.total} / 25340).toFixed(2);
+    // Display cart total in USD
+
+</script>
+<script>
+
+
     // Lấy giá trị số tiền từ đối tượng cart
     const cartTotal22 = ${cart.total};
 
@@ -334,6 +349,55 @@
     document.getElementById("cart-totalThanhtoan1").innerHTML = formattedCartTotal22 + " (bao gồm thuế.)";
 
 </script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var paypalButtonContainer = document.getElementById("paypal-button-container");
+        var paypalButtonCreated = false;
+
+        // Bắt sự kiện khi nút "Thanh toán qua PayPal" được chọn
+        document.getElementById("paypal-radio").addEventListener("click", function() {
+            paypalButtonContainer.classList.remove("hide-paypal-button");
+            if (!paypalButtonCreated) {
+                createPayPalButton();
+                paypalButtonCreated = true;
+            }
+        });
+
+        // Bắt sự kiện khi nút khác được chọn
+        var otherPaymentOptions = document.querySelectorAll('input[name="paymentMethod"]:not(#paypal-radio)');
+        otherPaymentOptions.forEach(function(option) {
+            option.addEventListener("click", function() {
+                paypalButtonContainer.classList.add("hide-paypal-button");
+            });
+        });
+    });
+
+
+    function createPayPalButton() {
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: cartTotalUSD // Use cartTotalUSD for order amount
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Handle approval and transaction completion
+                    alert('Giao dịch hoàn tất bởi ' + details.payer.name.given_name);
+                    // Further processing as needed
+                });
+            }
+        }).render('#paypal-button-container'); // Render PayPal button in specified container
+    }
+
+</script>
+
 
 <script>
     $(document).ready(function () {
