@@ -23,6 +23,8 @@
     <jsp:include page="/common/admin/header.jsp"></jsp:include>
     <!-- /.navbar -->
 
+    <%@ include file="/common/admin/chatWidgetAdmin.jsp" %>
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
