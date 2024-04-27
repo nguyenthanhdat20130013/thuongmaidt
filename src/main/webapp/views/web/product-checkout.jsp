@@ -389,7 +389,6 @@
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
                     // Handle approval and transaction completion
-                    alert('Giao dịch hoàn tất bởi ' + details.payer.name.given_name);
 
 
                     $.ajax({
@@ -402,9 +401,12 @@
                         },
                         success: function(response) {
                             console.log('Đơn hàng đã được lưu thành công');
-                            // Xử lý thêm nếu cần
-                            window.location.href = "/success";
-
+                            // Hiển thị thông báo và đợi 5 giây trước khi chuyển hướng
+                            setTimeout(function() {
+                                alert('Giao dịch hoàn tất bởi ' + details.payer.name.given_name);
+                                // Chuyển hướng sau khi đã đợi 1 giây
+                                window.location.href = "/success";
+                            }, 1000);
                         },
                         error: function() {
                             console.log('Lỗi khi lưu đơn hàng');
