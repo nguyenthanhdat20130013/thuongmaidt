@@ -17,7 +17,7 @@
 
 <!-- product-checkout07:12-->
 <head>
-    <script src="https://www.paypal.com/sdk/js?client-id=AYnX4oblQKnzP1fFH6fxHl5bETK1p36Dbzg1aKIZRnD61UGRUGRFOujOhHuUrimR2oonzPBsj-lIhNgG"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AboTc7iHlLxj3_239I18S6o0lT_DX0f2hJOtdiWQ6wEOPgzSTUX5DPV2BLTi2IPttx7DiBoDlDGPt3op"></script>
 
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -390,6 +390,26 @@
                 return actions.order.capture().then(function(details) {
                     // Handle approval and transaction completion
                     alert('Giao dịch hoàn tất bởi ' + details.payer.name.given_name);
+
+
+                    $.ajax({
+                        url: 'paypal-payment', // Đường dẫn đến PayPalPaymentServlet
+                        type: 'POST',
+                        data: {
+                            phone: $('#phone').val(),
+                            address: $('#address').val(), // Bạn cần cung cấp thông tin địa chỉ
+                            message: $('#message').val()
+                        },
+                        success: function(response) {
+                            console.log('Đơn hàng đã được lưu thành công');
+                            // Xử lý thêm nếu cần
+                            window.location.href = "/success";
+
+                        },
+                        error: function() {
+                            console.log('Lỗi khi lưu đơn hàng');
+                        }
+                    });
                     // Further processing as needed
                 });
             }

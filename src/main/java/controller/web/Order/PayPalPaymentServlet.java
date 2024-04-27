@@ -2,12 +2,8 @@ package controller.web.Order;
 
 import beans.Cart;
 import model.*;
-import service.IntroService;
 import service.OrderService;
-import service.PostService;
-import service.ProductService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,63 +11,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
-@WebServlet(name = "AddOrderSuccess", value = "/add_order_success")
-public class AddOrderSuccess extends HttpServlet {
-
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+@WebServlet(name = "PayPalPaymentServlet", value = "/paypal-payment")
+public class PayPalPaymentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        OrderService oderService = new OrderService();
-        int orderid = oderService.getMaxMHD();
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         UserModel user = (UserModel) session.getAttribute("user");
         if (user == null) {
-            response.sendRedirect(request.getContextPath() + "/lab/login");
+            // Xử lý khi người dùng chưa đăng nhập
             return;
         }
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null || cart.getTotal() == 0) {
-            response.sendRedirect(request.getContextPath() + "/lab/home");
+            // Xử lý khi giỏ hàng trống
             return;
         }
+
+        // Lấy thông tin từ yêu cầu
         String phone = request.getParameter("phone");
-        String paymentMethod = request.getParameter("paymentMethod");
+        String paymentMethod = "PayPal"; // Phương thức thanh toán là PayPal
         String address = request.getParameter("address");
         String message = request.getParameter("message");
         long totalAmount = cart.getTotal();
-        Date orderDate = Date.valueOf(LocalDate.now());
-        OrderService orderService = new OrderService();
-        String shippingFee = request.getParameter("shippingFee");
-        int fee ;
-        //dia chi giao hang
-        String provinceId = request.getParameter("province-id");
-        String districtId = request.getParameter("district-id");
-        String wardId = request.getParameter("ward-id");
-        String valId = provinceId+":"+districtId+":"+wardId;
-        //
-        String provinceValue = request.getParameter("province-value");
-        String districtValue = request.getParameter("district-value");
-        String wardValue = request.getParameter("ward-value");
-        String valAdd = wardValue +", "+ districtValue+", "+provinceValue;
-        if(paymentMethod.equals("Giao hàng thu tiền tận nhà") || paymentMethod.equals("Nhận hàng tại cửa hàng")) {
-            fee = 0;
-        } else {
-            fee = Integer.parseInt(shippingFee);
-        }
+        int fee = 0; // Phí vận chuyển cho thanh toán PayPal
+
         try {
             // Lấy múi giờ của Việt Nam
             ZoneId vietnamTimeZone = ZoneId.of("Asia/Ho_Chi_Minh");
@@ -82,7 +52,12 @@ public class AddOrderSuccess extends HttpServlet {
             String formattedDateTime = currentDateTime.format(formatter);
             // Chuyển đổi chuỗi thời gian thành LocalDateTime
             LocalDateTime parsedDateTime = LocalDateTime.parse(formattedDateTime, formatter);
-            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, parsedDateTime, paymentMethod, valId, 0, valAdd, message, phone);
+
+            OrderService orderService = new OrderService();
+            int orderid = orderService.getMaxMHD();
+
+            // Lưu thông tin đơn hàng
+            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, parsedDateTime, paymentMethod, address, 0, address, message, phone);
             orderService.addOder(order);
 
             order.setOder_id(orderid);
@@ -92,15 +67,16 @@ public class AddOrderSuccess extends HttpServlet {
                 orderService.addOrderDetail(orderDetail);
             }
 
+            // Xóa giỏ hàng sau khi thanh toán thành công
             session.removeAttribute("cart");
             cart = null;
         } catch (Exception e) {
-            response.sendRedirect(request.getContextPath() + "/home");
-            return;
+            // Xử lý ngoại lệ nếu có
+            e.printStackTrace();
         }
-        response.sendRedirect("/success");
-//        RequestDispatcher rd = request.getRequestDispatcher("/views/web/order-success.jsp");
-//        rd.forward(request, response);
-    }
 
+        // Gửi phản hồi về cho client
+        response.setStatus(HttpServletResponse.SC_OK);
+
+    }
 }
