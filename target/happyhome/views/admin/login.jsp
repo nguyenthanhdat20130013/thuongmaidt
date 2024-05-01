@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin Đăng nhập</title>
-
+  <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
   <jsp:include page="/common/admin/css.jsp"></jsp:include>
 </head>
 <body class="hold-transition login-page">
