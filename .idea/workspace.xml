@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="gop code cua Truong, Bach, Dat">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,39 +108,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-    &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.DataTable.executor&quot;: &quot;Run&quot;,
-    &quot;Application.OrderService.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RegisterTransport.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RoleDAO.executor&quot;: &quot;Run&quot;,
-    &quot;Application.UserDAO.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.Build HappyHome.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:DBConnection.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:GetFee.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:ProductService.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HappyHome [:RoleDAO.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ecommerce [build].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dat__fix&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CODE/TMDT/nhomrieng/src/main/webapp/views/admin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-    }
-    }</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.DataTable.executor": "Run",
+    "Application.OrderService.executor": "Run",
+    "Application.RegisterTransport.executor": "Run",
+    "Application.RoleDAO.executor": "Run",
+    "Application.UserDAO.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Build HappyHome.executor": "Run",
+    "Gradle.HappyHome [:DBConnection.main()].executor": "Run",
+    "Gradle.HappyHome [:GetFee.main()].executor": "Run",
+    "Gradle.HappyHome [:ProductService.main()].executor": "Run",
+    "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
+    "Gradle.ecommerce [build].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "gopcode",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/CODE/TMDT/nhomrieng/src/main/webapp/views/admin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CODE\TMDT\nhomrieng\src\main\webapp\views\admin" />
@@ -614,7 +612,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714575958722</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix">
+      <option name="closed" value="true" />
+      <created>1714576990104</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714576990104</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix">
+      <option name="closed" value="true" />
+      <created>1714577019336</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1714577019336</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,7 +667,6 @@
     <MESSAGE value="add" />
     <MESSAGE value="git branch -M main" />
     <MESSAGE value="up code" />
-    <MESSAGE value="fix" />
     <MESSAGE value="sua loi va cai thien chuc nang admin" />
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung" />
     <MESSAGE value="Merge remote-tracking branch 'origin/dat' into dat&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
@@ -663,7 +676,8 @@
     <MESSAGE value="fix duong dan" />
     <MESSAGE value="hoan thien chuc nang theo doi don hang" />
     <MESSAGE value="gop code cua Truong, Bach, Dat" />
-    <option name="LAST_COMMIT_MESSAGE" value="gop code cua Truong, Bach, Dat" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
