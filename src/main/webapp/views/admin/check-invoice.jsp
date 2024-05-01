@@ -292,12 +292,16 @@
     var orderStatus = "<%= order.getStatus() %>";
     var orderPays = "<%=order.getPayment()%>";
     $('select[name="status"] option[value="' + orderStatus + '"]').prop('selected', true);
-    if(orderPays == "Nhận hàng tại cửa hàng" && orderStatus == 0){
-     ;
+    if(orderPays == "Nhận hàng tại cửa hàng" && orderStatus == 0 ){
       $('select[name="status"] option[value="4"]').hide();
       $('select[name="status"] option[value="6"]').hide();
       $('select[name="status"] option[value="1"]').hide();
       $('select[name="status"] option[value="8"]').hide();
+    } else if (orderStatus == 0 && orderPays == "Giao hàng thu tiền tận nhà") {
+      $('select[name="status"] option[value="4"]').hide();
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
     } else if (orderStatus == 0 && orderPays == "Thanh toán qua ngân hàng") {
       $('select[name="status"] option[value="3"]').hide();
       $('select[name="status"] option[value="1"]').hide();
@@ -361,6 +365,14 @@
     }
     else if (orderStatus == 7 && orderPays == "Nhận hàng tại cửa hàng") {
       $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    } else if (orderStatus == 8 && orderPays == "Giao hàng thu tiền tận nhà") {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="2"]').hide();
       $('select[name="status"] option[value="4"]').hide();
 
       $('select[name="status"] option[value="6"]').hide();
