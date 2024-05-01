@@ -97,6 +97,7 @@
                           <div class="input-group date" id="ido" data-target-input="nearest">
                             <div class="form-control"><%=order.getOder_id()%></div>
                             <input type="hidden" name="order_id" value="<%=order.getOder_id()%>">
+                            <input type="hidden" name="payment_method" value="<%=order.getPayment()%>">
                           </div>
                         </div>
                       </div>
@@ -136,6 +137,11 @@
                         <label>Mã địa chỉ giao hàng</label>
                         <div class="form-control"><%=order.getTransport()%></div>
                         <input type="hidden" name="addressId" id="addressId" class="form-control" value="<%= order.getTransport() %>">
+                      </div>
+                      <div class="form-group col-md-12 ">
+                      <label>Trạng thái đơn hàng hiện tại</label>
+                      <div class="form-control"><%=order.statusOrder(order.getStatus())%></div>
+                      <input type="hidden" name="address" id="stass" class="form-control" value="<%=order.statusOrder(order.getStatus())%>">
                       </div>
                     </div>
                     <div style="display: flex" class="row">
@@ -209,9 +215,13 @@
                       <div class="input-group date" id="reservationdate12" data-target-input="nearest">
                         <select class="form-control" name="status">
                           <option value="" selected>Chọn trạng thái</option>
-                          <option value="1">Duyệt đơn hàng</option>
+                          <option value="1">Tiến hành vận chuyển</option>
+                          <option value="7">Duyệt đơn hàng</option>
+                          <option value="8">Duyệt đơn hàng</option>
                           <option value="3">Từ chối đơn hàng</option>
+<%--                          <option value="5">Tiến hành vận chuyển</option>--%>
                           <option value="2">Đã giao</option>
+                          <option value="6">Huỷ đơn hàng - Hoàn tiền</option>
                           <option value="4">Giao hàng thất bại</option>
                         </select>
                       </div>
@@ -280,15 +290,82 @@
 <script>
   $(document).ready(function() {
     var orderStatus = "<%= order.getStatus() %>";
+    var orderPays = "<%=order.getPayment()%>";
     $('select[name="status"] option[value="' + orderStatus + '"]').prop('selected', true);
-    if (orderStatus == 1) {
+    if(orderPays == "Nhận hàng tại cửa hàng" && orderStatus == 0){
+     ;
+      $('select[name="status"] option[value="4"]').hide();
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    } else if (orderStatus == 0 && orderPays == "Thanh toán qua ngân hàng") {
       $('select[name="status"] option[value="3"]').hide();
       $('select[name="status"] option[value="1"]').hide();
+
+      $('select[name="status"] option[value="2"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+    } else if (orderStatus == 1 && orderPays == "Thanh toán qua ngân hàng") {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
     } else if (orderStatus == 2) {
       $('select[name="status"] option[value="3"]').hide();
       $('select[name="status"] option[value="1"]').hide();
       $('select[name="status"] option[value="2"]').hide();
       $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    } else if (orderStatus == 3) {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="2"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    } else if (orderStatus == 5 && orderPays == "Nhận hàng tại cửa hàng" && orderPays == "Giao hàng thu tiền tận nhà") {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="2"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    }
+    else if (orderStatus == 6 && orderPays == "Thanh toán qua ngân hàng") {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="2"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    }
+    else if (orderStatus == 8 && orderPays == "Thanh toán qua ngân hàng") {
+      $('select[name="status"] option[value="3"]').hide();
+      $('select[name="status"] option[value="2"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
+    }
+    else if (orderStatus == 7 && orderPays == "Nhận hàng tại cửa hàng") {
+      $('select[name="status"] option[value="1"]').hide();
+      $('select[name="status"] option[value="4"]').hide();
+
+      $('select[name="status"] option[value="6"]').hide();
+      $('select[name="status"] option[value="7"]').hide();
+      $('select[name="status"] option[value="8"]').hide();
     }
   });
 </script>

@@ -165,6 +165,12 @@
                                 <p>Duyệt đơn hàng</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin_ship_order"/>" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vận chuyển đơn hàng</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item" >
