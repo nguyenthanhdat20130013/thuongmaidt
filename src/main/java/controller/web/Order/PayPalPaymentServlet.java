@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -20,16 +22,20 @@ public class PayPalPaymentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        OrderService oderService = new OrderService();
+        int orderid = oderService.getMaxMHD();
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         UserModel user = (UserModel) session.getAttribute("user");
         if (user == null) {
+            response.sendRedirect(request.getContextPath() + "/lab/login");
             // Xử lý khi người dùng chưa đăng nhập
             return;
         }
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null || cart.getTotal() == 0) {
+            response.sendRedirect(request.getContextPath() + "/lab/home");
             // Xử lý khi giỏ hàng trống
             return;
         }
@@ -42,6 +48,26 @@ public class PayPalPaymentServlet extends HttpServlet {
         long totalAmount = cart.getTotal();
         int fee = 0; // Phí vận chuyển cho thanh toán PayPal
 
+
+
+
+        Date orderDate = Date.valueOf(LocalDate.now());
+        OrderService orderService = new OrderService();
+        String shippingFee = request.getParameter("shippingFee");
+
+        //dia chi giao hang
+        String provinceId = request.getParameter("province-id");
+        String districtId = request.getParameter("district-id");
+        String wardId = request.getParameter("ward-id");
+        String valId = provinceId+":"+districtId+":"+wardId;
+        //
+        String provinceValue = request.getParameter("provinceValue");
+        String districtValue = request.getParameter("districtValue");
+        String wardValue = request.getParameter("wardValue");
+        String valAdd = wardValue +", "+ districtValue+", "+provinceValue;
+
+
+
         try {
             // Lấy múi giờ của Việt Nam
             ZoneId vietnamTimeZone = ZoneId.of("Asia/Ho_Chi_Minh");
@@ -52,12 +78,7 @@ public class PayPalPaymentServlet extends HttpServlet {
             String formattedDateTime = currentDateTime.format(formatter);
             // Chuyển đổi chuỗi thời gian thành LocalDateTime
             LocalDateTime parsedDateTime = LocalDateTime.parse(formattedDateTime, formatter);
-
-            OrderService orderService = new OrderService();
-            int orderid = orderService.getMaxMHD();
-
-            // Lưu thông tin đơn hàng
-            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, parsedDateTime, paymentMethod, address, 0, address, message, phone);
+            Order order = new Order(orderid, user.getUserName(), totalAmount, fee, parsedDateTime, paymentMethod, valId, 0, address, message, phone);
             orderService.addOder(order);
 
             order.setOder_id(orderid);
@@ -67,12 +88,12 @@ public class PayPalPaymentServlet extends HttpServlet {
                 orderService.addOrderDetail(orderDetail);
             }
 
-            // Xóa giỏ hàng sau khi thanh toán thành công
             session.removeAttribute("cart");
             cart = null;
         } catch (Exception e) {
             // Xử lý ngoại lệ nếu có
-            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/home");
+           return;
         }
 
         // Gửi phản hồi về cho client
