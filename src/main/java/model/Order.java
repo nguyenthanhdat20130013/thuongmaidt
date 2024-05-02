@@ -204,7 +204,10 @@ public class Order {
                 nameStatus = "Đơn hàng bị huỷ - và hoàn tiền";
                 break;
             case 7:
-                nameStatus = "Đơn hàng bị huỷ do lộ Private Key";
+                nameStatus = "Chờ khách hàng đến lấy hàng";
+                break;
+            case 8:
+                nameStatus = "Chờ vận chuyển";
                 break;
         }
         return nameStatus;

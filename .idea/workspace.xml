@@ -2,22 +2,24 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="happyhome:war" />
+      <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix orders">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_6_2023_11_49_AM__Changes_.xml" afterDir="false" />
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="gop code cua Bel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/common/admin/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/happyhome/views/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/Order/PayPalPaymentServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/Order/PayPalPaymentServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/css.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/css.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/check-invoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/check-invoice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,23 +39,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="happyhome" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="happyhome" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="happyhome" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -71,12 +57,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/truong" />
+    <option name="BRANCH" value="origin/gop-code-4" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dat" />
+        <entry key="$PROJECT_DIR$" value="bel_clone" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -117,46 +103,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.DataTable.executor": "Run",
-    "Application.District_API.executor": "Run",
-    "Application.GetFee.executor": "Run",
-    "Application.Province_API.executor": "Run",
-    "Application.RoleDAO.executor": "Run",
-    "Application.UserDAO.executor": "Run",
-    "Application.Ward_API.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build HappyHome.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.HappyHome [:DBConnection.main()].executor": "Run",
-    "Gradle.HappyHome [:GetFee.main()].executor": "Run",
-    "Gradle.HappyHome [:ProductService.main()].executor": "Run",
-    "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
-    "Gradle.ecommerce [build].executor": "Run",
-    "Gradle.thuongmaidt [build].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/intellji/tmdt/main/thuongmaidt",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.DataTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OrderService.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegisterTransport.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoleDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserDAO.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build HappyHome.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:DBConnection.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:GetFee.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:ProductService.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:RoleDAO.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ecommerce [build].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gopcode&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/OneDrive/Máy tính/TMDTFix/thuongmaidt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\TMDT\thuongmaidt\src\main\webapp\views\admin" />
       <recent name="D:\HappyHome_fixapi\src\main\webapp\views\admin" />
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
     </key>
@@ -164,9 +145,6 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller.admin" />
-      <recent name="service" />
-      <recent name="controller.web" />
       <recent name="controller.admin.statistic" />
     </key>
   </component>
@@ -178,8 +156,21 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.87">
-    <configuration name="District_API" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.District_API" />
+    <configuration name="OrderService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.OrderService" />
+      <module name="happyhome.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTransport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.RegisterTransport" />
       <module name="happyhome.main" />
       <extension name="coverage">
         <pattern>
@@ -191,12 +182,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetFee" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.GetFee" />
+    <configuration name="RoleDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.RoleDAO" />
       <module name="happyhome.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.API_LOGISTIC.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -204,12 +195,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Province_API" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.Province_API" />
+    <configuration name="UserDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.UserDAO" />
       <module name="happyhome.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.API_LOGISTIC.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -217,25 +208,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ward_API" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.Ward_API" />
-      <module name="happyhome.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.API_LOGISTIC.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="thuongmaidt [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ecommerce [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -257,12 +235,12 @@
       <deployment>
         <artifact name="Gradle : org.example : happyhome-1.0-SNAPSHOT.war">
           <settings>
-            <option name="CONTEXT_PATH" value="/Gradle___org_example___happyhome_1_0_SNAPSHOT_war" />
+            <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="2ac72c26-06a2-4367-b1f2-6f253a7a5d3b" />
+        <option name="BASE_DIRECTORY_NAME" value="6a1d4f98-a43a-461c-9cbf-11e485d138ee" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -270,7 +248,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60773" />
+        <option name="DEBUG_PORT" value="60813" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -340,20 +318,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.District_API" />
-      <item itemvalue="Application.Province_API" />
-      <item itemvalue="Application.Ward_API" />
-      <item itemvalue="Application.GetFee" />
-      <item itemvalue="Gradle.thuongmaidt [build]" />
+      <item itemvalue="Application.OrderService" />
+      <item itemvalue="Application.RegisterTransport" />
+      <item itemvalue="Application.RoleDAO" />
+      <item itemvalue="Application.UserDAO" />
+      <item itemvalue="Gradle.ecommerce [build]" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.87" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.thuongmaidt [build]" />
-        <item itemvalue="Application.GetFee" />
-        <item itemvalue="Application.Ward_API" />
-        <item itemvalue="Application.District_API" />
-        <item itemvalue="Application.Province_API" />
+        <item itemvalue="Gradle.ecommerce [build]" />
+        <item itemvalue="Application.UserDAO" />
+        <item itemvalue="Application.RoleDAO" />
+        <item itemvalue="Application.RegisterTransport" />
+        <item itemvalue="Application.OrderService" />
       </list>
     </recent_temporary>
   </component>
@@ -493,17 +471,20 @@
       <workItem from="1712331883572" duration="705000" />
       <workItem from="1712403041973" duration="11477000" />
       <workItem from="1712593242000" duration="657000" />
-      <workItem from="1712674243301" duration="5192000" />
-      <workItem from="1712751035686" duration="8700000" />
-      <workItem from="1712852137855" duration="259000" />
-      <workItem from="1713008952061" duration="6718000" />
-      <workItem from="1713104492623" duration="4711000" />
-      <workItem from="1713151657201" duration="6371000" />
-      <workItem from="1713178351544" duration="13250000" />
-      <workItem from="1713875894872" duration="1169000" />
-      <workItem from="1713928373748" duration="686000" />
-      <workItem from="1713947014543" duration="14738000" />
-      <workItem from="1714099334471" duration="472000" />
+      <workItem from="1712674243301" duration="4546000" />
+      <workItem from="1713452765462" duration="244000" />
+      <workItem from="1713454007648" duration="693000" />
+      <workItem from="1713787514822" duration="9812000" />
+      <workItem from="1713850652754" duration="947000" />
+      <workItem from="1713852098270" duration="1200000" />
+      <workItem from="1713948641569" duration="8043000" />
+      <workItem from="1714145921754" duration="16069000" />
+      <workItem from="1714163188327" duration="273000" />
+      <workItem from="1714163467318" duration="1226000" />
+      <workItem from="1714177896224" duration="5137000" />
+      <workItem from="1714184792376" duration="748000" />
+      <workItem from="1714188426635" duration="3633000" />
+      <workItem from="1714658028316" duration="419000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -603,23 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712678747787</updated>
     </task>
-    <task id="LOCAL-00014" summary="fix date">
+    <task id="LOCAL-00014" summary="gop code cua Bel">
       <option name="closed" value="true" />
-      <created>1712679059976</created>
+      <created>1714578816643</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1712679059976</updated>
+      <updated>1714578816643</updated>
     </task>
-    <task id="LOCAL-00015" summary="fix orders">
-      <option name="closed" value="true" />
-      <created>1713016206767</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1713016206767</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +603,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="gopcode" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -653,8 +638,8 @@
     <MESSAGE value="sua loi va cai thien chuc nang nguoi dung va admin" />
     <MESSAGE value="sua loi va ca&#10;i thien chuc nang nguoi dung va admin" />
     <MESSAGE value="fix date" />
-    <MESSAGE value="fix orders" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix orders" />
+    <MESSAGE value="gop code cua Bel" />
+    <option name="LAST_COMMIT_MESSAGE" value="gop code cua Bel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -688,15 +673,6 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/common/web/footer.jsp</url>
           <line>174</line>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/service/API_LOGISTIC/GetFee.java</url>
-          <line>76</line>
-          <properties class="service.API_LOGISTIC.GetFee" method="main">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
