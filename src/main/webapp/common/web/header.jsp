@@ -147,7 +147,7 @@
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <% if(user != null) { %>
-                                <span><%=user.getUserName()%></span>
+                                <span><%=user.getFullName()%></span>
                                 <% } else {%>
                                 <span>Tài khoản</span>
                                 <% } %>

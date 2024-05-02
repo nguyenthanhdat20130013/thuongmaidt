@@ -56,9 +56,9 @@ public class PayPalPaymentServlet extends HttpServlet {
         String shippingFee = request.getParameter("shippingFee");
 
         //dia chi giao hang
-        String provinceId = request.getParameter("province-id");
-        String districtId = request.getParameter("district-id");
-        String wardId = request.getParameter("ward-id");
+        String provinceId = request.getParameter("province");
+        String districtId = request.getParameter("district");
+        String wardId = request.getParameter("ward");
         String valId = provinceId+":"+districtId+":"+wardId;
         //
         String provinceValue = request.getParameter("provinceValue");

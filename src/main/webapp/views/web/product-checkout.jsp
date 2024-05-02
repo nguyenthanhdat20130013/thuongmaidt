@@ -245,8 +245,7 @@
 
 
                                                 <div class="ty-payments-list__description">
-                                                    Khách hàng chuyển khoản thanh toán vào các tài khoản PayPal
-                                                    của HappyHome
+                                                    Sau khi thanh toán, sản phẩm được vận chuyển đến khách hàng thông qua đơn vị vận chuyển
                                                 </div>
                                                 <div class="tab-pane fade in active show" role="tabpanel">
                                                     <div>
@@ -392,6 +391,16 @@
                     var provinceValue = $('#province-value').val();
                     var districtValue = $('#district-value').val();
                     var wardValue = $('#ward-value').val();
+
+                    // Lấy giá trị của province-id
+                    var provinceId = document.querySelector("#province-id").value;
+
+                    // Lấy giá trị của district-id
+                    var districtId = document.querySelector("#district-id").value;
+
+                    // Lấy giá trị của ward-id
+                    var wardId = document.querySelector("#ward-id").value;
+
                     var address = wardValue + ", " + districtValue + ", " + provinceValue;
 
                     // Gửi các giá trị này đến servlet thông qua AJAX
@@ -402,6 +411,9 @@
                             phone: $('#phone').val(),
                             address: address,
                             message: $('#message').val(),
+                            province: provinceId,
+                            district: districtId,
+                            ward: wardId,
 
                         },
                         success: function(response) {
