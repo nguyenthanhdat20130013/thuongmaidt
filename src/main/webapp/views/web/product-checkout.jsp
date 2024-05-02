@@ -388,16 +388,21 @@
             },
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
-                    // Handle approval and transaction completion
+                    // Lấy giá trị của các select box
+                    var provinceValue = $('#province-value').val();
+                    var districtValue = $('#district-value').val();
+                    var wardValue = $('#ward-value').val();
+                    var address = wardValue + ", " + districtValue + ", " + provinceValue;
 
-
+                    // Gửi các giá trị này đến servlet thông qua AJAX
                     $.ajax({
-                        url: 'paypal-payment', // Đường dẫn đến PayPalPaymentServlet
+                        url: 'paypal-payment',
                         type: 'POST',
                         data: {
                             phone: $('#phone').val(),
-                            address: $('#address').val(), // Bạn cần cung cấp thông tin địa chỉ
-                            message: $('#message').val()
+                            address: address,
+                            message: $('#message').val(),
+
                         },
                         success: function(response) {
                             console.log('Đơn hàng đã được lưu thành công');
@@ -412,7 +417,6 @@
                             console.log('Lỗi khi lưu đơn hàng');
                         }
                     });
-                    // Further processing as needed
                 });
             }
         }).render('#paypal-button-container'); // Render PayPal button in specified container

@@ -11,6 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="fix date">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/Order/PayPalPaymentServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/Order/PayPalPaymentServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-checkout.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -476,6 +478,10 @@
       <workItem from="1714177896224" duration="5137000" />
       <workItem from="1714184792376" duration="748000" />
       <workItem from="1714188426635" duration="3633000" />
+      <workItem from="1714224315210" duration="121000" />
+      <workItem from="1714224742121" duration="571000" />
+      <workItem from="1714632938898" duration="10744000" />
+      <workItem from="1714648016970" duration="2348000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
