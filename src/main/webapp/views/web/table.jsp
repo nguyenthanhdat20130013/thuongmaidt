@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Product_type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -86,7 +87,7 @@
                                     <% Product_type t = (Product_type) request.getAttribute("typeName"); %>
                                     <h1><%=t.getType_name()%>
                                     </h1>
-
+                                    <input type="hidden" id="typeNameHidden" value="<%=t.getType_id()%>">
                                     <div class="js-product-list-top firt nav-top">
                                         <div class="d-flex justify-content-around row">
                                             <div class="col col-xs-12">
@@ -262,8 +263,16 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="discription">
-                                                                                    ${p.getInfo()}
+                                                                                <c:choose>
+                                                                                    <c:when test="${fn:length(p.getInfo()) > 190}">
+                                                                                        ${fn:substring(p.getInfo(), 0, 190)}...
+                                                                                    </c:when>
+                                                                                    <c:otherwise>
+                                                                                        ${p.getInfo()}
+                                                                                    </c:otherwise>
+                                                                                </c:choose>
                                                                             </div>
+
                                                                         </div>
                                                                         <div class="product-buttons d-flex">
                                                                             <form action="#" method="post"
@@ -319,6 +328,20 @@
                                                         </c:forEach>
                                                     </ul>
                                                 </div>
+                                                <div class="page-list col col-xs-12 a">
+                                                    <ul>
+                                                        <c:forEach var="i" begin="1" end="${endP}">
+                                                            <li class="${tag == i?"current active" :""}">
+                                                                <a rel="nofollow" href="<c:url value='/productCate'>
+                                                                <c:param name="cid" value="<%=String.valueOf(t.getType_id())%>" />
+                                                                <c:param name="index" value="${i}" />
+                                                                </c:url>" class="disabled js-search-link">${i}</a>
+                                                            </li>
+                                                        </c:forEach>
+
+
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -339,6 +362,59 @@
     <jsp:include page="/common/web/js.jsp"></jsp:include>
 
 </div>
+
+<script>
+    // // Lấy thẻ h1 và lưu vào biến h1Element
+    // var h1Element = document.querySelector('h1');
+    //
+    // // Lấy giá trị của thẻ h1 và lưu vào biến h1Value
+    // var h1Value = h1Element.textContent;
+    //
+    // // In giá trị của thẻ h1 ra console
+    // console.log(h1Value);
+    //
+    // // Lấy giá trị của thẻ input hidden
+    // var typeNameHidden = document.getElementById('typeNameHidden').value;
+    //
+    // // In giá trị ra console
+    // console.log(typeNameHidden);
+    // Lấy giá trị của thẻ input hidden
+    // Lấy giá trị của thẻ input hidden
+    // Lấy giá trị của thẻ input hidden
+    // var typeNameHidden = document.getElementById('typeNameHidden').value;
+    //
+    // // Kiểm tra giá trị của typeNameHidden
+    // if (typeNameHidden === '500') {
+    //     // Hiển thị thẻ div
+    //     document.querySelector('.page-list.col.col-xs-12').style.display = 'block';
+    // } else {
+    //     // Ẩn thẻ div
+    //     document.querySelector('.page-list.col.col-xs-12').style.display = 'none';
+    // }
+    //
+    //
+    // Lấy giá trị của thẻ input hidden
+    var typeNameHidden = document.getElementById('typeNameHidden').value;
+
+    // Lấy các thẻ div với class "page-list col col-xs-12" và "page-list col col-xs-12 a"
+    var pageListDiv1 = document.querySelector('.page-list.col.col-xs-12');
+    var pageListDiv2 = document.querySelector('.page-list.col.col-xs-12.a');
+
+    // Kiểm tra giá trị của typeNameHidden và hiển thị/ẩn các thẻ div tương ứng
+    if (typeNameHidden === '500') {
+        // Hiển thị thẻ div đầu tiên, ẩn thẻ div thứ hai
+        pageListDiv1.style.display = 'block';
+        pageListDiv2.style.display = 'none';
+    } else {
+        // Ẩn thẻ div đầu tiên, hiển thị thẻ div thứ hai
+        pageListDiv1.style.display = 'none';
+        pageListDiv2.style.display = 'block';
+    }
+
+
+
+
+</script>
 </body>
 
 <!-- product-grid-sidebar-left10:55-->
