@@ -143,7 +143,7 @@ public class UserDAO {
             pst.setString(4, email);
             pst.setString(5, gender);
             pst.setInt(6, 0);
-            pst.setInt(7, 1);
+            pst.setInt(7, 0);
             pst.setInt(8, 0);
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
