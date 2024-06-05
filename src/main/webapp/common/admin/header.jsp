@@ -55,7 +55,7 @@
 </nav>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="home.html" class="brand-link">
+    <a href="<c:url value="/admin-home"/>" class="brand-link">
         <img src="<c:url value="/Template/admin/dist/img/AdminLTELogo.png"/>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">QUẢN LÍ HAPPYHOME</span>
     </a>
@@ -171,6 +171,12 @@
                                 <p>Duyệt đơn hàng</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin_ship_order"/>" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vận chuyển đơn hàng</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item" >
@@ -200,9 +206,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/admin-remaining-controller"/>" class="nav-link">
+                            <a href="<c:url value="/admin-total-revenue"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Tổng quan về kho hàng</p>
+                                <p>Thống kê tổng doanh thu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin-revenue-by-category"/>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thống kê doanh thu theo danh mục</p>
                             </a>
                         </li>
                     </ul>

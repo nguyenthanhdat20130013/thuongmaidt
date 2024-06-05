@@ -103,16 +103,16 @@
 
         <!-- Main content -->
         <div class="content">
-            <h3 class="text-center">Thống kê tổng quan</h3>
+            <h3 class="text-center">Thống kê tổng quan ước tính</h3>
             <div class="container-fluid py-4">
                 <div class="row">
                     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-">
                         <div class="card">
                             <div class="card-header p-3 pt-2">
-                                <h2>Doanh thu</h2>
+                                <h2>Doanh thuㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</h2>
                                 <div class="text-end pt-1">
                                     <h4 class="mb-0" id="doanhthuthang"> </h4>
-                                    <p class="text-danger">Tính theo giá trị đơn hàng</p>
+                                    <p class="text-danger">Ước tính theo giá trị đơn hàng</p>
                                 </div>
                             </div>
                             <hr class="dark horizontal my-0">
@@ -124,10 +124,10 @@
                     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                         <div class="card">
                             <div class="card-header p-3 pt-2">
-                                <h2>Số lượng đơn hàng</h2>
+                                <h2>Số lượng đơn hàngㅤㅤㅤㅤㅤㅤㅤ</h2>
                                 <div class="text-end pt-1">
                                     <h4 class="mb-0" id="donhangthang"></h4>
-                                    <p class="text-danger">Dựa vào số đơn hàng đã đặt</p>
+                                    <p class="text-danger">Ước tính dựa vào số đơn hàng đã đặt</p>
                                 </div>
                             </div>
                             <hr class="dark horizontal my-0">
@@ -142,7 +142,7 @@
                                 <h2>Số lượng sản phẩm đã bán</h2>
                                 <div class="text-end pt-1">
                                     <h4 class="mb-0" id="sanphamthang"></h4>
-                                    <p class="text-danger">Theo số lượng sản phẩm của đơn hàng</p>
+                                    <p class="text-danger">Ước tính theo số lượng sản phẩm</p>
                                 </div>
                             </div>
                             <hr class="dark horizontal my-0">
@@ -157,7 +157,7 @@
                                 <h2>Đơn hàng đang vận chuyển</h2>
                                 <div class="text-end pt-1">
                                     <h4 class="mb-0" id="vanchuyenthang"></h4>
-                                    <p class="text-danger">Theo trạng thái vận chuyển</p>
+                                    <p class="text-danger">Theo trạng thái đang vận chuyển</p>
                                 </div>
                             </div>
                             <hr class="dark horizontal my-0">

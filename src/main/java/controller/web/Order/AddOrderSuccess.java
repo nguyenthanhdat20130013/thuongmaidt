@@ -67,7 +67,7 @@ public class AddOrderSuccess extends HttpServlet {
         String districtValue = request.getParameter("district-value");
         String wardValue = request.getParameter("ward-value");
         String valAdd = wardValue +", "+ districtValue+", "+provinceValue;
-        if(paymentMethod.equals("Giao hàng thu tiền tận nhà") || paymentMethod.equals("Nhận hàng tại cửa hàng")){
+        if(paymentMethod.equals("Giao hàng thu tiền tận nhà") || paymentMethod.equals("Nhận hàng tại cửa hàng")) {
             fee = 0;
         } else {
             fee = Integer.parseInt(shippingFee);

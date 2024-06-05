@@ -28,7 +28,7 @@
     <meta name="author" content="tivatheme">
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <meta property="fb:app_id" content="&#123;1827192387637142&#125;" />
     <jsp:include page="/common/web/css.jsp"></jsp:include>
 
     <style>

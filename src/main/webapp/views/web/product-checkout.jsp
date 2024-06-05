@@ -17,6 +17,8 @@
 
 <!-- product-checkout07:12-->
 <head>
+    <script src="https://www.paypal.com/sdk/js?client-id=AboTc7iHlLxj3_239I18S6o0lT_DX0f2hJOtdiWQ6wEOPgzSTUX5DPV2BLTi2IPttx7DiBoDlDGPt3op"></script>
+
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,6 +71,9 @@
 
         .cart-summary a {
             color: #fff;
+        }
+        .hide-paypal-button {
+            display: none;
         }
 
     </style>
@@ -234,12 +239,13 @@
                                                     Giảm ngay 50.000đ nếu khách hàng nhận hàng tại
                                                     HappyHome ( Áp dụng sản phẩm từ : 1 triệu)
                                                 </div>
-                                                <input type="radio" id="bank-transfer" name="paymentMethod"
-                                                       value="Thanh toán qua ngân hàng">
-                                                <label for="bank-transfer">Thanh toán qua ngân hàng</label><br>
+                                                <input type="radio" id="paypal-radio" name="paymentMethod" value="PayPal">
+                                                <label for="paypal-radio">Thanh toán qua PayPal</label><br>
+                                                <div id="paypal-button-container" class="hide-paypal-button"></div>
+
+
                                                 <div class="ty-payments-list__description">
-                                                    Khách hàng chuyển khoản thanh toán vào các tài khoản
-                                                    của HappyHome
+                                                    Sau khi thanh toán, sản phẩm được vận chuyển đến khách hàng thông qua đơn vị vận chuyển
                                                 </div>
                                                 <div class="tab-pane fade in active show" role="tabpanel">
                                                     <div>
@@ -323,6 +329,14 @@
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script>
+    // Calculate cart total in USD
+    const cartTotalUSD = (${cart.total} / 25340).toFixed(2);
+    // Display cart total in USD
+
+</script>
+<script>
+
+
     // Lấy giá trị số tiền từ đối tượng cart
     const cartTotal22 = ${cart.total};
 
@@ -334,6 +348,94 @@
     document.getElementById("cart-totalThanhtoan1").innerHTML = formattedCartTotal22 + " (bao gồm thuế.)";
 
 </script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var paypalButtonContainer = document.getElementById("paypal-button-container");
+        var paypalButtonCreated = false;
+
+        // Bắt sự kiện khi nút "Thanh toán qua PayPal" được chọn
+        document.getElementById("paypal-radio").addEventListener("click", function() {
+            paypalButtonContainer.classList.remove("hide-paypal-button");
+            if (!paypalButtonCreated) {
+                createPayPalButton();
+                paypalButtonCreated = true;
+            }
+        });
+
+        // Bắt sự kiện khi nút khác được chọn
+        var otherPaymentOptions = document.querySelectorAll('input[name="paymentMethod"]:not(#paypal-radio)');
+        otherPaymentOptions.forEach(function(option) {
+            option.addEventListener("click", function() {
+                paypalButtonContainer.classList.add("hide-paypal-button");
+            });
+        });
+    });
+
+
+    function createPayPalButton() {
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: cartTotalUSD // Use cartTotalUSD for order amount
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Lấy giá trị của các select box
+                    var provinceValue = $('#province-value').val();
+                    var districtValue = $('#district-value').val();
+                    var wardValue = $('#ward-value').val();
+
+                    // Lấy giá trị của province-id
+                    var provinceId = document.querySelector("#province-id").value;
+
+                    // Lấy giá trị của district-id
+                    var districtId = document.querySelector("#district-id").value;
+
+                    // Lấy giá trị của ward-id
+                    var wardId = document.querySelector("#ward-id").value;
+
+                    var address = wardValue + ", " + districtValue + ", " + provinceValue;
+
+                    // Gửi các giá trị này đến servlet thông qua AJAX
+                    $.ajax({
+                        url: 'paypal-payment',
+                        type: 'POST',
+                        data: {
+                            phone: $('#phone').val(),
+                            address: address,
+                            message: $('#message').val(),
+                            province: provinceId,
+                            district: districtId,
+                            ward: wardId,
+
+                        },
+                        success: function(response) {
+                            console.log('Đơn hàng đã được lưu thành công');
+                            // Hiển thị thông báo và đợi 5 giây trước khi chuyển hướng
+                            setTimeout(function() {
+                                alert('Giao dịch hoàn tất bởi ' + details.payer.name.given_name);
+                                // Chuyển hướng sau khi đã đợi 1 giây
+                                window.location.href = "/success";
+                            }, 1000);
+                        },
+                        error: function() {
+                            console.log('Lỗi khi lưu đơn hàng');
+                        }
+                    });
+                });
+            }
+        }).render('#paypal-button-container'); // Render PayPal button in specified container
+    }
+
+</script>
+
 
 <script>
     $(document).ready(function () {
