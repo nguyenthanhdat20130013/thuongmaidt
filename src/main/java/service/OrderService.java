@@ -1,6 +1,7 @@
 package service;
 
 import dao.DBConnection;
+import model.CancelOrder;
 import model.Order;
 import model.Order_detail;
 import service.API_LOGISTIC.Transport;
@@ -372,5 +373,30 @@ public class OrderService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<CancelOrder> getAllOderCancel() {
+        List<CancelOrder> od = new ArrayList<>();
+        CancelOrder order = null;
+        ResultSet rs;
+        PreparedStatement ps;
+        String sql = "SELECT cancel_id, user_id, order_id, reason, statuss, createdAt FROM `cancel_order`";
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Timestamp timestamp = rs.getTimestamp("createdAt");
+                // Chuyển đổi Timestamp thành LocalDateTime
+//                LocalDateTime dateOrder = null;
+//                if (timestamp != null) {
+//                    dateOrder = timestamp.toLocalDateTime();
+//                }
+                order = new CancelOrder(rs.getInt(1), rs.getInt(2), rs.getInt(3),  rs.getString(4), rs.getString(5), timestamp);
+                od.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return od;
     }
 }
