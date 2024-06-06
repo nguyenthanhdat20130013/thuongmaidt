@@ -420,9 +420,25 @@
                                                                 </div>
                                                             </div>
                                                         </fieldset>
+                                                        <%
+                                                            Boolean isReview = (Boolean) request.getAttribute("isReview");
+                                                            if (isReview != null && !isReview) {
+                                                        %>
+                                                        <style>
+                                                            .submit {
+                                                                display: none;
+                                                            }
+                                                        </style>
+                                                        <%
+                                                            }
+                                                        %>
                                                         <div class="submit">
                                                             <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Gửi đánh giá">
                                                         </div>
+
+<%--                                                        <div class="submit">--%>
+<%--                                                            <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Gửi đánh giá">--%>
+<%--                                                        </div>--%>
                                                     </form>
                                                 </div>
                                             </div>

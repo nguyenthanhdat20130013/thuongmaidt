@@ -3,10 +3,7 @@ package service;
 import dao.DBConnection;
 import model.*;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -402,8 +399,17 @@ public class ProductService {
 
 
     public static void main(String[] args) {
-            ProductService service = new ProductService();
-            System.out.println(service.getProductByName("ghế"));
+//            ProductService service = new ProductService();
+//            System.out.println(service.getProductByName("ghế"));
+//        String userName = "Nguyễn Thành Đạt";
+//        int productId = 9;
+//ProductService p = new ProductService();
+//        boolean result = p.hasCustomerPurchasedProduct(userName, productId);
+//        if (result) {
+//            System.out.println("Khách hàng đã mua sản phẩm này.");
+//        } else {
+//            System.out.println("Khách hàng chưa mua sản phẩm này.");
+//        }
     }
 
     public  List<Product> getProductByName(String txtSearch) {
@@ -465,5 +471,21 @@ public class ProductService {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    public boolean hasCustomerPurchasedProduct(String userName, int productId) {
+        String sql = "SELECT od.id_product, od.price, od.amount, od.fee, od.total " +
+                "FROM orders o " +
+                "JOIN order_detail od ON o.order_id = od.id_oder " +
+                "WHERE o.user_name = ? AND od.id_product = ? AND o.status = 2";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, userName);
+            ps.setInt(2, productId);
+            ResultSet rs = ps.executeQuery();
+            return rs.next(); // Nếu có kết quả trả về, nghĩa là khách hàng đã mua sản phẩm
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

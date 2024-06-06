@@ -9,25 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="gop code cua Bel">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_17_CH_[Changes]/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_17_CH_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_17_CH__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_29_CH_[Changes]/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_29_CH_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_29_CH__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_38_CH_[Changes]/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_38_CH_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_38_CH__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_02_05_2024_9_02_CH_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_02_05_2024_9_02_CH__Changes_.xml" beforeDir="false" />
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="chinh sua icon hien don hang da huy o admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/ProductDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ProductDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" afterDir="false" />
     </list>
@@ -83,12 +72,12 @@
     &quot;assignee&quot;: &quot;nguyenthanhdat20130013&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/nguyenthanhdat20130013/thuongmaidt.git",
-    "accountId": "e07f14f6-21e4-46ab-b079-a47030b66e77"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nguyenthanhdat20130013/thuongmaidt.git&quot;,
+    &quot;accountId&quot;: &quot;e07f14f6-21e4-46ab-b079-a47030b66e77&quot;
   }
-}]]></component>
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -116,6 +105,7 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Application.DataTable.executor": "Run",
     "Application.OrderService.executor": "Run",
+    "Application.ProductService.executor": "Run",
     "Application.RegisterTransport.executor": "Run",
     "Application.RoleDAO.executor": "Run",
     "Application.UserDAO.executor": "Run",
@@ -134,7 +124,7 @@
     "git-widget-placeholder": "datnew",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/TMDT/thuongchotamthancohan/src/main/webapp/views/web",
+    "last_opened_file_path": "D:/TMDT/thuongchotamthancohan/src/main/webapp/views/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -146,6 +136,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TMDT\thuongchotamthancohan\src\main\webapp\views\admin" />
       <recent name="D:\TMDT\thuongchotamthancohan\src\main\webapp\views\web" />
       <recent name="D:\HappyHome_fixapi\src\main\webapp\views\admin" />
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
@@ -154,6 +145,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.admin.Order" />
       <recent name="controller.web.Order" />
       <recent name="model" />
       <recent name="controller.admin.statistic" />
@@ -166,9 +158,9 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.87">
-    <configuration name="OrderService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.OrderService" />
+  <component name="RunManager" selected="Application.ProductService">
+    <configuration name="ProductService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.ProductService" />
       <module name="happyhome.main" />
       <extension name="coverage">
         <pattern>
@@ -329,7 +321,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.OrderService" />
+      <item itemvalue="Application.ProductService" />
       <item itemvalue="Application.RegisterTransport" />
       <item itemvalue="Application.RoleDAO" />
       <item itemvalue="Application.UserDAO" />
@@ -338,11 +330,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ProductService" />
         <item itemvalue="Gradle.ecommerce [build]" />
         <item itemvalue="Application.UserDAO" />
         <item itemvalue="Application.RoleDAO" />
         <item itemvalue="Application.RegisterTransport" />
-        <item itemvalue="Application.OrderService" />
       </list>
     </recent_temporary>
   </component>
@@ -500,7 +492,8 @@
       <workItem from="1714992861785" duration="184000" />
       <workItem from="1714993069034" duration="804000" />
       <workItem from="1714994206051" duration="8024000" />
-      <workItem from="1717665890230" duration="1174000" />
+      <workItem from="1717665890230" duration="2936000" />
+      <workItem from="1717685275742" duration="7594000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -608,7 +601,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714578816643</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="huy don hang va fix sao danh gia">
+      <option name="closed" value="true" />
+      <created>1717667115922</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717667115922</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chinh sua icon hien don hang da huy o admin">
+      <option name="closed" value="true" />
+      <created>1717687014441</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717687014441</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,14 +664,16 @@
     <MESSAGE value="sua loi va ca&#10;i thien chuc nang nguoi dung va admin" />
     <MESSAGE value="fix date" />
     <MESSAGE value="gop code cua Bel" />
-    <option name="LAST_COMMIT_MESSAGE" value="gop code cua Bel" />
+    <MESSAGE value="huy don hang va fix sao danh gia" />
+    <MESSAGE value="chinh sua icon hien don hang da huy o admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="chinh sua icon hien don hang da huy o admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/web/ProductDetail.java</url>
-          <line>41</line>
+          <line>49</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
