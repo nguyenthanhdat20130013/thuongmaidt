@@ -325,14 +325,48 @@ public class OrderService {
 //            e.printStackTrace();
 //        }
 //    }
+//    public static void updateOrderStatusByTransportLeadTime() {
+//        ResultSet rs;
+//        PreparedStatement ps;
+//        String sql = "UPDATE `orders` SET `status` = CASE " +
+//                "WHEN `status` != 2 AND `order_id` IN " +
+//                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 2 " +
+//                "WHEN `status` != 8 AND `order_id` IN " +
+//                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 8 " +
+//                "ELSE `status` END";
+//        try {
+//            ps = DBConnection.getConnection().prepareStatement(sql);
+//            ps.executeUpdate();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    public static void updateOrderStatusByTransportLeadTime() {
+//        PreparedStatement ps;
+//        String sql = "UPDATE `orders` SET `status` = CASE " +
+//                "WHEN `status` NOT IN (2, 8) AND `order_id` IN " +
+//                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) " +
+//                "THEN CASE " +
+//                "WHEN `status` != 2 THEN 2 " +
+//                "WHEN `status` != 8 THEN 8 " +
+//                "END " +
+//                "ELSE `status` END";
+//        try {
+//            ps = DBConnection.getConnection().prepareStatement(sql);
+//            ps.executeUpdate();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     public static void updateOrderStatusByTransportLeadTime() {
-        ResultSet rs;
         PreparedStatement ps;
         String sql = "UPDATE `orders` SET `status` = CASE " +
-                "WHEN `status` != 2 AND `order_id` IN " +
-                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 2 " +
-                "WHEN `status` != 8 AND `order_id` IN " +
-                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 8 " +
+                "WHEN `status` NOT IN (2, 8) AND `order_id` IN " +
+                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND STR_TO_DATE(`leadTime`, '%Y/%m/%d %H:%i:%s') <= NOW()) " +
+                "THEN CASE " +
+                "WHEN `status` != 2 THEN 2 " +
+                "WHEN `status` != 8 THEN 8 " +
+                "END " +
                 "ELSE `status` END";
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
@@ -341,6 +375,7 @@ public class OrderService {
             e.printStackTrace();
         }
     }
+
 
 
 

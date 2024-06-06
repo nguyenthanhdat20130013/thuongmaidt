@@ -40,6 +40,14 @@ public class ProductDetail extends HttpServlet{
         List<Review> reviews = service.getReviewsByProductId(aid);
         request.setAttribute("reviews", reviews);
 
+        boolean isReview = false;
+        UserModel user = (UserModel) request.getSession().getAttribute("user");
+        if(user != null){
+            isReview = service.hasCustomerPurchasedProduct(user.getUserName(), aid);
+            System.out.println(isReview + "TEST");
+        }
+        request.setAttribute("isReview", isReview);
+
         request.getRequestDispatcher("/views/web/product-detail.jsp").forward(request, response);
     }
 

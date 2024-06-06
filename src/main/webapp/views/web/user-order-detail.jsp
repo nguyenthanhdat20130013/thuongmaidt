@@ -144,7 +144,7 @@
                                         <tbody>
                                         <% for (Order_detail o : order_details) { %>
                                         <tr>
-                                            <td><%=o.getId_product()%>
+                                            <td><a href="/product_detail?pid=<%=o.getId_product()%>"> <%=o.getId_product()%> </a>
                                             </td>
                                             <td><%=o.getName(o.getId_product())%>
                                             </td>
