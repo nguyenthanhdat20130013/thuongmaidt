@@ -9,20 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="gop code cua Bel">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_17_CH__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_17_CH__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_29_CH__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_29_CH__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_38_CH__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_05_2024_10_38_CH__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_02_05_2024_9_02_CH__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_02_05_2024_9_02_CH__Changes_.xml" afterDir="false" />
+    <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="huy don hang va fix sao danh gia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/ProductDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/model/UserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/model/UserModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bel_clone" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,14 +71,12 @@
     &quot;assignee&quot;: &quot;nguyenthanhdat20130013&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="e07f14f6-21e4-46ab-b079-a47030b66e77" />
-        <option name="url" value="https://github.com/nguyenthanhdat20130013/ecommerce.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nguyenthanhdat20130013/thuongmaidt.git&quot;,
+    &quot;accountId&quot;: &quot;e07f14f6-21e4-46ab-b079-a47030b66e77&quot;
+  }
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -126,10 +119,10 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;datnew&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/OneDrive/Máy tính/TMDTFix/thuongmaidt&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/TMDT/thuongchotamthancohan/src/main/webapp/views/admin&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -141,6 +134,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TMDT\thuongchotamthancohan\src\main\webapp\views\admin" />
+      <recent name="D:\TMDT\thuongchotamthancohan\src\main\webapp\views\web" />
       <recent name="D:\HappyHome_fixapi\src\main\webapp\views\admin" />
       <recent name="E:\LapTrinhWeb\cuoi ky\HappyHome\src\main\webapp\Template\web\libs\jquery" />
     </key>
@@ -148,6 +143,9 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.admin.Order" />
+      <recent name="controller.web.Order" />
+      <recent name="model" />
       <recent name="controller.admin.statistic" />
     </key>
   </component>
@@ -341,7 +339,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -491,6 +490,8 @@
       <workItem from="1714992861785" duration="184000" />
       <workItem from="1714993069034" duration="804000" />
       <workItem from="1714994206051" duration="8024000" />
+      <workItem from="1717665890230" duration="2936000" />
+      <workItem from="1717685275742" duration="1335000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
@@ -598,7 +599,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714578816643</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="huy don hang va fix sao danh gia">
+      <option name="closed" value="true" />
+      <created>1717667115922</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717667115922</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +654,8 @@
     <MESSAGE value="sua loi va ca&#10;i thien chuc nang nguoi dung va admin" />
     <MESSAGE value="fix date" />
     <MESSAGE value="gop code cua Bel" />
-    <option name="LAST_COMMIT_MESSAGE" value="gop code cua Bel" />
+    <MESSAGE value="huy don hang va fix sao danh gia" />
+    <option name="LAST_COMMIT_MESSAGE" value="huy don hang va fix sao danh gia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,7 @@
 package service;
 
 import dao.DBConnection;
+import model.CancelOrder;
 import model.Order;
 import model.Order_detail;
 import service.API_LOGISTIC.Transport;
@@ -354,5 +355,48 @@ public class OrderService {
             System.out.println(o.toString());
         }
         updateOrderStatusByTransportLeadTime();
+    }
+
+    public void cancelOrder(int orderId, int uid, String reason) {
+        updateStatus(orderId, 3);
+        String sql = "INSERT INTO cancel_order (user_id, order_id, reason, statuss, createdAt) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = null;
+        int rs = 0;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.setInt(1, uid);
+            ps.setInt(2, orderId);
+            ps.setString(3, reason);
+            ps.setString(4, "Huỷ đơn hàng");
+            ps.setTimestamp(5, Timestamp.valueOf(LocalDateTime.now()));
+            rs = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<CancelOrder> getAllOderCancel() {
+        List<CancelOrder> od = new ArrayList<>();
+        CancelOrder order = null;
+        ResultSet rs;
+        PreparedStatement ps;
+        String sql = "SELECT cancel_id, user_id, order_id, reason, statuss, createdAt FROM `cancel_order`";
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Timestamp timestamp = rs.getTimestamp("createdAt");
+                // Chuyển đổi Timestamp thành LocalDateTime
+//                LocalDateTime dateOrder = null;
+//                if (timestamp != null) {
+//                    dateOrder = timestamp.toLocalDateTime();
+//                }
+                order = new CancelOrder(rs.getInt(1), rs.getInt(2), rs.getInt(3),  rs.getString(4), rs.getString(5), timestamp);
+                od.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return od;
     }
 }

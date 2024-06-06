@@ -215,8 +215,17 @@
             </div>
         </section>
         <div class="row no-print">
-            <div class="col-12">
-                <a href="#" rel="noopener" target="_blank" class="btn btn-default" onclick="printInvoice()"><i class="fas fa-print"></i> In hoá đơn</a>
+            <div class="col-12" style="margin-bottom: 30px; margin-left: 30px;">
+                <button class="btn btn-default" onclick="printInvoice()"><i class="fas fa-print"></i> In hoá đơn</button>
+                <%
+                    if (order.getStatus() == 0) {
+                %>
+                <button class="btn btn-default" id="cancelOrderButton" data-order-id="<%=order.getOder_id()%>" style="margin-left: 30px">
+                    <i class="fa-solid fa-ban"></i> Hủy đơn hàng
+                </button>
+                <%
+                    }
+                %>
             </div>
         </div>
     </div>
@@ -233,6 +242,16 @@
         a.document.write('</body></html>');
         a.document.close();
         a.print();
+    }
+</script>
+<script>
+    document.getElementById("cancelOrderButton").addEventListener("click", function() {
+        var orderId = this.getAttribute("data-order-id");
+        redirectToCancelOrderPage(orderId);
+    });
+
+    function redirectToCancelOrderPage(orderId) {
+        window.location.href = "/cancel_order?orderId=" + orderId;
     }
 </script>
 
