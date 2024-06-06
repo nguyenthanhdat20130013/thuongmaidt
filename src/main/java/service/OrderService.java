@@ -355,4 +355,22 @@ public class OrderService {
         }
         updateOrderStatusByTransportLeadTime();
     }
+
+    public void cancelOrder(int orderId, int uid, String reason) {
+        updateStatus(orderId, 3);
+        String sql = "INSERT INTO cancel_order (user_id, order_id, reason, statuss, createdAt) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = null;
+        int rs = 0;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.setInt(1, uid);
+            ps.setInt(2, orderId);
+            ps.setString(3, reason);
+            ps.setString(4, "Huỷ đơn hàng");
+            ps.setTimestamp(5, Timestamp.valueOf(LocalDateTime.now()));
+            rs = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
