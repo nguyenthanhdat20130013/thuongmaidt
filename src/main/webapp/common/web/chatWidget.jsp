@@ -130,6 +130,53 @@ To change this template use File | Settings | File Templates.
             border-radius: 50%;
             margin-right: 10px;
         }
+        /* Modal (hộp thoại xác nhận) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            width: 40%;
+        }
     </style>
 </head>
 <body>
@@ -144,10 +191,20 @@ To change this template use File | Settings | File Templates.
 
 %>
 
-<div id="chat-bubble" onclick="toggleChat()">
+<div id="chat-bubble" onclick="checkLoginAndToggleChat()">
     <i class="fa fa-comments" aria-hidden="true"></i>
 </div>
-
+<!-- Hộp thoại xác nhận -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Bạn phải đăng nhập mới sử dụng được chức năng này.</p>
+        <div class="modal-buttons">
+            <button onclick="redirectToLogin()">Đăng nhập</button>
+            <button onclick="closeModal()">Hủy</button>
+        </div>
+    </div>
+</div>
 <div id="chat-interface">
     <div class="tab-header">
         <div onclick="switchTab('admin-chat')" class="active">Admin</div>
@@ -220,6 +277,22 @@ To change this template use File | Settings | File Templates.
         }
     }
 
+    function checkLoginAndToggleChat() {
+        if (senderId === -1) {
+            // Hiển thị modal yêu cầu đăng nhập
+            document.getElementById('login-modal').style.display = 'block';
+        } else {
+            toggleChat();
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('login-modal').style.display = 'none';
+    }
+
+    function redirectToLogin() {
+        window.location.href = 'login';
+    }
 
     function switchTab(tabName) {
         var tabs = document.getElementsByClassName('chat-content');
