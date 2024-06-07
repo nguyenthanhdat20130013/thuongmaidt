@@ -67,7 +67,7 @@
                                         </td>
                                         <td><%=o.getUser_name()%>
                                         </td>
-                                        <td><%=Order.convertDate(o.getDate_order().toString())%>
+                                        <td><%=Order.convertDateTime(o.getDate_order().toString())%>
                                         </td>
                                         <td><%=o.formatCurrency(o.getTotal_money())%></td>
                                         <td><%=o.getPayment()%></td>

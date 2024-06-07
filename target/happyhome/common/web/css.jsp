@@ -13,7 +13,6 @@
 <script src="https://kit.fontawesome.com/59856f4096.js" crossorigin="anonymous"></script>
 <!-- Vendor CSS -->
 <link rel="stylesheet" href="<c:url value="/Template/web/libs/bootstrap/css/bootstrap.min.css"/>"/>
-<link rel="stylesheet" href="<c:url value="/Template/web/libs/font-awesome/css/font-awesome.min.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/Template/web/libs/font-material/css/material-design-iconic-font.min.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/Template/web/libs/nivo-slider/css/nivo-slider.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/Template/web/libs/nivo-slider/css/animate.css"/>"/>

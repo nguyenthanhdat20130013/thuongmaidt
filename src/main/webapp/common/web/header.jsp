@@ -1,7 +1,15 @@
 <%@ page import="model.UserModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp"%>
-<% UserModel user = (UserModel)session.getAttribute("user"); %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+//    if (user != null) {
+//        out.println("User Details in Session:");
+//        out.println("User: " + user.toString());
+//    } else {
+//        out.println("No user is currently logged in.");
+//    }
+%>
 <%@ page import="model.Product_type" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Product" %>
@@ -139,7 +147,7 @@
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <% if(user != null) { %>
-                                <span><%=user.getUserName()%></span>
+                                <span><%=user.getFullName()%></span>
                                 <% } else {%>
                                 <span>Tài khoản</span>
                                 <% } %>

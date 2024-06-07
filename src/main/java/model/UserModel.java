@@ -44,6 +44,19 @@ public class UserModel extends Item {
         this.role = role;
         this.enable = enable;
     }
+    public UserModel(int id, String userName, String passWord, int role, String fullName, int enable) {
+        this.id = id;
+        this.userName = userName;
+        this.passWord = passWord;
+        this.role = role;
+        this.fullName = fullName;
+        this.enable = enable;
+    }
+
+    public UserModel(int id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
+    }
 
     public UserModel() {
 

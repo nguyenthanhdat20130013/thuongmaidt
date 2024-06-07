@@ -94,10 +94,10 @@
                                                                         <input type="text" name="qty" value="<%=p.getQuantity()%>" class="input-group form-control">
 
                                                                         <span class="input-group-btn-vertical">
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button" style=" margin-top: -3px;">
                                                                                <a class="add-cart" href="cart/add?id=<%=p.getProduct().product_id%>">+</a>
                                                                             </button>
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button" style=" margin-top: -3px;">
                                                                                 <a class="add-cart" href="cart/sub?id=<%=p.getProduct().product_id%>">-</a>
                                                                             </button>
                                                                         </span>

@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     UserModel user = (UserModel)session.getAttribute("auth");
+//    if (user != null) {
+//        out.println("User Details in Session:");
+//        out.println("User: " + user.toString());
+//    } else {
+//        out.println("No user is currently logged in.");
+//    }
 %>
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -49,7 +55,7 @@
 </nav>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="home.html" class="brand-link">
+    <a href="<c:url value="/admin-home"/>" class="brand-link">
         <img src="<c:url value="/Template/admin/dist/img/AdminLTELogo.png"/>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">QUẢN LÍ HAPPYHOME</span>
     </a>
@@ -146,7 +152,7 @@
                 </li>
                 <li class="nav-item " id="quan-ly-don-hang">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+                        <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Quản lý đơn hàng
                             <i class="fas fa-angle-left right"></i>
@@ -155,14 +161,26 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<c:url value="/admin-order_controller"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-pallet nav-icon"></i>
                                 <p>Danh sách đơn hàng</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<c:url value="/admin-check_order"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Duyệt đơn hàng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin_ship_order"/>" class="nav-link ">
+                                <i class="fas fa-shipping-fast nav-icon"></i>
+                                <p>Vận chuyển đơn hàng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin_cancel_order"/>" class="nav-link ">
+                                <i class="fas fa-ban nav-icon"></i>
+                                <p>Đơn hàng khách hàng đã hủy</p>
                             </a>
                         </li>
                     </ul>
@@ -194,9 +212,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/admin-remaining-controller"/>" class="nav-link">
+                            <a href="<c:url value="/admin-total-revenue"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Tổng quan về kho hàng</p>
+                                <p>Thống kê tổng doanh thu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin-revenue-by-category"/>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thống kê doanh thu theo danh mục</p>
                             </a>
                         </li>
                     </ul>

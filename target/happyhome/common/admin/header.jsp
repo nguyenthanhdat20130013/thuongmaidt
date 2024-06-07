@@ -194,9 +194,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/admin-remaining-controller"/>" class="nav-link">
+                            <a href="<c:url value="/admin-total-revenue"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Tổng quan về kho hàng</p>
+                                <p>Thống kê tổng doanh thu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin-revenue-by-category"/>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thống kê doanh thu theo danh mục</p>
                             </a>
                         </li>
                     </ul>

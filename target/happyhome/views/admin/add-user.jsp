@@ -102,11 +102,10 @@
                         <div class="form-group">
                           <span>Quyền</span>
                           <select class="form-control" id="role" name="role">
-                            <select class="form-control" id="select-role" name="role">
-                              <%for (Role r : roles) {%>
-                              <option value="<%=r.getId()%>"><%=r.getName()%></option>
-                              <%}%>
-                            </select>
+                            <option value="">Chọn vai trò</option>
+                            <% for (Role r : roles) { %>
+                            <option value="<%= r.getId() %>"><%= r.getName() %></option>
+                            <% } %>
                           </select>
                         </div>
                       </div>
