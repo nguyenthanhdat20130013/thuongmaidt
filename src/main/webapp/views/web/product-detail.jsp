@@ -379,9 +379,9 @@
                                                                             <strong>${review.userName}</strong> - <span>${review.createdAt}</span>
                                                                         </span>
                                                                         <div class="rating">
-                                                                            <div class="star-content">
+                                                                            <div class="star-content" style="color: orange;font-size: 12px;">
                                                                                 <c:forEach var="star" begin="1" end="5">
-                                                                                    <div class="star <c:if test='${star <= review.rating}'>active</c:if>'"></div>
+                                                                                    <i class="fa <c:if test='${star <= review.rating}'>fa-star</c:if><c:if test='${star > review.rating}'>fa-star-o</c:if>" aria-hidden="true"></i>
                                                                                 </c:forEach>
                                                                             </div>
                                                                         </div>
@@ -420,9 +420,25 @@
                                                                 </div>
                                                             </div>
                                                         </fieldset>
+                                                        <%
+                                                            Boolean isReview = (Boolean) request.getAttribute("isReview");
+                                                            if (isReview != null && !isReview) {
+                                                        %>
+                                                        <style>
+                                                            .submit {
+                                                                display: none;
+                                                            }
+                                                        </style>
+                                                        <%
+                                                            }
+                                                        %>
                                                         <div class="submit">
                                                             <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Gửi đánh giá">
                                                         </div>
+
+<%--                                                        <div class="submit">--%>
+<%--                                                            <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Gửi đánh giá">--%>
+<%--                                                        </div>--%>
                                                     </form>
                                                 </div>
                                             </div>
