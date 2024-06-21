@@ -9,6 +9,7 @@ import java.net.InetSocketAddress;
 public class WebSocketServerInitializer implements ServletContextListener {
 
     private SocketServer socketServer;
+    private AIChatWebSocketServer aiChatWebSocketServer;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -16,6 +17,11 @@ public class WebSocketServerInitializer implements ServletContextListener {
         socketServer = new SocketServer(new InetSocketAddress("localhost", 8887));
         socketServer.start();
         System.out.println("WebSocketServer started successfully!");
+
+        // Khởi tạo và bắt đầu AIChatWebSocketServer khi ứng dụng được khởi động
+        aiChatWebSocketServer = new AIChatWebSocketServer(new InetSocketAddress("localhost", 8888));
+        aiChatWebSocketServer.start();
+        System.out.println("AIChatWebSocketServer started successfully!");
     }
 
     @Override
@@ -28,6 +34,16 @@ public class WebSocketServerInitializer implements ServletContextListener {
                 throw new RuntimeException(e);
             }
             System.out.println("WebSocketServer stopped successfully!");
+        }
+
+        // Dừng AIChatWebSocketServer khi ứng dụng bị hủy
+        if (aiChatWebSocketServer != null) {
+            try {
+                aiChatWebSocketServer.stop();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("AIChatWebSocketServer stopped successfully!");
         }
     }
 }

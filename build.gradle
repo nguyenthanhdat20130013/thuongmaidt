@@ -52,6 +52,7 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:4.9.1'
 
     implementation 'org.java-websocket:Java-WebSocket:1.5.4'
+    implementation("io.github.amithkoujalgi:ollama4j:1.0.70")
 
     testImplementation 'junit:junit:3.8.1'
 }

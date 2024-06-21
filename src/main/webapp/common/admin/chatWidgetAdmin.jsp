@@ -69,7 +69,6 @@ To change this template use File | Settings | File Templates.
             color: white;
         }
 
-
         /* Tab layout */
         .tab-header {
             display: flex;
@@ -89,38 +88,48 @@ To change this template use File | Settings | File Templates.
         }
 
         /* Chat content styling */
-        /* Ensures the chat container is a flexbox */
         .chat-content {
             display: flex;
-            flex-direction: column; /* Align children (messages) in a column */
+            flex-direction: column;
             padding: 10px;
             height: 400px;
             overflow-y: auto;
         }
 
-        /* General message styling */
         .chat-message {
-            display: flex; /* Ensures internal items (avatar and text) are aligned */
+            display: flex;
             align-items: center;
             margin: 5px;
             padding: 10px;
             border-radius: 10px;
-            width: 100%; /* Take the full width to allow flex alignment to work */
+            width: 100%;
             box-sizing: border-box;
         }
 
-        /* Admin message alignment */
         .admin-message {
-            justify-content: flex-end; /* Align content to the end (right) */
+            justify-content: flex-end;
             background-color: #007bff;
             color: white;
             text-align: right;
         }
 
-        /* User message alignment */
         .user-message {
-            justify-content: flex-start; /* Align content to the start (left) */
+            justify-content: flex-start;
             background-color: #f1f1f1;
+            color: black;
+            text-align: left;
+        }
+
+        .ai-message {
+            justify-content: flex-start;
+            background-color: #e0e0e0;
+            color: black;
+            text-align: left;
+        }
+
+        .chatbot-message {
+            justify-content: flex-start;
+            background-color: #e0e0e0;
             color: black;
             text-align: left;
         }
@@ -129,7 +138,7 @@ To change this template use File | Settings | File Templates.
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            margin-right: 10px; /* Right margin for spacing between text */
+            margin-right: 10px;
         }
 
         .chat-input {
@@ -183,17 +192,7 @@ To change this template use File | Settings | File Templates.
     </div>
     <div id="admin-chat" class="chat-content">
         <!-- Chat messages and input for admin chat -->
-        <div id="admin-chat-messages" class="chat-messages">
-            <div class="chat-message admin-message">
-                <img src="<%= adminAvatar %>" alt="Admin" class="avatar">
-                <%--                Hello! How can I help you today?--%>
-            </div>
-            <!-- User's message -->
-            <div class="chat-message user-message">
-                <img src="<%= userAvatar %>" alt="User" class="avatar">
-                <%--                I need help with my order.--%>
-            </div>
-        </div>
+        <div id="admin-chat-messages" class="chat-messages"></div>
         <div class="chat-input">
             <input id="admin-chat-input" type="text" placeholder="Type your message...">
             <button onclick="sendMessage('admin-chat')">Send</button>
@@ -202,23 +201,15 @@ To change this template use File | Settings | File Templates.
 
     <div id="ai-chat" class="chat-content">
         <!-- Chat messages and input for AI chatbot -->
-        <div class="chat-message admin-message">
-            <img src="<%= chatbotAvatar %>" alt="AI" class="avatar">
-            Welcome to our AI assistant!
-        </div>
+        <div id="ai-chat-messages" class="chat-messages"></div>
         <div class="chat-input">
-            <input type="text" placeholder="Type your message...">
-            <button onclick="sendMessage('ai-chat')">Send</button>
+            <input id="ai-chat-input" type="text" placeholder="Type your message...">
+            <button onclick="sendAIMessage()">Send</button>
         </div>
     </div>
 </div>
 
-<div id="user-list">
-    <%--    <div class="user-entry active-user">User 1</div>--%>
-    <%--    <div class="user-entry">User 2</div>--%>
-    <%--    <div class="user-entry">User 3</div>--%>
-    <!-- Additional users can be added here -->
-</div>
+<div id="user-list"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -226,9 +217,13 @@ To change this template use File | Settings | File Templates.
     var senderId = <%= adminId %>;
     var receiverId = -1;
     var webSocket;
+    var aiWebSocket;
     var readyState;
+    var aiMessageContainer = null;
+
     $(document).ready(function () {
         initializeWebSocket();
+        initializeAIWebSocket();
         switchTab('admin-chat');
     });
 
@@ -241,11 +236,9 @@ To change this template use File | Settings | File Templates.
 
         if (!isVisible) {
             fetchUserList();
-            if (webSocket === null || readyState !== WebSocket.OPEN) // Khởi tạo WebSocket nếu đã đóng
-                initializeWebSocket();
-
+            if (webSocket === null || readyState !== WebSocket.OPEN) initializeWebSocket();
+            if (aiWebSocket === null || readyState !== WebSocket.OPEN) initializeAIWebSocket();
             fetchMessages();
-
         }
     }
 
@@ -275,33 +268,39 @@ To change this template use File | Settings | File Templates.
         };
     }
 
-    // tao ham debounce de khong bi goi nhieu lan
     var debouncedFetchUserList = debounce(function() {
         fetchUserList();
-    }, 1000, false); // chac chan rang chi goi ham fetchUserList sau 1s
+    }, 1000, false);
 
     function sendMessage(tabId) {
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
         var message = input.value.trim();
-        if (message && receiverId !== -1 && webSocket && webSocket.readyState === WebSocket.OPEN) {
+        if (tabId === 'admin-chat' && message && receiverId !== -1 && webSocket && webSocket.readyState === WebSocket.OPEN) {
             var msgObj = {
                 senderId: senderId,
                 receiverId: receiverId,
                 messageText: message
             };
             webSocket.send(JSON.stringify(msgObj));
-            displayMessage(msgObj, true);
+            displayMessage(msgObj, true, tabId);
             input.value = '';
+        } else if (tabId === 'ai-chat' && message && aiWebSocket && aiWebSocket.readyState === WebSocket.OPEN) {
+            aiWebSocket.send(message);
+            var chatDiv = $('#ai-chat-messages');
+            var msgDiv = $('<div class="chat-message user-message"><img src="<%= adminAvatar %>" class="avatar" alt="Admin">' + message + '</div>');
+            chatDiv.append(msgDiv);
+            input.value = '';
+            ensureScrollToBottom();
+            aiMessageContainer = null;
         }
-        debouncedFetchUserList(); // dung de cap nhat lai danh sach user sau khi gui tin nhan
+        debouncedFetchUserList();
     }
 
-
-    function displayMessage(message, isSender) {
-        var chatDiv = $('#admin-chat-messages');
-        var messageClass = isSender ? "admin-message" : "user-message";
-        var avatarURL = isSender ? "<%= adminAvatar %>" : "<%= userAvatar %>";
-        var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" alt="User" class="avatar">' + message.messageText + '</div>');
+    function displayMessage(message, isSender, tabId) {
+        var chatDiv = (tabId === 'ai-chat') ? $('#ai-chat-messages') : $('#admin-chat-messages');
+        var messageClass = isSender ? "admin-message" : (chatDiv.is('#ai-chat-messages') ? "ai-message" : "user-message");
+        var avatarURL = isSender ? "<%= adminAvatar %>" : (chatDiv.is('#ai-chat-messages') ? "<%= chatbotAvatar %>" : "<%= userAvatar %>");
+        var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" class="avatar" alt="' + (isSender ? 'Admin' : (chatDiv.is('#ai-chat-messages') ? 'AI' : 'User')) + '"><span class="message-text">' + message.messageText + '</span></div>');
         chatDiv.append(msgDiv);
         ensureScrollToBottom();
     }
@@ -325,7 +324,6 @@ To change this template use File | Settings | File Templates.
     }
 
     function fetchUserList() {
-        console.log("fetchUserList");
         $.ajax({
             url: 'messages?action=listUsers&adminId=' + senderId,
             type: 'GET',
@@ -333,35 +331,31 @@ To change this template use File | Settings | File Templates.
             success: function (users) {
                 var userListDiv = $('#user-list');
                 userListDiv.empty();
-                var userSelected = false;  // danh dau de biet user da duoc chon truoc do
+                var userSelected = false;
 
                 if (users.length > 0) {
                     users.forEach(function (user, index) {
                         var userEntry = $('<div id="user-' + user.id + '" class="user-entry" onclick="selectUser(' + user.id + ')">' + user.fullName + '</div>');
                         userListDiv.append(userEntry);
 
-                        // tu dong chon user dau tien neu chua co user nao duoc chon
-                        if (index === 0 && receiverId === -1) {  // kiem tra xem co user nao duoc chon truoc do chua
+                        if (index === 0 && receiverId === -1) {
                             selectUser(user.id);
                             userSelected = true;
                         }
                     });
 
-                    // neu chua co user nao duoc chon truoc do thi chon user dau tien
                     if (!userSelected && receiverId !== -1) {
                         $('#user-' + receiverId).addClass('active-user');
                     }
                 } else {
                     console.log('No users to display');
                 }
-                console.log('success fetching user list');
             },
             error: function () {
                 console.log('Error fetching user list');
             }
         });
     }
-
 
     function fetchMessages() {
         if (senderId === -1 || receiverId === -1) return;
@@ -376,11 +370,9 @@ To change this template use File | Settings | File Templates.
                 var chatDiv = $('#admin-chat-messages');
                 chatDiv.empty();
                 $.each(messages, function (index, message) {
-                    displayMessage(message, message.senderId === senderId);
+                    displayMessage(message, message.senderId === senderId, 'admin-chat');
                 });
-
                 ensureScrollToBottom();
-
             },
             error: function (error) {
                 console.log('Error fetching messages: ', error);
@@ -400,10 +392,9 @@ To change this template use File | Settings | File Templates.
 
         webSocket.onmessage = function (evt) {
             fetchUserList();
-
             var message = JSON.parse(evt.data);
             if (message.receiverId === senderId && message.senderId === receiverId) {
-                displayMessage(message, false);
+                displayMessage(message, false, 'admin-chat');
             }
         };
 
@@ -415,8 +406,53 @@ To change this template use File | Settings | File Templates.
             console.log("WebSocket connection closed.");
         };
     }
+
+    function initializeAIWebSocket() {
+        var protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+        var wsUri = protocol + window.location.hostname + ":8888";
+        aiWebSocket = new WebSocket(wsUri);
+
+        aiWebSocket.onopen = function(evt) {
+            console.log("AI WebSocket connection opened.");
+            readyState = aiWebSocket.readyState;
+        };
+
+        aiWebSocket.onmessage = function(evt) {
+            displayAIMessage(evt.data);
+        };
+
+        aiWebSocket.onerror = function(evt) {
+            console.error("AI WebSocket error observed:", evt);
+        };
+
+        aiWebSocket.onclose = function(evt) {
+            console.log("AI WebSocket connection closed.");
+        };
+    }
+
+    function displayAIMessage(character) {
+        if (!aiMessageContainer) {
+            aiMessageContainer = $('<div class="chat-message ai-message"><img src="<%= chatbotAvatar %>" class="avatar" alt="AI"><span class="message-text"></span></div>');
+            $('#ai-chat-messages').append(aiMessageContainer);
+        }
+        var messageTextSpan = aiMessageContainer.find('.message-text');
+        messageTextSpan.append(character);
+        ensureScrollToBottom();
+    }
+
+    function sendAIMessage() {
+        var input = document.querySelector('#ai-chat-input');
+        var message = input.value.trim();
+        if (message) {
+            aiWebSocket.send(message);
+            var chatDiv = $('#ai-chat-messages');
+            var msgDiv = $('<div class="chat-message admin-message"><img src="<%= adminAvatar %>" class="avatar" alt="Admin">' + message + '</div>');
+            chatDiv.append(msgDiv);
+            input.value = '';
+            ensureScrollToBottom();
+            aiMessageContainer = null;
+        }
+    }
 </script>
-
-
 </body>
 </html>
