@@ -211,17 +211,9 @@ To change this template use File | Settings | File Templates.
         <div onclick="switchTab('ai-chat')">AI Chatbot</div>
     </div>
     <div id="admin-chat" class="chat-content">
-        <!-- Chat messages and input for admin chat -->
         <div id="admin-chat-messages" class="chat-messages">
-            <div class="chat-message admin-message">
-                <%--                <img src="<%= adminAvatar %>" alt="Admin" class="avatar">--%>
-                <%--                Hello! How can I help you today?--%>
-            </div>
-            <!-- User's message -->
-            <div class="chat-message user-message">
-                <%--                <img src="<%= userAvatar %>" alt="User" class="avatar">--%>
-                <%--                I need help with my order.--%>
-            </div>
+            <div class="chat-message admin-message"></div>
+            <div class="chat-message user-message"></div>
         </div>
         <div class="chat-input">
             <input id="admin-chat-input" type="text" placeholder="Type your message...">
@@ -230,18 +222,13 @@ To change this template use File | Settings | File Templates.
     </div>
 
     <div id="ai-chat" class="chat-content">
-        <!-- Chat messages and input for AI chatbot -->
-        <div class="chat-message admin-message">
-            <img src="<%= chatbotAvatar %>" alt="AI" class="avatar">
-            Welcome to our AI assistant!
-        </div>
+        <div id="ai-chat-messages" class="chat-messages"></div>
         <div class="chat-input">
-            <input type="text" placeholder="Type your message...">
-            <button onclick="sendMessage('ai-chat')">Send</button>
+            <input id="ai-chat-input" type="text" placeholder="Type your message...">
+            <button onclick="sendAIMessage()">Send</button>
         </div>
     </div>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -249,11 +236,15 @@ To change this template use File | Settings | File Templates.
     var senderId = <%= userId %>;
     var receiverId = <%= 69 %>; // admin nhan tin nhan ho tro
     var webSocket;
+    var aiWebSocket;
     var readyState;
+    var aiMessageContainer = null; // Container for AI message
+
     $(document).ready(function () {
         // toggleChat();
         switchTab('admin-chat');
         initializeWebSocket();
+        initializeAIWebSocket();
     });
 
     function toggleChat() {
@@ -261,10 +252,8 @@ To change this template use File | Settings | File Templates.
         var isVisible = chatInterface.style.display === 'block';
         chatInterface.style.display = isVisible ? 'none' : 'block';
         if (!isVisible) {
-
-            if (webSocket === null || readyState !== WebSocket.OPEN) // Khởi tạo WebSocket nếu đã đóng
-                initializeWebSocket();
-
+            if (webSocket === null || readyState !== WebSocket.OPEN) initializeWebSocket();
+            if (aiWebSocket === null || readyState !== WebSocket.OPEN) initializeAIWebSocket();
             fetchMessages();
             setTimeout(() => {
                 var chatContents = document.querySelectorAll('.chat-content');
@@ -273,13 +262,12 @@ To change this template use File | Settings | File Templates.
                         chatContent.scrollTop = chatContent.scrollHeight;
                     }
                 });
-            }, 100); // Allow time for messages to load and adjust the scroll
+            }, 100);
         }
     }
 
     function checkLoginAndToggleChat() {
         if (senderId === -1) {
-            // Hiển thị modal yêu cầu đăng nhập
             document.getElementById('login-modal').style.display = 'block';
         } else {
             toggleChat();
@@ -306,26 +294,33 @@ To change this template use File | Settings | File Templates.
     }
 
     function sendMessage(tabId) {
-        console.log('sendMessage');
         var input = document.querySelector('#' + tabId + ' input[type="text"]');
         var message = input.value.trim();
-        if (message && receiverId !== -1 && webSocket && webSocket.readyState === WebSocket.OPEN) {
+        if (tabId === 'admin-chat' && message && receiverId !== -1 && webSocket && webSocket.readyState === WebSocket.OPEN) {
             var msgObj = {
                 senderId: senderId,
                 receiverId: receiverId,
                 messageText: message
             };
             webSocket.send(JSON.stringify(msgObj));
-            displayMessage(msgObj, true);
+            displayMessage(msgObj, true, tabId);
             input.value = ''; // Clear input field
+        } else if (tabId === 'ai-chat' && message && aiWebSocket && aiWebSocket.readyState === WebSocket.OPEN) {
+            aiWebSocket.send(message);
+            var chatDiv = $('#ai-chat-messages');
+            var msgDiv = $('<div class="chat-message user-message"><img src="<%= userAvatar %>" class="avatar" alt="User">' + message + '</div>');
+            chatDiv.append(msgDiv);
+            input.value = '';
+            ensureScrollToBottom();
+            aiMessageContainer = null;
         }
     }
 
-    function displayMessage(message, isSender) {
-        var chatDiv = $('#admin-chat-messages');
-        var messageClass = isSender ? "user-message" : "admin-message"; // Toggle classes based on the message sender
-        var avatarURL = isSender ? "<%= userAvatar %>" : "<%= adminAvatar %>";
-        var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" class="avatar" alt="' + (isSender ? 'User' : 'Admin') + '">' + message.messageText + '</div>');
+    function displayMessage(message, isSender, tabId) {
+        var chatDiv = (tabId === 'ai-chat') ? $('#ai-chat-messages') : $('#admin-chat-messages');
+        var messageClass = isSender ? "user-message" : "admin-message";
+        var avatarURL = isSender ? "<%= userAvatar %>" : (chatDiv.is('#ai-chat-messages') ? "<%= chatbotAvatar %>" : "<%= adminAvatar %>");
+        var msgDiv = $('<div class="chat-message ' + messageClass + '"><img src="' + avatarURL + '" class="avatar" alt="' + (isSender ? 'User' : 'Admin') + '"><span class="message-text">' + message.messageText + '</span></div>');
         chatDiv.append(msgDiv);
         ensureScrollToBottom();
     }
@@ -342,26 +337,25 @@ To change this template use File | Settings | File Templates.
     }
 
     function fetchMessages() {
-        if (senderId === -1) return;  // Do not fetch messages if user is not logged in
+        if (senderId === -1) return;
         $.ajax({
             url: 'messages?action=getMessages',
             type: 'GET',
             data: {
                 senderId: senderId,
-                receiverId: receiverId // Admin ID
+                receiverId: receiverId
             },
             success: function (messages) {
                 var chatDiv = $('#admin-chat-messages');
-                chatDiv.empty(); // Clear previous messages
+                chatDiv.empty();
                 $.each(messages, function (index, message) {
                     var msgDiv = (message.senderId == senderId) ? '<div class="chat-message user-message"><img src="<%= userAvatar %>" alt="User" class="avatar">' + message.messageText + '</div>' : '<div class="chat-message admin-message"><img src="<%= adminAvatar %>" alt="Admin" class="avatar">' + message.messageText + '</div>';
                     chatDiv.append(msgDiv);
                 });
                 ensureScrollToBottom();
-
             },
             error: function (error) {
-                fetchMessages(); // Retry fetching messages
+                fetchMessages();
                 console.log('Error fetching messages: ', error);
             }
         });
@@ -369,33 +363,76 @@ To change this template use File | Settings | File Templates.
 
     function initializeWebSocket() {
         var protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
-        var wsUri = protocol + window.location.hostname + ":8887?userId=" + senderId; // Add userId to the query string
+        var wsUri = protocol + window.location.hostname + ":8887?userId=" + senderId;
         webSocket = new WebSocket(wsUri);
 
-        webSocket.onopen = function (evt) {
+        webSocket.onopen = function(evt) {
             console.log("WebSocket connection opened.");
             readyState = webSocket.readyState;
         };
 
-        webSocket.onmessage = function (evt) {
+        webSocket.onmessage = function(evt) {
             var message = JSON.parse(evt.data);
             if (message.receiverId === senderId && message.senderId === receiverId) {
-                displayMessage(message, false);
-
+                displayMessage(message, false, 'admin-chat');
             }
         };
 
-        webSocket.onerror = function (evt) {
+        webSocket.onerror = function(evt) {
             console.error("WebSocket error observed:", evt);
         };
 
-        webSocket.onclose = function (evt) {
+        webSocket.onclose = function(evt) {
             console.log("WebSocket connection closed.");
         };
     }
 
+    function initializeAIWebSocket() {
+        var protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+        var wsUri = protocol + window.location.hostname + ":8888";
+        aiWebSocket = new WebSocket(wsUri);
+
+        aiWebSocket.onopen = function(evt) {
+            console.log("AI WebSocket connection opened.");
+            readyState = aiWebSocket.readyState;
+        };
+
+        aiWebSocket.onmessage = function(evt) {
+            displayAIMessage(evt.data);
+        };
+
+        aiWebSocket.onerror = function(evt) {
+            console.error("AI WebSocket error observed:", evt);
+        };
+
+        aiWebSocket.onclose = function(evt) {
+            console.log("AI WebSocket connection closed.");
+        };
+    }
+
+    function displayAIMessage(character) {
+        if (!aiMessageContainer) {
+            aiMessageContainer = $('<div class="chat-message admin-message"><img src="<%= chatbotAvatar %>" class="avatar" alt="AI"><span class="message-text"></span></div>');
+            $('#ai-chat-messages').append(aiMessageContainer);
+        }
+        var messageTextSpan = aiMessageContainer.find('.message-text');
+        messageTextSpan.append(character);
+        ensureScrollToBottom();
+    }
+
+    function sendAIMessage() {
+        var input = document.querySelector('#ai-chat-input');
+        var message = input.value.trim();
+        if (message) {
+            aiWebSocket.send(message);
+            var chatDiv = $('#ai-chat-messages');
+            var msgDiv = $('<div class="chat-message user-message"><img src="<%= userAvatar %>" class="avatar" alt="User">' + message + '</div>');
+            chatDiv.append(msgDiv);
+            input.value = '';
+            ensureScrollToBottom();
+            aiMessageContainer = null;
+        }
+    }
 </script>
-
-
 </body>
 </html>
