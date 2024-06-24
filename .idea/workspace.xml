@@ -10,15 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6389381a-4df7-4693-b13c-4e92e2d4aded" name="Changes" comment="chinh sua icon hien don hang da huy o admin">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ProductDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/websocket/WebSocketServerInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/websocket/WebSocketServerInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ChangePasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/DelFavorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/DelFavorite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ListFavorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ListFavorite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/user-order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +56,23 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="happyhome" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="happyhome" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="happyhome" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -116,12 +150,13 @@
     "Gradle.HappyHome [:ProductService.main()].executor": "Run",
     "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
     "Gradle.ecommerce [build].executor": "Run",
+    "Gradle.thuongmaitest [clean].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 9.0.87.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "datnew",
+    "git-widget-placeholder": "fix__url",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/TMDT/thuongchotamthancohan/src/main/webapp/views/admin",
@@ -158,26 +193,13 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ProductService">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.87">
     <configuration name="ProductService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="service.ProductService" />
       <module name="happyhome.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTransport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.RegisterTransport" />
-      <module name="happyhome.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.API_LOGISTIC.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -223,6 +245,28 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="thuongmaitest [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -322,27 +366,26 @@
     </configuration>
     <list>
       <item itemvalue="Application.ProductService" />
-      <item itemvalue="Application.RegisterTransport" />
       <item itemvalue="Application.RoleDAO" />
       <item itemvalue="Application.UserDAO" />
+      <item itemvalue="Gradle.thuongmaitest [clean]" />
       <item itemvalue="Gradle.ecommerce [build]" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.87" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ProductService" />
         <item itemvalue="Gradle.ecommerce [build]" />
+        <item itemvalue="Gradle.thuongmaitest [clean]" />
+        <item itemvalue="Application.ProductService" />
         <item itemvalue="Application.UserDAO" />
         <item itemvalue="Application.RoleDAO" />
-        <item itemvalue="Application.RegisterTransport" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
       </set>
     </attachedChunks>
   </component>
@@ -494,6 +537,10 @@
       <workItem from="1714994206051" duration="8024000" />
       <workItem from="1717665890230" duration="2936000" />
       <workItem from="1717685275742" duration="7594000" />
+      <workItem from="1718984078027" duration="1130000" />
+      <workItem from="1719062360628" duration="4957000" />
+      <workItem from="1719111398351" duration="500000" />
+      <workItem from="1719218386429" duration="3989000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>

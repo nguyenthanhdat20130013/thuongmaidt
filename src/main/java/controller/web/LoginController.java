@@ -104,7 +104,9 @@ public class LoginController extends HttpServlet {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         UserModel user = UserService.checkLogin(userName, passWord);
-            if (user != null) {
+        if(user==null){
+            response.sendRedirect("/login");
+        } else if (user != null) {
                 if(user.getEnable() == 0 ) {
                     request.setAttribute("error", "Tài khoản của bạn chưa được xác thực");
                     //Lay ra danh sach loai bai viet
