@@ -59,7 +59,7 @@ public class ChangePasswordController extends HttpServlet {
             if (password.equals(password2)) {
                 UserService.changePassword(id, password);
                 UserService.deleteToken(id,token);
-                response.sendRedirect("/lab/login");
+                response.sendRedirect("/login");
             } else {
                 PostService service = new PostService();
                 ProductService productService = new ProductService();

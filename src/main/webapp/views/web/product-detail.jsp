@@ -344,6 +344,12 @@
                                                                 <a href="#">${pro.product_insurance}</a>
                                                             </span>
                                                         </p>
+                                                        <p>Kích thước:
+                                                        <span class="content2">
+                                                            <a href="#">${pro.size}</a>
+
+                                                        </span>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>

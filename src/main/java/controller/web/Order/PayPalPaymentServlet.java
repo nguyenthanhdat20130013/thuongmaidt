@@ -29,13 +29,13 @@ public class PayPalPaymentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserModel user = (UserModel) session.getAttribute("user");
         if (user == null) {
-            response.sendRedirect(request.getContextPath() + "/lab/login");
+            response.sendRedirect(request.getContextPath() + "/login");
             // Xử lý khi người dùng chưa đăng nhập
             return;
         }
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null || cart.getTotal() == 0) {
-            response.sendRedirect(request.getContextPath() + "/lab/home");
+            response.sendRedirect(request.getContextPath() + "/home");
             // Xử lý khi giỏ hàng trống
             return;
         }
