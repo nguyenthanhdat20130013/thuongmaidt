@@ -13,30 +13,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/websocket/WebSocketServerInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/websocket/WebSocketServerInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ChangePasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/DelFavorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/DelFavorite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/ListFavorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/ListFavorite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/AddOrderSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/web/Order/PayPalPaymentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/product-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/admin/TotalRevenueStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/admin/TotalRevenueStatistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/ChangePasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/ChangePasswordController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/DelFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/DelFavorite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/ListFavorite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/ListFavorite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/Order/AddOrderSuccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/Order/AddOrderSuccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controller/web/Order/PayPalPaymentServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controller/web/Order/PayPalPaymentServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/service/StatisticsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/service/StatisticsService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +42,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="happyhome" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="happyhome" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="happyhome" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -134,41 +104,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.DataTable.executor": "Run",
-    "Application.OrderService.executor": "Run",
-    "Application.ProductService.executor": "Run",
-    "Application.RegisterTransport.executor": "Run",
-    "Application.RoleDAO.executor": "Run",
-    "Application.UserDAO.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build HappyHome.executor": "Run",
-    "Gradle.HappyHome [:DBConnection.main()].executor": "Run",
-    "Gradle.HappyHome [:GetFee.main()].executor": "Run",
-    "Gradle.HappyHome [:ProductService.main()].executor": "Run",
-    "Gradle.HappyHome [:RoleDAO.main()].executor": "Run",
-    "Gradle.ecommerce [build].executor": "Run",
-    "Gradle.thuongmaitest [clean].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "fix__url",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/TMDT/thuongchotamthancohan/src/main/webapp/views/admin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.DataTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OrderService.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProductService.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegisterTransport.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoleDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserDAO.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build HappyHome.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:DBConnection.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:GetFee.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:ProductService.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.HappyHome [:RoleDAO.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ecommerce [build].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fix__thongke&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/TMDT/thuongchotamthancohan/src/main/webapp/views/admin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\TMDT\thuongchotamthancohan\src\main\webapp\views\admin" />
@@ -200,6 +169,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTransport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.API_LOGISTIC.RegisterTransport" />
+      <module name="happyhome.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.API_LOGISTIC.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -245,28 +227,6 @@
         <option name="taskNames">
           <list>
             <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="thuongmaitest [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -366,19 +326,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.ProductService" />
+      <item itemvalue="Application.RegisterTransport" />
       <item itemvalue="Application.RoleDAO" />
       <item itemvalue="Application.UserDAO" />
-      <item itemvalue="Gradle.thuongmaitest [clean]" />
       <item itemvalue="Gradle.ecommerce [build]" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.87" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ecommerce [build]" />
-        <item itemvalue="Gradle.thuongmaitest [clean]" />
         <item itemvalue="Application.ProductService" />
+        <item itemvalue="Gradle.ecommerce [build]" />
         <item itemvalue="Application.UserDAO" />
         <item itemvalue="Application.RoleDAO" />
+        <item itemvalue="Application.RegisterTransport" />
       </list>
     </recent_temporary>
   </component>
@@ -537,10 +497,8 @@
       <workItem from="1714994206051" duration="8024000" />
       <workItem from="1717665890230" duration="2936000" />
       <workItem from="1717685275742" duration="7594000" />
-      <workItem from="1718984078027" duration="1130000" />
-      <workItem from="1719062360628" duration="4957000" />
-      <workItem from="1719111398351" duration="500000" />
-      <workItem from="1719218386429" duration="3989000" />
+      <workItem from="1719275971920" duration="638000" />
+      <workItem from="1721095481964" duration="433000" />
     </task>
     <task id="LOCAL-00001" summary="fix tính giá vận chuyển">
       <created>1686505220241</created>
