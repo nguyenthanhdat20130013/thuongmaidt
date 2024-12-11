@@ -1,6 +1,7 @@
 package service;
 
 import dao.DBConnection;
+import model.CancelOrder;
 import model.Order;
 import model.Order_detail;
 import service.API_LOGISTIC.Transport;
@@ -324,14 +325,48 @@ public class OrderService {
 //            e.printStackTrace();
 //        }
 //    }
+//    public static void updateOrderStatusByTransportLeadTime() {
+//        ResultSet rs;
+//        PreparedStatement ps;
+//        String sql = "UPDATE `orders` SET `status` = CASE " +
+//                "WHEN `status` != 2 AND `order_id` IN " +
+//                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 2 " +
+//                "WHEN `status` != 8 AND `order_id` IN " +
+//                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 8 " +
+//                "ELSE `status` END";
+//        try {
+//            ps = DBConnection.getConnection().prepareStatement(sql);
+//            ps.executeUpdate();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    public static void updateOrderStatusByTransportLeadTime() {
+//        PreparedStatement ps;
+//        String sql = "UPDATE `orders` SET `status` = CASE " +
+//                "WHEN `status` NOT IN (2, 8) AND `order_id` IN " +
+//                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) " +
+//                "THEN CASE " +
+//                "WHEN `status` != 2 THEN 2 " +
+//                "WHEN `status` != 8 THEN 8 " +
+//                "END " +
+//                "ELSE `status` END";
+//        try {
+//            ps = DBConnection.getConnection().prepareStatement(sql);
+//            ps.executeUpdate();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     public static void updateOrderStatusByTransportLeadTime() {
-        ResultSet rs;
         PreparedStatement ps;
         String sql = "UPDATE `orders` SET `status` = CASE " +
-                "WHEN `status` != 2 AND `order_id` IN " +
-                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 2 " +
-                "WHEN `status` != 8 AND `order_id` IN " +
-                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND DATE(`leadTime`) <= CURDATE()) THEN 8 " +
+                "WHEN `status` NOT IN (2, 8) AND `order_id` IN " +
+                "(SELECT `id_order` FROM `transports` WHERE `leadTime` <> 'Chờ vận chuyển' AND STR_TO_DATE(`leadTime`, '%Y/%m/%d %H:%i:%s') <= NOW()) " +
+                "THEN CASE " +
+                "WHEN `status` != 2 THEN 2 " +
+                "WHEN `status` != 8 THEN 8 " +
+                "END " +
                 "ELSE `status` END";
         try {
             ps = DBConnection.getConnection().prepareStatement(sql);
@@ -340,6 +375,7 @@ public class OrderService {
             e.printStackTrace();
         }
     }
+
 
 
 
@@ -354,5 +390,48 @@ public class OrderService {
             System.out.println(o.toString());
         }
         updateOrderStatusByTransportLeadTime();
+    }
+
+    public void cancelOrder(int orderId, int uid, String reason) {
+        updateStatus(orderId, 3);
+        String sql = "INSERT INTO cancel_order (user_id, order_id, reason, statuss, createdAt) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = null;
+        int rs = 0;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            ps.setInt(1, uid);
+            ps.setInt(2, orderId);
+            ps.setString(3, reason);
+            ps.setString(4, "Huỷ đơn hàng");
+            ps.setTimestamp(5, Timestamp.valueOf(LocalDateTime.now()));
+            rs = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<CancelOrder> getAllOderCancel() {
+        List<CancelOrder> od = new ArrayList<>();
+        CancelOrder order = null;
+        ResultSet rs;
+        PreparedStatement ps;
+        String sql = "SELECT cancel_id, user_id, order_id, reason, statuss, createdAt FROM `cancel_order`";
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Timestamp timestamp = rs.getTimestamp("createdAt");
+                // Chuyển đổi Timestamp thành LocalDateTime
+//                LocalDateTime dateOrder = null;
+//                if (timestamp != null) {
+//                    dateOrder = timestamp.toLocalDateTime();
+//                }
+                order = new CancelOrder(rs.getInt(1), rs.getInt(2), rs.getInt(3),  rs.getString(4), rs.getString(5), timestamp);
+                od.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return od;
     }
 }

@@ -152,7 +152,7 @@
                 </li>
                 <li class="nav-item " id="quan-ly-don-hang">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+                        <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Quản lý đơn hàng
                             <i class="fas fa-angle-left right"></i>
@@ -161,20 +161,26 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<c:url value="/admin-order_controller"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-pallet nav-icon"></i>
                                 <p>Danh sách đơn hàng</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<c:url value="/admin-check_order"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Duyệt đơn hàng</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<c:url value="/admin_ship_order"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-shipping-fast nav-icon"></i>
                                 <p>Vận chuyển đơn hàng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<c:url value="/admin_cancel_order"/>" class="nav-link ">
+                                <i class="fas fa-ban nav-icon"></i>
+                                <p>Đơn hàng khách hàng đã hủy</p>
                             </a>
                         </li>
                     </ul>

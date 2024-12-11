@@ -259,7 +259,7 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price">${p.formatCurrency(p.getPrice_sell())} vnđ</span>
+                                                                                    <span class="price">${p.formatCurrency(p.getPrice_sell())} </span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="discription">

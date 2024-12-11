@@ -36,7 +36,7 @@ public class AccountController extends HttpServlet {
         orderService.updateOrderStatusByTransportLeadTime();
         UserModel oldUser = (UserModel)request.getSession().getAttribute("user");
         if(oldUser == null){
-            response.sendRedirect(request.getContextPath() + "/lab/login");
+            response.sendRedirect(request.getContextPath() + "/login");
         } else{
             UserModel user = UserService.findById(oldUser.getId());
             request.setAttribute("user",user);

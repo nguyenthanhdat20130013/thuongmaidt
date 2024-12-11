@@ -16,13 +16,13 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "select uid,user_name,password,role,enable,email from users where user_name = ? and password = ?";
+            sql = "select uid,user_name,password,role,full_name,enable,email from users where user_name = ? and password = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
             rs = pst.executeQuery();
             while (rs.next()) {
-                user = new UserModel(rs.getInt("uid"), rs.getString("user_name"), rs.getString("password"), rs.getInt("role"), rs.getInt("enable"));
+                user = new UserModel(rs.getInt("uid"), rs.getString("user_name"), rs.getString("password"), rs.getInt("role"), rs.getString("full_name"), rs.getInt("enable"));
                 user.setEmail(rs.getString("email"));
             }
             if(user != null){
@@ -143,7 +143,7 @@ public class UserDAO {
             pst.setString(4, email);
             pst.setString(5, gender);
             pst.setInt(6, 0);
-            pst.setInt(7, 1);
+            pst.setInt(7, 0);
             pst.setInt(8, 0);
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {

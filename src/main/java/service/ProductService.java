@@ -1,14 +1,9 @@
 package service;
 
 import dao.DBConnection;
-import model.Product;
-import model.Image;
-import model.Product_type;
-import model.Slider;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import model.*;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -404,8 +399,17 @@ public class ProductService {
 
 
     public static void main(String[] args) {
-            ProductService service = new ProductService();
-            System.out.println(service.getProductByName("ghế"));
+//            ProductService service = new ProductService();
+//            System.out.println(service.getProductByName("ghế"));
+//        String userName = "Nguyễn Thành Đạt";
+//        int productId = 9;
+//ProductService p = new ProductService();
+//        boolean result = p.hasCustomerPurchasedProduct(userName, productId);
+//        if (result) {
+//            System.out.println("Khách hàng đã mua sản phẩm này.");
+//        } else {
+//            System.out.println("Khách hàng chưa mua sản phẩm này.");
+//        }
     }
 
     public  List<Product> getProductByName(String txtSearch) {
@@ -432,5 +436,56 @@ public class ProductService {
             return null;
         }
         return list;
+    }
+
+    public List<Review> getReviewsByProductId(int productId) {
+        List<Review> reviews = new ArrayList<>();
+        String sql = "SELECT * FROM reviews WHERE product_id = ?";
+        try (PreparedStatement ps = DBConnection.getConnection().prepareStatement(sql)) {
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Review review = new Review();
+                review.setReviewId(rs.getInt("review_id"));
+                review.setProductId(rs.getInt("product_id"));
+                review.setUserName(rs.getString("user_name"));
+                review.setRating(rs.getInt("rating"));
+                review.setReviewText(rs.getString("review_text"));
+                review.setCreatedAt(rs.getTimestamp("created_at"));
+                reviews.add(review);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return reviews;
+    }
+
+    public void addReview(Review review) {
+        String sql = "INSERT INTO reviews (product_id, user_name, rating, review_text, created_at) VALUES (?, ?, ?, ?, NOW())";
+        try (PreparedStatement ps = DBConnection.getConnection().prepareStatement(sql)) {
+            ps.setInt(1, review.getProductId());
+            ps.setString(2, review.getUserName());
+            ps.setInt(3, review.getRating());
+            ps.setString(4, review.getReviewText());
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    public boolean hasCustomerPurchasedProduct(String userName, int productId) {
+        String sql = "SELECT od.id_product, od.price, od.amount, od.fee, od.total " +
+                "FROM orders o " +
+                "JOIN order_detail od ON o.order_id = od.id_oder " +
+                "WHERE o.user_name = ? AND od.id_product = ? AND o.status = 2";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, userName);
+            ps.setInt(2, productId);
+            ResultSet rs = ps.executeQuery();
+            return rs.next(); // Nếu có kết quả trả về, nghĩa là khách hàng đã mua sản phẩm
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
